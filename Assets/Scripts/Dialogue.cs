@@ -7,7 +7,10 @@ public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
 
-    int dialogueIdx = 0;
+    public TextMeshProUGUI dialogueAnswer1Text;
+    public TextMeshProUGUI dialogueAnswer2Text;
+
+    [SerializeField] int dialogueIdx = 0;
 
     private void Update()
     {
@@ -22,8 +25,21 @@ public class Dialogue : MonoBehaviour
 
     public void DialogueWithNPC()
     {
-        string id = new List<string>(TableData.instance.GetMainDataDic().Keys)[dialogueIdx];
-        string stringId = TableData.instance.GetMainDataList(id)[dialogueIdx].string_id;
+        List<string> communicationIdList = new List<string>(TableData.instance.GetMainDataDic().Keys);
+        if (dialogueIdx == communicationIdList.Count - 1)
+        {
+            dialogueIdx = 0;
+            Destroy(this.gameObject);
+        }
+        //communication_id
+        string id = communicationIdList[dialogueIdx];
+        List<TableData.MainData> mainDataList = TableData.instance.GetMainDataList(id);
+        string stringId = mainDataList[0].string_id;
+        //선택지를 주는 대사라면
+       /* if(TableData.instance.GetConversationType(stringId) == 2)
+        {
+            dialogueAnswer1Text.text = 
+        }*/
         string dialogueString = TableData.instance.GetDialogue(stringId);
         dialogueText.text = dialogueString;
         dialogueIdx++;

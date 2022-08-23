@@ -5,6 +5,7 @@ using UnityEngine;
 public class NpcAction : MonoBehaviour
 {
     public GameObject dialogueUIObject;
+    public GameObject dialogueUiObjectInstance;
     //npc À§ À§Ä¡
     public GameObject dialogueUIPosition;
 
@@ -34,7 +35,8 @@ public class NpcAction : MonoBehaviour
 
             dialogueUIRectTranform.anchoredPosition = canvasPosition;
 
-            Instantiate(dialogueUIObject, canvas.transform);
+            dialogueUiObjectInstance = Instantiate(dialogueUIObject, canvas.transform);
+            dialogueUiObjectInstance.GetComponent<Dialogue>().DialogueWithNPC();
             isUICreated = true;
         }
     }
