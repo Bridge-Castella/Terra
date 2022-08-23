@@ -4,7 +4,7 @@ using UnityEngine;
 
 public partial class TableData : MonoBehaviour
 {
-    class StringData
+    public class StringData
     {
         public string dialogue;
     }
@@ -32,5 +32,10 @@ public partial class TableData : MonoBehaviour
         string dialogue;
         dialogue = stringDataDic[string_id][0].dialogue;
         return dialogue;
+    }
+
+    public Dictionary<string, List<StringData>> GetStringDataDic()
+    {
+        return stringDataDic;
     }
 }
