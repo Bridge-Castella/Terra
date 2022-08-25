@@ -20,8 +20,8 @@ public partial class TableData : MonoBehaviour
         }
 
         //테이블 데이터 가져오기 Init()
-        MainDataInit();
         StringDataInit();
+        MainDataInit();
     }
     #endregion
 }
