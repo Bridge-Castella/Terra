@@ -2,46 +2,111 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
 
+    public Button dialogueAnswer1Button;
+    public Button dialogueAnswer2Button;
     public TextMeshProUGUI dialogueAnswer1Text;
     public TextMeshProUGUI dialogueAnswer2Text;
 
-    [SerializeField] int dialogueIdx = 0;
+    int dialogueIdx = 0;
+    int string_idIdx = 0;
+
+    //테이블 변수들
+    string answer1_connect_id;
+    string answer2_connect_id;
+    string conv_connect_id;
+    //두번째
+    List<string> npc_idList;
+    Dictionary<string, List<TableData.MainData>> mainDataDic;
+
+    List<TableData.MainData> list;
+
+    private void Start()
+    {
+        dialogueAnswer1Button.onClick.AddListener(OnClickDialogueAnswer1Button);
+        dialogueAnswer2Button.onClick.AddListener(OnClickDialogueAnswer2Button);
+    }
 
     private void Update()
     {
         if(gameObject != null)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                DialogueWithNPC();
+                //선택지가 켜져 있다면 스페이스바를 눌러도 대화가 넘어가지 않음. 선택해야 넘어감.
+                if(dialogueAnswer1Button.gameObject.activeSelf || dialogueAnswer2Button.gameObject.activeSelf)
+                    return;
+                //대화타입이 4이면 destroy
+                if (list[string_idIdx].conv_type == 4)
+                    Destroy(this.gameObject);
+                //대화타입이 3일때(선택지를 선택하고 나서)conv_connect_id에 값을 넣어줘서 npc_id에 종속되는 대화로 넘어가도록.
+                if (conv_connect_id != null)
+                    DialogueWithNPC(conv_connect_id);
+                else
+                    DialogueWithNPC(npc_idList[dialogueIdx]); //최초에 대화할때 필요
             }
         }        
     }
 
-    public void DialogueWithNPC()
+    public void DialogueWithNPC(string npc_id)
     {
-        List<string> communicationIdList = new List<string>(TableData.instance.GetMainDataDic().Keys);
-        if (dialogueIdx == communicationIdList.Count - 1)
+        npc_idList = new List<string>(TableData.instance.GetMainDataDic().Keys);
+        mainDataDic = TableData.instance.GetMainDataDic();
+        //npc_id에 종속되는 대화를 리스트로 가져오는 과정
+        list = mainDataDic[npc_id];
+
+        dialogueText.text = TableData.instance.GetDialogue(list[string_idIdx].string_id);
+        answer1_connect_id = list[string_idIdx].answer1_connect_id;
+        answer2_connect_id = list[string_idIdx].answer2_connect_id;
+        int conv_type = list[string_idIdx].conv_type;
+        switch(conv_type)
         {
-            dialogueIdx = 0;
-            Destroy(this.gameObject);
+            case 4:
+                //TODO: 퀘스트 구현
+                break;
+            case 3:
+                //선택지를 선택하고 나면 conv_connect_id에 값을 넣어줘서 해당 대화로 넘어가게 함.
+                conv_connect_id = list[string_idIdx].conv_connect_id;
+                break;
+            case 2:
+                //대화타입이 2이면 버튼 두개 아니면 한개가 생성되고 각각 누르면 answer1_string_id에 종속되는 대화로 넘어갈 수 있음.
+                dialogueAnswer1Button.gameObject.SetActive(true);
+                dialogueAnswer1Text.text = TableData.instance.GetDialogue(list[string_idIdx].answer1_string_id);
+
+                //선택지가 하나일때
+                if (answer2_connect_id != "-1")
+                {
+                    dialogueAnswer2Button.gameObject.SetActive(true);
+                    dialogueAnswer2Text.text = TableData.instance.GetDialogue(list[string_idIdx].answer2_string_id);
+                }
+                break;
         }
-        //communication_id
-        string id = communicationIdList[dialogueIdx];
-        List<TableData.MainData> mainDataList = TableData.instance.GetMainDataList(id);
-        string stringId = mainDataList[0].string_id;
-        //선택지를 주는 대사라면
-       /* if(TableData.instance.GetConversationType(stringId) == 2)
+        //종속된 대화의 인덱스가 끝이났을때
+        if (string_idIdx == list.Count - 1)
         {
-            dialogueAnswer1Text.text = 
-        }*/
-        string dialogueString = TableData.instance.GetDialogue(stringId);
-        dialogueText.text = dialogueString;
-        dialogueIdx++;
+            dialogueIdx++;
+            string_idIdx = 0;
+        }
+        else
+            string_idIdx++;
+    }
+
+    void OnClickDialogueAnswer1Button()
+    {
+        dialogueAnswer1Button.gameObject.SetActive(false);
+        dialogueAnswer2Button.gameObject.SetActive(false);
+        DialogueWithNPC(answer1_connect_id);
+    }
+
+    void OnClickDialogueAnswer2Button()
+    {
+        dialogueAnswer1Button.gameObject.SetActive(false);
+        dialogueAnswer2Button.gameObject.SetActive(false);
+        DialogueWithNPC(answer2_connect_id);
     }
 }

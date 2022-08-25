@@ -35,8 +35,9 @@ public class NpcAction : MonoBehaviour
 
             dialogueUIRectTranform.anchoredPosition = canvasPosition;
 
-            dialogueUiObjectInstance = Instantiate(dialogueUIObject, canvas.transform);
-            dialogueUiObjectInstance.GetComponent<Dialogue>().DialogueWithNPC();
+            dialogueUiObjectInstance = Instantiate(dialogueUIObject, canvas.transform);            
+            dialogueUiObjectInstance.GetComponent<Dialogue>().DialogueWithNPC("rato_1_1");
+            //TODO: 대화가 끝나도 다른 대화가 가능하도록 수정해야함. ui가 나올 수 있도록
             isUICreated = true;
         }
     }
