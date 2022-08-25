@@ -8,6 +8,9 @@ public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
 
+    public Image dialogueImg;
+    public GameObject dialogueButtonGroup;
+
     public Button dialogueAnswer1Button;
     public Button dialogueAnswer2Button;
     public TextMeshProUGUI dialogueAnswer1Text;
@@ -20,10 +23,8 @@ public class Dialogue : MonoBehaviour
     string answer1_connect_id;
     string answer2_connect_id;
     string conv_connect_id;
-    //두번째
     List<string> npc_idList;
     Dictionary<string, List<TableData.MainData>> mainDataDic;
-
     List<TableData.MainData> list;
 
     private void Start()
@@ -36,6 +37,8 @@ public class Dialogue : MonoBehaviour
     {
         if(gameObject != null)
         {
+            if (dialogueAnswer1Button.gameObject.activeSelf || dialogueAnswer2Button.gameObject.activeSelf)
+                dialogueButtonGroup.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(dialogueImg.GetComponent<RectTransform>().rect.width / 2, 0);
             if (Input.GetKeyDown(KeyCode.F))
             {
                 //선택지가 켜져 있다면 스페이스바를 눌러도 대화가 넘어가지 않음. 선택해야 넘어감.
@@ -74,6 +77,7 @@ public class Dialogue : MonoBehaviour
                 conv_connect_id = list[string_idIdx].conv_connect_id;
                 break;
             case 2:
+                
                 //대화타입이 2이면 버튼 두개 아니면 한개가 생성되고 각각 누르면 answer1_string_id에 종속되는 대화로 넘어갈 수 있음.
                 dialogueAnswer1Button.gameObject.SetActive(true);
                 dialogueAnswer1Text.text = TableData.instance.GetDialogue(list[string_idIdx].answer1_string_id);
