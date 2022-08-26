@@ -18,6 +18,7 @@ public class QuestManager : MonoBehaviour
     //퀘스트 중인지 확인
     public bool isQuesting = false;
     public bool isComplete = false;
+    public bool isFalied = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,5 +40,6 @@ public class QuestManager : MonoBehaviour
     public void StopQuest()
     {
         isQuesting = false;
+        isFalied = true;
     }
 }

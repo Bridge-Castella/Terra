@@ -45,7 +45,7 @@ public class NpcAction : MonoBehaviour
             if(!QuestManager.instance.isQuesting || 
                 (!QuestManager.instance.isQuesting && QuestManager.instance.isComplete))
                 story_idIdx++;
-            //TODO: 퀘스트를 완료한 후 말걸면 대화 가능할 수 있어야함
+            //TODO: 퀘스트를 완료한 후 말걸면 대화 가능할 수 있어야함. 성공하든 실패하든 같은 대화가 나와야 할듯
         }
     }
 }
