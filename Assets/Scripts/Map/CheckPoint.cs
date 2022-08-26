@@ -19,7 +19,7 @@ public class CheckPoint : MonoBehaviour
         if(!isChecked)
         {
             if(AudioManager.instance != null)
-                AudioManager.instance.PlaySound("stage_clear_01");
+                AudioManager.instance.PlaySound("checkPoint_01");
             if (collision.gameObject.name == "player")
             {
                 fallDetector.CheckPoint = gameObject.transform;
