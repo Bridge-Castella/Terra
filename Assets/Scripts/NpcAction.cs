@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NpcAction : MonoBehaviour
 {
+    public List<string> story_idList;
     public GameObject dialogueUIObject;
     public GameObject dialogueUiObjectInstance;
     //npc 위 위치
@@ -12,18 +13,19 @@ public class NpcAction : MonoBehaviour
     private Canvas canvas;
     private RectTransform dialogueUIRectTranform;
 
-    bool isUICreated = false;
+    int story_idIdx = 0;
 
     private void Start()
     {
         dialogueUIRectTranform = dialogueUIObject.GetComponent<RectTransform>();
         canvas = FindObjectOfType<Canvas>();
+        story_idList = new List<string>(TableData.instance.GetMainDataDic().Keys);
     }
 
     public void ShowDialogueUIObject()
     {
         //ui가 만들어져 있다면 생성안함.
-        if(!isUICreated)
+        if(null == dialogueUiObjectInstance)
         {
             //npc가 있는 위치 가져와서 말풍선 띄움 https://answers.unity.com/questions/799616/unity-46-beta-19-how-to-convert-from-world-space-t.html
             RectTransform canvasRect = canvas.GetComponent<RectTransform>();
@@ -35,10 +37,11 @@ public class NpcAction : MonoBehaviour
 
             dialogueUIRectTranform.anchoredPosition = canvasPosition;
 
-            dialogueUiObjectInstance = Instantiate(dialogueUIObject, canvas.transform);            
-            dialogueUiObjectInstance.GetComponent<Dialogue>().DialogueWithNPC("rato_1_1");
+            dialogueUiObjectInstance = Instantiate(dialogueUIObject, canvas.transform);
+            List<string> npc_idList = new List<string>(TableData.instance.GetMainDataDic()[story_idList[story_idIdx]].Keys);
+            dialogueUiObjectInstance.GetComponent<Dialogue>().DialogueWithNPC(story_idList[story_idIdx], npc_idList[0]);
             //TODO: 대화가 끝나도 다른 대화가 가능하도록 수정해야함. ui가 나올 수 있도록
-            isUICreated = true;
+            story_idIdx++;
         }
     }
 }
