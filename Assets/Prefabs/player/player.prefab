@@ -74,9 +74,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 297504287
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: d8a80a0291363e148a9cb1fa0ea3fff2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c775637fcaf7bc34a820887c34276dab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,8 +121,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15, y: 0}
-  m_Size: {x: 0.6838198, y: 2.171401}
+  m_Offset: {x: -0.19028187, y: -0.014358997}
+  m_Size: {x: 1.4063663, y: 4.220498}
   m_Direction: 0
 --- !u!114 &252353043636346093
 MonoBehaviour:
@@ -143,9 +143,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 32768
   gravityScale: 1
-  fallGravityMultiflier: 5
-  maxSpeed: 6
-  jumpPower: 20
+  fallGravityMultiflier: 10
+  maxSpeed: 10
+  jumpPower: 30
   isHurting: 0
 --- !u!95 &1350691849056667516
 Animator:
