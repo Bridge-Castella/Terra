@@ -45,8 +45,11 @@ public class Dialogue : MonoBehaviour
                 //선택지가 켜져 있다면 스페이스바를 눌러도 대화가 넘어가지 않음. 선택해야 넘어감.
                 if(dialogueAnswer1Button.gameObject.activeSelf || dialogueAnswer2Button.gameObject.activeSelf)
                     return;
-                //대화타입이 4이면 destroy
-                if (list[string_idIdx].conv_type == 4)
+                //대화타입이 4, 5, 6, 7이면 대화 종료. destroy
+                if (list[string_idIdx].conv_type == 4 || 
+                    list[string_idIdx].conv_type == 5 || 
+                    list[string_idIdx].conv_type == 6 || 
+                    list[string_idIdx].conv_type == 7)
                 {
                     Destroy(this.gameObject);
                 }
@@ -94,6 +97,11 @@ public class Dialogue : MonoBehaviour
                 break;
             case 4:
                 //TODO: 퀘스트 구현
+                QuestManager.instance.StartQuest();
+                break;
+                //퀘스트는 무조건 시작하므로 5일때는 그냥 대화(아무일도 일어나지 않음)
+            case 6:
+                QuestManager.instance.StopQuest();
                 break;
         }
         //종속된 대화의 인덱스가 끝이났을때

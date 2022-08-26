@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NpcAction : MonoBehaviour
 {
-    public List<string> story_idList;
     public GameObject dialogueUIObject;
     public GameObject dialogueUiObjectInstance;
     //npc 위 위치
@@ -13,6 +12,7 @@ public class NpcAction : MonoBehaviour
     private Canvas canvas;
     private RectTransform dialogueUIRectTranform;
 
+    private List<string> story_idList;
     int story_idIdx = 0;
 
     private void Start()
@@ -40,8 +40,12 @@ public class NpcAction : MonoBehaviour
             dialogueUiObjectInstance = Instantiate(dialogueUIObject, canvas.transform);
             List<string> npc_idList = new List<string>(TableData.instance.GetMainDataDic()[story_idList[story_idIdx]].Keys);
             dialogueUiObjectInstance.GetComponent<Dialogue>().DialogueWithNPC(story_idList[story_idIdx], npc_idList[0]);
-            //TODO: 대화가 끝나도 다른 대화가 가능하도록 수정해야함. ui가 나올 수 있도록
-            story_idIdx++;
+            //퀘스트 중이라면 인덱스 넘어가지 않음(스토리 진행되지 않음)
+            //퀘스트 완료 되고 퀘스트중이 아니라면 인덱스 넘어감
+            if(!QuestManager.instance.isQuesting || 
+                (!QuestManager.instance.isQuesting && QuestManager.instance.isComplete))
+                story_idIdx++;
+            //TODO: 퀘스트를 완료한 후 말걸면 대화 가능할 수 있어야함
         }
     }
 }
