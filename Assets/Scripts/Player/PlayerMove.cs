@@ -94,6 +94,16 @@ public class PlayerMove : MonoBehaviour
 
             rigid.velocity = new Vector2(moveInput * maxSpeed, rigid.velocity.y);
 
+            if(moveInput != 0)
+            {
+                animator.SetBool("isWalking", true);
+            }
+            else
+            {
+                animator.SetBool("isWalking", false);
+                animator.Play("Idle");
+            }
+
             if (moveInput > 0 && !facingRight)
             {
                 Flip();
