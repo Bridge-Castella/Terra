@@ -4,19 +4,29 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    [Tooltip ("플랫폼 인식하는 레이어")]
     [SerializeField] private LayerMask platformLayerMask = default;
+    [Tooltip("NPC 인식하는 레이어")]
     [SerializeField] private LayerMask NPCLayerMask = default;
+    [Tooltip("중력 값")]
     [SerializeField] private float gravityScale;
+    [Tooltip("떨어질때 중력에 곱하는 배수")]
     public float fallGravityMultiflier;
 
+    [Tooltip("플레이어 속도")]
     public float maxSpeed;
+    [Tooltip("플레이어 점프")]
     public float jumpPower;
-    public bool isHurting = false; //데미지 입은 경우
+    [Tooltip("튕겨나가는 힘")]
+    public float knockBackPower = 30f;
+
+    [HideInInspector]public bool isHurting = false; //데미지 입은 경우
 
     Rigidbody2D rigid;    
     bool facingRight = true; //flip관련 bool 변수
     bool isKnockback = false; //튕겨나간 경우
     bool isJumping = false; //점프하는 상태인 경우
+    [HideInInspector] public bool isFalling = false;
 
     private CapsuleCollider2D capsuleCollider2D;
     private SpriteRenderer spriteRenderer;
@@ -39,11 +49,15 @@ public class PlayerMove : MonoBehaviour
     {
         if(IsGrounded())
         {
+            //땅에 있을때는 미끄러지지 않도록 1f로 변경
+            rigid.sharedMaterial.friction = 1f;
             coyoteTimeCounter = coyoteTime;
             rigid.gravityScale = gravityScale;
         }
         else
         {
+            //점프하면서 벽에 닿으면 붙지 않도록 0f로 설정
+            rigid.sharedMaterial.friction = 0f;
             coyoteTimeCounter -= Time.deltaTime;
             rigid.gravityScale = gravityScale * fallGravityMultiflier;
         }
@@ -89,13 +103,17 @@ public class PlayerMove : MonoBehaviour
             rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);*/
 
         //튕겨 나간 경우 방향키 입력x
-        if(!isKnockback)
-        {
-            float moveInput = Input.GetAxisRaw("Horizontal");
+        float moveInput = Input.GetAxisRaw("Horizontal");
 
+        if (isKnockback || isFalling)
+        {
+            moveInput = 0;
+        }
+        else
+        {
             rigid.velocity = new Vector2(moveInput * maxSpeed, rigid.velocity.y);
 
-            if(moveInput != 0)
+            if (moveInput != 0)
             {
                 animator.SetBool("isWalking", true);
             }
@@ -166,8 +184,9 @@ public class PlayerMove : MonoBehaviour
 
     public void DamageKnockBack(Vector3 targetPos, int damageAmount)
     {
+        //플레이어와 대상의 위치를 계산해서 반대쪽으로 튕기도록 방향 설정
         int dir = transform.position.x - targetPos.x > 0 ? 1 : -1;
-        Vector2 knockBack = new Vector2(dir, 1)*7;
+        Vector2 knockBack = new Vector2(dir, 1) * knockBackPower;
         rigid.AddForce(knockBack, ForceMode2D.Impulse);
         DamageFlash();
         //부딪히면 나는 소리

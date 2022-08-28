@@ -121,8 +121,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.19028187, y: -0.014358997}
-  m_Size: {x: 1.4063663, y: 4.220498}
+  m_Offset: {x: -0.1638279, y: -0.030636549}
+  m_Size: {x: 1.2401543, y: 3.8489442}
   m_Direction: 0
 --- !u!114 &252353043636346093
 MonoBehaviour:
@@ -146,7 +146,9 @@ MonoBehaviour:
   fallGravityMultiflier: 10
   maxSpeed: 10
   jumpPower: 35
+  knockBackPower: 15
   isHurting: 0
+  isFalling: 0
 --- !u!95 &1350691849056667516
 Animator:
   serializedVersion: 3
