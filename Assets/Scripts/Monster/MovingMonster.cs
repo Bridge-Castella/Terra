@@ -13,8 +13,7 @@ public class MovingMonster : MovingPlatform
             {
                 currentWayPointIndex = 0;
             }
-            gameObject.transform.GetChild(1).transform.localScale =
-                new Vector3(1, gameObject.transform.GetChild(1).transform.localScale.y * -1, 1);
+            gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
             StopAllCoroutines();
         }
         StartCoroutine(CoStopMovingWhenTurn());
