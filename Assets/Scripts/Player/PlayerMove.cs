@@ -11,12 +11,12 @@ public class PlayerMove : MonoBehaviour
 
     public float maxSpeed;
     public float jumpPower;
-    public bool isHurting = false;
+    public bool isHurting = false; //데미지 입은 경우
 
     Rigidbody2D rigid;    
-    bool facingRight = true;
-    bool isKnockback = false;
-    bool isJumping = false;
+    bool facingRight = true; //flip관련 bool 변수
+    bool isKnockback = false; //튕겨나간 경우
+    bool isJumping = false; //점프하는 상태인 경우
 
     private CapsuleCollider2D capsuleCollider2D;
     private SpriteRenderer spriteRenderer;
@@ -88,6 +88,7 @@ public class PlayerMove : MonoBehaviour
         else if (rigid.velocity.x < maxSpeed * (-1))
             rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);*/
 
+        //튕겨 나간 경우 방향키 입력x
         if(!isKnockback)
         {
             float moveInput = Input.GetAxisRaw("Horizontal");
@@ -194,6 +195,7 @@ public class PlayerMove : MonoBehaviour
 
     void NPCDialogue()
     {
+        //바라보는 방향 대로 raycast
         float x;
         if (facingRight)
              x = 1f;
