@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class FallDetector : MonoBehaviour
 {
-    [SerializeField] private Transform playerObject;
     [SerializeField] private Transform checkPoint;
     [SerializeField] private GameObject[] fadingPlatforms;
     [SerializeField] private int damageAmount;
 
     Transform startPoint; //죽었을 경우 체크포인트 start
+    PlayerMove player;
 
     private void Start()
     {
@@ -23,22 +23,20 @@ public class FallDetector : MonoBehaviour
         set { checkPoint = value;}
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnCollisionEnter2D(Collision2D collision)
     {   
+        StartCoroutine(CoPlayerStop());
         if(AudioManager.instance != null)
             AudioManager.instance.PlaySound("life_01");
-        PlayerMove player = collider.gameObject.GetComponent<PlayerMove>();
+
+        player = collision.gameObject.GetComponent<PlayerMove>();
+        player.isFalling = true;
+
         if(!player.isHurting)
         {
             player.DamageFlash();
             HeartsHealthVisual.heartHealthSystemStatic.Damage(damageAmount);
             StartCoroutine(player.CoEnableDamage(0.5f, 1.5f));
-        }
-
-        for (int i = 0; i < fadingPlatforms.Length; i++)
-        {
-            FadingPlatform fadingPlatformItem = fadingPlatforms[i].GetComponent<FadingPlatform>();
-            fadingPlatformItem.ShowFadingPlatform();
         }
 
         if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())
@@ -47,6 +45,18 @@ public class FallDetector : MonoBehaviour
             checkPoint = startPoint; //체크포인트 다시 startpoint로 
             return;
         }
-        playerObject.position = checkPoint.position;    
+    }
+
+    IEnumerator CoPlayerStop()
+    {
+        yield return new WaitForSeconds(1f);
+        player.isFalling = false;
+        player.gameObject.transform.position = checkPoint.position;
+
+        for (int i = 0; i < fadingPlatforms.Length; i++)
+        {
+            FadingPlatform fadingPlatformItem = fadingPlatforms[i].GetComponent<FadingPlatform>();
+            fadingPlatformItem.ShowFadingPlatform();
+        }
     }
 }
