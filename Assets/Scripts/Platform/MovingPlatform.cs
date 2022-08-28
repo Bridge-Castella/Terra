@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    [SerializeField] private GameObject movingPlatformParent;
-    [SerializeField] private List<GameObject> wayPoints;
-    [SerializeField] private float speed = 2f;
-    private int currentWayPointIndex = 0;
-
-    
+    [SerializeField] protected GameObject movingPlatformParent;
+    [SerializeField] protected List<GameObject> wayPoints;
+    [SerializeField] protected float speed = 2f;
+    protected int currentWayPointIndex = 0;
 
     private void Start()
     {
@@ -30,7 +28,6 @@ public class MovingPlatform : MonoBehaviour
             if(currentWayPointIndex >= wayPoints.Count)
             {
                 currentWayPointIndex = 0;
-                
             }
         }
         transform.position = Vector2.MoveTowards(transform.position, 
@@ -39,8 +36,6 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(this.gameObject.tag == "enemy")
-            return;
         if(collision.gameObject.name == "player")
         {
             collision.gameObject.transform.SetParent(transform);
@@ -49,8 +44,6 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (this.gameObject.tag == "enemy")
-            return;
         if (collision.gameObject.name == "player")
         {
             collision.gameObject.transform.SetParent(null);
