@@ -9,9 +9,12 @@ public class FallDetector : MonoBehaviour
     [SerializeField] private GameObject[] fadingPlatforms;
     [SerializeField] private int damageAmount;
 
+    Transform startPoint; //죽었을 경우 체크포인트 start
+
     private void Start()
     {
         fadingPlatforms = GameObject.FindGameObjectsWithTag("FadingPlatform");
+        startPoint = checkPoint;
     }
 
     public Transform CheckPoint
@@ -41,6 +44,7 @@ public class FallDetector : MonoBehaviour
         if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())
         {
             ControlManager.instance.RetryGame();
+            checkPoint = startPoint; //체크포인트 다시 startpoint로 
             return;
         }
         playerObject.position = checkPoint.position;    
