@@ -11,7 +11,7 @@ public class MovingPlatform : MonoBehaviour
 
     protected new Camera camera;
 
-    private void Start()
+    public virtual void Start()
     {
         movingPlatformParent = gameObject.transform.parent.gameObject;
 

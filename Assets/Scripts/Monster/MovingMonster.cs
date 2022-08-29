@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class MovingMonster : MovingPlatform
 {
+    Animator animator;
 
+    public override void Start()
+    {
+        base.Start();
+        animator = GetComponent<Animator>();
+    }
     void Update()
     {
         //애니메이션 연산이 너무 많아서 프레임 드랍 현상. 카메라 뷰에 들어가면 애니메이션 시작하도록 함.
         Vector2 viewPos = camera.WorldToViewportPoint(transform.position);
         if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1)
         {
+            animator.speed = 1f;
             if (Vector2.Distance(wayPoints[currentWayPointIndex].transform.position, transform.position) < .1f)
             {
                 currentWayPointIndex++;
@@ -23,6 +30,8 @@ public class MovingMonster : MovingPlatform
             }
             StartCoroutine(CoStopMovingWhenTurn());
         }
+        else
+            animator.speed = 0f;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
