@@ -13,6 +13,7 @@ public class FadingPlatform : MonoBehaviour
     private Color platformAlpha;
 
     Animator animator;
+    Camera camera;
 
     private void Start()
     {
@@ -23,22 +24,34 @@ public class FadingPlatform : MonoBehaviour
         //spriteRend = gameObject.GetComponent<SpriteRenderer>();
 
         animator = GetComponent<Animator>();
+        camera = Camera.main;
     }
+
     private void Update()
     {
-        if(isFading)
+        //애니메이션 연산이 너무 많아서 프레임 드랍 현상. 카메라 뷰에 들어가면 애니메이션 시작하도록 함.
+        Vector2 viewPos = camera.WorldToViewportPoint(transform.position);
+        if(viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1)
         {
+            animator.speed = 1f;
+        }
+        else
+            animator.speed = 0f;
+
+        if (isFading)
+        {
+            //애니메이션 sprite로 할 경우 사라지는 효과
             /*gameObject.GetComponent<SpriteRenderer>().material.color = 
             Color.Lerp(gameObject.GetComponent<SpriteRenderer>().material.color, platformAlpha, fadingSpeed * Time.deltaTime);*/
 
-
             StartCoroutine(CoFadingPlatform());
-
         }
-          
+
+        //거의 다 사라져갈때 콜라이더 false
         /*if(gameObject.GetComponent<SpriteRenderer>().material.color.a < 0.1f)
         {
-            
+            for (int i = 0; i < boxCol2D.Length; i++)
+            boxCol2D[i].enabled = false;
             //spriteRend.enabled = false;
             isFading = false;       
         }*/
