@@ -49,7 +49,7 @@ public class FallDetector : MonoBehaviour
 
     IEnumerator CoPlayerStop()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         player.isFalling = false;
         player.gameObject.transform.position = checkPoint.position;
 
