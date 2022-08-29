@@ -49,15 +49,15 @@ public class PlayerMove : MonoBehaviour
     {
         if(IsGrounded())
         {
-            //땅에 있을때는 미끄러지지 않도록 1f로 변경
-            rigid.sharedMaterial.friction = 1f;
+            //땅에 있을때는 미끄러지지 않도록 0f로 변경
+            rigid.sharedMaterial.friction = 0f;
             coyoteTimeCounter = coyoteTime;
             rigid.gravityScale = gravityScale;
         }
         else
         {
-            //점프하면서 벽에 닿으면 붙지 않도록 0f로 설정
-            rigid.sharedMaterial.friction = 0f;
+            //점프하면서 벽에 닿으면 붙지 않도록 1f로 설정
+            rigid.sharedMaterial.friction = 1f;
             coyoteTimeCounter -= Time.deltaTime;
             rigid.gravityScale = gravityScale * fallGravityMultiflier;
         }
@@ -92,16 +92,6 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Move By Key Control
-        //float moveInput = Input.GetAxisRaw("Horizontal");
-
-        /*rigid.AddForce(Vector2.right * moveInput, ForceMode2D.Impulse);
-
-        if (rigid.velocity.x > maxSpeed)
-            rigid.velocity = new Vector2(maxSpeed, rigid.velocity.y);
-        else if (rigid.velocity.x < maxSpeed * (-1))
-            rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);*/
-
         //튕겨 나간 경우 방향키 입력x
         float moveInput = Input.GetAxisRaw("Horizontal");
 
@@ -113,7 +103,7 @@ public class PlayerMove : MonoBehaviour
         {
             rigid.velocity = new Vector2(moveInput * maxSpeed, rigid.velocity.y);
 
-            if (moveInput != 0)
+            if (moveInput != 0 && IsGrounded())
             {
                 animator.SetBool("isWalking", true);
                 GetComponent<AudioSource>().volume = AudioManager.instance.sfxVolumePercent * AudioManager.instance.masterVolumePercent;
@@ -134,8 +124,6 @@ public class PlayerMove : MonoBehaviour
             }
         }
     }
-
-
 
     void Flip()
     {
