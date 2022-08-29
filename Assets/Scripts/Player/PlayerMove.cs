@@ -116,6 +116,7 @@ public class PlayerMove : MonoBehaviour
             if (moveInput != 0)
             {
                 animator.SetBool("isWalking", true);
+                GetComponent<AudioSource>().volume = AudioManager.instance.sfxVolumePercent * AudioManager.instance.masterVolumePercent;
             }
             else
             {
