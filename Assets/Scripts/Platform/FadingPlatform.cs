@@ -13,7 +13,7 @@ public class FadingPlatform : MonoBehaviour
     private Color platformAlpha;
 
     Animator animator;
-    Camera camera;
+    new Camera camera;
 
     private void Start()
     {
