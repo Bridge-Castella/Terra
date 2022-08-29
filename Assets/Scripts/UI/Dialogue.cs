@@ -28,6 +28,8 @@ public class Dialogue : MonoBehaviour
     List<TableData.MainData> list;
     string story_id;
 
+    string convType7LastDialogue;
+
     private void Start()
     {
         dialogueAnswer1Button.onClick.AddListener(OnClickDialogueAnswer1Button);
@@ -45,15 +47,23 @@ public class Dialogue : MonoBehaviour
                 //선택지가 켜져 있다면 스페이스바를 눌러도 대화가 넘어가지 않음. 선택해야 넘어감.
                 if(dialogueAnswer1Button.gameObject.activeSelf || dialogueAnswer2Button.gameObject.activeSelf)
                     return;
-                //대화타입이 4, 5, 6, 7이면 대화 종료. destroy
+                //대화타입이 4, 5, 6이면 대화 종료. destroy
                 if (list[string_idIdx].conv_type == 4 || 
                     list[string_idIdx].conv_type == 5 || 
-                    list[string_idIdx].conv_type == 6 || 
-                    list[string_idIdx].conv_type == 7)
+                    list[string_idIdx].conv_type == 6)
                 {
                     Destroy(this.gameObject);
                 }
-                    
+
+                //일반대화가 이어지며 마지막 대화가 convtype이 7일때 대사가 안나오는 상황 예외처리..
+                if (dialogueText.text == convType7LastDialogue)
+                    Destroy(this.gameObject);
+                if (list[string_idIdx].conv_type == 7)
+                {
+                    convType7LastDialogue = TableData.instance.GetDialogue(list[string_idIdx].string_id);
+                    dialogueText.text = TableData.instance.GetDialogue(list[string_idIdx].string_id);
+                }
+
                 //대화타입이 3일때(선택지를 선택하고 나서)conv_connect_id에 값을 넣어줘서 npc_id에 종속되는 대화로 넘어가도록.
                 if (conv_connect_id != null)
                     DialogueWithNPC(story_id, conv_connect_id);
@@ -101,13 +111,18 @@ public class Dialogue : MonoBehaviour
                 break;
                 //퀘스트는 무조건 시작하므로 5일때는 그냥 대화(아무일도 일어나지 않음)
             case 6:
+                //퀘스트 포기
+                QuestManager.instance.StopQuest();
+                break;
+            case 7:
+                //퀘스트 완료, 보상받기
                 QuestManager.instance.StopQuest();
                 break;
         }
+
         //종속된 대화의 인덱스가 끝이났을때
         if (string_idIdx == list.Count - 1)
         {
-            dialogueIdx++;
             string_idIdx = 0;
         }
         else

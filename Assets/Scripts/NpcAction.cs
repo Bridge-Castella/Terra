@@ -38,13 +38,24 @@ public class NpcAction : MonoBehaviour
             dialogueUIRectTranform.anchoredPosition = canvasPosition;
 
             dialogueUiObjectInstance = Instantiate(dialogueUIObject, canvas.transform);
+
+            if (QuestManager.instance.isComplete)
+            {
+                story_idIdx = 2;
+                QuestManager.instance.isComplete = false;
+            }
+
+
             List<string> npc_idList = new List<string>(TableData.instance.GetMainDataDic()[story_idList[story_idIdx]].Keys);
             dialogueUiObjectInstance.GetComponent<Dialogue>().DialogueWithNPC(story_idList[story_idIdx], npc_idList[0]);
+
             //퀘스트 중이라면 인덱스 넘어가지 않음(스토리 진행되지 않음)
-            //퀘스트 완료 되고 퀘스트중이 아니라면 인덱스 넘어감
-            if(!QuestManager.instance.isQuesting || 
-                (!QuestManager.instance.isQuesting && QuestManager.instance.isComplete))
-                story_idIdx++;
+            
+            if (!QuestManager.instance.isQuesting)
+            {
+                if(story_idIdx != story_idList.Count-1)
+                    story_idIdx++;
+            }
             //TODO: 퀘스트를 완료한 후 말걸면 대화 가능할 수 있어야함. 성공하든 실패하든 같은 대화가 나와야 할듯
         }
     }
