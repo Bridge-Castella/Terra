@@ -42,9 +42,8 @@ public class PlayerMove : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();        
     }
-
 
     void Update()
     {
@@ -103,11 +102,11 @@ public class PlayerMove : MonoBehaviour
             if (moveInput != 0 && IsGrounded())
             {
                 animator.SetBool("isWalking", true);
-                GetComponent<AudioSource>().volume = AudioManager.instance.sfxVolumePercent * AudioManager.instance.masterVolumePercent;
-                Debug.Log(GetComponent<AudioSource>().volume);
+                AudioManager.instance.PlayWalkSound("grass");
             }
             else
             {
+                AudioManager.instance.StopWalkSound();
                 animator.SetBool("isWalking", false);
                 animator.Play("Idle");
             }

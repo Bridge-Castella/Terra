@@ -33,7 +33,7 @@ public class MusicManager : MonoBehaviour
 
             case MapManager.MapState.Login:
                 AudioManager.instance.PlayMusic(bgm_Login, 2);
-                AudioManager.instance.StopSound();
+                AudioManager.instance.StopAmbientSound();
                 if(amb_01 != null && amb_02 != null)
                 {
                     StopCoroutine(amb_01);

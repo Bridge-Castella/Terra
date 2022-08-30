@@ -40,14 +40,13 @@ public class AudioManager : MonoBehaviour
             musicSources = newMusicSource.AddComponent<AudioSource>();
             newMusicSource.transform.parent = transform;
 
-            sfxSources = new AudioSource[2];
-            for(int i = 0; i < 2; i++)
+            sfxSources = new AudioSource[3];
+            for(int i = 0; i < 3; i++)
             {
                 GameObject newSfxSource = new GameObject("sfx source " + (i + 1));
                 sfxSources[i] = newSfxSource.AddComponent<AudioSource>();
                 newSfxSource.transform.parent = transform;
             }
-            
 
             masterVolumePercent = PlayerPrefs.GetFloat("master vol", 1);
             bgmVolumePercent =  PlayerPrefs.GetFloat("bgm vol", 1);
@@ -75,6 +74,7 @@ public class AudioManager : MonoBehaviour
         musicSources.volume = bgmVolumePercent * masterVolumePercent;
         sfxSources[0].volume = sfxVolumePercent * masterVolumePercent;
         sfxSources[1].volume = sfxVolumePercent * masterVolumePercent;
+        sfxSources[2].volume = sfxVolumePercent * masterVolumePercent;
 
         PlayerPrefs.SetFloat("master vol", masterVolumePercent);
         PlayerPrefs.SetFloat("bgm vol", bgmVolumePercent);
@@ -102,7 +102,28 @@ public class AudioManager : MonoBehaviour
         sfxSources[1].PlayOneShot(library.GetClipFromName(soundName), sfxVolumePercent * masterVolumePercent);
     }
 
-    public void StopSound()
+    public void PlayWalkSound(string platformType)
+    {
+        if (!sfxSources[2].isPlaying)
+        {
+            sfxSources[2].enabled = true;
+            sfxSources[2].loop = true;
+            sfxSources[2].Play();
+        }
+        switch (platformType)
+        {
+            case "grass":
+                sfxSources[2].clip = library.GetClipFromName("step_01");
+                break;
+        }
+    }
+
+    public void StopWalkSound()
+    {
+        sfxSources[2].enabled = false;
+    }
+
+    public void StopAmbientSound()
     {
         sfxSources[1].Stop();
     }
