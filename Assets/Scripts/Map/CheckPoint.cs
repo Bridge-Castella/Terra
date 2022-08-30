@@ -7,6 +7,8 @@ public class CheckPoint : MonoBehaviour
     private FallDetector fallDetector;
     private Animator animator;
     private bool isChecked = false;
+    //마지막 지점이라는 것을 표시
+    public bool isEndPoint = false;
 
     private void Start()
     {
@@ -19,7 +21,13 @@ public class CheckPoint : MonoBehaviour
         if(!isChecked)
         {
             if(AudioManager.instance != null)
-                AudioManager.instance.PlaySound("checkPoint_01");
+            {
+                if(isEndPoint)
+                    AudioManager.instance.PlaySound("stage_clear_01");
+                else
+                    AudioManager.instance.PlaySound("checkPoint_01");
+            }
+                
             if (collision.gameObject.name == "player")
             {
                 fallDetector.CheckPoint = gameObject.transform;
