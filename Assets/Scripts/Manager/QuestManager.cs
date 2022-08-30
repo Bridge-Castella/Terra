@@ -20,6 +20,7 @@ public class QuestManager : MonoBehaviour
     //퀘스트 중인지 확인
     [HideInInspector] public bool isQuesting = false;
     [HideInInspector] public bool isComplete = false;
+    [HideInInspector] public bool isFailed = false;
 
     public GameObject questUI;
     public TextMeshProUGUI questTitleText;
@@ -56,6 +57,7 @@ public class QuestManager : MonoBehaviour
     public void StopQuest()
     {
         isQuesting = false;
+        isFailed = true;
         questUI.SetActive(false);
     }
 }

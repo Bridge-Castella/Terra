@@ -26,6 +26,7 @@ public class PlayerMove : MonoBehaviour
     bool facingRight = true; //flip관련 bool 변수
     bool isKnockback = false; //튕겨나간 경우
     bool isJumping = false; //점프하는 상태인 경우
+    [HideInInspector] public bool isTalking = false;
     [HideInInspector] public bool isFalling = false;
 
     private CapsuleCollider2D capsuleCollider2D;
@@ -91,7 +92,7 @@ public class PlayerMove : MonoBehaviour
         //튕겨 나간 경우 방향키 입력x
         float moveInput = Input.GetAxisRaw("Horizontal");
 
-        if (isKnockback || isFalling)
+        if (isKnockback || isFalling || isTalking)
         {
             moveInput = 0;
         }
@@ -200,6 +201,8 @@ public class PlayerMove : MonoBehaviour
 
     void NPCDialogue()
     {
+        isTalking = true;
+        rigid.velocity = Vector3.zero;
         //바라보는 방향 대로 raycast
         float x;
         if (facingRight)

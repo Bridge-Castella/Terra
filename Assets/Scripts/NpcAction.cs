@@ -15,6 +15,18 @@ public class NpcAction : MonoBehaviour
     private List<string> story_idList;
     int story_idIdx = 0;
 
+    public int Stroy_idIdx
+    {
+        get
+        {
+            return story_idIdx;
+        }
+        set
+        {
+            story_idIdx = value;
+        }
+    }
+
     private void Start()
     {
         dialogueUIRectTranform = dialogueUIObject.GetComponent<RectTransform>();
@@ -41,8 +53,15 @@ public class NpcAction : MonoBehaviour
 
             if (QuestManager.instance.isComplete)
             {
-                story_idIdx = 2;
+                story_idIdx = story_idList.Count -2;
                 QuestManager.instance.isComplete = false;
+            }
+
+            //마지막대화
+            if(QuestManager.instance.isFailed)
+            {
+                story_idIdx = story_idList.Count - 1;
+                QuestManager.instance.isFailed = false;
             }
 
 

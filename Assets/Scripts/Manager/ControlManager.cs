@@ -20,8 +20,7 @@ public class ControlManager : MonoBehaviour
 
     public GameObject OptionObject;
 
-    public static bool GameIsPaused = false;
-
+    public bool GameIsPaused = false;
 
 
     private void Update()

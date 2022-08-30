@@ -47,17 +47,22 @@ public class Dialogue : MonoBehaviour
                 //선택지가 켜져 있다면 스페이스바를 눌러도 대화가 넘어가지 않음. 선택해야 넘어감.
                 if(dialogueAnswer1Button.gameObject.activeSelf || dialogueAnswer2Button.gameObject.activeSelf)
                     return;
+
                 //대화타입이 4, 5, 6이면 대화 종료. destroy
                 if (list[string_idIdx].conv_type == 4 || 
                     list[string_idIdx].conv_type == 5 || 
                     list[string_idIdx].conv_type == 6)
                 {
+                    ControlManager.instance.Player.GetComponent<PlayerMove>().isTalking = false;
                     Destroy(this.gameObject);
                 }
 
                 //일반대화가 이어지며 마지막 대화가 convtype이 7일때 대사가 안나오는 상황 예외처리..
                 if (dialogueText.text == convType7LastDialogue)
+                {
+                    ControlManager.instance.Player.GetComponent<PlayerMove>().isTalking = false;
                     Destroy(this.gameObject);
+                }
                 if (list[string_idIdx].conv_type == 7)
                 {
                     convType7LastDialogue = TableData.instance.GetDialogue(list[string_idIdx].string_id);
