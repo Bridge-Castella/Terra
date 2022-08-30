@@ -49,15 +49,11 @@ public class PlayerMove : MonoBehaviour
     {
         if(IsGrounded())
         {
-            //땅에 있을때는 미끄러지지 않도록 0f로 변경
-            rigid.sharedMaterial.friction = 0f;
             coyoteTimeCounter = coyoteTime;
             rigid.gravityScale = gravityScale;
         }
         else
         {
-            //점프하면서 벽에 닿으면 붙지 않도록 1f로 설정
-            rigid.sharedMaterial.friction = 1f;
             coyoteTimeCounter -= Time.deltaTime;
             rigid.gravityScale = gravityScale * fallGravityMultiflier;
         }
@@ -107,6 +103,7 @@ public class PlayerMove : MonoBehaviour
             {
                 animator.SetBool("isWalking", true);
                 GetComponent<AudioSource>().volume = AudioManager.instance.sfxVolumePercent * AudioManager.instance.masterVolumePercent;
+                Debug.Log(GetComponent<AudioSource>().volume);
             }
             else
             {
