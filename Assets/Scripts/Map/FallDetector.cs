@@ -24,7 +24,10 @@ public class FallDetector : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {   
+    {
+        if(collision.gameObject.tag != "Player")
+            return;
+
         StartCoroutine(CoPlayerStop());
         if(AudioManager.instance != null)
             AudioManager.instance.PlaySound("life_01");
@@ -41,8 +44,9 @@ public class FallDetector : MonoBehaviour
 
         if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())
         {
-            ControlManager.instance.RetryGame();
-            checkPoint = startPoint; //체크포인트 다시 startpoint로 
+            //TODO 잠시 막아놓음
+            //ControlManager.instance.RetryGame();
+            //checkPoint = startPoint; //체크포인트 다시 startpoint로 
             return;
         }
     }

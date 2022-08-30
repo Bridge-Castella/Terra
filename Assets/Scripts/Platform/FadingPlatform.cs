@@ -44,7 +44,7 @@ public class FadingPlatform : MonoBehaviour
             /*gameObject.GetComponent<SpriteRenderer>().material.color = 
             Color.Lerp(gameObject.GetComponent<SpriteRenderer>().material.color, platformAlpha, fadingSpeed * Time.deltaTime);*/
 
-            StartCoroutine(CoFadingPlatform());
+            
         }
 
         //거의 다 사라져갈때 콜라이더 false
@@ -61,15 +61,19 @@ public class FadingPlatform : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
+            animator.SetBool("isPlayerDead", false);
             animator.SetBool("isQuaking", true);
             animator.Play("Quaking");
-            isFading = true;
+            StartCoroutine(CoFadingPlatform());
         }
     }
 
     public void ShowFadingPlatform()
     {
+        StopAllCoroutines();
         animator.SetBool("isPlayerDead", true);
+        animator.SetBool("isFalling", false);
+        animator.SetBool("isQuaking", false);
         //gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
         for (int i = 0; i < boxCol2D.Length; i++)
             boxCol2D[i].enabled = true;
@@ -79,6 +83,7 @@ public class FadingPlatform : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         animator.SetBool("isFalling", true);
+        animator.SetBool("isQuaking", false);
         for (int i = 0; i < boxCol2D.Length; i++)
             boxCol2D[i].enabled = false;
     }
