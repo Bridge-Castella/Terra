@@ -25,7 +25,8 @@ public class MovingMonster : MovingPlatform
                 {
                     currentWayPointIndex = 0;
                 }
-                gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
+                if(gameObject.GetComponent<SpriteRenderer>() != null)
+                    gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
                 StopAllCoroutines();
             }
             StartCoroutine(CoStopMovingWhenTurn());
