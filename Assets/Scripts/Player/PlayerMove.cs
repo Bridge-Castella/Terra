@@ -30,7 +30,7 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector] public bool isFalling = false;
 
     private CapsuleCollider2D capsuleCollider2D;
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer[] spriteRenderer = new SpriteRenderer[5];
     private Animator animator;
     private Color materialTintColor;
 
@@ -41,13 +41,18 @@ public class PlayerMove : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        for(int i = 0; i < 5; i++)
+        {
+            spriteRenderer[i] = transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>();
+        }
         animator = GetComponent<Animator>();        
     }
 
     void Update()
     {
-        if(IsGrounded())
+        animator.SetFloat("yVelocity", rigid.velocity.y);
+
+        if (IsGrounded())
         {
             coyoteTimeCounter = coyoteTime;
             rigid.gravityScale = gravityScale;
@@ -57,11 +62,13 @@ public class PlayerMove : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
             rigid.gravityScale = gravityScale * fallGravityMultiflier;
         }
+        //바닥에 있는 동안은 점프 애니메이션을 출력하지 않음.
+        animator.SetBool("isJumping", !IsGrounded());
 
         //Jump
-        if(coyoteTimeCounter > 0f && Input.GetButtonDown("Jump"))
+        if (coyoteTimeCounter > 0f && Input.GetButtonDown("Jump"))
         {
-            if(AudioManager.instance != null)
+            if (AudioManager.instance != null)
                 AudioManager.instance.PlaySound("jump_01");
             isJumping = true;
             rigid.velocity = Vector2.up * jumpPower;
@@ -80,6 +87,7 @@ public class PlayerMove : MonoBehaviour
             rigid.velocity = new Vector2(0, rigid.velocity.y);
         }
 
+        //e버튼 누르면
         if (Input.GetButtonDown("TalktoNpc"))
         {
             NPCDialogue();
@@ -101,14 +109,17 @@ public class PlayerMove : MonoBehaviour
 
             if (moveInput != 0 && IsGrounded())
             {
-                animator.SetBool("isWalking", true);
-                AudioManager.instance.PlayWalkSound("grass");
+                /*animator.Play("Walk");
+                animator.SetBool("isWalking", true);*/
+                if (AudioManager.instance != null)
+                    AudioManager.instance.PlayWalkSound("grass");
             }
             else
             {
-                AudioManager.instance.StopWalkSound();
+                if (AudioManager.instance != null)
+                    AudioManager.instance.StopWalkSound();/*
                 animator.SetBool("isWalking", false);
-                animator.Play("Idle");
+                animator.Play("Idle");*/
             }
 
             if (moveInput > 0 && !facingRight)
@@ -120,6 +131,8 @@ public class PlayerMove : MonoBehaviour
                 Flip();
             }
         }
+
+        animator.SetFloat("xVelocity", Mathf.Abs(rigid.velocity.x));
     }
 
     void Flip()
@@ -145,11 +158,11 @@ public class PlayerMove : MonoBehaviour
         {
             rayColor = Color.red;
         }
-        Debug.DrawRay(capsuleCollider2D.bounds.center, Vector2.down * (capsuleCollider2D.bounds.extents.y + extraHeightText), rayColor);     
-
+        Debug.DrawRay(capsuleCollider2D.bounds.center, Vector2.down * (capsuleCollider2D.bounds.extents.y + extraHeightText), rayColor);
         return raycastHit.collider != null;
     }
 
+    //착지할때 소리. 단, 점프하고 착지할때만 소리남
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.layer == 10 && isJumping)
@@ -163,8 +176,10 @@ public class PlayerMove : MonoBehaviour
     public void DamageFlash()
     {
         materialTintColor = new Color(1, 1, 1, 0.5f);
-        spriteRenderer.material.SetColor("_Color", materialTintColor);
-
+        for(int i = 0; i< spriteRenderer.Length; i++)
+        {
+            spriteRenderer[i].material.SetColor("_Color", materialTintColor);
+        }
         isHurting = true;
     }
 
@@ -193,7 +208,10 @@ public class PlayerMove : MonoBehaviour
             isKnockback = false;
             yield return new WaitForSeconds(waitTime2);
             materialTintColor = new Color(1, 1, 1, 1f);
-            spriteRenderer.material.SetColor("_Color", materialTintColor);
+            for (int i = 0; i < spriteRenderer.Length; i++)
+            {
+                spriteRenderer[i].material.SetColor("_Color", materialTintColor);
+            }
             isHurting = false;
         }
     }
