@@ -101,6 +101,7 @@ public class PlayerMove : MonoBehaviour
 
         if (isKnockback || isFalling || isTalking)
         {
+            rigid.velocity = new Vector2(0, rigid.velocity.y);
             moveInput = 0;
         }
         else
@@ -109,17 +110,13 @@ public class PlayerMove : MonoBehaviour
 
             if (moveInput != 0 && IsGrounded())
             {
-                /*animator.Play("Walk");
-                animator.SetBool("isWalking", true);*/
                 if (AudioManager.instance != null)
                     AudioManager.instance.PlayWalkSound("grass");
             }
             else
             {
                 if (AudioManager.instance != null)
-                    AudioManager.instance.StopWalkSound();/*
-                animator.SetBool("isWalking", false);
-                animator.Play("Idle");*/
+                    AudioManager.instance.StopWalkSound();
             }
 
             if (moveInput > 0 && !facingRight)

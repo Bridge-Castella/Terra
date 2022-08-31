@@ -53,14 +53,14 @@ public class Dialogue : MonoBehaviour
                     list[string_idIdx].conv_type == 5 || 
                     list[string_idIdx].conv_type == 6)
                 {
-                    ControlManager.instance.Player.GetComponent<PlayerMove>().isTalking = false;
+                    ControlManager.instance.player.GetComponent<PlayerMove>().isTalking = false;
                     Destroy(this.gameObject);
                 }
 
                 //일반대화가 이어지며 마지막 대화가 convtype이 7일때 대사가 안나오는 상황 예외처리..
                 if (dialogueText.text == convType7LastDialogue)
                 {
-                    ControlManager.instance.Player.GetComponent<PlayerMove>().isTalking = false;
+                    ControlManager.instance.player.GetComponent<PlayerMove>().isTalking = false;
                     Destroy(this.gameObject);
                 }
                 if (list[string_idIdx].conv_type == 7)
