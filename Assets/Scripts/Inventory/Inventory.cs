@@ -126,7 +126,7 @@ public class Inventory : MonoBehaviour
 
     public void UseLightItem()
     {
-        PlayerMove player = ControlManager.instance.Player.GetComponent<PlayerMove>();
+        PlayerMove player = ControlManager.instance.player.GetComponent<PlayerMove>();
         player.DamageFlash();
         StartCoroutine(player.CoEnableDamage(0f, 3f));
     }

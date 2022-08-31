@@ -15,12 +15,13 @@ public class ControlManager : MonoBehaviour
     }
     #endregion
 
-    public GameObject StartPoint;
-    public GameObject Player;
+    public GameObject startPoint;
+    public GameObject player;
 
-    public GameObject OptionObject;
+    public GameObject optionObject;
+    public GameObject optionObjectInstace;
 
-    public bool GameIsPaused = false;
+    public bool gameIsPaused = false;
 
 
     private void Update()
@@ -34,7 +35,7 @@ public class ControlManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(GameIsPaused)
+            if(gameIsPaused)
             {
                 Resume();
             }
@@ -48,22 +49,24 @@ public class ControlManager : MonoBehaviour
     public void Resume()
     {
         AudioManager.instance.PlaySound("ui_02");
-        OptionObject.SetActive(false);
+        Destroy(optionObjectInstace);
+        //OptionObject.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = false;
+        gameIsPaused = false;
     }
 
     void Pause()
     {
         AudioManager.instance.PlaySound("ui_01");
-        OptionObject.SetActive(true);
+        optionObjectInstace = Instantiate(optionObject, FindObjectOfType<Canvas>().gameObject.transform);
+        //OptionObject.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true;
+        gameIsPaused = true;
     }
 
     public void RetryGame()
     {
-        Player.transform.position = StartPoint.transform.position;
+        player.transform.position = startPoint.transform.position;
         int fullHealAmount = HeartHealthSystem.MAX_FRAGMENT_AMOUNT * HeartsHealthVisual.heartHealthSystemStatic.GetHeartList().Count;
         HeartsHealthVisual.heartHealthSystemStatic.Heal(fullHealAmount);
     }
