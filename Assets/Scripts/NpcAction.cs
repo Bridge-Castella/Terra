@@ -15,6 +15,8 @@ public class NpcAction : MonoBehaviour
     private List<string> story_idList;
     int story_idIdx = 0;
 
+    bool isDialogueEnd = false;
+
     public int Stroy_idIdx
     {
         get
@@ -36,8 +38,11 @@ public class NpcAction : MonoBehaviour
 
     public void ShowDialogueUIObject()
     {
+        //TODO: 임시로 퀘스트 끝나거나 실패하면 대화 못하도록 함.
+        if(isDialogueEnd || QuestManager.instance.isFailed)
+            return;
         //ui가 만들어져 있다면 생성안함.
-        if(null == dialogueUiObjectInstance)
+        if (null == dialogueUiObjectInstance)
         {
             //npc가 있는 위치 가져와서 말풍선 띄움 https://answers.unity.com/questions/799616/unity-46-beta-19-how-to-convert-from-world-space-t.html
             RectTransform canvasRect = canvas.GetComponent<RectTransform>();
@@ -53,8 +58,9 @@ public class NpcAction : MonoBehaviour
 
             if (QuestManager.instance.isComplete)
             {
-                story_idIdx = story_idList.Count -2;
+                story_idIdx = story_idList.Count -1;
                 QuestManager.instance.isComplete = false;
+                isDialogueEnd = true;
             }
 
             //마지막대화
@@ -62,8 +68,8 @@ public class NpcAction : MonoBehaviour
             {
                 story_idIdx = story_idList.Count - 1;
                 QuestManager.instance.isFailed = false;
+                isDialogueEnd = true;
             }
-
 
             List<string> npc_idList = new List<string>(TableData.instance.GetMainDataDic()[story_idList[story_idIdx]].Keys);
             dialogueUiObjectInstance.GetComponent<Dialogue>().DialogueWithNPC(story_idList[story_idIdx], npc_idList[0]);
