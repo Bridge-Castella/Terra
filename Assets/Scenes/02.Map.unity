@@ -2654,7 +2654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &183520514
 Transform:
   m_ObjectHideFlags: 0
@@ -12913,6 +12913,7 @@ MonoBehaviour:
   isComplete: 0
   isFailed: 0
   questUI: {fileID: 2367636858932986504}
+  questItemGroup: {fileID: 183520513}
   questTitleText: {fileID: 636532288}
   questDescText: {fileID: 263363280}
   questStatusText: {fileID: 386825299}
@@ -35510,11 +35511,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike_big
       objectReference: {fileID: 0}
-    - target: {fileID: 2056722376486160230, guid: 02fb8624c1e43f94590b63f6635663b2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02fb8624c1e43f94590b63f6635663b2, type: 3}
 --- !u!1001 &913633018806637229
@@ -35668,16 +35664,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774775308}
     m_Modifications:
-    - target: {fileID: 789621836961780058, guid: b58d1b01db88c8048863414b07577682,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 789621836961780058, guid: b58d1b01db88c8048863414b07577682,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1822420155
-      objectReference: {fileID: 0}
     - target: {fileID: 1376177343460197386, guid: b58d1b01db88c8048863414b07577682,
         type: 3}
       propertyPath: m_RootOrder
@@ -35732,16 +35718,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2488468211972410870, guid: b58d1b01db88c8048863414b07577682,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2488468211972410870, guid: b58d1b01db88c8048863414b07577682,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1822420155
       objectReference: {fileID: 0}
     - target: {fileID: 7248532403271294005, guid: b58d1b01db88c8048863414b07577682,
         type: 3}
