@@ -23,6 +23,7 @@ public class QuestManager : MonoBehaviour
     [HideInInspector] public bool isFailed = false;
 
     public GameObject questUI;
+    public GameObject questItemGroup;
     public TextMeshProUGUI questTitleText;
     public TextMeshProUGUI questDescText;
     public TextMeshProUGUI questStatusText;
@@ -47,6 +48,7 @@ public class QuestManager : MonoBehaviour
     {
         isQuesting = true;
         questUI.SetActive(true);
+        questItemGroup.SetActive(true);
 
         //임시
         questTitleText.text = "라토에게 종이를 가져다주기";

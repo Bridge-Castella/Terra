@@ -160,7 +160,7 @@ public class PlayerMove : MonoBehaviour
         {
             rayColor = Color.red;
         }
-        Debug.DrawRay(capsuleCollider2D.bounds.center, Vector2.down * (capsuleCollider2D.bounds.extents.y + extraHeightText), rayColor);
+        //Debug.DrawRay(capsuleCollider2D.bounds.center, Vector2.down * (capsuleCollider2D.bounds.extents.y + extraHeightText), rayColor);
         return raycastHit.collider != null;
     }
 
@@ -220,7 +220,6 @@ public class PlayerMove : MonoBehaviour
 
     void NPCDialogue()
     {
-        isTalking = true;
         rigid.velocity = Vector3.zero;
         //바라보는 방향 대로 raycast
         float x;
@@ -232,8 +231,12 @@ public class PlayerMove : MonoBehaviour
         Color rayColor = Color.red;
         if(raycastHit.collider != null)
         {
+            if (raycastHit.collider.GetComponent<NpcAction>().IsDialogueEnd || QuestManager.instance.isFailed)
+                return;
+            isTalking = true;
             Debug.Log("NPC감지");
             raycastHit.collider.GetComponent<NpcAction>().ShowDialogueUIObject();
+            
         }
         Debug.DrawRay(capsuleCollider2D.bounds.center, new Vector2(x, 0) * (capsuleCollider2D.bounds.extents.y) * 2f, rayColor);
     }

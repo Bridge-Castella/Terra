@@ -17,6 +17,14 @@ public class NpcAction : MonoBehaviour
 
     bool isDialogueEnd = false;
 
+    public bool IsDialogueEnd
+    {
+        get
+        {
+            return isDialogueEnd;
+        }
+    }
+
     public int Stroy_idIdx
     {
         get
