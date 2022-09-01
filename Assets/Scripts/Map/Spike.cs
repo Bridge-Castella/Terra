@@ -18,8 +18,7 @@ public class Spike : MonoBehaviour
 
             if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())
             {
-                //TODO 잠시막아놓음
-                //ControlManager.instance.RetryGame();
+                ControlManager.instance.RetryGame();
                 return;
             }
         }

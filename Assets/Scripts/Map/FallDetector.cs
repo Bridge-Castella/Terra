@@ -44,9 +44,8 @@ public class FallDetector : MonoBehaviour
 
         if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())
         {
-            //TODO 잠시 막아놓음
-            //ControlManager.instance.RetryGame();
-            //checkPoint = startPoint; //체크포인트 다시 startpoint로 
+            ControlManager.instance.RetryGame();
+            checkPoint = startPoint; //체크포인트 다시 startpoint로 
             return;
         }
     }

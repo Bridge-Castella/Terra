@@ -23,7 +23,7 @@ public class HeartsHealthVisual : MonoBehaviour
     private void Start()
     {
         //하트 개수
-        HeartHealthSystem heartHealthSystem = new HeartHealthSystem(3);
+        HeartHealthSystem heartHealthSystem = new HeartHealthSystem(5);
         SetHeartHealthSystem(heartHealthSystem);
     }
 
@@ -41,7 +41,7 @@ public class HeartsHealthVisual : MonoBehaviour
         {
             HeartHealthSystem.Heart heart = heartList[i];
             CreateHeartImage(heartAnchoredPosition).SetHeartFragments(heart.GetFragmentAmount());
-            heartAnchoredPosition+= new Vector2(80, 0);
+            heartAnchoredPosition+= new Vector2(100, 0);
         }
 
         heartHealthSystem.OnDamaged += HeartHealthSystem_OnDamaged;
@@ -118,11 +118,21 @@ public class HeartsHealthVisual : MonoBehaviour
             this.fragments = fragments;
             switch (fragments)
             {
-                case 0: heartImage.sprite = heartsHealthVisual.heart0Sprite; break;
+                case 0: heartImage.sprite = heartsHealthVisual.heart0Sprite;
+                    Color alphaColor = new Color();
+                    alphaColor.a = 0;
+                    heartImage.color = alphaColor; 
+                    break;
                 case 1: heartImage.sprite = heartsHealthVisual.heart1Sprite; break;
                 case 2: heartImage.sprite = heartsHealthVisual.heart2Sprite; break;
                 case 3: heartImage.sprite = heartsHealthVisual.heart3Sprite; break;
                 case 4: heartImage.sprite = heartsHealthVisual.heart4Sprite; break;
+            }
+            if (heartHealthSystemStatic.IsDead())
+            {
+                Color alphaColor = new Color(255, 255, 255);
+                alphaColor.a = 1;
+                heartImage.color = alphaColor;
             }
         }
 
