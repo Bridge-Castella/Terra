@@ -99,9 +99,14 @@ public class PlayerMove : MonoBehaviour
         //튕겨 나간 경우 방향키 입력x
         float moveInput = Input.GetAxisRaw("Horizontal");
 
-        if (isKnockback || isFalling || isTalking)
+        if (isKnockback || isFalling)
         {
-            rigid.velocity = new Vector2(0, rigid.velocity.y);
+            moveInput = 0;
+        }
+        else if(isTalking)
+        {
+            //대화할때 움직이지 않도록
+            rigid.velocity = new Vector2(0, 0);
             moveInput = 0;
         }
         else
