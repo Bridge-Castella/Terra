@@ -66,18 +66,16 @@ public class Option : MonoBehaviour
 
     public void Update()
     {
-        if(MapManager.instance.mapState == MapManager.MapState.Login)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                AudioManager.instance.PlaySound("ui_02");
-                OnClickCancelButton();
-            }
+            AudioManager.instance.PlaySound("ui_02");
+            OnClickCancelButton();
         }
     }
 
     public void OnClickQuitButton()
     {
+        AudioManager.instance.PlaySound("ui_04");
         buttonGroup.SetActive(false);
         popUpObject.SetActive(true);
         popUpText.text = "게임을 종료하시겠습니까?";
@@ -85,6 +83,7 @@ public class Option : MonoBehaviour
 
     public void LoadLoginScene()
     {
+        AudioManager.instance.PlaySound("ui_04");
         Time.timeScale = 1;
         MapManager.instance.mapState = MapManager.MapState.Login;
         SceneManager.LoadScene("01.Login");
@@ -98,6 +97,7 @@ public class Option : MonoBehaviour
 
     public void OnClickPopupNoButton()
     {
+        AudioManager.instance.PlaySound("ui_04");
         popUpObject.SetActive(false);
         buttonGroup.SetActive(true);
     }
@@ -125,6 +125,9 @@ public class Option : MonoBehaviour
         }
     }
 
+
+
+    #region Volume Control
     public void InitailizeVolume()
     {
         masterSlider.value = 0.5f;
@@ -134,6 +137,7 @@ public class Option : MonoBehaviour
 
     public void OnClickAudioButton()
     {
+        AudioManager.instance.PlaySound("ui_04");
         buttonGroup.SetActive(false);
         popUpObject.SetActive(false);
         audioGroup.SetActive(true);
@@ -167,4 +171,5 @@ public class Option : MonoBehaviour
     {
         sfxVolumeNum.text = Mathf.CeilToInt(value * 10).ToString();
     }
+    #endregion
 }
