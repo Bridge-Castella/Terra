@@ -6,26 +6,29 @@ using TMPro;
 
 public class ButtonHover : MonoBehaviour
 {
-    public Image hoverImg;
+    public Image[] hoverImg = new Image[2];
     public TextMeshProUGUI buttonText;
 
     void Start()
     {
-        hoverImg.gameObject.SetActive(false);
+        for(int i = 0; i < hoverImg.Length; i++)
+            hoverImg[i].gameObject.SetActive(false);
         //buttonText.color = Color.grey;
     }
 
     public void MouseHoverOn()
     {
         AudioManager.instance.PlaySound("ui_03");
-        hoverImg.gameObject.SetActive(true);
+        for (int i = 0; i < hoverImg.Length; i++)
+            hoverImg[i].gameObject.SetActive(true);
         //buttonText.color = Color.white;
         buttonText.fontStyle = FontStyles.Bold;
     }
 
     public void MouseHoverOff()
     {
-        hoverImg.gameObject.SetActive(false);
+        for (int i = 0; i < hoverImg.Length; i++)
+            hoverImg[i].gameObject.SetActive(false);
         //buttonText.color = Color.grey;
         buttonText.fontStyle = FontStyles.Normal;
     }
