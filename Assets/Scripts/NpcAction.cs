@@ -16,6 +16,7 @@ public class NpcAction : MonoBehaviour
     int story_idIdx = 0;
 
     bool isDialogueEnd = false;
+    PlayerMove player;
 
     public bool IsDialogueEnd
     {
@@ -42,16 +43,19 @@ public class NpcAction : MonoBehaviour
         dialogueUIRectTranform = dialogueUIObject.GetComponent<RectTransform>();
         canvas = FindObjectOfType<Canvas>();
         story_idList = new List<string>(TableData.instance.GetMainDataDic().Keys);
+        player = FindObjectOfType<PlayerMove>();
     }
 
     public void ShowDialogueUIObject()
     {
-        //TODO: 임시로 퀘스트 끝나거나 실패하면 대화 못하도록 함.
+        //TODO: 임시로 퀘스트 끝나거나 실패하면 대화 못하도록 함. 뒤에 대화가 더 생기면 없애야함.
         if(isDialogueEnd || QuestManager.instance.isFailed)
             return;
         //ui가 만들어져 있다면 생성안함.
         if (null == dialogueUiObjectInstance)
         {
+            //플레이어 방향 바라보기
+            transform.localScale = new Vector3(player.transform.localScale.x, transform.localScale.y, transform.localScale.z);
             //npc가 있는 위치 가져와서 말풍선 띄움 https://answers.unity.com/questions/799616/unity-46-beta-19-how-to-convert-from-world-space-t.html
             RectTransform canvasRect = canvas.GetComponent<RectTransform>();
             Vector2 pos = dialogueUIPosition.transform.position;  // get the game object position
