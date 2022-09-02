@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class HeartsHealthVisual : MonoBehaviour
 {
     public static HeartHealthSystem heartHealthSystemStatic;
+    public GameObject hearPrefab;
+
     [SerializeField] private Sprite heart0Sprite;
     [SerializeField] private Sprite heart1Sprite;
     [SerializeField] private Sprite heart2Sprite;
     [SerializeField] private Sprite heart3Sprite;
-    [SerializeField] private Sprite heart4Sprite;    
+    [SerializeField] private Sprite heart4Sprite;
 
     private List<HeartImage> heartImageList;
     private HeartHealthSystem heartHealthSystem;
@@ -35,13 +37,23 @@ public class HeartsHealthVisual : MonoBehaviour
         //하트시스템에 넣어준 리스트 가져옴(개수)
         List<HeartHealthSystem.Heart> heartList = heartHealthSystem.GetHeartList();
         Vector2 heartAnchoredPosition = new Vector2(0, 0);
+        float rotationZ = 8f;
 
         //캔버스에 하트 포지션 정해줌, 조각정해줌
         for(int i = 0; i< heartList.Count; i++)
         {
             HeartHealthSystem.Heart heart = heartList[i];
-            CreateHeartImage(heartAnchoredPosition).SetHeartFragments(heart.GetFragmentAmount());
-            heartAnchoredPosition+= new Vector2(100, 0);
+            CreateHeartImage(heartAnchoredPosition, rotationZ).SetHeartFragments(heart.GetFragmentAmount());
+            if (i%2 != 0)
+            {
+                heartAnchoredPosition += new Vector2(80, -20);
+                rotationZ = 8f;
+            }
+            else
+            {
+                heartAnchoredPosition += new Vector2(80, 20);
+                rotationZ = -8f;
+            }
         }
 
         heartHealthSystem.OnDamaged += HeartHealthSystem_OnDamaged;
@@ -80,7 +92,7 @@ public class HeartsHealthVisual : MonoBehaviour
     }
 
     //캔버스에 하트 보여줌
-    private HeartImage CreateHeartImage(Vector2 anchoredPosition)
+    private HeartImage CreateHeartImage(Vector2 anchoredPosition, float rotationZ)
     {
         GameObject heartGameobject = new GameObject("Heart", typeof(Image), typeof(Animation));
 
@@ -88,7 +100,8 @@ public class HeartsHealthVisual : MonoBehaviour
         heartGameobject.transform.localPosition = Vector3.zero;
 
         heartGameobject.GetComponent<RectTransform>().anchoredPosition = anchoredPosition;
-        heartGameobject.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
+        heartGameobject.transform.rotation *= Quaternion.Euler(0f, 0f, rotationZ);
+        heartGameobject.GetComponent<RectTransform>().sizeDelta = new Vector2(80, 80);
 
         //Set heart sprite
         Image heartImageUI = heartGameobject.GetComponent<Image>();
