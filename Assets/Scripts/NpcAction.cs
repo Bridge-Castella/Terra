@@ -17,6 +17,7 @@ public class NpcAction : MonoBehaviour
 
     bool isDialogueEnd = false;
     PlayerMove player;
+    Animator animator;
 
     public bool IsDialogueEnd
     {
@@ -44,6 +45,7 @@ public class NpcAction : MonoBehaviour
         canvas = FindObjectOfType<Canvas>();
         story_idList = new List<string>(TableData.instance.GetMainDataDic().Keys);
         player = FindObjectOfType<PlayerMove>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     public void ShowDialogueUIObject()
@@ -54,12 +56,13 @@ public class NpcAction : MonoBehaviour
         //ui가 만들어져 있다면 생성안함.
         if (null == dialogueUiObjectInstance)
         {
+            animator.SetBool("isTalking", true);
             //플레이어 방향 바라보기
             transform.localScale = new Vector3(player.transform.localScale.x, transform.localScale.y, transform.localScale.z);
             //npc가 있는 위치 가져와서 말풍선 띄움 https://answers.unity.com/questions/799616/unity-46-beta-19-how-to-convert-from-world-space-t.html
             RectTransform canvasRect = canvas.GetComponent<RectTransform>();
             Vector2 pos = dialogueUIPosition.transform.position;  // get the game object position
-            Vector2 viewportPoint = Camera.main.WorldToViewportPoint(pos);  //convert game object position to VievportPoint
+            Vector2 viewportPoint = Camera.main.WorldToViewportPoint(pos);  //convert game object position to ViewportPoint
             Vector2 canvasPosition = new Vector2
                                             (((viewportPoint.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
                                              ((viewportPoint.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));

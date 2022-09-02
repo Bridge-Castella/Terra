@@ -30,10 +30,14 @@ public class Dialogue : MonoBehaviour
 
     string convType7LastDialogue;
 
+    NpcAction npc;
+
     private void Start()
     {
         dialogueAnswer1Button.onClick.AddListener(OnClickDialogueAnswer1Button);
         dialogueAnswer2Button.onClick.AddListener(OnClickDialogueAnswer2Button);
+
+        npc = FindObjectOfType<NpcAction>();
     }
 
     private void Update()
@@ -54,6 +58,7 @@ public class Dialogue : MonoBehaviour
                     list[string_idIdx].conv_type == 6)
                 {
                     ControlManager.instance.player.GetComponent<PlayerMove>().isTalking = false;
+                    npc.GetComponent<Animator>().SetBool("isTalking", false);
                     Destroy(this.gameObject);
                 }
 
@@ -61,6 +66,7 @@ public class Dialogue : MonoBehaviour
                 if (dialogueText.text == convType7LastDialogue)
                 {
                     ControlManager.instance.player.GetComponent<PlayerMove>().isTalking = false;
+                    npc.GetComponent<Animator>().SetBool("isTalking", false);
                     Destroy(this.gameObject);
                 }
                 if (list[string_idIdx].conv_type == 7)
