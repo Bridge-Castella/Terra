@@ -28,7 +28,7 @@ public class CheckPoint : MonoBehaviour
                     AudioManager.instance.PlaySound("checkPoint_01");
             }
                 
-            if (collision.gameObject.name == "player")
+            if (collision.gameObject.tag == "Player")
             {
                 fallDetector.CheckPoint = gameObject.transform;
                 //animator.SetTrigger("Move");
