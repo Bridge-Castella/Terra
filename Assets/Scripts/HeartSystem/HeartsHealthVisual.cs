@@ -141,7 +141,7 @@ public class HeartsHealthVisual : MonoBehaviour
                 case 3: heartImage.sprite = heartsHealthVisual.heart3Sprite; break;
                 case 4: heartImage.sprite = heartsHealthVisual.heart4Sprite; break;
             }
-            if (heartHealthSystemStatic.IsDead())
+            if (heartHealthSystemStatic.IsDead() || Input.GetKeyDown(KeyCode.R))
             {
                 Color alphaColor = new Color(255, 255, 255);
                 alphaColor.a = 1;
