@@ -32,4 +32,11 @@ public class ButtonHover : MonoBehaviour
         //buttonText.color = Color.grey;
         buttonText.fontStyle = FontStyles.Normal;
     }
+
+    public void OnClickButton()
+    {
+        for (int i = 0; i < hoverImg.Length; i++)
+            hoverImg[i].gameObject.SetActive(false);
+        buttonText.fontStyle = FontStyles.Normal;
+    }
 }
