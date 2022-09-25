@@ -7,19 +7,26 @@ public class ScrollingBackground : MonoBehaviour
     public bool scrolling, parallax;
 
     public float backgroundSize;
-    public float parallaxSpeed;
 
-    private Transform cameraTranform;
+    [SerializeField] float multiplier = 0.0f;
+    [SerializeField] bool horizontalOnly = true;
+
+    private Transform cameraTransform;
+
+    private Vector3 startCameraPos;
+    private Vector3 startPos;
+
     private Transform[] layers;
     private float viewZone = 10;
     private int leftIndex;
     private int rightIndex;
-    private float lastCameraX;
 
     private void Start()
     {
-        cameraTranform = Camera.main.transform;
-        lastCameraX = cameraTranform.position.x;
+        cameraTransform = Camera.main.transform;
+        startCameraPos = cameraTransform.position;
+        startPos = transform.position;
+
         layers = new Transform[transform.childCount];
 
         for(int i = 0;i<transform.childCount; i++)
@@ -31,20 +38,26 @@ public class ScrollingBackground : MonoBehaviour
 
     private void Update()
     {
-        if(parallax)
-        {
-            float deltaX = cameraTranform.position.x - lastCameraX;
-            transform.position += Vector3.right * (deltaX * parallaxSpeed);
-        }
-        
-        lastCameraX = cameraTranform.position.x;
-
         if(scrolling)
         {
-            if (cameraTranform.position.x < (layers[leftIndex].transform.position.x + viewZone))
+            if (cameraTransform.position.x < (layers[leftIndex].transform.position.x + viewZone))
                 ScrollLeft();
-            if (cameraTranform.position.x > (layers[rightIndex].transform.position.x - viewZone))
+            if (cameraTransform.position.x > (layers[rightIndex].transform.position.x - viewZone))
                 ScrollRight();
+        }
+        
+    }
+
+    private void LateUpdate()
+    {
+        if (parallax)
+        {
+            var position = startPos;
+            if (horizontalOnly)
+                position.x += multiplier * (cameraTransform.position.x - startCameraPos.x);
+            else
+                position += multiplier * (cameraTransform.position - startCameraPos);
+            transform.position = position;
         }
         
     }
