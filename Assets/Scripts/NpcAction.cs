@@ -56,6 +56,7 @@ public class NpcAction : MonoBehaviour
         //ui가 만들어져 있다면 생성안함.
         if (null == dialogueUiObjectInstance)
         {
+            dialogueUIObject.SetActive(true);
             animator.SetBool("isTalking", true);
             //플레이어 방향 바라보기
             transform.localScale = new Vector3(player.transform.localScale.x, transform.localScale.y, transform.localScale.z);

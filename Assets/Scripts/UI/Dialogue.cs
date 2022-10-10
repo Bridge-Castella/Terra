@@ -42,13 +42,13 @@ public class Dialogue : MonoBehaviour
 
     private void Update()
     {
-        if(gameObject != null)
+        if(gameObject != null && gameObject.activeSelf)
         {
             if (dialogueAnswer1Button.gameObject.activeSelf || dialogueAnswer2Button.gameObject.activeSelf)
                 dialogueButtonGroup.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(dialogueImg.GetComponent<RectTransform>().rect.width / 2 + 50f, 0);
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetButtonDown("TalktoNpc"))
             {
-                //선택지가 켜져 있다면 스페이스바를 눌러도 대화가 넘어가지 않음. 선택해야 넘어감.
+                //선택지가 켜져 있다면 키를 눌러도 대화가 넘어가지 않음. 선택해야 넘어감.
                 if(dialogueAnswer1Button.gameObject.activeSelf || dialogueAnswer2Button.gameObject.activeSelf)
                     return;
 

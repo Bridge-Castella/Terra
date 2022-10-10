@@ -26,6 +26,7 @@ public class PlayerMove : MonoBehaviour
     bool facingRight = true; //flip관련 bool 변수
     bool isKnockback = false; //튕겨나간 경우
     bool isJumping = false; //점프하는 상태인 경우
+    private bool canDoubleJump = true;//더블 점프가 가능한지
     [HideInInspector] public bool isTalking = false;
     [HideInInspector] public bool isFalling = false;
 
@@ -34,8 +35,11 @@ public class PlayerMove : MonoBehaviour
     private Animator animator;
     private Color materialTintColor;
 
-    private float coyoteTime = 0.2f;
-    private float coyoteTimeCounter;
+    //코요테 타임
+    private float coyoteandJumpTime = 0.2f;
+    private float coyoteandJumpTimeCounter;
+
+    private PlayerAbilityTracker  abilities;
 
     void Awake()
     {
@@ -46,6 +50,7 @@ public class PlayerMove : MonoBehaviour
             spriteRenderer[i] = transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>();
         }
         animator = GetComponent<Animator>();        
+        abilities = GetComponent<PlayerAbilityTracker>();
     }
 
     void Update()
@@ -54,31 +59,52 @@ public class PlayerMove : MonoBehaviour
 
         if (IsGrounded())
         {
-            coyoteTimeCounter = coyoteTime;
+            coyoteandJumpTimeCounter = coyoteandJumpTime;
             rigid.gravityScale = gravityScale;
         }
         else
         {
-            coyoteTimeCounter -= Time.deltaTime;
+            coyoteandJumpTimeCounter -= Time.deltaTime;
             rigid.gravityScale = gravityScale * fallGravityMultiflier;
         }
+
         //바닥에 있는 동안은 점프 애니메이션을 출력하지 않음.
         animator.SetBool("isJumping", !IsGrounded());
 
-        //Jump
-        if (coyoteTimeCounter > 0f && Input.GetButtonDown("Jump"))
+        //Coyote Time
+        if (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump"))
         {
             if (AudioManager.instance != null)
                 AudioManager.instance.PlaySound("jump_01");
+
             isJumping = true;
             rigid.velocity = Vector2.up * jumpPower;
-            //jumpTimeCounter = jumpTime;
         }
 
-        if(Input.GetButtonUp("Jump") && rigid.velocity.y > 0f)
+        //Jump and Double Jump
+        if (Input.GetButtonDown("Jump") && (IsGrounded() || (canDoubleJump && abilities.canDoubleJump)))
+        {
+            if (AudioManager.instance != null)
+                AudioManager.instance.PlaySound("jump_01");
+
+            if (IsGrounded())
+            {
+                canDoubleJump = true;
+            }
+            else
+            {
+                canDoubleJump = false;
+            }
+
+            isJumping = true;
+            rigid.velocity = Vector2.up * jumpPower;
+        }
+
+        //버튼 누른시간만큼 점프높이 높아짐
+        if (Input.GetButtonUp("Jump") && rigid.velocity.y > 0f)
         {
             rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * 0.5f);
-            coyoteTimeCounter = 0f;
+            coyoteandJumpTimeCounter = 0f;
         }
 
         //Stop Speed
@@ -90,7 +116,8 @@ public class PlayerMove : MonoBehaviour
         //e버튼 누르면
         if (Input.GetButtonDown("TalktoNpc"))
         {
-            NPCDialogue();
+            if(!isTalking)
+                NPCDialogue();
         }
     }
 
@@ -160,7 +187,8 @@ public class PlayerMove : MonoBehaviour
         {
             rayColor = Color.red;
         }
-        //Debug.DrawRay(capsuleCollider2D.bounds.center, Vector2.down * (capsuleCollider2D.bounds.extents.y + extraHeightText), rayColor);
+        Debug.DrawRay(capsuleCollider2D.bounds.center, Vector2.down * (capsuleCollider2D.bounds.extents.y + extraHeightText), rayColor);
+        
         return raycastHit.collider != null;
     }
 
