@@ -26,7 +26,6 @@ public class PlayerMove : MonoBehaviour
     bool facingRight = true; //flip관련 bool 변수
     bool isKnockback = false; //튕겨나간 경우
     bool isJumping = false; //점프하는 상태인 경우
-    private bool canDoubleJump = true;//더블 점프가 가능한지
     [HideInInspector] public bool isTalking = false;
     [HideInInspector] public bool isFalling = false;
 
@@ -39,7 +38,10 @@ public class PlayerMove : MonoBehaviour
     private float coyoteandJumpTime = 0.2f;
     private float coyoteandJumpTimeCounter;
 
+    //능력, 아이템
     private PlayerAbilityTracker  abilities;
+    private bool canDoubleJump = true;//더블 점프가 가능한지
+    public bool isFlying;
 
     void Awake()
     {
@@ -55,92 +57,114 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        animator.SetFloat("yVelocity", rigid.velocity.y);
-
-        if (IsGrounded())
+        if(isFlying)
         {
-            coyoteandJumpTimeCounter = coyoteandJumpTime;
-            rigid.gravityScale = gravityScale;
+            rigid.gravityScale = 0f;
+            rigid.velocity = new Vector2(0, 0);
         }
         else
         {
-            coyoteandJumpTimeCounter -= Time.deltaTime;
-            rigid.gravityScale = gravityScale * fallGravityMultiflier;
-        }
-
-        //바닥에 있는 동안은 점프 애니메이션을 출력하지 않음.
-        animator.SetBool("isJumping", !IsGrounded());
-
-        //Coyote Time
-        if (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump"))
-        {
-            if (AudioManager.instance != null)
-                AudioManager.instance.PlaySound("jump_01");
-
-            isJumping = true;
-            rigid.velocity = Vector2.up * jumpPower;
-        }
-
-        //Jump and Double Jump
-        if (Input.GetButtonDown("Jump") && (IsGrounded() || (canDoubleJump && abilities.canDoubleJump)))
-        {
-            if (AudioManager.instance != null)
-                AudioManager.instance.PlaySound("jump_01");
+            animator.SetFloat("yVelocity", rigid.velocity.y);
 
             if (IsGrounded())
             {
-                canDoubleJump = true;
+                coyoteandJumpTimeCounter = coyoteandJumpTime;
+                rigid.gravityScale = gravityScale;
             }
             else
             {
-                canDoubleJump = false;
+                coyoteandJumpTimeCounter -= Time.deltaTime;
+                rigid.gravityScale = gravityScale * fallGravityMultiflier;
             }
 
-            isJumping = true;
-            rigid.velocity = Vector2.up * jumpPower;
-        }
+            //바닥에 있는 동안은 점프 애니메이션을 출력하지 않음.
+            animator.SetBool("isJumping", !IsGrounded());
 
-        //버튼 누른시간만큼 점프높이 높아짐
-        if (Input.GetButtonUp("Jump") && rigid.velocity.y > 0f)
-        {
-            rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * 0.5f);
-            coyoteandJumpTimeCounter = 0f;
-        }
+            //Coyote Time
+            if (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump"))
+            {
+                if (AudioManager.instance != null)
+                    AudioManager.instance.PlaySound("jump_01");
 
-        //Stop Speed
-        if (Input.GetButtonUp("Horizontal"))
-        {
-            rigid.velocity = new Vector2(0, rigid.velocity.y);
-        }
+                isJumping = true;
+                rigid.velocity = Vector2.up * jumpPower;
+            }
 
-        //e버튼 누르면
-        if (Input.GetButtonDown("TalktoNpc"))
-        {
-            if(!isTalking)
-                NPCDialogue();
+            //Jump and Double Jump
+            if (Input.GetButtonDown("Jump") && (IsGrounded() || (canDoubleJump && abilities.canDoubleJump)))
+            {
+                if (AudioManager.instance != null)
+                    AudioManager.instance.PlaySound("jump_01");
+
+                if (IsGrounded())
+                {
+                    canDoubleJump = true;
+                }
+                else
+                {
+                    canDoubleJump = false;
+                }
+
+                isJumping = true;
+                rigid.velocity = Vector2.up * jumpPower;
+            }
+
+            //버튼 누른시간만큼 점프높이 높아짐
+            if (Input.GetButtonUp("Jump") && rigid.velocity.y > 0f)
+            {
+                rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * 0.5f);
+                coyoteandJumpTimeCounter = 0f;
+            }
+
+            //Stop Speed
+            if (Input.GetButtonUp("Horizontal"))
+            {
+                rigid.velocity = new Vector2(0, rigid.velocity.y);
+            }
+
+            //e버튼 누르면
+            if (Input.GetButtonDown("TalktoNpc"))
+            {
+                if (!isTalking)
+                    NPCDialogue();
+            }
         }
     }
 
     void FixedUpdate()
     {
         //튕겨 나간 경우 방향키 입력x
-        float moveInput = Input.GetAxisRaw("Horizontal");
+        float moveHorizontalInput = Input.GetAxisRaw("Horizontal");
+        float moveVerticalInput = Input.GetAxisRaw("Vertical");
 
         if (isKnockback || isFalling)
         {
-            moveInput = 0;
+            moveHorizontalInput = 0;
         }
         else if(isTalking)
         {
             //대화할때 움직이지 않도록
             rigid.velocity = new Vector2(0, 0);
-            moveInput = 0;
+            moveHorizontalInput = 0;
+        }
+        else if(isFlying)
+        {
+            rigid.velocity = new Vector2(moveHorizontalInput * maxSpeed, moveVerticalInput * maxSpeed);
+
+            if (moveHorizontalInput > 0 && !facingRight)
+            {
+                Flip();
+            }
+            else if (moveHorizontalInput < 0 && facingRight)
+            {
+                Flip();
+            }
         }
         else
         {
-            rigid.velocity = new Vector2(moveInput * maxSpeed, rigid.velocity.y);
+            rigid.velocity = new Vector2(moveHorizontalInput * maxSpeed, rigid.velocity.y);
 
-            if (moveInput != 0 && IsGrounded())
+            if (moveHorizontalInput != 0 && IsGrounded())
             {
                 if (AudioManager.instance != null)
                     AudioManager.instance.PlayWalkSound("grass");
@@ -151,11 +175,11 @@ public class PlayerMove : MonoBehaviour
                     AudioManager.instance.StopWalkSound();
             }
 
-            if (moveInput > 0 && !facingRight)
+            if (moveHorizontalInput > 0 && !facingRight)
             {
                 Flip();
             }
-            else if (moveInput < 0 && facingRight)
+            else if (moveHorizontalInput < 0 && facingRight)
             {
                 Flip();
             }
