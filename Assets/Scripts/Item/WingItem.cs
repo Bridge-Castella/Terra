@@ -10,7 +10,7 @@ public class WingItem : Item
 
     public override void GetWingItem()
     {
-        player.isFlying = true;
+        abilities.isFlying = true;
         itemSprite.SetActive(false);
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         StartCoroutine(CoUseWingItem());
@@ -19,7 +19,7 @@ public class WingItem : Item
     IEnumerator CoUseWingItem()
     {
         yield return new WaitForSeconds(wingTime);
-        player.isFlying = false;
+        abilities.isFlying = false;
         StartCoroutine(CoShowWingItem());
     }
 

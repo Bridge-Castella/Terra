@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143722375}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25999832, y: -1.29, z: 0}
+  m_LocalPosition: {x: 0.07, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 131001603900362971}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000bbec9f6c1f8ebb11499bef9431da7443d14e60f2
@@ -747,6 +747,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDoubleJump: 0
   canDash: 0
+  isFlying: 0
+  isSpringJump: 0
+  springJumpPower: 0
 --- !u!50 &8797165674562098757
 Rigidbody2D:
   serializedVersion: 4

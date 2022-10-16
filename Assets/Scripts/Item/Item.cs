@@ -8,10 +8,13 @@ public class Item : MonoBehaviour
     public int amount = 1;*/
 
     protected PlayerMove player;
+    protected PlayerAbilityTracker abilities;
 
     protected enum ItemType
     { 
-        Wing,   
+        Wing,  
+        Spring,
+        Fire,
     }
 
     [SerializeField] private ItemType itemType;
@@ -25,10 +28,19 @@ public class Item : MonoBehaviour
         if (collision.tag == "Player")
         {
             player = collision.gameObject.GetComponent<PlayerMove>();
+            abilities = collision.gameObject.GetComponent<PlayerAbilityTracker>();
+
+            //날개, 스프링, 불 아이템 상속
             switch(itemType)
             { 
                 case ItemType.Wing:
                     GetWingItem();
+                    break;
+                case ItemType.Spring:
+                    GetSpringItem();
+                    break;
+                case ItemType.Fire:
+                    GetFireItem();
                     break;
             }
 
@@ -49,6 +61,13 @@ public class Item : MonoBehaviour
 
     public virtual void GetWingItem()
     {
-        
+    }
+
+    public virtual void GetFireItem()
+    {
+    }
+
+    public virtual void GetSpringItem()
+    {
     }
 }

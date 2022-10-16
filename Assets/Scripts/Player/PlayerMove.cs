@@ -41,7 +41,7 @@ public class PlayerMove : MonoBehaviour
     //능력, 아이템
     private PlayerAbilityTracker  abilities;
     private bool canDoubleJump = true;//더블 점프가 가능한지
-    public bool isFlying;
+
 
     void Awake()
     {
@@ -57,7 +57,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if(isFlying)
+        if(abilities.isFlying)
         {
             rigid.gravityScale = 0f;
             rigid.velocity = new Vector2(0, 0);
@@ -70,6 +70,12 @@ public class PlayerMove : MonoBehaviour
             {
                 coyoteandJumpTimeCounter = coyoteandJumpTime;
                 rigid.gravityScale = gravityScale;
+
+                //yesman: 아이템 먹고 땅에 내려왔을때 jumppower 변경
+                if (abilities.isSpringJump)
+                {
+                    jumpPower = abilities.springJumpPower;
+                }
             }
             else
             {
@@ -77,21 +83,13 @@ public class PlayerMove : MonoBehaviour
                 rigid.gravityScale = gravityScale * fallGravityMultiflier;
             }
 
-            //바닥에 있는 동안은 점프 애니메이션을 출력하지 않음.
+            //yesman: 바닥에 있는 동안은 점프 애니메이션을 출력하지 않음.
             animator.SetBool("isJumping", !IsGrounded());
 
             //Coyote Time
-            if (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump"))
-            {
-                if (AudioManager.instance != null)
-                    AudioManager.instance.PlaySound("jump_01");
-
-                isJumping = true;
-                rigid.velocity = Vector2.up * jumpPower;
-            }
-
             //Jump and Double Jump
-            if (Input.GetButtonDown("Jump") && (IsGrounded() || (canDoubleJump && abilities.canDoubleJump)))
+            if ((Input.GetButtonDown("Jump") && (IsGrounded() || (canDoubleJump && abilities.canDoubleJump))) 
+                || (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump")))
             {
                 if (AudioManager.instance != null)
                     AudioManager.instance.PlaySound("jump_01");
@@ -109,11 +107,21 @@ public class PlayerMove : MonoBehaviour
                 rigid.velocity = Vector2.up * jumpPower;
             }
 
-            //버튼 누른시간만큼 점프높이 높아짐
-            if (Input.GetButtonUp("Jump") && rigid.velocity.y > 0f)
+            //yesman: 버튼 누른시간만큼 점프높이 높아짐
+            if (Input.GetButtonUp("Jump"))
             {
-                rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * 0.5f);
-                coyoteandJumpTimeCounter = 0f;
+                //yesman: 스프링 아이템 먹고 점프 버튼 떼면 점프높이 원래대로
+                if(abilities.isSpringJump && (jumpPower == abilities.springJumpPower))
+                {
+                    abilities.isSpringJump = false;
+                    jumpPower /= 1.5f;
+                }
+
+                if (rigid.velocity.y > 0f)
+                {
+                    rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * 0.5f);
+                    coyoteandJumpTimeCounter = 0f;
+                }
             }
 
             //Stop Speed
@@ -147,7 +155,8 @@ public class PlayerMove : MonoBehaviour
             rigid.velocity = new Vector2(0, 0);
             moveHorizontalInput = 0;
         }
-        else if(isFlying)
+        //날개 아이템 사용
+        else if(abilities.isFlying)
         {
             rigid.velocity = new Vector2(moveHorizontalInput * maxSpeed, moveVerticalInput * maxSpeed);
 
