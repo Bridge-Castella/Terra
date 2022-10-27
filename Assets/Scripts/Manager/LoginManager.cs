@@ -27,7 +27,7 @@ public class LoginManager : MonoBehaviour
 
     public void Start()
     {
-        //저장파일이 있다면 continuebutton setactive true
+        //?????????? ?????? continuebutton setactive true
         NewGameButton.onClick.AddListener(LoadScene);
         SettingButton.onClick.AddListener(OnClickSettingButton);
         ExitGameButton.onClick.AddListener(OnClickExitGame);
@@ -36,8 +36,9 @@ public class LoginManager : MonoBehaviour
     public void LoadScene()
     {
         AudioManager.instance.PlaySound("ui_04");
-        SceneManager.LoadScene("02.Map");
         MapManager.instance.mapState = MapManager.MapState.Forest;
+        SceneManager.LoadSceneAsync("02.Map");
+        SceneManager.LoadScene("Map_1", LoadSceneMode.Additive);
     }
 
     public void OnClickExitGame()
