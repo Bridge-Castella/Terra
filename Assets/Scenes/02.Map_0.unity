@@ -920,12 +920,12 @@ PrefabInstance:
     - target: {fileID: 131001603900362971, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -66.04837
+      value: -74.95
       objectReference: {fileID: 0}
     - target: {fileID: 131001603900362971, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18.525005
+      value: -19.43
       objectReference: {fileID: 0}
     - target: {fileID: 131001603900362971, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
@@ -986,6 +986,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800962551722574817, guid: 3e4c3e109529a90498e025194dcfc44b,
+        type: 3}
+      propertyPath: jumpPower
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 4800962551722574817, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
@@ -1151,7 +1156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250322015}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -66.04837, y: -18.525005, z: -10}
+  m_LocalPosition: {x: -74.95, y: -19.43, z: -10}
   m_LocalScale: {x: 1.0000352, y: 1, z: 1}
   m_Children:
   - {fileID: 41983957}
@@ -2398,7 +2403,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933451257}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -53.56221, y: -14.995007, z: -10}
+  m_LocalPosition: {x: -56.05744, y: -14.995012, z: -10}
   m_LocalScale: {x: 1.0000352, y: 1, z: 1}
   m_Children:
   - {fileID: 352975916}
@@ -2810,15 +2815,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 69.66941, y: 26.803246}
+    - - {x: 68.04647, y: 26.803246}
       - {x: 168.67848, y: 26.951466}
       - {x: 168.54118, y: 130.52946}
       - {x: 69.84609, y: 130.36925}
-      - {x: 69.79862, y: 71.87775}
-      - {x: -77.62625, y: 71.778435}
-      - {x: -77.955826, y: 26.129581}
-      - {x: -77.8, y: -18.2}
-      - {x: 69.642, y: -18.2}
+      - {x: 59.103565, y: 84.32333}
+      - {x: -80.15417, y: 84.41849}
+      - {x: -80.28928, y: 27.296356}
+      - {x: -80.30652, y: -18.2}
+      - {x: 67.96688, y: -18.023666}
 --- !u!4 &2696858488835874830
 Transform:
   m_ObjectHideFlags: 0
