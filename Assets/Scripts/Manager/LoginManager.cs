@@ -37,7 +37,7 @@ public class LoginManager : MonoBehaviour
     {
         AudioManager.instance.PlaySound("ui_04");
         MapManager.instance.mapState = MapManager.MapState.Forest;
-        SceneManager.LoadSceneAsync("02.Map");
+        SceneManager.LoadSceneAsync("02.Map_0");
         SceneManager.LoadScene("Map_1", LoadSceneMode.Additive);
     }
 
