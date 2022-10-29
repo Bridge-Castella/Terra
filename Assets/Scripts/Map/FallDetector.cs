@@ -5,7 +5,6 @@ using UnityEngine;
 public class FallDetector : MonoBehaviour
 {
     [SerializeField] private Transform checkPoint;
-    [SerializeField] private GameObject[] fadingPlatforms;
     [SerializeField] private int damageAmount;
 
     Transform startPoint; //죽었을 경우 체크포인트 start
@@ -13,7 +12,6 @@ public class FallDetector : MonoBehaviour
 
     private void Start()
     {
-        fadingPlatforms = GameObject.FindGameObjectsWithTag("FadingPlatform");
         startPoint = checkPoint;
     }
 
@@ -50,16 +48,11 @@ public class FallDetector : MonoBehaviour
         }
     }
 
+    //플레이어 떨어지면 일시정지
     IEnumerator CoPlayerStop()
     {
         yield return new WaitForSeconds(0.5f);
         player.isFalling = false;
         player.gameObject.transform.position = checkPoint.position;
-
-        for (int i = 0; i < fadingPlatforms.Length; i++)
-        {
-            FadingPlatform fadingPlatformItem = fadingPlatforms[i].GetComponent<FadingPlatform>();
-            fadingPlatformItem.ShowFadingPlatform();
-        }
     }
 }
