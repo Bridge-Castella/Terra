@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class FadingPlatform : MonoBehaviour
 {
-    [SerializeField] private float fadingSpeed;
+    [SerializeField] private float fadePlatformTime;
     [SerializeField] private float showPlatformTime;
 
-    private BoxCollider2D[] boxCol2D;
+    private BoxCollider2D boxCol2D;
+    private PolygonCollider2D polygonCol2D;
     //private SpriteRenderer spriteRend;
     private bool isFading;
     private Color platformAlpha;
@@ -20,7 +21,8 @@ public class FadingPlatform : MonoBehaviour
         //platformAlpha = gameObject.GetComponent<SpriteRenderer>().material.color;
         platformAlpha.a = 0;      
 
-        boxCol2D = gameObject.GetComponents<BoxCollider2D>();
+        boxCol2D = gameObject.GetComponent<BoxCollider2D>();
+        polygonCol2D = gameObject.GetComponent<PolygonCollider2D>();
         //spriteRend = gameObject.GetComponent<SpriteRenderer>();
 
         animator = GetComponent<Animator>();
@@ -61,30 +63,40 @@ public class FadingPlatform : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
-            animator.SetBool("isPlayerDead", false);
+            animator.SetBool("isShowing", false);
             animator.SetBool("isQuaking", true);
             animator.Play("Quaking");
             StartCoroutine(CoFadingPlatform());
         }
     }
 
-    public void ShowFadingPlatform()
+    /*public void ShowFadingPlatform()
     {
         StopAllCoroutines();
-        animator.SetBool("isPlayerDead", true);
         animator.SetBool("isFalling", false);
         animator.SetBool("isQuaking", false);
         //gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
         for (int i = 0; i < boxCol2D.Length; i++)
             boxCol2D[i].enabled = true;
-    }
+    }*/
 
     IEnumerator CoFadingPlatform()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(fadePlatformTime);
         animator.SetBool("isFalling", true);
         animator.SetBool("isQuaking", false);
-        for (int i = 0; i < boxCol2D.Length; i++)
-            boxCol2D[i].enabled = false;
+        boxCol2D.enabled = false;
+        polygonCol2D.enabled = false;
+        yield return new WaitForSeconds(showPlatformTime);
+        ShowingPlatform();
+    }
+
+    private void ShowingPlatform()
+    {
+        animator.SetBool("isFalling", false);
+        animator.SetBool("isQuaking", false);
+        animator.SetBool("isShowing", true);
+        boxCol2D.enabled = true;
+        polygonCol2D.enabled = true;
     }
 }
