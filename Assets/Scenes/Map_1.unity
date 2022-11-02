@@ -3745,10 +3745,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1969569986}
     m_Modifications:
+    - target: {fileID: 1306192666, guid: cad664b61e7d24d4e89bbd5d8c898e4a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1004060345286851485, guid: cad664b61e7d24d4e89bbd5d8c898e4a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1004060345286851485, guid: cad664b61e7d24d4e89bbd5d8c898e4a,
         type: 3}
@@ -3808,6 +3812,11 @@ PrefabInstance:
     - target: {fileID: 5337569770158051047, guid: cad664b61e7d24d4e89bbd5d8c898e4a,
         type: 3}
       propertyPath: isEndPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451558248163682968, guid: cad664b61e7d24d4e89bbd5d8c898e4a,
+        type: 3}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5892,8 +5901,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1320849790}
-  - component: {fileID: 1320849791}
   - component: {fileID: 1320849792}
+  - component: {fileID: 1320849791}
   m_Layer: 0
   m_Name: BackgroundSwitcher
   m_TagString: Untagged
@@ -5931,8 +5940,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0, y: -2}
-  - {x: 0, y: 30}
+  - {x: 7, y: -2}
+  - {x: 7, y: 30}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -5950,7 +5959,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   update_interval: 0.016
-  fade_interval: 0.01
+  fade_interval: 0.02
+  overlap_amount: 0.5
 --- !u!1 &1329634223
 GameObject:
   m_ObjectHideFlags: 0

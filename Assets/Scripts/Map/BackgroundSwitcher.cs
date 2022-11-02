@@ -8,77 +8,108 @@ public class BackgroundSwitcher : MonoBehaviour
 {
     public float update_interval = 0.016f;
     public float fade_interval = 0.01f;
+    public float overlap_amount = 0.5f;
 
     private bool is_activated = false;
-    private bool has_passed = false;
+   
+    private List<Coroutine> activated_corutine = new List<Coroutine>();
+    private List<SpriteRenderer>[] background = new List<SpriteRenderer>[2];
+    private List<GameObject>[] background_object = new List<GameObject>[2];
+
+    private GameObject player_ptr;
+    private GameObject[] fade_in_obj;
+    private SpriteRenderer[] fade_in;
+    private SpriteRenderer[] fade_out;
+
+    private void Start()
+    {
+        background[0] = new List<SpriteRenderer>();
+        background[1] = new List<SpriteRenderer>();
+        background_object[0] = new List<GameObject>();
+        background_object[1] = new List<GameObject>();
+        player_ptr = GameObject.FindGameObjectWithTag("Player");
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (is_activated)
         {
-            if(has_passed) has_passed = false;
-            else has_passed = true;
             return;
+            //foreach (Coroutine coroutine in activated_corutine)
+            //    StopCoroutine(coroutine);
         }
 
-        Scene? current = MapManager.instance.GetCurrentMap();
-        Scene? next = MapManager.instance.GetNextMap();
-        if (current == null || next == null) return;
+        Scene? map_1 = MapManager.instance.GetCurrentMap();
+        Scene? map_2 = MapManager.instance.GetNextMap();
+        if (map_1 == null || map_2 == null) return;
 
-        Scene fade_in_map, fade_out_map;
-        List<SpriteRenderer> fade_out = new List<SpriteRenderer>();
-        List<SpriteRenderer> fade_in = new List<SpriteRenderer>();
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        if (!has_passed)
-        {
-            fade_out_map = (Scene)current;
-            fade_in_map = (Scene)next;
-        }
-        else
-        {
-            fade_in_map = (Scene)current;
-            fade_out_map = (Scene)next;
-        }
-
-        foreach (GameObject obj in fade_out_map.GetRootGameObjects())
-        {
-            if (obj.tag.Contains("Background"))
-            {
-                foreach (var ele in obj.GetComponentsInChildren<SpriteRenderer>())
-                {
-                    fade_out.Add(ele);
-                }
-            }
-        }
-
-        foreach (GameObject obj in fade_in_map.GetRootGameObjects())
+        foreach (GameObject obj in ((Scene)map_1).GetRootGameObjects())
         {
             if (obj.tag == "Background")
             {
-                if (!has_passed)
-                {
-                    obj.SetActive(true);
-                    Vector3 position = obj.transform.position;
-                    position.x = player.transform.position.x;
-                    obj.transform.position = position;
-                }
-
+                background_object[0].Add(obj);
                 foreach (var ele in obj.GetComponentsInChildren<SpriteRenderer>())
                 {
-                    Color color = ele.color;
-                    color.a = 0.0f;
-                    ele.color = color;
-                    fade_in.Add(ele);
+                    background[0].Add(ele);
                 }
             }
         }
 
-        StartCoroutine(FadeInOut(fade_in.ToArray(), fade_out.ToArray()));
+        foreach (GameObject obj in ((Scene)map_2).GetRootGameObjects())
+        {
+            if (obj.tag == "Background")
+            {
+                background_object[1].Add(obj);
+                foreach (var ele in obj.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    background[1].Add(ele);
+                }
+            }
+        }
 
+        if (background[0].Count == 0 || background[1].Count == 0) return;
+
+        Vector3 player_velocity = player_ptr.GetComponent<Rigidbody2D>().velocity;
+        Vector3 player_endpoint_vec = player_ptr.transform.position -
+            gameObject.GetComponentInParent<CheckPoint>().transform.position;
+        if (Vector3.Dot(player_velocity, player_endpoint_vec) > 0)
+        {
+            fade_in = background[1].ToArray();
+            fade_out = background[0].ToArray();
+            fade_in_obj = background_object[1].ToArray();
+        }
+        else
+        {
+            fade_in = background[0].ToArray();
+            fade_out = background[1].ToArray();
+            fade_in_obj = background_object[0].ToArray();
+        }
+
+        foreach (GameObject obj in fade_in_obj)
+        {
+            obj.SetActive(true);
+            foreach (SpriteRenderer renderer in fade_in)
+            {
+                ScrollingBackground scroller = renderer.GetComponent<ScrollingBackground>();
+                if (scroller == null)
+                {
+                    scroller = renderer.GetComponentInParent<ScrollingBackground>();
+                    if (scroller == null) return;
+                }
+
+                Color color = renderer.color;
+                color.a = 0.0f;
+                renderer.color = color;
+
+                Vector3 pos_diff = renderer.transform.position - player_ptr.transform.position;
+                pos_diff *= scroller.GetMultiplier();
+                renderer.transform.position -= pos_diff;
+            }
+        }
+        
+
+        activated_corutine.Add(StartCoroutine(FadeInOut(fade_in, fade_out)));
         is_activated = true;
-        if (has_passed) has_passed = false;
-        else has_passed = true;
     }
 
     private IEnumerator FadeInOut(SpriteRenderer[] fade_in, SpriteRenderer[] fade_out)
@@ -87,10 +118,10 @@ public class BackgroundSwitcher : MonoBehaviour
 
         if (fade_out.Length > 0)
         {
-            update_count = (int)(fade_out[0].color.a / fade_interval);
+            update_count = (int)(1.0f / fade_interval * (1 - overlap_amount));
             foreach (SpriteRenderer renderer in fade_out)
             {
-                StartCoroutine(FadeOut(renderer));
+                activated_corutine.Add(StartCoroutine(FadeOut(renderer)));
             }
         }
 
@@ -102,10 +133,10 @@ public class BackgroundSwitcher : MonoBehaviour
 
         if (fade_in.Length > 0)
         {
-            update_count = (int)(fade_in[0].color.a / fade_interval);
+            update_count = (int)(1.0f / fade_interval);
             foreach (SpriteRenderer renderer in fade_in)
             {
-                StartCoroutine(FadeIn(renderer));
+                activated_corutine.Add(StartCoroutine(FadeIn(renderer)));
             }
         }
 
@@ -116,6 +147,7 @@ public class BackgroundSwitcher : MonoBehaviour
         }
 
         is_activated = false;
+        CleanUp();
     }
 
     private IEnumerator FadeIn(SpriteRenderer renderer)
@@ -144,5 +176,13 @@ public class BackgroundSwitcher : MonoBehaviour
             renderer.color = color;
             yield return new WaitForSeconds(update_interval);
         }
+    }
+
+    private void CleanUp()
+    {
+        background[0].Clear();
+        background[1].Clear();
+        background_object[0].Clear();
+        background_object[1].Clear();
     }
 }

@@ -84,14 +84,8 @@ public class MapManager : MonoBehaviour
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
             Scene scene = SceneManager.GetSceneAt(i);
-            if (scene.buildIndex >= additive_map_start_index)
-            {
-                if (i < SceneManager.sceneCount)
-                {
-                    scene = SceneManager.GetSceneAt(++i);
-                    return scene;
-                }
-            }
+            if (scene.buildIndex < additive_map_start_index) continue;
+            if (++i < SceneManager.sceneCount) return SceneManager.GetSceneAt(i);
         }
         return null;
     }

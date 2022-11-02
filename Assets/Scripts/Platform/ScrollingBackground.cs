@@ -85,4 +85,9 @@ public class ScrollingBackground : MonoBehaviour
         if (leftIndex == layers.Length)
             leftIndex = 0;
     }
+
+    public float GetMultiplier()
+    {
+        return multiplier;
+    }
 }
