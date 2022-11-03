@@ -46,7 +46,6 @@ public class ScrollingBackground : MonoBehaviour
             if (cameraTransform.position.x > (layers[rightIndex].transform.position.x - viewZone))
                 ScrollRight();
         }
-        
     }
 
     private void LateUpdate()
@@ -84,5 +83,10 @@ public class ScrollingBackground : MonoBehaviour
         leftIndex++;
         if (leftIndex == layers.Length)
             leftIndex = 0;
+    }
+
+    public float GetMultiplier()
+    {
+        return multiplier;
     }
 }
