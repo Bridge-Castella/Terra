@@ -46,7 +46,6 @@ public class ScrollingBackground : MonoBehaviour
             if (cameraTransform.position.x > (layers[rightIndex].transform.position.x - viewZone))
                 ScrollRight();
         }
-        
     }
 
     private void LateUpdate()
