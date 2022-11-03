@@ -20,8 +20,31 @@ public class UseItemInterface : MonoBehaviour
         if (Input.GetButtonDown("TalktoNpc"))
         {
             GameObject obj = MonoBehaviour.Instantiate(prefab_obj);
-            obj.transform.position = gameObject.transform.position + new Vector3(0,3,0);
-            RemovePotion(obj);
+
+            //PlayerMove a = GameObject.Find("terra").GetComponent<PlayerMove>();
+            
+            //if (a.facingRight)
+            //{
+                obj.transform.position = gameObject.transform.position + new Vector3(3, 1, 0);
+            //}
+            //else
+            //{
+                //obj.GetComponent<Rigidbody2D>().AddForce(Vector2.left);
+             //   obj.transform.position = gameObject.transform.position + new Vector3(-3, 0, 0);
+            //}
+
+           
+
+
+
+            //bool a = GameObject.Find("terra").GetComponent<PlayerMove>().facingRight;
+            //if (a)
+            //{
+            //    obj.GetComponent<Rigidbody2D>().AddForce(Vector2.right *10000);
+            //}
+            //else
+            //    obj.GetComponent<Rigidbody2D>().AddForce(Vector2.left);
+            //RemovePotion(obj);
             //Invoke("RemovePotion", 2); // 2초뒤 LaunchProjectile함수 호출
         }
     }
