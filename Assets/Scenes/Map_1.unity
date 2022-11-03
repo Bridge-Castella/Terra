@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 25869509}
   m_Layer: 11
   m_Name: FrontBlock_2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1499,6 +1499,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform_x2
       objectReference: {fileID: 0}
+    - target: {fileID: 3676429698359943073, guid: a4997d7c112931845ac00d3dfd97993d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 3676429698359943074, guid: a4997d7c112931845ac00d3dfd97993d,
         type: 3}
       propertyPath: m_RootOrder
@@ -1572,7 +1577,7 @@ GameObject:
   - component: {fileID: 350606720}
   m_Layer: 0
   m_Name: Underground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1606,7 +1611,7 @@ GameObject:
   - component: {fileID: 390632254}
   m_Layer: 11
   m_Name: FrontBlock_4
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1930,6 +1935,7 @@ MonoBehaviour:
   backgroundSize: 100
   multiplier: 1
   horizontalOnly: 0
+  verticalOnly: 0
 --- !u!4 &432498091
 Transform:
   m_ObjectHideFlags: 0
@@ -2059,7 +2065,7 @@ GameObject:
   - component: {fileID: 458877609}
   m_Layer: 10
   m_Name: Underground_1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3045,6 +3051,7 @@ MonoBehaviour:
   backgroundSize: 100
   multiplier: 1.1
   horizontalOnly: 0
+  verticalOnly: 0
 --- !u!1 &598727885
 GameObject:
   m_ObjectHideFlags: 0
@@ -3644,6 +3651,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform_x4
       objectReference: {fileID: 0}
+    - target: {fileID: 1349922121842387847, guid: 8dc3159646a815b4397fc152d9052a4e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dc3159646a815b4397fc152d9052a4e, type: 3}
 --- !u!4 &733354173 stripped
@@ -3827,7 +3839,7 @@ GameObject:
   - component: {fileID: 771925981}
   m_Layer: 11
   m_Name: FrontBlock_3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4207,7 +4219,7 @@ GameObject:
   - component: {fileID: 933737124}
   m_Layer: 17
   m_Name: FlakeCollider
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4704,6 +4716,7 @@ MonoBehaviour:
   backgroundSize: 100
   multiplier: 0.9
   horizontalOnly: 0
+  verticalOnly: 0
 --- !u!4 &1032415187
 Transform:
   m_ObjectHideFlags: 0
@@ -5106,7 +5119,7 @@ GameObject:
   - component: {fileID: 1069133089}
   m_Layer: 11
   m_Name: FrontBlock_1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5981,7 +5994,7 @@ GameObject:
   - component: {fileID: 1344448852}
   m_Layer: 11
   m_Name: Underground_2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6196,7 +6209,7 @@ GameObject:
   - component: {fileID: 1359420103}
   m_Layer: 10
   m_Name: Underground_3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7977,6 +7990,7 @@ MonoBehaviour:
   backgroundSize: 100
   multiplier: 0.9
   horizontalOnly: 0
+  verticalOnly: 0
 --- !u!4 &1671393029
 Transform:
   m_ObjectHideFlags: 0
@@ -9065,7 +9079,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPoint: {fileID: 0}
-  fadingPlatforms: []
   damageAmount: 4
 --- !u!61 &1880778661
 BoxCollider2D:
@@ -9364,7 +9377,7 @@ GameObject:
   - component: {fileID: 1931351588}
   m_Layer: 11
   m_Name: FrontBlock
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

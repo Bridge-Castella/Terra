@@ -22,8 +22,8 @@ public class PlayerMove : MonoBehaviour
 
     [HideInInspector]public bool isHurting = false; //데미지 입은 경우
 
-    Rigidbody2D rigid;    
-    bool facingRight = true; //flip관련 bool 변수
+    Rigidbody2D rigid;
+    [HideInInspector] public bool facingRight = true; //flip관련 bool 변수
     bool isKnockback = false; //튕겨나간 경우
     bool isJumping = false; //점프하는 상태인 경우
     [HideInInspector] public bool isTalking = false;
