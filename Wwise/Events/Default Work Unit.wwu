@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" SchemaVersion="103">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="login" ID="{D04C99E1-15B2-4596-B4D0-199A45B3A55C}">
+					<ChildrenList>
+						<Action Name="" ID="{3556A0C3-AE82-479A-B2E7-0A45B734E8CA}" ShortID="920928982">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="bgm_login" ID="{462672A0-15BC-4A21-8FF9-10B32A894A54}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="forest" ID="{6F83D53A-7A13-446A-A4B3-0988660CE258}">
+					<ChildrenList>
+						<Action Name="" ID="{1EAC8192-A90E-46B7-9824-736FEB5A9AB2}" ShortID="43566726">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="bgm_forest" ID="{7A7DEF83-045E-4EFB-9D1F-6CD7F022B261}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

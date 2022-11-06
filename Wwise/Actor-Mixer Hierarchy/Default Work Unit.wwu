@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}" SchemaVersion="103">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="bgm_login" ID="{462672A0-15BC-4A21-8FF9-10B32A894A54}" ShortID="650925633">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="bgm_login" ID="{82D0A5E8-BCD9-401D-BAF7-8DD1560A8C2E}">
+							<Language>SFX</Language>
+							<AudioFile>bgm_login.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="32443683"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="bgm_login" ID="{82D0A5E8-BCD9-401D-BAF7-8DD1560A8C2E}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="bgm_forest" ID="{7A7DEF83-045E-4EFB-9D1F-6CD7F022B261}" ShortID="137193466">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="bgm_forest" ID="{52796126-0883-41DA-A7BC-6EC650479337}">
+							<Language>SFX</Language>
+							<AudioFile>bgm_forest.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="725733805"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="bgm_forest" ID="{52796126-0883-41DA-A7BC-6EC650479337}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

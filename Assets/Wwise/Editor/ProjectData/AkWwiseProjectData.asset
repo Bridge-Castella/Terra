@@ -331,8 +331,22 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: 69dd0fec90ca2743a6db088c1745b457
     GuidInternal: 
-    m_lastTime: -8585339355104775808
-    List: []
+    m_lastTime: -8585338943534775808
+    List:
+    - name: Bgm
+      guid: 5e4ff34f5a9b1843b04261079f1ef0f3
+      id: 412724365
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 69dd0fec90ca2743a6db088c1745b457
+      - ElementName: Bgm
+        ObjectType: 7
+        guid: 5e4ff34f5a9b1843b04261079f1ef0f3
+      Path: SoundBanks/Default Work Unit/Bgm
   EventWwu:
   - PhysicalPath: Events/Default Work Unit.wwu
     PathAndIcons:
@@ -345,8 +359,42 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit
     guid: 3c892e51e7870e4681036ce8208cc5b9
     GuidInternal: 
-    m_lastTime: -8585339355104775808
-    List: []
+    m_lastTime: -8585338943534775808
+    List:
+    - name: forest
+      guid: 3ad5836f137a6a44a4b30988660ce258
+      id: 491961918
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3c892e51e7870e4681036ce8208cc5b9
+      - ElementName: forest
+        ObjectType: 3
+        guid: 3ad5836f137a6a44a4b30988660ce258
+      Path: Events/Default Work Unit/forest
+      maxAttenuation: 0
+      maxDuration: 97.03893
+      minDuration: 97.03893
+    - name: login
+      guid: e1994cd0b2159645b4d0199a45b3a55c
+      id: 73015004
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3c892e51e7870e4681036ce8208cc5b9
+      - ElementName: login
+        ObjectType: 3
+        guid: e1994cd0b2159645b4d0199a45b3a55c
+      Path: Events/Default Work Unit/login
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters/Default Work Unit.wwu
     PathAndIcons:
@@ -373,7 +421,7 @@ MonoBehaviour:
     ParentPath: States/Default Work Unit
     guid: d84df844aafe884c8f00dcc9065e402f
     GuidInternal: 
-    m_lastTime: -8585339355104775808
+    m_lastTime: -8585338952014775808
     List: []
   SwitchWwu:
   - PhysicalPath: Switches/Default Work Unit.wwu
@@ -404,7 +452,7 @@ MonoBehaviour:
     m_lastTime: -8585339355104775808
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 010000000500000006000000070000000b0000000c0000000d000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
