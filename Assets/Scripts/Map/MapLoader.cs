@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MapLoader : MonoBehaviour
 {
-    private bool is_map_loaded = false;
+    public int mapIndex;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (is_map_loaded) return;
         if (collision.gameObject.tag != "Player") return;
+        MapManager.instance.LoadMap(mapIndex);
+    }
 
-        MapManager.instance.LoadMap();
-        is_map_loaded = true;
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag != "Player") return;
+        MapManager.instance.UnloadMap(mapIndex);
     }
 }
