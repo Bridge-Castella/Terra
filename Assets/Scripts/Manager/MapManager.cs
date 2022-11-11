@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,9 +23,9 @@ public class MapManager : MonoBehaviour
 
     public enum MapState
     {
-        Login,
+        Login = 0,
         Forest,
-        Dessert,
+        Desert
     }
 
     public MapState mapState;
@@ -46,47 +47,70 @@ public class MapManager : MonoBehaviour
     }
 
 
-    private static int additive_map_start_index = 3;
+    [SerializeField] private int AdditiveMapStartIndex = 3;
 
-    public void LoadMap(string map = "")
+    public AsyncOperation LoadMap(int index = 0)
     {
-        if (map != "")
-        {
-            SceneManager.LoadSceneAsync(map);
-            return;
-        }
-
         if (SceneManager.sceneCount == 1)
         {
-            SceneManager.LoadSceneAsync("02.Map_0");
+            var async = SceneManager.LoadSceneAsync("02.Map_0");
             SceneManager.LoadScene("Map_1", LoadSceneMode.Additive);
-            return;
+            return async;
         }
 
-        Scene? scene = GetCurrentMap();
-        if (scene == null) return;
-        int current = ((Scene)scene).buildIndex;
-        SceneManager.LoadSceneAsync(++current, LoadSceneMode.Additive);
+        int scene_index = ToSceneIndex(index);
+        if (scene_index < 2 || IsMapLoaded(scene_index)) return null;
+        return SceneManager.LoadSceneAsync(scene_index, LoadSceneMode.Additive);
     }
 
-    public Scene? GetCurrentMap()
+    public AsyncOperation UnloadMap(int index)
     {
-        for(int i = 0; i < SceneManager.sceneCount; i++)
-        {
-            Scene scene = SceneManager.GetSceneAt(i);
-            if (scene.buildIndex >= additive_map_start_index) return scene;
-        }
-        return null;
+        int scene_index = ToSceneIndex(index);
+        if (scene_index < 2 || !IsMapLoaded(scene_index)) return null;
+        return SceneManager.UnloadSceneAsync(scene_index);
     }
 
-    public Scene? GetNextMap()
+    public Scene? GetMap(int index)
     {
+        int sceneIndex = ToSceneIndex(index);
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
             Scene scene = SceneManager.GetSceneAt(i);
-            if (scene.buildIndex < additive_map_start_index) continue;
-            if (++i < SceneManager.sceneCount) return SceneManager.GetSceneAt(i);
+            if (scene.buildIndex == sceneIndex) return scene;
         }
         return null;
+    }
+
+    public GameObject FindObjectInMap(int index, string name)
+    {
+        Scene? scene = GetMap(index);
+        if (scene == null) return null;
+
+        GameObject[] objects = ((Scene)scene).GetRootGameObjects();
+        foreach (GameObject obj in objects)
+        {
+            if (obj.name == name) return obj;
+        }
+
+        return null;
+    }
+
+    private bool IsMapLoaded(int index)
+    {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            if (SceneManager.GetSceneAt(i).buildIndex == index) return true;
+        }
+        return false;
+    }
+
+    public int ToMapIndex(int index)
+    {
+        return index - AdditiveMapStartIndex + 1;
+    }
+
+    public int ToSceneIndex(int index)
+    {
+        return index + AdditiveMapStartIndex - 1;
     }
 }
