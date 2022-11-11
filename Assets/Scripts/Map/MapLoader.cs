@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MapLoader : MonoBehaviour
 {
-    public int mapIndex;
+    public MapManager.MapState map;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag != "Player") return;
-        MapManager.instance.LoadMap(mapIndex);
+        MapManager.instance.LoadMap((int)map);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag != "Player") return;
-        MapManager.instance.UnloadMap(mapIndex);
+        MapManager.instance.UnloadMap((int)map);
     }
 }

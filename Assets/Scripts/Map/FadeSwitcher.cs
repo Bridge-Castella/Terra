@@ -1,33 +1,21 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundSwitcher : MonoBehaviour
+public class FadeSwitcher : MonoBehaviour
 {
     public float UpdateInterval = 0.016f;
     public float FadeInterval = 0.01f;
     public float FadeInDelay = 0.5f;
     public float FadeOutDelay = 0.0f;
 
-    private SpriteRenderer[] background = null;
-
-    private void Start()
-    {
-        initBackground();
-        SetAlpha(0.0f);
-    }
-
-    private void OnEnable()
-    {
-        StartFadeIn();
-    }
+    private SpriteRenderer[] sprite = null;
 
     public void SetAlpha(float alpha)
     {
-        initBackground();
-        if (background == null) return;
-        foreach (SpriteRenderer bg in background)
+        Init();
+        if (sprite == null) return;
+        foreach (SpriteRenderer bg in sprite)
         {
             Color color = bg.color;
             color.a = alpha;
@@ -37,10 +25,10 @@ public class BackgroundSwitcher : MonoBehaviour
 
     public void StartFadeIn()
     {
-        initBackground();
-        if (background == null) return;
+        Init();
+        if (sprite == null) return;
         StopAllCoroutines();
-        foreach (SpriteRenderer bg in background)
+        foreach (SpriteRenderer bg in sprite)
         {
             StartCoroutine(FadeIn(bg, FadeInDelay));
         }
@@ -48,10 +36,10 @@ public class BackgroundSwitcher : MonoBehaviour
 
     public void StartFadeOut()
     {
-        initBackground();
-        if (background == null) return;
+        Init();
+        if (sprite == null) return;
         StopAllCoroutines();
-        foreach (SpriteRenderer bg in background)
+        foreach (SpriteRenderer bg in sprite)
         {
             StartCoroutine(FadeOut(bg, FadeOutDelay));
         }
@@ -95,17 +83,22 @@ public class BackgroundSwitcher : MonoBehaviour
 
     public float GetAlpha()
     {
-        initBackground();
-        if (background == null) return 0.0f;
-        return background[0].color.a;
+        Init();
+        if (sprite == null) return 0.0f;
+        return sprite[0].color.a;
     }
 
-    public void initBackground()
+    public void Init()
     {
-        if (background != null)
+        InitSprite();
+    }
+
+    public void InitSprite()
+    {
+        if (sprite != null)
         {
-            if (background.Length > 0) return;
+            if (sprite.Length > 0) return;
         }
-        background = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        sprite = gameObject.GetComponentsInChildren<SpriteRenderer>();
     }
 }

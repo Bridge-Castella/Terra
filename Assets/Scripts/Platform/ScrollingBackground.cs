@@ -89,4 +89,9 @@ public class ScrollingBackground : MonoBehaviour
     {
         return multiplier;
     }
+
+    public void SetStartPos(Vector3 position)
+    {
+        startPos = position;
+    }
 }
