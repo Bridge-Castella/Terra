@@ -34,7 +34,7 @@ public class QuestManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        questItemGroup = GameObject.Find("QuestItemGroup");
     }
 
     // Update is called once per frame
