@@ -27,8 +27,6 @@ public class ControlManager : MonoBehaviour
     private void Update()
     {
         Option();
-        if (Input.GetKeyDown(KeyCode.R))
-            RetryGame();
     }
 
     public void Option()
