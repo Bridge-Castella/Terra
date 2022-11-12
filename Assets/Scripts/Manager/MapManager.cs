@@ -23,9 +23,9 @@ public class MapManager : MonoBehaviour
 
     public enum MapState
     {
-        Login,
+        Login = 0,
         Forest,
-        Dessert,
+        Desert
     }
 
     public MapState mapState;
@@ -47,7 +47,7 @@ public class MapManager : MonoBehaviour
     }
 
 
-    public int AdditiveMapStartIndex = 3;
+    [SerializeField] private int AdditiveMapStartIndex = 3;
 
     public AsyncOperation LoadMap(int index = 0)
     {

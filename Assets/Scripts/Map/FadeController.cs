@@ -2,22 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundController : MonoBehaviour
+public class FadeController : MonoBehaviour
 {
-    public GameObject background;
-    private BackgroundSwitcher switcher;
+    public GameObject[] environment;
+    private FadeSwitcher switcher;
 
     private void Start()
     {
-        switcher = gameObject.GetComponent<BackgroundSwitcher>();
+        switcher = gameObject.GetComponent<FadeSwitcher>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            if (!background.activeSelf) background.SetActive(true);
-            else switcher.StartFadeIn();
+            foreach (GameObject ele in environment)
+            {
+                if (!ele.activeSelf) ele.SetActive(true);
+                else switcher.StartFadeIn();
+            }
         }
     }
 
@@ -33,6 +36,12 @@ public class BackgroundController : MonoBehaviour
     private IEnumerator WaitForBackgroundToFinish()
     {
         yield return new WaitForSeconds(switcher.GetFadeSeconds(0.0f));
-        if (switcher.GetAlpha() == 0.0f) background.SetActive(false);
+        if (switcher.GetAlpha() == 0.0f)
+        {
+            foreach (GameObject ele in environment)
+            {
+                ele.SetActive(false);
+            }
+        }
     }
 }
