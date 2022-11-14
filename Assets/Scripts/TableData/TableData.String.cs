@@ -13,7 +13,7 @@ public partial class TableData : MonoBehaviour
 
     void StringDataInit()
     {
-        List<Dictionary<string, object>> data = CSVReader.Read("string_table");
+        List<Dictionary<string, object>> data = CSVReader.Read("npc_string_table");
 
         for(int i = 0; i < data.Count; i++)
         {

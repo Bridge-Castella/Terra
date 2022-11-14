@@ -32,7 +32,7 @@ public class Dialogue : MonoBehaviour
 
     NpcAction npc;
 
-    private void Start()
+    private void Awake()
     {
         dialogueAnswer1Button.onClick.AddListener(OnClickDialogueAnswer1Button);
         dialogueAnswer2Button.onClick.AddListener(OnClickDialogueAnswer2Button);
@@ -75,7 +75,7 @@ public class Dialogue : MonoBehaviour
                     dialogueText.text = TableData.instance.GetDialogue(list[string_idIdx].string_id);
                 }
 
-                //대화타입이 3일때(선택지를 선택하고 나서)conv_connect_id에 값을 넣어줘서 npc_id에 종속되는 대화로 넘어가도록.
+                //대화타입이 3일때 conv_connect_id에 값을 넣어줘서 npc_id에 종속되는 대화로 넘어가도록.
                 if (conv_connect_id != null)
                     DialogueWithNPC(story_id, conv_connect_id);
                 else
@@ -87,8 +87,8 @@ public class Dialogue : MonoBehaviour
     public void DialogueWithNPC(string story_id, string npc_id)
     {
         this.story_id = story_id;
-        npc_idList = new List<string>(TableData.instance.GetMainDataDic()[story_id].Keys);
-        mainDataDic = TableData.instance.GetMainDataDic()[story_id];
+        npc_idList = new List<string>(TableData.instance.GetMainDataDic(npc.npc_diff_id)[story_id].Keys);
+        mainDataDic = TableData.instance.GetMainDataDic(npc.npc_diff_id)[story_id];
         //npc_id에 종속되는 대화를 리스트로 가져오는 과정
         list = mainDataDic[npc_id];
 
@@ -113,7 +113,7 @@ public class Dialogue : MonoBehaviour
                 }
                 break;
             case 3:
-                //선택지를 선택하고 나면 conv_connect_id에 값을 넣어줘서 해당 대화로 넘어가게 함.
+                //npc_id 묶음이 끝나면 conv_connect_id에 값을 넣어줘서 해당 대화로 넘어가게 함.
                 conv_connect_id = list[string_idIdx].conv_connect_id;
                 break;
             case 4:
@@ -144,6 +144,7 @@ public class Dialogue : MonoBehaviour
     {
         dialogueAnswer1Button.gameObject.SetActive(false);
         dialogueAnswer2Button.gameObject.SetActive(false);
+        conv_connect_id = answer1_connect_id;
         DialogueWithNPC(story_id, answer1_connect_id);
     }
 
@@ -151,6 +152,7 @@ public class Dialogue : MonoBehaviour
     {
         dialogueAnswer1Button.gameObject.SetActive(false);
         dialogueAnswer2Button.gameObject.SetActive(false);
+        conv_connect_id = answer2_connect_id;
         DialogueWithNPC(story_id, answer2_connect_id);
     }
 }
