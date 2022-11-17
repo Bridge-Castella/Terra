@@ -31,18 +31,6 @@ public class QuestManager : MonoBehaviour
     public int questItemNum = 0;
     public int questItemTotalNum = 5;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //TODO: 다이얼로그에서 퀘스트 아이디를 받아와야 할듯
     public void StartQuest()
     {

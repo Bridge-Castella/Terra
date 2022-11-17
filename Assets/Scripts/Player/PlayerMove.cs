@@ -239,9 +239,9 @@ public class PlayerMove : MonoBehaviour
     public void DamageFlash()
     {
         materialTintColor = new Color(1, 1, 1, 0.5f);
-        for(int i = 0; i< spriteRenderer.Length; i++)
+        for(int i = 0; i < spriteRenderer.Length; i++)
         {
-            spriteRenderer[i].material.SetColor("_Color", materialTintColor);
+            spriteRenderer[i].color = materialTintColor;
         }
         isHurting = true;
     }
@@ -273,7 +273,7 @@ public class PlayerMove : MonoBehaviour
             materialTintColor = new Color(1, 1, 1, 1f);
             for (int i = 0; i < spriteRenderer.Length; i++)
             {
-                spriteRenderer[i].material.SetColor("_Color", materialTintColor);
+                spriteRenderer[i].color = materialTintColor;
             }
             isHurting = false;
         }

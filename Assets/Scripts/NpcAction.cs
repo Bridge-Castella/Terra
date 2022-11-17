@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NpcAction : MonoBehaviour
 {
+    public string npc_diff_id;
     public GameObject dialogueUIObject;
     public GameObject dialogueUiObjectInstance;
     //npc 위 위치
@@ -43,14 +44,14 @@ public class NpcAction : MonoBehaviour
     {
         dialogueUIRectTranform = dialogueUIObject.GetComponent<RectTransform>();
         canvas = FindObjectOfType<Canvas>();
-        story_idList = new List<string>(TableData.instance.GetMainDataDic().Keys);
+        story_idList = new List<string>(TableData.instance.GetMainDataDic(npc_diff_id).Keys);
         player = FindObjectOfType<PlayerMove>();
         animator = gameObject.GetComponent<Animator>();
     }
 
     public void ShowDialogueUIObject()
     {
-        //TODO: 임시로 퀘스트 끝나거나 실패하면 대화 못하도록 함. 뒤에 대화가 더 생기면 없애야함.
+        //TODO: 임시로 퀘스트 끝나거나 실패하면 대화 못하도록 함.
         if(isDialogueEnd || QuestManager.instance.isFailed)
             return;
         //ui가 만들어져 있다면 생성안함.
@@ -87,7 +88,7 @@ public class NpcAction : MonoBehaviour
                 isDialogueEnd = true;
             }
 
-            List<string> npc_idList = new List<string>(TableData.instance.GetMainDataDic()[story_idList[story_idIdx]].Keys);
+            List<string> npc_idList = new List<string>(TableData.instance.GetMainDataDic(npc_diff_id)[story_idList[story_idIdx]].Keys);
             dialogueUiObjectInstance.GetComponent<Dialogue>().DialogueWithNPC(story_idList[story_idIdx], npc_idList[0]);
 
             //퀘스트 중이라면 인덱스 넘어가지 않음(스토리 진행되지 않음)
@@ -97,7 +98,6 @@ public class NpcAction : MonoBehaviour
                 if(story_idIdx != story_idList.Count-1)
                     story_idIdx++;
             }
-            //TODO: 퀘스트를 완료한 후 말걸면 대화 가능할 수 있어야함. 성공하든 실패하든 같은 대화가 나와야 할듯
         }
     }
 }
