@@ -36,7 +36,7 @@ public class FallDetector : MonoBehaviour
         if(!player.isHurting)
         {
             player.DamageFlash();
-            HeartsHealthVisual.heartHealthSystemStatic.Damage(damageAmount);
+            HeartManager.instance.GetDamage();
             StartCoroutine(player.CoEnableDamage(0.5f, 1.5f));
         }
 
