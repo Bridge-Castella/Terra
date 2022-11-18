@@ -28,7 +28,7 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 	[UnityEngine.SerializeField] private bool isStaticObject = false;
 
 	/// Cache the bounds to avoid calls to GetComponent()
-	private UnityEngine.Collider m_Collider;
+	private UnityEngine.Collider2D m_Collider;
 
 	private AkGameObjEnvironmentData m_envData;
 
@@ -102,7 +102,7 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 			m_posData = new AkGameObjPositionData();
 
 		// Cache the bounds to avoid calls to GetComponent()
-		m_Collider = GetComponent<UnityEngine.Collider>();
+		m_Collider = GetComponent<UnityEngine.Collider2D>();
 
 		//Register a Game Object in the sound engine, with its name.
 		if (Register() == AKRESULT.AK_Success)
@@ -230,7 +230,7 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 		return transform.up;
 	}
 
-	private void OnTriggerEnter(UnityEngine.Collider other)
+	private void OnTriggerEnter2D(UnityEngine.Collider2D other)
 	{
 #if UNITY_EDITOR
 		if (AkUtilities.IsMigrating || !UnityEditor.EditorApplication.isPlaying)
@@ -241,7 +241,7 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 			m_envData.AddAkEnvironment(other, m_Collider);
 	}
 
-	private void OnTriggerExit(UnityEngine.Collider other)
+	private void OnTriggerExit2D(UnityEngine.Collider2D other)
 	{
 #if UNITY_EDITOR
 		if (AkUtilities.IsMigrating || !UnityEditor.EditorApplication.isPlaying)

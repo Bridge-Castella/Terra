@@ -91,8 +91,8 @@ public class PlayerMove : MonoBehaviour
             if ((Input.GetButtonDown("Jump") && (IsGrounded() || (canDoubleJump && abilities.canDoubleJump))) 
                 || (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump")))
             {
-                if (AudioManager.instance != null)
-                    AudioManager.instance.PlaySound("jump_01");
+                //if (AudioManager.instance != null)
+                    //AudioManager.instance.PlaySound("jump_01");
 
                 if (IsGrounded())
                 {
@@ -175,13 +175,13 @@ public class PlayerMove : MonoBehaviour
 
             if (moveHorizontalInput != 0 && IsGrounded())
             {
-                if (AudioManager.instance != null)
-                    AudioManager.instance.PlayWalkSound("grass");
+                //if (AudioManager.instance != null)
+                    //AudioManager.instance.PlayWalkSound("grass");
             }
             else
             {
-                if (AudioManager.instance != null)
-                    AudioManager.instance.StopWalkSound();
+                //if (AudioManager.instance != null)
+                    //AudioManager.instance.StopWalkSound();
             }
 
             if (moveHorizontalInput > 0 && !facingRight)
@@ -230,8 +230,8 @@ public class PlayerMove : MonoBehaviour
     {
         if(collision.gameObject.layer == 10 && isJumping)
         {
-            if (AudioManager.instance != null)
-                AudioManager.instance.PlaySound("jump_02");
+            //if (AudioManager.instance != null)
+                //AudioManager.instance.PlaySound("jump_02");
             isJumping = false;
         }
     }
@@ -254,8 +254,8 @@ public class PlayerMove : MonoBehaviour
         rigid.AddForce(knockBack, ForceMode2D.Impulse);
         DamageFlash();
         //부딪히면 나는 소리
-        if (AudioManager.instance != null)
-            AudioManager.instance.PlaySound("warn_01");
+        //if (AudioManager.instance != null)
+            //AudioManager.instance.PlaySound("warn_01");
 
         isKnockback = true;
         HeartsHealthVisual.heartHealthSystemStatic.Damage(damageAmount);

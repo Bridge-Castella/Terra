@@ -11,32 +11,81 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="412724365" Language="SFX" Hash="1171717437">
-			<ObjectPath>\SoundBanks\Default Work Unit\Bgm</ObjectPath>
-			<ShortName>Bgm</ShortName>
-			<Path>Bgm.bnk</Path>
+		<SoundBank Id="1355168291" Language="SFX" Hash="1444930715">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<GameParameters>
+				<GameParameter Id="393239870" Name="SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume\SFX"/>
+				<GameParameter Id="412724365" Name="BGM" ObjectPath="\Game Parameters\Default Work Unit\Volume\BGM"/>
+				<GameParameter Id="4056684167" Name="Master" ObjectPath="\Game Parameters\Default Work Unit\Volume\Master"/>
+			</GameParameters>
+		</SoundBank>
+		<SoundBank Id="1465331116" Language="SFX" Hash="2998816372">
+			<ObjectPath>\SoundBanks\Default Work Unit\Global</ObjectPath>
+			<ShortName>Global</ShortName>
+			<Path>Global.bnk</Path>
 			<IncludedEvents>
-				<Event Id="491961918" Name="forest" ObjectPath="\Events\Default Work Unit\forest" DurationType="OneShot" DurationMin="97.038933" DurationMax="97.038933"/>
-				<Event Id="73015004" Name="login" ObjectPath="\Events\Default Work Unit\login" DurationType="Infinite">
+				<Event Id="626769978" Name="BackGroundMusic" ObjectPath="\Events\Default Work Unit\BackGroundMusic" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="32443683" Language="SFX">
+						<File Id="139030541" Language="SFX">
 							<ShortName>bgm_login.wav</ShortName>
 							<Path>SFX/bgm_login_D79FB2B7.wem</Path>
+						</File>
+						<File Id="677212553" Language="SFX">
+							<ShortName>bgm_forest.wav</ShortName>
+							<Path>SFX/bgm_forest_D79FB2B7.wem</Path>
+						</File>
+						<File Id="912691396" Language="SFX">
+							<ShortName>로그인테마2.wav</ShortName>
+							<Path>SFX/로그인테마2_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{AE25278A-9D5E-4D38-B682-924CB3CF8346}">
+							<Media>
+								<File Id="677212553"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{9C5A2680-CDDD-458A-A81E-FDC2A7C1C4E5}">
+							<Media>
+								<File Id="912691396"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{099491FA-D060-4086-8836-202699A163C6}">
+							<Media>
+								<File Id="139030541"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="4010314750" Name="MouseClick" ObjectPath="\Events\Default Work Unit\MouseClick" DurationType="OneShot" DurationMin="0.90886" DurationMax="0.90886">
+					<IncludedMemoryFiles>
+						<File Id="545133625" Language="SFX">
+							<ShortName>UI_04.wav</ShortName>
+							<Path>SFX/UI_04_7FBFB449.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3478063044" Name="MouseHover" ObjectPath="\Events\Default Work Unit\MouseHover" DurationType="OneShot" DurationMin="0.119651" DurationMax="0.119651">
+					<IncludedMemoryFiles>
+						<File Id="222728699" Language="SFX">
+							<ShortName>UI_03.wav</ShortName>
+							<Path>SFX/UI_03_C4357CA3.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 			</IncludedEvents>
-			<IncludedMemoryFiles>
-				<File Id="725733805" Language="SFX">
-					<ShortName>bgm_forest.wav</ShortName>
-					<Path>SFX/bgm_forest_10C4C929.wem</Path>
-				</File>
-			</IncludedMemoryFiles>
-		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3071028539">
-			<ObjectPath>Init</ObjectPath>
-			<ShortName>Init</ShortName>
-			<Path>Init.bnk</Path>
+			<StateGroups>
+				<StateGroup Id="626769978" Name="BackGroundMusic" ObjectPath="\States\Default Work Unit\BackGroundMusic" GUID="{16D442EE-A81E-4073-BD4D-751E36DF9237}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\BackGroundMusic\None" GUID="{C5E56DF5-251A-4619-B478-BCC27EBAF850}"/>
+						<State Id="491961918" Name="Forest" ObjectPath="\States\Default Work Unit\BackGroundMusic\Forest" GUID="{AE25278A-9D5E-4D38-B682-924CB3CF8346}"/>
+						<State Id="73015004" Name="Login" ObjectPath="\States\Default Work Unit\BackGroundMusic\Login" GUID="{9C5A2680-CDDD-458A-A81E-FDC2A7C1C4E5}"/>
+						<State Id="1850388778" Name="Desert" ObjectPath="\States\Default Work Unit\BackGroundMusic\Desert" GUID="{099491FA-D060-4086-8836-202699A163C6}"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

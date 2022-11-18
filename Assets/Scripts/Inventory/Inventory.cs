@@ -84,7 +84,7 @@ public class Inventory : MonoBehaviour
             {
                 if(itemObject.skillType == SkillItemObject.SkillItemType.Light)
                 {
-                    AudioManager.instance.PlaySound("item_02");
+                    //AudioManager.instance.PlaySound("item_02");
                     if (itemObject.amount > 0)
                     {
                         itemObject.amount--;
@@ -98,7 +98,7 @@ public class Inventory : MonoBehaviour
             {
                 if (itemObject.skillType == SkillItemObject.SkillItemType.Fire)
                 {
-                    AudioManager.instance.PlaySound("item_03");
+                    //AudioManager.instance.PlaySound("item_03");
                     if (itemObject.amount > 0)
                         itemObject.amount--;
                 }
@@ -109,7 +109,7 @@ public class Inventory : MonoBehaviour
             {
                 if (itemObject.skillType == SkillItemObject.SkillItemType.Water)
                 {
-                    AudioManager.instance.PlaySound("item_04");
+                    //AudioManager.instance.PlaySound("item_04");
                     if (itemObject.amount > 0)
                         itemObject.amount--;
                 }

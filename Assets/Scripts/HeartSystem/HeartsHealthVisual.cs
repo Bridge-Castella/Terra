@@ -24,7 +24,7 @@ public class HeartsHealthVisual : MonoBehaviour
 
     private void Start()
     {
-        //하트 개수
+        //???? ????
         HeartHealthSystem heartHealthSystem = new HeartHealthSystem(5);
         SetHeartHealthSystem(heartHealthSystem);
     }
@@ -34,12 +34,12 @@ public class HeartsHealthVisual : MonoBehaviour
         this.heartHealthSystem = heartHealthSystem;
         heartHealthSystemStatic = heartHealthSystem;
 
-        //하트시스템에 넣어준 리스트 가져옴(개수)
+        //???????????? ?????? ?????? ??????(????)
         List<HeartHealthSystem.Heart> heartList = heartHealthSystem.GetHeartList();
         Vector2 heartAnchoredPosition = new Vector2(0, 0);
         float rotationZ = 8f;
 
-        //캔버스에 하트 포지션 정해줌, 조각정해줌
+        //???????? ???? ?????? ??????, ??????????
         for(int i = 0; i< heartList.Count; i++)
         {
             HeartHealthSystem.Heart heart = heartList[i];
@@ -64,8 +64,8 @@ public class HeartsHealthVisual : MonoBehaviour
     private void HeartHealthSystem_OnDead(object sender, System.EventArgs e)
     {
         Debug.Log("player is dead");
-        if(AudioManager.instance != null)
-            AudioManager.instance.PlaySound("life_02");
+        //if(AudioManager.instance != null)
+            //AudioManager.instance.PlaySound("life_02");
     }
 
     private void HeartHealthSystem_OnHealed(object sender, System.EventArgs e)
@@ -91,7 +91,7 @@ public class HeartsHealthVisual : MonoBehaviour
         }
     }
 
-    //캔버스에 하트 보여줌
+    //???????? ???? ??????
     private HeartImage CreateHeartImage(Vector2 anchoredPosition, float rotationZ)
     {
         GameObject heartGameobject = new GameObject("Heart", typeof(Image), typeof(Animation));

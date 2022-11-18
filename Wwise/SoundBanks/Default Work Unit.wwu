@@ -3,10 +3,11 @@
 	<SoundBanks>
 		<WorkUnit Name="Default Work Unit" ID="{EC0FDD69-CA90-4327-A6DB-088C1745B457}" PersistMode="Standalone">
 			<ChildrenList>
-				<SoundBank Name="Bgm" ID="{4FF34F5E-9B5A-4318-B042-61079F1EF0F3}">
+				<SoundBank Name="Global" ID="{221E741D-E812-4FA3-BD43-3920423DACE4}">
 					<ObjectInclusionList>
-						<ObjectRef Name="login" ID="{D04C99E1-15B2-4596-B4D0-199A45B3A55C}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="bgm_forest" ID="{7A7DEF83-045E-4EFB-9D1F-6CD7F022B261}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="MouseHover" ID="{FEAF9B28-C6F3-4017-A3CD-5B23674508D0}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="MouseClick" ID="{501BFC5A-B2E6-45FB-A341-9750E6EFB586}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="BackGroundMusic" ID="{D2E74002-5690-47FA-AB4A-8ED7CB30D61F}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

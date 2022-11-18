@@ -21,6 +21,8 @@ public class ControlManager : MonoBehaviour
     public GameObject optionObject;
     public GameObject optionObjectInstace;
 
+    
+
     public bool gameIsPaused = false;
 
 
@@ -46,7 +48,7 @@ public class ControlManager : MonoBehaviour
 
     public void Resume()
     {
-        AudioManager.instance.PlaySound("ui_02");
+        //AudioManager.instance.PlaySound("ui_02");
         Destroy(optionObjectInstace);
         //OptionObject.SetActive(false);
         Time.timeScale = 1f;
@@ -55,7 +57,7 @@ public class ControlManager : MonoBehaviour
 
     void Pause()
     {
-        AudioManager.instance.PlaySound("ui_01");
+        //AudioManager.instance.PlaySound("ui_01");
         optionObjectInstace = Instantiate(optionObject, FindObjectOfType<Canvas>().gameObject.transform);
         //OptionObject.SetActive(true);
         Time.timeScale = 0f;

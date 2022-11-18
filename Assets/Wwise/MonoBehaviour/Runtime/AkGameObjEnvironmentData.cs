@@ -136,7 +136,7 @@ public class AkGameObjEnvironmentData
 		hasEnvironmentListChanged = true;
 	}
 
-	public void AddAkEnvironment(UnityEngine.Collider environmentCollider, UnityEngine.Collider gameObjectCollider)
+	public void AddAkEnvironment(UnityEngine.Collider2D environmentCollider, UnityEngine.Collider2D gameObjectCollider)
 	{
 		var portal = environmentCollider.GetComponent<AkEnvironmentPortal>();
 		if (portal == null)
@@ -165,7 +165,7 @@ public class AkGameObjEnvironmentData
 		return false;
 	}
 
-	public void RemoveAkEnvironment(UnityEngine.Collider environmentCollider, UnityEngine.Collider gameObjectCollider)
+	public void RemoveAkEnvironment(UnityEngine.Collider2D environmentCollider, UnityEngine.Collider2D gameObjectCollider)
 	{
 		var portal = environmentCollider.GetComponent<AkEnvironmentPortal>();
 		if (portal != null)

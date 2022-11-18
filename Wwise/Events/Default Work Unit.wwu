@@ -3,23 +3,34 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="login" ID="{D04C99E1-15B2-4596-B4D0-199A45B3A55C}">
+				<Event Name="BackGroundMusic" ID="{D2E74002-5690-47FA-AB4A-8ED7CB30D61F}">
 					<ChildrenList>
-						<Action Name="" ID="{3556A0C3-AE82-479A-B2E7-0A45B734E8CA}" ShortID="920928982">
+						<Action Name="" ID="{D7EFDD3E-CCE0-4D50-93C7-D6BD501124BC}" ShortID="413003719">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="bgm_login" ID="{462672A0-15BC-4A21-8FF9-10B32A894A54}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+									<ObjectRef Name="BackGroundMusic" ID="{885E272B-5376-4F79-BC94-922BA43C29C1}" WorkUnitID="{9BBD8C55-D6D5-45FD-B1ED-7A1B47A6F33B}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="forest" ID="{6F83D53A-7A13-446A-A4B3-0988660CE258}">
+				<Event Name="MouseHover" ID="{FEAF9B28-C6F3-4017-A3CD-5B23674508D0}">
 					<ChildrenList>
-						<Action Name="" ID="{1EAC8192-A90E-46B7-9824-736FEB5A9AB2}" ShortID="43566726">
+						<Action Name="" ID="{3A03E4C9-CF65-44EC-B49B-E07FFED76DBA}" ShortID="222584081">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="bgm_forest" ID="{7A7DEF83-045E-4EFB-9D1F-6CD7F022B261}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+									<ObjectRef Name="UI_03" ID="{691B1148-A7EE-4A60-9799-C0A15AB39B6A}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MouseClick" ID="{501BFC5A-B2E6-45FB-A341-9750E6EFB586}">
+					<ChildrenList>
+						<Action Name="" ID="{06BA047C-55D9-4C19-A753-3F5C51A5BAA4}" ShortID="702538151">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_04" ID="{58B44CA5-D2BA-4124-8CBC-E2EAB0A165C9}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

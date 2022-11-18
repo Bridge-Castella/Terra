@@ -7,7 +7,7 @@ public class FallDetector : MonoBehaviour
     [SerializeField] private Transform checkPoint;
     [SerializeField] private int damageAmount;
 
-    Transform startPoint; //죽었을 경우 체크포인트 start
+    Transform startPoint; //?????? ???? ?????????? start
     PlayerMove player;
 
     private void Start()
@@ -28,7 +28,7 @@ public class FallDetector : MonoBehaviour
 
         StartCoroutine(CoPlayerStop());
         if(AudioManager.instance != null)
-            AudioManager.instance.PlaySound("life_01");
+            //AudioManager.instance.PlaySound("life_01");
 
         player = collision.gameObject.GetComponent<PlayerMove>();
         player.isFalling = true;
@@ -43,12 +43,12 @@ public class FallDetector : MonoBehaviour
         if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())
         {
             ControlManager.instance.RetryGame();
-            checkPoint = startPoint; //체크포인트 다시 startpoint로 
+            checkPoint = startPoint; //?????????? ???? startpoint?? 
             return;
         }
     }
 
-    //플레이어 떨어지면 일시정지
+    //???????? ???????? ????????
     IEnumerator CoPlayerStop()
     {
         yield return new WaitForSeconds(0.5f);
