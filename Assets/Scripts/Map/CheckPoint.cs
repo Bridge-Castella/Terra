@@ -10,6 +10,9 @@ public class CheckPoint : MonoBehaviour
     //?????? ?????????? ???? ????
     public bool isEndPoint = false;
 
+    [SerializeField] AK.Wwise.Event stageClear;
+    [SerializeField] AK.Wwise.Event checkPoint;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -22,10 +25,15 @@ public class CheckPoint : MonoBehaviour
         {
             if(AudioManager.instance != null)
             {
-                //if(isEndPoint)
-                    //AudioManager.instance.PlaySound("stage_clear_01");
+                //if(isEndPoint)                                                // Outdated audio engine
+                //AudioManager.instance.PlaySound("stage_clear_01");
                 //else
-                    //AudioManager.instance.PlaySound("checkPoint_01");
+                //AudioManager.instance.PlaySound("checkPoint_01");
+
+                if (isEndPoint)
+                    stageClear.Post(gameObject);
+                else
+                    checkPoint.Post(gameObject);
             }
                 
             if (collision.gameObject.tag == "Player")

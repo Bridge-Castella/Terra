@@ -11,22 +11,147 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1444930715">
-			<ObjectPath>Init</ObjectPath>
-			<ShortName>Init</ShortName>
-			<Path>Init.bnk</Path>
-			<GameParameters>
-				<GameParameter Id="393239870" Name="SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume\SFX"/>
-				<GameParameter Id="412724365" Name="BGM" ObjectPath="\Game Parameters\Default Work Unit\Volume\BGM"/>
-				<GameParameter Id="4056684167" Name="Master" ObjectPath="\Game Parameters\Default Work Unit\Volume\Master"/>
-			</GameParameters>
-		</SoundBank>
-		<SoundBank Id="1465331116" Language="SFX" Hash="2998816372">
-			<ObjectPath>\SoundBanks\Default Work Unit\Global</ObjectPath>
-			<ShortName>Global</ShortName>
-			<Path>Global.bnk</Path>
+		<SoundBank Id="73015004" Language="SFX" Hash="301898350">
+			<ObjectPath>\SoundBanks\Default Work Unit\Login</ObjectPath>
+			<ShortName>Login</ShortName>
+			<Path>Login.bnk</Path>
 			<IncludedEvents>
-				<Event Id="626769978" Name="BackGroundMusic" ObjectPath="\Events\Default Work Unit\BackGroundMusic" DurationType="Infinite">
+				<Event Id="2371688259" Name="KeyEscape" ObjectPath="\Events\Default Work Unit\UI\KeyEscape" DurationType="OneShot" DurationMin="1.130952" DurationMax="1.130952">
+					<IncludedMemoryFiles>
+						<File Id="790640650" Language="SFX">
+							<ShortName>UI_02.wav</ShortName>
+							<Path>SFX/UI_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2324342138" Name="KeyExit" ObjectPath="\Events\Default Work Unit\UI\KeyExit" DurationType="OneShot" DurationMin="0.90886" DurationMax="0.90886">
+					<IncludedMemoryFiles>
+						<File Id="545133625" Language="SFX">
+							<ShortName>UI_04.wav</ShortName>
+							<Path>SFX/UI_04_7FBFB449.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4165085968" Name="KeyPause" ObjectPath="\Events\Default Work Unit\UI\KeyPause" DurationType="OneShot" DurationMin="2.117642" DurationMax="2.117642">
+					<IncludedMemoryFiles>
+						<File Id="887999339" Language="SFX">
+							<ShortName>UI_01.wav</ShortName>
+							<Path>SFX/UI_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2084889547" Name="KeyResume" ObjectPath="\Events\Default Work Unit\UI\KeyResume" DurationType="OneShot" DurationMin="1.130952" DurationMax="1.130952">
+					<IncludedMemoryFiles>
+						<File Id="790640650" Language="SFX">
+							<ShortName>UI_02.wav</ShortName>
+							<Path>SFX/UI_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="978919826" Name="LoginBGM" ObjectPath="\Events\Default Work Unit\BGM\LoginBGM" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="912691396" Language="SFX">
+							<ShortName>로그인테마2.wav</ShortName>
+							<Path>SFX/로그인테마2_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4010314750" Name="MouseClick" ObjectPath="\Events\Default Work Unit\UI\MouseClick" DurationType="OneShot" DurationMin="0.90886" DurationMax="0.90886">
+					<IncludedMemoryFiles>
+						<File Id="545133625" Language="SFX">
+							<ShortName>UI_04.wav</ShortName>
+							<Path>SFX/UI_04_7FBFB449.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3478063044" Name="MouseHover" ObjectPath="\Events\Default Work Unit\UI\MouseHover" DurationType="OneShot" DurationMin="0.119651" DurationMax="0.119651">
+					<IncludedMemoryFiles>
+						<File Id="222728699" Language="SFX">
+							<ShortName>UI_03.wav</ShortName>
+							<Path>SFX/UI_03_C4357CA3.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="1048449605" Language="SFX" Hash="2220948810">
+			<ObjectPath>\SoundBanks\Default Work Unit\Map</ObjectPath>
+			<ShortName>Map</ShortName>
+			<Path>Map.bnk</Path>
+			<IncludedEvents>
+				<Event Id="612075679" Name="CheckPoint" ObjectPath="\Events\Default Work Unit\Stage\CheckPoint" DurationType="OneShot" DurationMin="2.117642" DurationMax="2.117642">
+					<IncludedMemoryFiles>
+						<File Id="256189056" Language="SFX">
+							<ShortName>CheckPoint_01.wav</ShortName>
+							<Path>SFX/CheckPoint_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="601950270" Name="itemCollect" ObjectPath="\Events\Default Work Unit\Item\itemCollect" DurationType="OneShot" DurationMin="2.117664" DurationMax="2.117664">
+					<IncludedMemoryFiles>
+						<File Id="671404968" Language="SFX">
+							<ShortName>ITEM_01.wav</ShortName>
+							<Path>SFX/ITEM_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2274340669" Name="ItemUseFire" ObjectPath="\Events\Default Work Unit\Item\ItemUseFire" DurationType="OneShot" DurationMin="5.327641" DurationMax="5.327641">
+					<IncludedMemoryFiles>
+						<File Id="152658555" Language="SFX">
+							<ShortName>ITEM_02.wav</ShortName>
+							<Path>SFX/ITEM_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3925246423" Name="ItemUseLight" ObjectPath="\Events\Default Work Unit\Item\ItemUseLight" DurationType="OneShot" DurationMin="3.888685" DurationMax="3.888685">
+					<IncludedMemoryFiles>
+						<File Id="470544452" Language="SFX">
+							<ShortName>ITEM_03.wav</ShortName>
+							<Path>SFX/ITEM_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2091985118" Name="ItemUseWater" ObjectPath="\Events\Default Work Unit\Item\ItemUseWater" DurationType="OneShot" DurationMin="2.875283" DurationMax="2.875283">
+					<IncludedMemoryFiles>
+						<File Id="99169713" Language="SFX">
+							<ShortName>ITEM_04.wav</ShortName>
+							<Path>SFX/ITEM_04_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2371688259" Name="KeyEscape" ObjectPath="\Events\Default Work Unit\UI\KeyEscape" DurationType="OneShot" DurationMin="1.130952" DurationMax="1.130952">
+					<IncludedMemoryFiles>
+						<File Id="790640650" Language="SFX">
+							<ShortName>UI_02.wav</ShortName>
+							<Path>SFX/UI_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2324342138" Name="KeyExit" ObjectPath="\Events\Default Work Unit\UI\KeyExit" DurationType="OneShot" DurationMin="0.90886" DurationMax="0.90886">
+					<IncludedMemoryFiles>
+						<File Id="545133625" Language="SFX">
+							<ShortName>UI_04.wav</ShortName>
+							<Path>SFX/UI_04_7FBFB449.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4165085968" Name="KeyPause" ObjectPath="\Events\Default Work Unit\UI\KeyPause" DurationType="OneShot" DurationMin="2.117642" DurationMax="2.117642">
+					<IncludedMemoryFiles>
+						<File Id="887999339" Language="SFX">
+							<ShortName>UI_01.wav</ShortName>
+							<Path>SFX/UI_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2084889547" Name="KeyResume" ObjectPath="\Events\Default Work Unit\UI\KeyResume" DurationType="OneShot" DurationMin="1.130952" DurationMax="1.130952">
+					<IncludedMemoryFiles>
+						<File Id="790640650" Language="SFX">
+							<ShortName>UI_02.wav</ShortName>
+							<Path>SFX/UI_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1671187981" Name="MapBGM" ObjectPath="\Events\Default Work Unit\BGM\MapBGM" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="139030541" Language="SFX">
 							<ShortName>bgm_login.wav</ShortName>
@@ -36,20 +161,11 @@
 							<ShortName>bgm_forest.wav</ShortName>
 							<Path>SFX/bgm_forest_D79FB2B7.wem</Path>
 						</File>
-						<File Id="912691396" Language="SFX">
-							<ShortName>로그인테마2.wav</ShortName>
-							<Path>SFX/로그인테마2_D79FB2B7.wem</Path>
-						</File>
 					</IncludedMemoryFiles>
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{AE25278A-9D5E-4D38-B682-924CB3CF8346}">
 							<Media>
 								<File Id="677212553"/>
-							</Media>
-						</SwitchContainer>
-						<SwitchContainer SwitchValue="{9C5A2680-CDDD-458A-A81E-FDC2A7C1C4E5}">
-							<Media>
-								<File Id="912691396"/>
 							</Media>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{099491FA-D060-4086-8836-202699A163C6}">
@@ -59,7 +175,7 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="4010314750" Name="MouseClick" ObjectPath="\Events\Default Work Unit\MouseClick" DurationType="OneShot" DurationMin="0.90886" DurationMax="0.90886">
+				<Event Id="4010314750" Name="MouseClick" ObjectPath="\Events\Default Work Unit\UI\MouseClick" DurationType="OneShot" DurationMin="0.90886" DurationMax="0.90886">
 					<IncludedMemoryFiles>
 						<File Id="545133625" Language="SFX">
 							<ShortName>UI_04.wav</ShortName>
@@ -67,11 +183,19 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3478063044" Name="MouseHover" ObjectPath="\Events\Default Work Unit\MouseHover" DurationType="OneShot" DurationMin="0.119651" DurationMax="0.119651">
+				<Event Id="3478063044" Name="MouseHover" ObjectPath="\Events\Default Work Unit\UI\MouseHover" DurationType="OneShot" DurationMin="0.119651" DurationMax="0.119651">
 					<IncludedMemoryFiles>
 						<File Id="222728699" Language="SFX">
 							<ShortName>UI_03.wav</ShortName>
 							<Path>SFX/UI_03_C4357CA3.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="665150140" Name="StageClear" ObjectPath="\Events\Default Work Unit\Stage\StageClear" DurationType="OneShot" DurationMin="3.532517" DurationMax="3.532517">
+					<IncludedMemoryFiles>
+						<File Id="288976125" Language="SFX">
+							<ShortName>STAGE_CLEAR_01.wav</ShortName>
+							<Path>SFX/STAGE_CLEAR_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -81,11 +205,82 @@
 					<States>
 						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\BackGroundMusic\None" GUID="{C5E56DF5-251A-4619-B478-BCC27EBAF850}"/>
 						<State Id="491961918" Name="Forest" ObjectPath="\States\Default Work Unit\BackGroundMusic\Forest" GUID="{AE25278A-9D5E-4D38-B682-924CB3CF8346}"/>
-						<State Id="73015004" Name="Login" ObjectPath="\States\Default Work Unit\BackGroundMusic\Login" GUID="{9C5A2680-CDDD-458A-A81E-FDC2A7C1C4E5}"/>
 						<State Id="1850388778" Name="Desert" ObjectPath="\States\Default Work Unit\BackGroundMusic\Desert" GUID="{099491FA-D060-4086-8836-202699A163C6}"/>
 					</States>
 				</StateGroup>
 			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="1069431850" Language="SFX" Hash="4291640215">
+			<ObjectPath>\SoundBanks\Default Work Unit\Player</ObjectPath>
+			<ShortName>Player</ShortName>
+			<Path>Player.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3258988170" Name="Damaged" ObjectPath="\Events\Default Work Unit\Player\Damaged" DurationType="OneShot" DurationMin="1.346689" DurationMax="1.346689">
+					<IncludedMemoryFiles>
+						<File Id="150627539" Language="SFX">
+							<ShortName>WARN_01.wav</ShortName>
+							<Path>SFX/WARN_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3833651337" Name="Jump" ObjectPath="\Events\Default Work Unit\Player\Jump" DurationType="OneShot" DurationMin="2." DurationMax="2.">
+					<IncludedMemoryFiles>
+						<File Id="104479959" Language="SFX">
+							<ShortName>MOTION_JUMP_01.wav</ShortName>
+							<Path>SFX/MOTION_JUMP_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="674522502" Name="Land" ObjectPath="\Events\Default Work Unit\Player\Land" DurationType="OneShot" DurationMin="1.051723" DurationMax="1.051723">
+					<IncludedMemoryFiles>
+						<File Id="802406400" Language="SFX">
+							<ShortName>MOTION_JUMP_02.wav</ShortName>
+							<Path>SFX/MOTION_JUMP_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2137943" Name="Life" ObjectPath="\Events\Default Work Unit\Player\Life" DurationType="OneShot" DurationMin="2.117642" DurationMax="2.117642">
+					<IncludedMemoryFiles>
+						<File Id="638774488" Language="SFX">
+							<ShortName>LIFE_01.wav</ShortName>
+							<Path>SFX/LIFE_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3011204530" Name="Move" ObjectPath="\Events\Default Work Unit\Player\Move" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="30361057" Language="SFX">
+							<ShortName>STEP_01 (001).wav</ShortName>
+							<Path>SFX/STEP_01 (001)_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{E6CE56CE-8460-44AE-9C73-D7A2B39EF748}">
+							<Media>
+								<File Id="30361057"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+			</IncludedEvents>
+			<StateGroups>
+				<StateGroup Id="1069431850" Name="Player" ObjectPath="\States\Default Work Unit\Player" GUID="{52E442A6-D0A6-4E0A-A6D7-43460C89E9D0}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Player\None" GUID="{8585FB97-3B31-4E15-994F-6F6FA85DF229}"/>
+						<State Id="4248645337" Name="Grass" ObjectPath="\States\Default Work Unit\Player\Grass" GUID="{E6CE56CE-8460-44AE-9C73-D7A2B39EF748}"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="1355168291" Language="SFX" Hash="1293005001">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<GameParameters>
+				<GameParameter Id="393239870" Name="SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume\SFX"/>
+				<GameParameter Id="412724365" Name="BGM" ObjectPath="\Game Parameters\Default Work Unit\Volume\BGM"/>
+				<GameParameter Id="4056684167" Name="Master" ObjectPath="\Game Parameters\Default Work Unit\Volume\Master"/>
+			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

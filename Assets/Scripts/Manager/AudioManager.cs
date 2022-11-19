@@ -17,11 +17,10 @@ public class AudioManager : MonoBehaviour
     public float bgmVolumePercent { get; private set; }
     public float masterVolumePercent { get; private set; }
 
-    //AudioSource[] sfxSources;
+    //AudioSource[] sfxSources;                                                 // Outdated audio engine
     //AudioSource musicSources;
     //int activeMusicSourceIndex;
-
-    SoundLibrary library;
+    //SoundLibrary library;
 
     private void Awake()
     {
@@ -34,7 +33,7 @@ public class AudioManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
 
-            //library = GetComponent<SoundLibrary>();
+            //library = GetComponent<SoundLibrary>();                           // Outdated audio engine
 
             //GameObject newMusicSource = new GameObject("Music Source ");
             //musicSources = newMusicSource.AddComponent<AudioSource>();
@@ -80,14 +79,14 @@ public class AudioManager : MonoBehaviour
                 break;
         }
         
-        //musicSources.volume = bgmVolumePercent * masterVolumePercent;
+        //musicSources.volume = bgmVolumePercent * masterVolumePercent;         // Outdated audio engine
         //sfxSources[0].volume = sfxVolumePercent * masterVolumePercent;
         //sfxSources[1].volume = sfxVolumePercent * masterVolumePercent;
         //sfxSources[2].volume = sfxVolumePercent * masterVolumePercent;
     }
 
     //?????? ????
-    //public void PlayMusic(AudioClip clip, float fadeDuration = 1)
+    //public void PlayMusic(AudioClip clip, float fadeDuration = 1)             // Outdated audio engine
     //{
     //    activeMusicSourceIndex = 1 - activeMusicSourceIndex;
     //    musicSources.clip = clip;

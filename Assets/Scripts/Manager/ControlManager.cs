@@ -21,10 +21,10 @@ public class ControlManager : MonoBehaviour
     public GameObject optionObject;
     public GameObject optionObjectInstace;
 
-    
-
     public bool gameIsPaused = false;
 
+    [SerializeField] AK.Wwise.Event pause;
+    [SerializeField] AK.Wwise.Event resume;
 
     private void Update()
     {
@@ -48,18 +48,20 @@ public class ControlManager : MonoBehaviour
 
     public void Resume()
     {
-        //AudioManager.instance.PlaySound("ui_02");
-        Destroy(optionObjectInstace);
-        //OptionObject.SetActive(false);
+        //AudioManager.instance.PlaySound("ui_02");                             // Outdated audio engine
+        resume.Post(gameObject);
+        //Destroy(optionObjectInstace);
+        optionObject.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
 
     void Pause()
     {
-        //AudioManager.instance.PlaySound("ui_01");
-        optionObjectInstace = Instantiate(optionObject, FindObjectOfType<Canvas>().gameObject.transform);
-        //OptionObject.SetActive(true);
+        //AudioManager.instance.PlaySound("ui_01");                             // Outdated audio engine
+        pause.Post(gameObject);
+        //optionObjectInstace = Instantiate(optionObject, FindObjectOfType<Canvas>().gameObject.transform);
+        optionObject.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
     }

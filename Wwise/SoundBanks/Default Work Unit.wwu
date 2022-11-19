@@ -3,11 +3,45 @@
 	<SoundBanks>
 		<WorkUnit Name="Default Work Unit" ID="{EC0FDD69-CA90-4327-A6DB-088C1745B457}" PersistMode="Standalone">
 			<ChildrenList>
-				<SoundBank Name="Global" ID="{221E741D-E812-4FA3-BD43-3920423DACE4}">
+				<SoundBank Name="Player" ID="{5EF1106F-E712-4690-B00E-EE5BA889BC1A}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Land" ID="{9B3CA431-262C-4076-9070-C19A9BC3FA2D}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Damaged" ID="{8ED8F908-7B0A-41C5-A1EC-78A06AE45ECC}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Life" ID="{F613DD12-57AD-4578-9944-F25E254020BD}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Move" ID="{6D16D109-48CE-4D2F-AFD7-19A0CDB025D7}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Jump" ID="{9876BC50-AC77-4F37-9112-C9F0E9E8E5AE}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Login" ID="{F706C26D-1FB5-4ED8-B5DF-29AA782DA660}">
 					<ObjectInclusionList>
 						<ObjectRef Name="MouseHover" ID="{FEAF9B28-C6F3-4017-A3CD-5B23674508D0}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="KeyPause" ID="{2F618B8A-B928-448D-9139-2C10A7AFBCB4}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="MouseClick" ID="{501BFC5A-B2E6-45FB-A341-9750E6EFB586}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="BackGroundMusic" ID="{D2E74002-5690-47FA-AB4A-8ED7CB30D61F}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="KeyExit" ID="{84EFF260-CBD6-494D-88D6-918F110D1A46}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="LoginBGM" ID="{79619DF5-BE1E-498A-940F-258247375DD3}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="KeyResume" ID="{554DC614-F717-4A2F-B47A-54877767783D}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="KeyEscape" ID="{278BFF4C-F71C-4F82-94BE-A1165BF62338}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Map" ID="{C9A2635B-DB82-4C5E-B17B-E1554DF5EA6E}">
+					<ObjectInclusionList>
+						<ObjectRef Name="MouseHover" ID="{FEAF9B28-C6F3-4017-A3CD-5B23674508D0}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="itemCollect" ID="{74FD76CB-8B9E-4039-B42F-5188661D56CF}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="KeyPause" ID="{2F618B8A-B928-448D-9139-2C10A7AFBCB4}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="MouseClick" ID="{501BFC5A-B2E6-45FB-A341-9750E6EFB586}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="ItemUseLight" ID="{1CC88F3D-1BE2-466E-8E1F-17F0E2D18AC5}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="MapBGM" ID="{D2E74002-5690-47FA-AB4A-8ED7CB30D61F}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="CheckPoint" ID="{B30F4D7C-5123-48FA-96AA-C08B257D88D3}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="KeyExit" ID="{84EFF260-CBD6-494D-88D6-918F110D1A46}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="KeyResume" ID="{554DC614-F717-4A2F-B47A-54877767783D}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="ItemUseFire" ID="{F868116B-4EC5-4C5C-952F-BD05AC04A4D6}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="ItemUseWater" ID="{AF910868-FF34-4E85-BAB5-B77C00A3CD21}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="StageClear" ID="{340FB45A-0B59-4ED9-8147-1D749E380C88}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="KeyEscape" ID="{278BFF4C-F71C-4F82-94BE-A1165BF62338}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

@@ -60,6 +60,7 @@ public class MapManager : MonoBehaviour
 
         int scene_index = ToSceneIndex(index);
         if (scene_index < 2 || IsMapLoaded(scene_index)) return null;
+        mapState = (MapState)index;
         return SceneManager.LoadSceneAsync(scene_index, LoadSceneMode.Additive);
     }
 

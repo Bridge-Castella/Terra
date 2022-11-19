@@ -5,21 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
-    public AudioClip bgm_Login;
-    public AudioClip bgm_Forest;
+    //public AudioClip bgm_Login;                                               // Outdated audio engine
+    //public AudioClip bgm_Forest;
 
-    Coroutine amb_01;
-    Coroutine amb_02;
+    //Coroutine amb_01;
+    //Coroutine amb_02;
 
-    private void Start()
-    {
+    //private void Start()
+    //{
         
-    }
+    //}
 
-    private void OnEnable()
-    {
-        //SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+    //private void OnEnable()
+    //{
+    //    SceneManager.sceneLoaded += OnSceneLoaded;
+    //}
 
     //private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     //{

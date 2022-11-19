@@ -10,6 +10,9 @@ public class FallDetector : MonoBehaviour
     Transform startPoint; //?????? ???? ?????????? start
     PlayerMove player;
 
+    [SerializeField] AK.Wwise.Event life;
+    [SerializeField] GameObject soundObject;
+
     private void Start()
     {
         startPoint = checkPoint;
@@ -27,8 +30,10 @@ public class FallDetector : MonoBehaviour
             return;
 
         StartCoroutine(CoPlayerStop());
-        if(AudioManager.instance != null)
-            //AudioManager.instance.PlaySound("life_01");
+
+        //if(AudioManager.instance != null)                                     // Outdated audio engine
+        //AudioManager.instance.PlaySound("life_01");
+        life.Post(soundObject);
 
         player = collision.gameObject.GetComponent<PlayerMove>();
         player.isFalling = true;
@@ -40,12 +45,12 @@ public class FallDetector : MonoBehaviour
             StartCoroutine(player.CoEnableDamage(0.5f, 1.5f));
         }
 
-        if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())
-        {
-            ControlManager.instance.RetryGame();
-            checkPoint = startPoint; //?????????? ???? startpoint?? 
-            return;
-        }
+        //if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())              // Outdated heart system
+        //{
+        //    ControlManager.instance.RetryGame();
+        //    checkPoint = startPoint; //?????????? ???? startpoint?? 
+        //    return;
+        //}
     }
 
     //???????? ???????? ????????
