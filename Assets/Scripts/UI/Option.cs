@@ -33,9 +33,12 @@ public class Option : MonoBehaviour
     public TextMeshProUGUI bgmVolumeNum;
     public TextMeshProUGUI sfxVolumeNum;
 
+    [SerializeField] AK.Wwise.Event keyPause;
+    [SerializeField] AK.Wwise.Event keyExit;
+
     private void Start()
     {
-        //세이브 버튼 addlistener 추가해야함.
+        //?????? ???? addlistener ??????????.
         audioButton.onClick.AddListener(OnClickAudioButton);
         quitButton.onClick.AddListener(OnClickQuitButton);
         initialButton.onClick.AddListener(InitailizeVolume);
@@ -44,13 +47,13 @@ public class Option : MonoBehaviour
         popUpYesButton.onClick.AddListener(LoadLoginScene);
         popUpNoButton.onClick.AddListener(OnClickPopupNoButton);
 
-        //일반 볼륨
+        //???? ????
         masterSlider.onValueChanged.AddListener(SetMasterVolume);
         masterSlider.onValueChanged.AddListener(ChangeMasterVolumeNum);
-        //배경음
+        //??????
         bgmSlider.onValueChanged.AddListener(SetBgmVolume);
         bgmSlider.onValueChanged.AddListener(ChangeBgmVolumeNum);
-        //효과음
+        //??????
         sfxSlider.onValueChanged.AddListener(SetSfxVolume);
         sfxSlider.onValueChanged.AddListener(ChangeSfxVolumeNum);
 
@@ -68,27 +71,30 @@ public class Option : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            AudioManager.instance.PlaySound("ui_02");
+            //AudioManager.instance.PlaySound("ui_02");                         // Outdated audio engine
+            keyPause.Post(gameObject);
             OnClickCancelButton();
         }
     }
 
     public void OnClickQuitButton()
     {
-        AudioManager.instance.PlaySound("ui_04");
+        //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
+        keyExit.Post(gameObject);
         buttonGroup.SetActive(false);
         popUpObject.SetActive(true);
-        popUpText.text = "게임을 종료하시겠습니까?";
+        popUpText.text = "?????? ?????????????????";
     }
 
     public void LoadLoginScene()
     {
-        AudioManager.instance.PlaySound("ui_04");
+        //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
+        keyExit.Post(gameObject);
         Time.timeScale = 1;
         MapManager.instance.mapState = MapManager.MapState.Login;
         SceneManager.LoadScene("01.Login");
 
-        //TODO 임시: 아이템 개수 초기화
+        //TODO ????: ?????? ???? ??????
         for(int i = 0; i< Inventory.instance.itemObejcts.Count; i++)
         {
             Inventory.instance.itemObejcts[i].amount = 0;
@@ -97,7 +103,8 @@ public class Option : MonoBehaviour
 
     public void OnClickPopupNoButton()
     {
-        AudioManager.instance.PlaySound("ui_04");
+        //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
+        keyExit.Post(gameObject);
         popUpObject.SetActive(false);
         buttonGroup.SetActive(true);
     }
@@ -109,7 +116,8 @@ public class Option : MonoBehaviour
             gameObject.SetActive(false);
             if (MapManager.instance.mapState == MapManager.MapState.Login)
             {
-                AudioManager.instance.PlaySound("ui_02");
+                //AudioManager.instance.PlaySound("ui_02");                     // Outdated audio engine
+                keyPause.Post(gameObject);
                 mainMenuObject.SetActive(true);
                 logoObject.SetActive(true);
                 audioGroup.SetActive(false);
@@ -137,7 +145,8 @@ public class Option : MonoBehaviour
 
     public void OnClickAudioButton()
     {
-        AudioManager.instance.PlaySound("ui_04");
+        //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
+        keyExit.Post(gameObject);
         buttonGroup.SetActive(false);
         popUpObject.SetActive(false);
         audioGroup.SetActive(true);

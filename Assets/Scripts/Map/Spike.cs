@@ -16,11 +16,11 @@ public class Spike : MonoBehaviour
                 player.DamageKnockBack(gameObject.transform.position, damageAmount);
             }
 
-            if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())
-            {
-                ControlManager.instance.RetryGame();
-                return;
-            }
+            //if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())
+            //{
+            //    ControlManager.instance.RetryGame();
+            //    return;
+            //}
         }
     }
 }

@@ -35,20 +35,20 @@ public class LoginManager : MonoBehaviour
 
     public void LoadScene()
     {
-        AudioManager.instance.PlaySound("ui_04");
+        //AudioManager.instance.PlaySound("ui_04");
         MapManager.instance.mapState = MapManager.MapState.Forest;
         MapManager.instance.LoadMap();
     }
 
     public void OnClickExitGame()
     {
-        AudioManager.instance.PlaySound("ui_04");
+        //AudioManager.instance.PlaySound("ui_04");
         Application.Quit();
     }
 
     public void OnClickSettingButton()
     {
-        AudioManager.instance.PlaySound("ui_04");
+        //AudioManager.instance.PlaySound("ui_04");
         optionObject.SetActive(true);
     }
 }

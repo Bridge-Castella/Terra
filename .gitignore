@@ -75,5 +75,17 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # End of https://www.toptal.com/developers/gitignore/api/unity
+
+# Wwise caches
+/[Aa]ssets/Wwise/Editor/ProjectData/*.asset
+/[Aa]ssets/Wwise/.cache/*
+/Wwise/.cache/
+/Wwise/*.prof
+/Wwise/*.*.validationcache
+/Wwise/*.*.wsettings
+
 .vsconfig
 *.log
+
+# Mac stuff
+.DS_store

@@ -24,6 +24,10 @@ public class Inventory : MonoBehaviour
 
     private bool isUsingItem = false;
 
+    [SerializeField] AK.Wwise.Event itemLight;
+    [SerializeField] AK.Wwise.Event itemFire;
+    [SerializeField] AK.Wwise.Event itemWater;
+
     private void Start()
     {
         MapManager.instance.InventoryInit();
@@ -84,7 +88,8 @@ public class Inventory : MonoBehaviour
             {
                 if(itemObject.skillType == SkillItemObject.SkillItemType.Light)
                 {
-                    AudioManager.instance.PlaySound("item_02");
+                    //AudioManager.instance.PlaySound("item_02");               // Outdated audio engine
+                    itemLight.Post(gameObject);
                     if (itemObject.amount > 0)
                     {
                         itemObject.amount--;
@@ -98,7 +103,8 @@ public class Inventory : MonoBehaviour
             {
                 if (itemObject.skillType == SkillItemObject.SkillItemType.Fire)
                 {
-                    AudioManager.instance.PlaySound("item_03");
+                    //AudioManager.instance.PlaySound("item_03");               // Outdated audio engine
+                    itemFire.Post(gameObject);                      
                     if (itemObject.amount > 0)
                         itemObject.amount--;
                 }
@@ -109,7 +115,8 @@ public class Inventory : MonoBehaviour
             {
                 if (itemObject.skillType == SkillItemObject.SkillItemType.Water)
                 {
-                    AudioManager.instance.PlaySound("item_04");
+                    //AudioManager.instance.PlaySound("item_04");
+                    itemWater.Post(gameObject);                                 // Outdated audio engine
                     if (itemObject.amount > 0)
                         itemObject.amount--;
                 }
