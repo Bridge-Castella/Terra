@@ -42,6 +42,14 @@ public class PlayerMove : MonoBehaviour
     private PlayerAbilityTracker  abilities;
     private bool canDoubleJump = true;//더블 점프가 가능한지
 
+    [Tooltip("Sound generated object")]
+    [SerializeField] GameObject soundObject;
+    [Tooltip("Player jump")]
+    [SerializeField] AK.Wwise.Event jump;
+    [Tooltip("Player land")]
+    [SerializeField] AK.Wwise.Event land;
+    [Tooltip("Player damaged")]
+    [SerializeField] AK.Wwise.Event damaged;
 
     void Awake()
     {
@@ -91,8 +99,10 @@ public class PlayerMove : MonoBehaviour
             if ((Input.GetButtonDown("Jump") && (IsGrounded() || (canDoubleJump && abilities.canDoubleJump))) 
                 || (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump")))
             {
-                if (AudioManager.instance != null)
-                    AudioManager.instance.PlaySound("jump_01");
+                //if (AudioManager.instance != null)                            // Outdated audio engine
+                //AudioManager.instance.PlaySound("jump_01");
+                if (jump != null)
+                    jump.Post(soundObject);
 
                 if (IsGrounded())
                 {
@@ -175,13 +185,15 @@ public class PlayerMove : MonoBehaviour
 
             if (moveHorizontalInput != 0 && IsGrounded())
             {
-                if (AudioManager.instance != null)
-                    AudioManager.instance.PlayWalkSound("grass");
+                //if (AudioManager.instance != null)                            // Outdated audio engine
+                //AudioManager.instance.PlayWalkSound("grass");
+                AkSoundEngine.SetState("Player", "Grass");
             }
             else
             {
-                if (AudioManager.instance != null)
-                    AudioManager.instance.StopWalkSound();
+                //if (AudioManager.instance != null)                            // Outdated audio engine
+                //AudioManager.instance.StopWalkSound();
+                AkSoundEngine.SetState("Player", "None");
             }
 
             if (moveHorizontalInput > 0 && !facingRight)
@@ -230,8 +242,10 @@ public class PlayerMove : MonoBehaviour
     {
         if(collision.gameObject.layer == 10 && isJumping)
         {
-            if (AudioManager.instance != null)
-                AudioManager.instance.PlaySound("jump_02");
+            //if (AudioManager.instance != null)                                // Outdated audio engine
+            //AudioManager.instance.PlaySound("jump_02");
+            if (land != null)
+                land.Post(soundObject);
             isJumping = false;
         }
     }
@@ -254,8 +268,10 @@ public class PlayerMove : MonoBehaviour
         rigid.AddForce(knockBack, ForceMode2D.Impulse);
         DamageFlash();
         //부딪히면 나는 소리
-        if (AudioManager.instance != null)
-            AudioManager.instance.PlaySound("warn_01");
+        //if (AudioManager.instance != null)                                    // Outdated audio engine
+        //AudioManager.instance.PlaySound("warn_01");
+        if (damaged != null)
+            damaged.Post(soundObject);
 
         isKnockback = true;
         HeartManager.instance.GetDamage();
