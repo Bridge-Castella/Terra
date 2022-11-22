@@ -18,9 +18,9 @@ public class Inventory : MonoBehaviour
     public delegate void OnItemChanged();
     public OnItemChanged OnItemChangedCallBack;
 
-    public int space = 3;
+    public int space = 4;
 
-    public List<ItemObject> itemObejcts = new List<ItemObject>();
+    public List<Item> items = new List<Item>();
 
     private bool isUsingItem = false;
 
@@ -28,16 +28,11 @@ public class Inventory : MonoBehaviour
     [SerializeField] AK.Wwise.Event itemFire;
     [SerializeField] AK.Wwise.Event itemWater;
 
-    private void Start()
+    public bool Add(Item item, int amount)
     {
-        MapManager.instance.InventoryInit();
-    }
-
-    public bool Add(ItemObject itemObject, int amount)
-    {
-        if(!itemObject.isDefaultItem)
+        if(item.isStackable)
         {
-            if(itemObejcts.Count > space)
+            if(items.Count > space)
             {
                 Debug.Log("Not enough room.");
                 return false;
@@ -45,39 +40,39 @@ public class Inventory : MonoBehaviour
 
             bool itemAlreadyInInven = false;
 
-            foreach(ItemObject itemObjectInven in itemObejcts)
+            foreach(Item itemInven in items)
             {
-                if(itemObjectInven.uid == itemObject.uid)
+                if(itemInven.uid == item.uid)
                 {
-                    itemObjectInven.amount += amount;
+                    itemInven.amount += amount;
                     itemAlreadyInInven = true;
                 }
             }
             if(!itemAlreadyInInven)
             {
-                itemObejcts.Add(itemObject);
-                itemObject.amount ++;
+                items.Add(item);
             }
 
             if (OnItemChangedCallBack != null)
                 OnItemChangedCallBack.Invoke();
+            
         }
         return true;
     }
 
-    public void Remove(ItemObject itemObject)
+    public void Remove(Item item)
     {
-        itemObejcts.Remove(itemObject);
+        items.Remove(item);
         if (OnItemChangedCallBack != null)
             OnItemChangedCallBack.Invoke();
     }
 
     private void Update()
     {
-        UseItem();
+        //UseItem();
     }
 
-    public void UseItem()
+    /*public void UseItem()
     {
         if(isUsingItem)
             return;
@@ -129,7 +124,7 @@ public class Inventory : MonoBehaviour
                 Inventory.instance.OnItemChangedCallBack.Invoke();
         }
         
-    }
+    }*/
 
     public void UseLightItem()
     {

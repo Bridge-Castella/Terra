@@ -9,21 +9,37 @@ public class ItemSlot : MonoBehaviour
 {
     public TextMeshProUGUI amounText;
     public Image icon;
+    public DetailPanel detailPanel;
 
-    ItemObject itemObject;
+    Item item;
 
-    public void AddItem(ItemObject newItemObject)
+    private void Start()
     {
-        itemObject = newItemObject;
-        icon.sprite = itemObject.icon;
+        gameObject.GetComponent<Button>().onClick.AddListener(OnClickItemSlot);
+    }
+
+    public void AddItem(Item newItem)
+    {
+        item = newItem;
+        icon.sprite = item.icon;
         icon.enabled = true;
     }
 
     public void ClearSlot()
     {
-        itemObject = null;
+        item = null;
         icon.sprite = null;
         icon.enabled = false;
     }
 
+    public void OnClickItemSlot()
+    {
+        if(item != null)
+        {
+            detailPanel.gameObject.SetActive(true);
+            detailPanel.icon.sprite = icon.sprite;
+            detailPanel.itemNameText.text = item.itemName;
+            detailPanel.itemDescriptionText.text = item.desc;
+        }
+    }
 }

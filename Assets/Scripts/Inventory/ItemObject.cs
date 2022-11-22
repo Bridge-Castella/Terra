@@ -5,6 +5,7 @@ using UnityEngine;
 public enum ItemType
 {
     SkillItem,
+    QuestItem,
 }
 
 public abstract class ItemObject : ScriptableObject

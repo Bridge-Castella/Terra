@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestItem : MonoBehaviour
+public class QuestItem : Item
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void GetQuestItem()
     {
-        if(collision.gameObject.tag == "Player")
+        QuestManager.instance.questItemNum++;
+        QuestManager.instance.questStatusText.text = string.Format("종이: {0} / {1}", QuestManager.instance.questItemNum, QuestManager.instance.questItemTotalNum);
+        //퀘스트아이템 다 모음
+        if (QuestManager.instance.questItemNum == QuestManager.instance.questItemTotalNum)
         {
-            QuestManager.instance.questItemNum ++;
-            QuestManager.instance.questStatusText.text = string.Format("종이: {0} / 5", QuestManager.instance.questItemNum);
-            //퀘스트아이템 다 모음
-            if(QuestManager.instance.questItemNum == QuestManager.instance.questItemTotalNum)
-            {
-                QuestManager.instance.isComplete = true;
-                QuestManager.instance.isQuesting = false;
-            }
-                
-            Destroy(this.gameObject);
+            QuestManager.instance.isComplete = true;
+            QuestManager.instance.isQuesting = false;
+        }
+
+        bool wasPickedUp = Inventory.instance.Add(this, 1);
+
+        if (wasPickedUp)
+        {
+            gameObject.SetActive(false);
         }
     }
 }

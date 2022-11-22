@@ -95,9 +95,9 @@ public class Option : MonoBehaviour
         SceneManager.LoadScene("01.Login");
 
         //TODO ????: ?????? ???? ??????
-        for(int i = 0; i< Inventory.instance.itemObejcts.Count; i++)
+        for(int i = 0; i< Inventory.instance.items.Count; i++)
         {
-            Inventory.instance.itemObejcts[i].amount = 0;
+            Inventory.instance.items[i].amount = 0;
         }
     }
 

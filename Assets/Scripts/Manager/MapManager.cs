@@ -30,22 +30,6 @@ public class MapManager : MonoBehaviour
 
     public MapState mapState;
 
-    public void InventoryInit()
-    {
-        switch (mapState)
-        {
-            case MapState.Forest:
-                ForestInventoryInit();
-                break;
-        }
-    }
-
-    public void ForestInventoryInit()
-    {
-        if (Inventory.instance != null)
-            Inventory.instance.space = 1;
-    }
-
 
     [SerializeField] private int AdditiveMapStartIndex = 3;
 

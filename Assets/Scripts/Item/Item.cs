@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    /*public SkillItemObject skillItemObject;
-    public int amount = 1;*/
-
     protected PlayerMove player;
     protected PlayerAbilityTracker abilities;
 
@@ -15,11 +12,19 @@ public class Item : MonoBehaviour
         Wing,  
         Spring,
         Fire,
+        Quest,
     }
 
     [SerializeField] private ItemType itemType;
 
     [SerializeField] AK.Wwise.Event itemCollect;
+
+    public bool isStackable;
+    public int amount;
+    public int uid;
+    public Sprite icon;
+    public string itemName;
+    public string desc;
 
     //?????????? ???????? ???????? ?????? ????
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,22 +48,12 @@ public class Item : MonoBehaviour
                 case ItemType.Fire:
                     GetFireItem();
                     break;
+                case ItemType.Quest:
+                    GetQuestItem();
+                    break;
             }
-
-            /*bool wasPickedUp = Inventory.instance.Add(skillItemObject, amount);
-
-            if(wasPickedUp)
-            {
-                Destroy(gameObject);
-            } */           
         }        
     }
-
-    //?????? ???????? ?????????? amount?? 0???? ??????
-    /*private void OnApplicationQuit()
-    {
-        skillItemObject.amount = 0;
-    }*/
 
     public virtual void GetWingItem()
     {
@@ -69,6 +64,10 @@ public class Item : MonoBehaviour
     }
 
     public virtual void GetSpringItem()
+    {
+    }
+
+    public virtual void GetQuestItem()
     {
     }
 }
