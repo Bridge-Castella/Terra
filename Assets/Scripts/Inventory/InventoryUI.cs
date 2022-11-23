@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InventoryUI : MonoBehaviour
 {
     public Transform itemSlotGroup;
+    public Transform skinSlotGroup;
     public GameObject panel;
     public GameObject detailPanel;
 

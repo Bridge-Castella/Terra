@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
     public int space = 4;
 
     public List<Item> items = new List<Item>();
+    public List<Item> skins = new List<Item>();
 
     private bool isUsingItem = false;
 
@@ -66,78 +67,4 @@ public class Inventory : MonoBehaviour
         if (OnItemChangedCallBack != null)
             OnItemChangedCallBack.Invoke();
     }
-
-    private void Update()
-    {
-        //UseItem();
-    }
-
-    /*public void UseItem()
-    {
-        if(isUsingItem)
-            return;
-
-        foreach(SkillItemObject itemObject in itemObejcts)
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                if(itemObject.skillType == SkillItemObject.SkillItemType.Light)
-                {
-                    //AudioManager.instance.PlaySound("item_02");               // Outdated audio engine
-                    itemLight.Post(gameObject);
-                    if (itemObject.amount > 0)
-                    {
-                        itemObject.amount--;
-                        UseLightItem();
-                        StartCoroutine(CoItemUserTimer());
-                    }
-                }
-            }
-
-            else if (Input.GetKeyDown(KeyCode.S))
-            {
-                if (itemObject.skillType == SkillItemObject.SkillItemType.Fire)
-                {
-                    //AudioManager.instance.PlaySound("item_03");               // Outdated audio engine
-                    itemFire.Post(gameObject);                      
-                    if (itemObject.amount > 0)
-                        itemObject.amount--;
-                }
-                    
-            }
-
-            else if (Input.GetKeyDown(KeyCode.D))
-            {
-                if (itemObject.skillType == SkillItemObject.SkillItemType.Water)
-                {
-                    //AudioManager.instance.PlaySound("item_04");
-                    itemWater.Post(gameObject);                                 // Outdated audio engine
-                    if (itemObject.amount > 0)
-                        itemObject.amount--;
-                }
-            }
-        }
-
-        if(instance != null)
-        {
-            if (Inventory.instance.OnItemChangedCallBack != null)
-                Inventory.instance.OnItemChangedCallBack.Invoke();
-        }
-        
-    }*/
-
-    public void UseLightItem()
-    {
-        PlayerMove player = ControlManager.instance.player.GetComponent<PlayerMove>();
-        player.DamageFlash();
-        StartCoroutine(player.CoEnableDamage(0f, 3f));
-    }
-
-    public IEnumerator CoItemUserTimer()
-    {
-        isUsingItem = true;
-        yield return new WaitForSeconds(3f);
-        isUsingItem = false;
-    }
-
 }
