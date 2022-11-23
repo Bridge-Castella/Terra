@@ -23,31 +23,45 @@ public class QuestManager : MonoBehaviour
     [HideInInspector] public bool isFailed = false;
 
     public GameObject questUI;
-    public GameObject questItemGroup;
+    public List<QuestGroup> questItemGroups;
     public TextMeshProUGUI questTitleText;
     public TextMeshProUGUI questDescText;
     public TextMeshProUGUI questStatusText;
 
-    public int questItemNum = 0;
+    public int curQuestItemNum = 0;
     public int questItemTotalNum = 5;
 
     //TODO: 다이얼로그에서 퀘스트 아이디를 받아와야 할듯
-    public void StartQuest()
+    public void StartQuest(string questID)
     {
+        curQuestItemNum = 0;
         isQuesting = true;
         questUI.SetActive(true);
-        questItemGroup.SetActive(true);
 
-        //임시
-        questTitleText.text = "라토에게 종이를 가져다주기";
-        questDescText.text = "라토가 잃어버린 종이에는 숲을 방어하는 방법이 적혀져 있다고 한다.";
-        questStatusText.text = string.Format("종이: {0} / {1}", questItemNum, questItemTotalNum);
+        foreach(QuestGroup questGroup in questItemGroups)
+        {
+            if(questGroup.questID == questID)
+            {
+                questGroup.gameObject.SetActive(true);
+
+                questItemTotalNum = questGroup.questItemTotalNum;
+                questTitleText.text = questGroup.questTitle;
+                questDescText.text = questGroup.questDesc;
+                questStatusText.text = string.Format("종이: {0} / {1}", curQuestItemNum, questGroup.questItemTotalNum);
+            }                
+        }
     }
 
     public void StopQuest()
     {
         isQuesting = false;
         isFailed = true;
+        questUI.SetActive(false);
+    }
+
+    public void SucceedQuest()
+    {
+        isQuesting = false;
         questUI.SetActive(false);
     }
 }

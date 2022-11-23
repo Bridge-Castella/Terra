@@ -7,13 +7,13 @@ public partial class TableData : MonoBehaviour
     public class MainData
     {
         public string string_id;
-        public int string_type;
         public int conv_type;
         public string answer1_string_id;
         public string answer1_connect_id;
         public string answer2_string_id;
         public string answer2_connect_id;
         public string conv_connect_id;
+        public string quest_id;
     }
 
     Dictionary<string, Dictionary<string, Dictionary<string, List<MainData>>>> mainDataDic = new Dictionary<string, Dictionary<string, Dictionary<string, List<MainData>>>>();
@@ -37,9 +37,10 @@ public partial class TableData : MonoBehaviour
             mainData.answer2_string_id = data[i]["answer2_string_id"].ToString();
             mainData.answer2_connect_id = data[i]["answer2_connect_id"].ToString();
             mainData.conv_connect_id = data[i]["conv_connect_id"].ToString();
+            mainData.quest_id = data[i]["quest_id"].ToString();
 
 
-            if(!mainDataDic.ContainsKey(npc_diff_id))
+            if (!mainDataDic.ContainsKey(npc_diff_id))
             {
                 mainDataDic.Add(npc_diff_id, new Dictionary<string, Dictionary<string, List<MainData>>>());
                 if (!mainDataDic[npc_diff_id].ContainsKey(story_id))
