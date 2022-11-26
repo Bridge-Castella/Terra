@@ -7,8 +7,8 @@ public class QuestItem : Item
     public override void GetQuestItem()
     {
         QuestManager.instance.curQuestItemNum++;
-        QuestManager.instance.questStatusText.text = string.Format("Á¾ÀÌ: {0} / {1}", QuestManager.instance.curQuestItemNum, QuestManager.instance.questItemTotalNum);
-        //Äù½ºÆ®¾ÆÀÌÅÛ ´Ù ¸ðÀ½
+        QuestManager.instance.questStatusText.text = string.Format("ì¢…ì´: {0} / {1}", QuestManager.instance.curQuestItemNum, QuestManager.instance.questItemTotalNum);
+        //í€˜ìŠ¤íŠ¸ì•„ì´í…œ ë‹¤ ëª¨ìŒ
         if (QuestManager.instance.curQuestItemNum >= QuestManager.instance.questItemTotalNum)
         {
             QuestManager.instance.isComplete = true;

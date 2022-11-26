@@ -7,7 +7,7 @@ public class CheckPoint : MonoBehaviour
     private FallDetector fallDetector;
     private Animator animator;
     private bool isChecked = false;
-    //?????? ?????????? ???? ????
+    //마지막 지점이라는 것을 표시
     public bool isEndPoint = false;
 
     [SerializeField] AK.Wwise.Event stageClear;

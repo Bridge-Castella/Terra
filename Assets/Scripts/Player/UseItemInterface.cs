@@ -16,7 +16,7 @@ public class UseItemInterface : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //e¹öÆ° ´©¸£¸é keymapping ¿¹½½´Ô ¹®ÀÇ 
+        //eë²„íŠ¼ ëˆ„ë¥´ë©´ keymapping ì˜ˆìŠ¬ë‹˜ ë¬¸ì˜ 
         if (Input.GetButtonDown("TalktoNpc"))
         {
             GameObject obj = MonoBehaviour.Instantiate(prefab_obj);
@@ -45,7 +45,7 @@ public class UseItemInterface : MonoBehaviour
             //else
             //    obj.GetComponent<Rigidbody2D>().AddForce(Vector2.left);
             //RemovePotion(obj);
-            //Invoke("RemovePotion", 2); // 2ÃÊµÚ LaunchProjectileÇÔ¼ö È£Ãâ
+            //Invoke("RemovePotion", 2); // 2ì´ˆë’¤ LaunchProjectileí•¨ìˆ˜ í˜¸ì¶œ
         }
     }
 

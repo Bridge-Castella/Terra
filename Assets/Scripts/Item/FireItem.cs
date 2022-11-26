@@ -7,8 +7,8 @@ public class FireItem : Item
     [SerializeField] private float showTime = 2f;
     [SerializeField] GameObject itemSprite;
 
-    //ºÒ ¾ÆÀÌÅÛÀº 1È¸¼º. ´Ù½Ã ¾È»ı±è,
-    //TODO: ÀÎº¥Åä¸®¿¡ ³Ö±â
+    //ë¶ˆ ì•„ì´í…œì€ 1íšŒì„±. ë‹¤ì‹œ ì•ˆìƒê¹€,
+    //TODO: ì¸ë²¤í† ë¦¬ì— ë„£ê¸°
     public override void GetFireItem()
     {
         abilities.isHoldingFire = true;

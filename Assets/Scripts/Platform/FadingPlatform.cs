@@ -31,7 +31,7 @@ public class FadingPlatform : MonoBehaviour
 
     private void Update()
     {
-        //¾Ö´Ï¸ŞÀÌ¼Ç ¿¬»êÀÌ ³Ê¹« ¸¹¾Æ¼­ ÇÁ·¹ÀÓ µå¶ø Çö»ó. Ä«¸Ş¶ó ºä¿¡ µé¾î°¡¸é ¾Ö´Ï¸ŞÀÌ¼Ç ½ÃÀÛÇÏµµ·Ï ÇÔ.
+        //ì• ë‹ˆë©”ì´ì…˜ ì—°ì‚°ì´ ë„ˆë¬´ ë§ì•„ì„œ í”„ë ˆì„ ë“œë í˜„ìƒ. ì¹´ë©”ë¼ ë·°ì— ë“¤ì–´ê°€ë©´ ì• ë‹ˆë©”ì´ì…˜ ì‹œì‘í•˜ë„ë¡ í•¨.
         Vector2 viewPos = camera.WorldToViewportPoint(transform.position);
         if(viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1)
         {
@@ -42,14 +42,14 @@ public class FadingPlatform : MonoBehaviour
 
         if (isFading)
         {
-            //¾Ö´Ï¸ŞÀÌ¼Ç sprite·Î ÇÒ °æ¿ì »ç¶óÁö´Â È¿°ú
+            //ì• ë‹ˆë©”ì´ì…˜ spriteë¡œ í•  ê²½ìš° ì‚¬ë¼ì§€ëŠ” íš¨ê³¼
             /*gameObject.GetComponent<SpriteRenderer>().material.color = 
             Color.Lerp(gameObject.GetComponent<SpriteRenderer>().material.color, platformAlpha, fadingSpeed * Time.deltaTime);*/
 
             
         }
 
-        //°ÅÀÇ ´Ù »ç¶óÁ®°¥¶§ Äİ¶óÀÌ´õ false
+        //ê±°ì˜ ë‹¤ ì‚¬ë¼ì ¸ê°ˆë•Œ ì½œë¼ì´ë” false
         /*if(gameObject.GetComponent<SpriteRenderer>().material.color.a < 0.1f)
         {
             for (int i = 0; i < boxCol2D.Length; i++)

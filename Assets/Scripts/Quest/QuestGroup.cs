@@ -11,7 +11,7 @@ public class QuestGroup : MonoBehaviour
 
     private void Start()
     {
-        //Äù½ºÆ® Å×ÀÌºí ¸¸µé¾îÁö¸é questID·Î Á¢±ÙÇØ¼­ °ª °¡Á®¿À±â..
+        //í€˜ìŠ¤íŠ¸ í…Œì´ë¸” ë§Œë“¤ì–´ì§€ë©´ questIDë¡œ ì ‘ê·¼í•´ì„œ ê°’ ê°€ì ¸ì˜¤ê¸°..
         questItemTotalNum = this.transform.childCount;
     }
 }

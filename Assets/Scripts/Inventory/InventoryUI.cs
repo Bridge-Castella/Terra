@@ -52,7 +52,7 @@ public class InventoryUI : MonoBehaviour
                 itemSlotArr[i].amounText.text = inventory.items[i].amount.ToString();
                 
             }
-            //È¹µæÇÑ ¾ÆÀÌÅÛ ¿ÜÀÇ ´Ù¸¥ Ä­ Å¬¸®¾î
+            //íšë“í•œ ì•„ì´í…œ ì™¸ì˜ ë‹¤ë¥¸ ì¹¸ í´ë¦¬ì–´
             /*else
             {
                 itemSlotArr[i].ClearSlot();

@@ -17,7 +17,7 @@ public class QuestManager : MonoBehaviour
     }
     #endregion
 
-    //Äù½ºÆ® ÁßÀÎÁö È®ÀÎ
+    //í€˜ìŠ¤íŠ¸ ì¤‘ì¸ì§€ í™•ì¸
     [HideInInspector] public bool isQuesting = false;
     [HideInInspector] public bool isComplete = false;
     [HideInInspector] public bool isFailed = false;
@@ -31,7 +31,7 @@ public class QuestManager : MonoBehaviour
     public int curQuestItemNum = 0;
     public int questItemTotalNum = 5;
 
-    //TODO: ´ÙÀÌ¾ó·Î±×¿¡¼­ Äù½ºÆ® ¾ÆÀÌµğ¸¦ ¹Ş¾Æ¿Í¾ß ÇÒµí
+    //TODO: ë‹¤ì´ì–¼ë¡œê·¸ì—ì„œ í€˜ìŠ¤íŠ¸ ì•„ì´ë””ë¥¼ ë°›ì•„ì™€ì•¼ í• ë“¯
     public void StartQuest(string questID)
     {
         curQuestItemNum = 0;
@@ -47,7 +47,7 @@ public class QuestManager : MonoBehaviour
                 questItemTotalNum = questGroup.questItemTotalNum;
                 questTitleText.text = questGroup.questTitle;
                 questDescText.text = questGroup.questDesc;
-                questStatusText.text = string.Format("Á¾ÀÌ: {0} / {1}", curQuestItemNum, questGroup.questItemTotalNum);
+                questStatusText.text = string.Format("ì¢…ì´: {0} / {1}", curQuestItemNum, questGroup.questItemTotalNum);
             }                
         }
     }

@@ -7,8 +7,8 @@ public class Potion_Vine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //destory 2ÃÊ ÈÄ ¿¹¾à 
-        //½ºÇÁ¶óÀÌÆ® »ö ¹Ù²Ù·Á¸é ¹Ù²ãµµ µÇ°í
+        //destory 2ì´ˆ í›„ ì˜ˆì•½ 
+        //ìŠ¤í”„ë¼ì´íŠ¸ ìƒ‰ ë°”ê¾¸ë ¤ë©´ ë°”ê¿”ë„ ë˜ê³ 
         
     }
 
