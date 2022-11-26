@@ -19,7 +19,7 @@ public partial class TableData : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        //Å×ÀÌºí µ¥ÀÌÅÍ °¡Á®¿À±â Init()
+        //í…Œì´ë¸” ë°ì´í„° ê°€ì ¸ì˜¤ê¸° Init()
         StringDataInit();
         MainDataInit();
     }

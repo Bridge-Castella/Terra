@@ -27,7 +27,7 @@ public class LoginManager : MonoBehaviour
 
     public void Start()
     {
-        //?????????? ?????? continuebutton setactive true
+        //ÀúÀåÆÄÀÏÀÌ ÀÖ´Ù¸é continuebutton setactive true
         NewGameButton.onClick.AddListener(LoadScene);
         SettingButton.onClick.AddListener(OnClickSettingButton);
         ExitGameButton.onClick.AddListener(OnClickExitGame);

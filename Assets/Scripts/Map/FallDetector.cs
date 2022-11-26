@@ -7,7 +7,7 @@ public class FallDetector : MonoBehaviour
     [SerializeField] private Transform checkPoint;
     [SerializeField] private int damageAmount;
 
-    Transform startPoint; //?????? ???? ?????????? start
+    Transform startPoint; //죽었을 경우 체크포인트 start
     PlayerMove player;
 
     [SerializeField] AK.Wwise.Event life;
@@ -45,15 +45,15 @@ public class FallDetector : MonoBehaviour
             StartCoroutine(player.CoEnableDamage(0.5f, 1.5f));
         }
 
-        //if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())              // Outdated heart system
-        //{
-        //    ControlManager.instance.RetryGame();
-        //    checkPoint = startPoint; //?????????? ???? startpoint?? 
-        //    return;
-        //}
+        if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())             
+        {
+            ControlManager.instance.RetryGame();
+            checkPoint = startPoint; //체크포인트 다시 startpoint로 
+            return;
+        }
     }
 
-    //???????? ???????? ????????
+    //플레이어 떨어지면 일시정지
     IEnumerator CoPlayerStop()
     {
         yield return new WaitForSeconds(0.5f);

@@ -7,7 +7,7 @@ public class NpcAction : MonoBehaviour
     public string npc_diff_id;
     public GameObject dialogueUIObject;
     public GameObject dialogueUiObjectInstance;
-    //npc À§ À§Ä¡
+    //npc ìœ„ ìœ„ì¹˜
     public GameObject dialogueUIPosition;
 
     private Canvas canvas;
@@ -51,17 +51,17 @@ public class NpcAction : MonoBehaviour
 
     public void ShowDialogueUIObject()
     {
-        //TODO: ÀÓ½Ã·Î Äù½ºÆ® ³¡³ª°Å³ª ½ÇÆĞÇÏ¸é ´ëÈ­ ¸øÇÏµµ·Ï ÇÔ.
+        //TODO: ì„ì‹œë¡œ í€˜ìŠ¤íŠ¸ ëë‚˜ê±°ë‚˜ ì‹¤íŒ¨í•˜ë©´ ëŒ€í™” ëª»í•˜ë„ë¡ í•¨.
         if(isDialogueEnd || QuestManager.instance.isFailed)
             return;
-        //ui°¡ ¸¸µé¾îÁ® ÀÖ´Ù¸é »ı¼º¾ÈÇÔ.
+        //uiê°€ ë§Œë“¤ì–´ì ¸ ìˆë‹¤ë©´ ìƒì„±ì•ˆí•¨.
         if (null == dialogueUiObjectInstance)
         {
             dialogueUIObject.SetActive(true);
             animator.SetBool("isTalking", true);
-            //ÇÃ·¹ÀÌ¾î ¹æÇâ ¹Ù¶óº¸±â
+            //í”Œë ˆì´ì–´ ë°©í–¥ ë°”ë¼ë³´ê¸°
             transform.localScale = new Vector3(player.transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            //npc°¡ ÀÖ´Â À§Ä¡ °¡Á®¿Í¼­ ¸»Ç³¼± ¶ç¿ò https://answers.unity.com/questions/799616/unity-46-beta-19-how-to-convert-from-world-space-t.html
+            //npcê°€ ìˆëŠ” ìœ„ì¹˜ ê°€ì ¸ì™€ì„œ ë§í’ì„  ë„ì›€ https://answers.unity.com/questions/799616/unity-46-beta-19-how-to-convert-from-world-space-t.html
             RectTransform canvasRect = canvas.GetComponent<RectTransform>();
             Vector2 pos = dialogueUIPosition.transform.position;  // get the game object position
             Vector2 viewportPoint = Camera.main.WorldToViewportPoint(pos);  //convert game object position to ViewportPoint
@@ -80,7 +80,7 @@ public class NpcAction : MonoBehaviour
                 isDialogueEnd = true;
             }
 
-            //¸¶Áö¸·´ëÈ­
+            //ë§ˆì§€ë§‰ëŒ€í™”
             if(QuestManager.instance.isFailed)
             {
                 story_idIdx = story_idList.Count - 1;
@@ -91,7 +91,7 @@ public class NpcAction : MonoBehaviour
             List<string> npc_idList = new List<string>(TableData.instance.GetMainDataDic(npc_diff_id)[story_idList[story_idIdx]].Keys);
             dialogueUiObjectInstance.GetComponent<Dialogue>().DialogueWithNPC(story_idList[story_idIdx], npc_idList[0]);
 
-            //Äù½ºÆ® ÁßÀÌ¶ó¸é ÀÎµ¦½º ³Ñ¾î°¡Áö ¾ÊÀ½(½ºÅä¸® ÁøÇàµÇÁö ¾ÊÀ½)
+            //í€˜ìŠ¤íŠ¸ ì¤‘ì´ë¼ë©´ ì¸ë±ìŠ¤ ë„˜ì–´ê°€ì§€ ì•ŠìŒ(ìŠ¤í† ë¦¬ ì§„í–‰ë˜ì§€ ì•ŠìŒ)
             
             if (!QuestManager.instance.isQuesting)
             {

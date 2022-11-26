@@ -13,7 +13,7 @@ public class HeartHealthSystem
 
     private List<Heart> heartList;
 
-    //ÇÏÆ® °³¼ö ¹Ş¾Æ¿È
+    //í•˜íŠ¸ ê°œìˆ˜ ë°›ì•„ì˜´
     public HeartHealthSystem(int heartAmount)
     {
         heartList = new List<Heart>();
@@ -24,7 +24,7 @@ public class HeartHealthSystem
         }
     }
 
-    //¸®½ºÆ®¿¡ ÇÏÆ® ³Ö¾î¼­ ¹İÈ¯
+    //ë¦¬ìŠ¤íŠ¸ì— í•˜íŠ¸ ë„£ì–´ì„œ ë°˜í™˜
     public List<Heart> GetHeartList()
     {
         return heartList;
@@ -36,16 +36,16 @@ public class HeartHealthSystem
         for(int i = heartList.Count-1;i>=0; i--)
         {
             Heart heart = heartList[i];
-            //ÇÏÆ®°¡ µ¥¹ÌÁö¸¦ ¹ŞÀ¸¸é 
+            //í•˜íŠ¸ê°€ ë°ë¯¸ì§€ë¥¼ ë°›ìœ¼ë©´ 
             if(damageAmount > heart.GetFragmentAmount())
             {
-                //ÇÏÆ®0ÀÏ¶§ ´ÙÀ½ ÇÏÆ®°¡ µ¥¹ÌÁö¹ŞÀ½
+                //í•˜íŠ¸0ì¼ë•Œ ë‹¤ìŒ í•˜íŠ¸ê°€ ë°ë¯¸ì§€ë°›ìŒ
                 damageAmount -= heart.GetFragmentAmount();
                 heart.Damage(heart.GetFragmentAmount());
             }
             else
             {
-                //ÇÏÆ®°¡ ¸ğµÎ 0ÀÏ¶§ break
+                //í•˜íŠ¸ê°€ ëª¨ë‘ 0ì¼ë•Œ break
                 heart.Damage(damageAmount);
                 break;
             }

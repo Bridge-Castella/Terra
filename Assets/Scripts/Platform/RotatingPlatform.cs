@@ -16,7 +16,7 @@ public class RotatingPlatform : MonoBehaviour
 
     private void Update()
     {
-        //¾Ö´Ï¸ÞÀÌ¼Ç ¿¬»êÀÌ ³Ê¹« ¸¹¾Æ¼­ ÇÁ·¹ÀÓ µå¶ø Çö»ó. Ä«¸Þ¶ó ºä¿¡ µé¾î°¡¸é ¾Ö´Ï¸ÞÀÌ¼Ç ½ÃÀÛÇÏµµ·Ï ÇÔ.
+        //ì• ë‹ˆë©”ì´ì…˜ ì—°ì‚°ì´ ë„ˆë¬´ ë§Žì•„ì„œ í”„ë ˆìž„ ë“œëž í˜„ìƒ. ì¹´ë©”ë¼ ë·°ì— ë“¤ì–´ê°€ë©´ ì• ë‹ˆë©”ì´ì…˜ ì‹œìž‘í•˜ë„ë¡ í•¨.
         Vector2 viewPos = camera.WorldToViewportPoint(transform.position);
         if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1)
         {

@@ -60,7 +60,7 @@ public class BirdMove : MonoBehaviour
         {
             //state = BirdState.Around;
         }
-        //µµÂø ÇÏ¸é Stop »óÅÂ 
+        //ë„ì°© í•˜ë©´ Stop ìƒíƒœ 
     }
 
     void ArroundPlayer()

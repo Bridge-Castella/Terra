@@ -31,7 +31,7 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    //Æ®¸®°Å ¾È¿¡ µé¾î°¡¸é 
+    //íŠ¸ë¦¬ê±° ì•ˆì— ë“¤ì–´ê°€ë©´ 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")

@@ -19,7 +19,7 @@ public class Dialogue : MonoBehaviour
     int dialogueIdx = 0;
     int string_idIdx = 0;
 
-    //Å×ÀÌºí º¯¼öµé
+    //í…Œì´ë¸” ë³€ìˆ˜ë“¤
     string answer1_connect_id;
     string answer2_connect_id;
     string conv_connect_id;
@@ -48,11 +48,11 @@ public class Dialogue : MonoBehaviour
                 dialogueButtonGroup.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(dialogueImg.GetComponent<RectTransform>().rect.width / 2 + 50f, 0);
             if (Input.GetButtonDown("TalktoNpc"))
             {
-                //¼±ÅÃÁö°¡ ÄÑÁ® ÀÖ´Ù¸é Å°¸¦ ´­·¯µµ ´ëÈ­°¡ ³Ñ¾î°¡Áö ¾ÊÀ½. ¼±ÅÃÇØ¾ß ³Ñ¾î°¨.
+                //ì„ íƒì§€ê°€ ì¼œì ¸ ìˆë‹¤ë©´ í‚¤ë¥¼ ëˆŒëŸ¬ë„ ëŒ€í™”ê°€ ë„˜ì–´ê°€ì§€ ì•ŠìŒ. ì„ íƒí•´ì•¼ ë„˜ì–´ê°.
                 if(dialogueAnswer1Button.gameObject.activeSelf || dialogueAnswer2Button.gameObject.activeSelf)
                     return;
 
-                //´ëÈ­Å¸ÀÔÀÌ 4, 5, 6ÀÌ¸é ´ëÈ­ Á¾·á. destroy
+                //ëŒ€í™”íƒ€ì…ì´ 4, 5, 6ì´ë©´ ëŒ€í™” ì¢…ë£Œ. destroy
                 if (list[string_idIdx].conv_type == 4 || 
                     list[string_idIdx].conv_type == 5 || 
                     list[string_idIdx].conv_type == 6)
@@ -62,7 +62,7 @@ public class Dialogue : MonoBehaviour
                     Destroy(this.gameObject);
                 }
 
-                //ÀÏ¹İ´ëÈ­°¡ ÀÌ¾îÁö¸ç ¸¶Áö¸· ´ëÈ­°¡ convtypeÀÌ 7ÀÏ¶§ ´ë»ç°¡ ¾È³ª¿À´Â »óÈ² ¿¹¿ÜÃ³¸®..
+                //ì¼ë°˜ëŒ€í™”ê°€ ì´ì–´ì§€ë©° ë§ˆì§€ë§‰ ëŒ€í™”ê°€ convtypeì´ 7ì¼ë•Œ ëŒ€ì‚¬ê°€ ì•ˆë‚˜ì˜¤ëŠ” ìƒí™© ì˜ˆì™¸ì²˜ë¦¬..
                 if (dialogueText.text == convType7LastDialogue)
                 {
                     ControlManager.instance.player.GetComponent<PlayerMove>().isTalking = false;
@@ -75,11 +75,11 @@ public class Dialogue : MonoBehaviour
                     dialogueText.text = TableData.instance.GetDialogue(list[string_idIdx].string_id);
                 }
 
-                //´ëÈ­Å¸ÀÔÀÌ 3ÀÏ¶§ conv_connect_id¿¡ °ªÀ» ³Ö¾îÁà¼­ npc_id¿¡ Á¾¼ÓµÇ´Â ´ëÈ­·Î ³Ñ¾î°¡µµ·Ï.
+                //ëŒ€í™”íƒ€ì…ì´ 3ì¼ë•Œ conv_connect_idì— ê°’ì„ ë„£ì–´ì¤˜ì„œ npc_idì— ì¢…ì†ë˜ëŠ” ëŒ€í™”ë¡œ ë„˜ì–´ê°€ë„ë¡.
                 if (conv_connect_id != null)
                     DialogueWithNPC(story_id, conv_connect_id);
                 else
-                    DialogueWithNPC(story_id, npc_idList[dialogueIdx]); //ÃÖÃÊ¿¡ ´ëÈ­ÇÒ¶§ ÇÊ¿ä
+                    DialogueWithNPC(story_id, npc_idList[dialogueIdx]); //ìµœì´ˆì— ëŒ€í™”í• ë•Œ í•„ìš”
             }
         }        
     }
@@ -89,7 +89,7 @@ public class Dialogue : MonoBehaviour
         this.story_id = story_id;
         npc_idList = new List<string>(TableData.instance.GetMainDataDic(npc.npc_diff_id)[story_id].Keys);
         mainDataDic = TableData.instance.GetMainDataDic(npc.npc_diff_id)[story_id];
-        //npc_id¿¡ Á¾¼ÓµÇ´Â ´ëÈ­¸¦ ¸®½ºÆ®·Î °¡Á®¿À´Â °úÁ¤
+        //npc_idì— ì¢…ì†ë˜ëŠ” ëŒ€í™”ë¥¼ ë¦¬ìŠ¤íŠ¸ë¡œ ê°€ì ¸ì˜¤ëŠ” ê³¼ì •
         list = mainDataDic[npc_id];
 
         dialogueText.text = TableData.instance.GetDialogue(list[string_idIdx].string_id);
@@ -101,11 +101,11 @@ public class Dialogue : MonoBehaviour
         switch(conv_type)
         {
             case 2:
-                //´ëÈ­Å¸ÀÔÀÌ 2ÀÌ¸é ¹öÆ° µÎ°³ ¾Æ´Ï¸é ÇÑ°³°¡ »ı¼ºµÇ°í °¢°¢ ´©¸£¸é answer1_string_id¿¡ Á¾¼ÓµÇ´Â ´ëÈ­·Î ³Ñ¾î°¥ ¼ö ÀÖÀ½.
+                //ëŒ€í™”íƒ€ì…ì´ 2ì´ë©´ ë²„íŠ¼ ë‘ê°œ ì•„ë‹ˆë©´ í•œê°œê°€ ìƒì„±ë˜ê³  ê°ê° ëˆ„ë¥´ë©´ answer1_string_idì— ì¢…ì†ë˜ëŠ” ëŒ€í™”ë¡œ ë„˜ì–´ê°ˆ ìˆ˜ ìˆìŒ.
                 dialogueAnswer1Button.gameObject.SetActive(true);
                 dialogueAnswer1Text.text = TableData.instance.GetDialogue(list[string_idIdx].answer1_string_id);
 
-                //¼±ÅÃÁö°¡ ÇÏ³ªÀÏ¶§
+                //ì„ íƒì§€ê°€ í•˜ë‚˜ì¼ë•Œ
                 if (answer2_connect_id != "-1")
                 {
                     dialogueAnswer2Button.gameObject.SetActive(true);
@@ -113,25 +113,25 @@ public class Dialogue : MonoBehaviour
                 }
                 break;
             case 3:
-                //npc_id ¹­À½ÀÌ ³¡³ª¸é conv_connect_id¿¡ °ªÀ» ³Ö¾îÁà¼­ ÇØ´ç ´ëÈ­·Î ³Ñ¾î°¡°Ô ÇÔ.
+                //npc_id ë¬¶ìŒì´ ëë‚˜ë©´ conv_connect_idì— ê°’ì„ ë„£ì–´ì¤˜ì„œ í•´ë‹¹ ëŒ€í™”ë¡œ ë„˜ì–´ê°€ê²Œ í•¨.
                 conv_connect_id = list[string_idIdx].conv_connect_id;
                 break;
             case 4:
-                //TODO: Äù½ºÆ® ±¸Çö
+                //TODO: í€˜ìŠ¤íŠ¸ êµ¬í˜„
                 QuestManager.instance.StartQuest(list[string_idIdx].quest_id);
                 break;
-                //Äù½ºÆ®´Â ¹«Á¶°Ç ½ÃÀÛÇÏ¹Ç·Î 5ÀÏ¶§´Â ±×³É ´ëÈ­(¾Æ¹«ÀÏµµ ÀÏ¾î³ªÁö ¾ÊÀ½)
+                //í€˜ìŠ¤íŠ¸ëŠ” ë¬´ì¡°ê±´ ì‹œì‘í•˜ë¯€ë¡œ 5ì¼ë•ŒëŠ” ê·¸ëƒ¥ ëŒ€í™”(ì•„ë¬´ì¼ë„ ì¼ì–´ë‚˜ì§€ ì•ŠìŒ)
             case 6:
-                //Äù½ºÆ® Æ÷±â
+                //í€˜ìŠ¤íŠ¸ í¬ê¸°
                 QuestManager.instance.StopQuest();
                 break;
             case 7:
-                //Äù½ºÆ® ¿Ï·á, º¸»ó¹Ş±â
+                //í€˜ìŠ¤íŠ¸ ì™„ë£Œ, ë³´ìƒë°›ê¸°
                 QuestManager.instance.SucceedQuest();
                 break;
         }
 
-        //Á¾¼ÓµÈ ´ëÈ­ÀÇ ÀÎµ¦½º°¡ ³¡ÀÌ³µÀ»¶§
+        //ì¢…ì†ëœ ëŒ€í™”ì˜ ì¸ë±ìŠ¤ê°€ ëì´ë‚¬ì„ë•Œ
         if (string_idIdx == list.Count - 1)
         {
             string_idIdx = 0;
