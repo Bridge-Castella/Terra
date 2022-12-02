@@ -67,16 +67,6 @@ public class Option : MonoBehaviour
         sfxVolumeNum.text = Mathf.CeilToInt(sfxSlider.value * 10).ToString();
     }
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //AudioManager.instance.PlaySound("ui_02");                         // Outdated audio engine
-            keyPause.Post(gameObject);
-            OnClickCancelButton();
-        }
-    }
-
     public void OnClickQuitButton()
     {
         //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
@@ -114,6 +104,9 @@ public class Option : MonoBehaviour
         if (gameObject.activeSelf)
         {
             gameObject.SetActive(false);
+            audioGroup.SetActive(false);
+            buttonGroup.SetActive(true);
+            popUpObject.SetActive(false);
             if (MapManager.instance.mapState == MapManager.MapState.Login)
             {
                 //AudioManager.instance.PlaySound("ui_02");                     // Outdated audio engine

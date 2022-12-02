@@ -51,6 +51,7 @@ public class ControlManager : MonoBehaviour
         //AudioManager.instance.PlaySound("ui_02");                             // Outdated audio engine
         resume.Post(gameObject);
         //Destroy(optionObjectInstace);
+        optionObject.GetComponent<Option>().OnClickCancelButton();
         optionObject.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
