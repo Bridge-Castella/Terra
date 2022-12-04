@@ -1568,7 +1568,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 42bbd7198b820844bbb92bcc6ee2a153,
       type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 37fb1a9b710b0a744a7a74f989b54e3b, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 37fb1a9b710b0a744a7a74f989b54e3b, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: d58943bf841d2854f88a04c3fd8e1941, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1673,22 +1673,6 @@ MonoBehaviour:
         - m_Target: {fileID: 999554863}
           m_TargetAssemblyTypeName: ButtonHover, Assembly-CSharp
           m_MethodName: MouseHoverOn
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 999554863}
-          m_TargetAssemblyTypeName: ButtonHover, Assembly-CSharp
-          m_MethodName: MouseHoverOff
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1912,7 +1896,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 42bbd7198b820844bbb92bcc6ee2a153,
       type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 37fb1a9b710b0a744a7a74f989b54e3b, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 37fb1a9b710b0a744a7a74f989b54e3b, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: d58943bf841d2854f88a04c3fd8e1941, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2053,22 +2037,6 @@ MonoBehaviour:
         - m_Target: {fileID: 1131856071}
           m_TargetAssemblyTypeName: ButtonHover, Assembly-CSharp
           m_MethodName: MouseHoverOn
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1131856071}
-          m_TargetAssemblyTypeName: ButtonHover, Assembly-CSharp
-          m_MethodName: MouseHoverOff
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2769,8 +2737,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -46}
-  m_SizeDelta: {x: 612, y: 342}
+  m_AnchoredPosition: {x: -34, y: -76}
+  m_SizeDelta: {x: 490, y: 207}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1719383112
 MonoBehaviour:
@@ -2792,7 +2760,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 34bb59009171b7e44bbd60cabd945fe1, type: 3}
+  m_Sprite: {fileID: -7608911042665332361, guid: 34bb59009171b7e44bbd60cabd945fe1,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3052,7 +3021,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 42bbd7198b820844bbb92bcc6ee2a153,
       type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 37fb1a9b710b0a744a7a74f989b54e3b, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 37fb1a9b710b0a744a7a74f989b54e3b, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: d58943bf841d2854f88a04c3fd8e1941, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -3157,22 +3126,6 @@ MonoBehaviour:
         - m_Target: {fileID: 2065031542}
           m_TargetAssemblyTypeName: ButtonHover, Assembly-CSharp
           m_MethodName: MouseHoverOn
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2065031542}
-          m_TargetAssemblyTypeName: ButtonHover, Assembly-CSharp
-          m_MethodName: MouseHoverOff
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
