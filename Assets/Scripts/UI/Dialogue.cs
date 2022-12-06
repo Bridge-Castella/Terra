@@ -17,7 +17,7 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI dialogueAnswer2Text;
 
     int dialogueIdx = 0;
-    int string_idIdx = 0;
+    int string_idIdx = -1;
 
     //테이블 변수들
     string answer1_connect_id;
@@ -44,12 +44,14 @@ public class Dialogue : MonoBehaviour
     {
         if(gameObject != null && gameObject.activeSelf)
         {
-            if (dialogueAnswer1Button.gameObject.activeSelf || dialogueAnswer2Button.gameObject.activeSelf)
-                dialogueButtonGroup.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(dialogueImg.GetComponent<RectTransform>().rect.width / 2 + 50f, 0);
-            if (Input.GetButtonDown("TalktoNpc"))
+            /*if (dialogueAnswer1Button.gameObject.activeSelf || dialogueAnswer2Button.gameObject.activeSelf)
+                dialogueButtonGroup.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(dialogueImg.GetComponent<RectTransform>().rect.width / 2 + 50f, 0);*/
+            if (Input.GetButtonDown("TalktoNpc") && !GetComponent<TypewriterEffect>().isTyping)
             {
+                
+
                 //선택지가 켜져 있다면 키를 눌러도 대화가 넘어가지 않음. 선택해야 넘어감.
-                if(dialogueAnswer1Button.gameObject.activeSelf || dialogueAnswer2Button.gameObject.activeSelf)
+                if (dialogueAnswer1Button.gameObject.activeSelf || dialogueAnswer2Button.gameObject.activeSelf)
                     return;
 
                 //대화타입이 4, 5, 6이면 대화 종료. destroy
@@ -72,7 +74,8 @@ public class Dialogue : MonoBehaviour
                 if (list[string_idIdx].conv_type == 7)
                 {
                     convType7LastDialogue = TableData.instance.GetDialogue(list[string_idIdx].string_id);
-                    dialogueText.text = TableData.instance.GetDialogue(list[string_idIdx].string_id);
+                    GetComponent<TypewriterEffect>().Run(TableData.instance.GetDialogue(list[string_idIdx].string_id), dialogueText);
+                    //dialogueText.text = TableData.instance.GetDialogue(list[string_idIdx].string_id);
                 }
 
                 //대화타입이 3일때 conv_connect_id에 값을 넣어줘서 npc_id에 종속되는 대화로 넘어가도록.
@@ -92,7 +95,13 @@ public class Dialogue : MonoBehaviour
         //npc_id에 종속되는 대화를 리스트로 가져오는 과정
         list = mainDataDic[npc_id];
 
-        dialogueText.text = TableData.instance.GetDialogue(list[string_idIdx].string_id);
+        if (string_idIdx == list.Count - 1)
+            string_idIdx = 0;
+        else
+            string_idIdx++;
+
+        GetComponent<TypewriterEffect>().Run(TableData.instance.GetDialogue(list[string_idIdx].string_id), dialogueText);
+        //dialogueText.text = TableData.instance.GetDialogue(list[string_idIdx].string_id);
         answer1_connect_id = list[string_idIdx].answer1_connect_id;
         answer2_connect_id = list[string_idIdx].answer2_connect_id;
 
@@ -101,16 +110,16 @@ public class Dialogue : MonoBehaviour
         switch(conv_type)
         {
             case 2:
-                //대화타입이 2이면 버튼 두개 아니면 한개가 생성되고 각각 누르면 answer1_string_id에 종속되는 대화로 넘어갈 수 있음.
+                /*//대화타입이 2이면 버튼 두개 아니면 한개가 생성되고 각각 누르면 answer1_string_id에 종속되는 대화로 넘어갈 수 있음.
                 dialogueAnswer1Button.gameObject.SetActive(true);
                 dialogueAnswer1Text.text = TableData.instance.GetDialogue(list[string_idIdx].answer1_string_id);
 
-                //선택지가 하나일때
+                //선택지가 두개일때
                 if (answer2_connect_id != "-1")
                 {
                     dialogueAnswer2Button.gameObject.SetActive(true);
                     dialogueAnswer2Text.text = TableData.instance.GetDialogue(list[string_idIdx].answer2_string_id);
-                }
+                }*/
                 break;
             case 3:
                 //npc_id 묶음이 끝나면 conv_connect_id에 값을 넣어줘서 해당 대화로 넘어가게 함.
@@ -131,13 +140,13 @@ public class Dialogue : MonoBehaviour
                 break;
         }
 
-        //종속된 대화의 인덱스가 끝이났을때
+        /*//종속된 대화의 인덱스가 끝이났을때
         if (string_idIdx == list.Count - 1)
         {
             string_idIdx = 0;
         }
         else
-            string_idIdx++;
+            string_idIdx++;*/
     }
 
     void OnClickDialogueAnswer1Button()
@@ -145,6 +154,7 @@ public class Dialogue : MonoBehaviour
         dialogueAnswer1Button.gameObject.SetActive(false);
         dialogueAnswer2Button.gameObject.SetActive(false);
         conv_connect_id = answer1_connect_id;
+        string_idIdx = -1;
         DialogueWithNPC(story_id, answer1_connect_id);
     }
 
@@ -153,6 +163,23 @@ public class Dialogue : MonoBehaviour
         dialogueAnswer1Button.gameObject.SetActive(false);
         dialogueAnswer2Button.gameObject.SetActive(false);
         conv_connect_id = answer2_connect_id;
+        string_idIdx = -1;
         DialogueWithNPC(story_id, answer2_connect_id);
+    }
+
+    public void ShowAnswerButton()
+    {
+        if (list[string_idIdx].conv_type != 2)
+            return;
+        //대화타입이 2이면 버튼 두개 아니면 한개가 생성되고 각각 누르면 answer1_string_id에 종속되는 대화로 넘어갈 수 있음.
+        dialogueAnswer1Button.gameObject.SetActive(true);
+        dialogueAnswer1Text.text = TableData.instance.GetDialogue(list[string_idIdx].answer1_string_id);
+
+        //선택지가 두개일때
+        if (answer2_connect_id != "-1")
+        {
+            dialogueAnswer2Button.gameObject.SetActive(true);
+            dialogueAnswer2Text.text = TableData.instance.GetDialogue(list[string_idIdx].answer2_string_id);
+        }
     }
 }
