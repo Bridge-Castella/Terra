@@ -9,4 +9,10 @@ public class DetailPanel : MonoBehaviour
     public Image icon;
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemDescriptionText;
+
+    private void Start()
+    {
+        itemNameText.text = "";
+        itemDescriptionText.text = "";
+    }
 }

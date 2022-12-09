@@ -5,11 +5,14 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Image))]
-public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
+public class TabUIButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
 {
     public TabGroup tabGroup;
-
+    public string slotTitle;
     public Image backGround;
+    public Image icon;
+    public Sprite selectedIcon;
+    public Sprite idleIcon;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -30,12 +33,7 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
     void Start()
     {
         backGround = GetComponent<Image>();
+        icon = transform.GetChild(0).GetComponentInChildren<Image>();
         tabGroup.Subscribe(this);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

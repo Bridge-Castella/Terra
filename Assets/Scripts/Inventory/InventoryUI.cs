@@ -37,8 +37,8 @@ public class InventoryUI : MonoBehaviour
 
     private void OnClickInventoryButton()
     {
-        panel.SetActive(!panel.activeSelf);
-        detailPanel.SetActive(false);
+        panel.SetActive(true);
+        inventoryButton.gameObject.SetActive(false);
         UpdateUI();
     }
 

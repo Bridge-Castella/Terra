@@ -2,51 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TabGroup : MonoBehaviour
 {
-    public List<TabButton> tabButtons;
+    public List<TabUIButton> tabButtons;
     public Sprite tabIdle;
     public Sprite tabHover;
     public Sprite tabActive;
-    public TabButton seletedTab;
+    public TabUIButton seletedTab;
     public List<GameObject> objectsToSwap;
+    public TextMeshProUGUI slotTitleText;
 
-    public void Subscribe(TabButton button)
+    public void Subscribe(TabUIButton button)
     {
         if(tabButtons == null)
         {
-            tabButtons = new List<TabButton>();
+            tabButtons = new List<TabUIButton>();
         }
 
         tabButtons.Add(button);
+        OnTabSelected(tabButtons[0]);
     }
 
-    public void OnTabEnter(TabButton button)
+    public void OnTabEnter(TabUIButton button)
     {
         ResetTabs();
         if(seletedTab == null || button != seletedTab)
         {
             button.backGround.sprite = tabHover;
+            button.icon.sprite = button.selectedIcon;
         }
     }
 
-    public void OnTabExit(TabButton button)
+    public void OnTabExit(TabUIButton button)
     {
         ResetTabs();
     }
 
-    public void OnTabSelected(TabButton button)
+    public void OnTabSelected(TabUIButton button)
     {
         seletedTab = button;
         ResetTabs();
         button.backGround.sprite = tabActive;
+        button.icon.sprite = button.selectedIcon;
+        slotTitleText.text = button.slotTitle;
         int index = button.transform.GetSiblingIndex();
         for(int i = 0; i<objectsToSwap.Count; i++)
         {
             if(i==index)
             {
                 objectsToSwap[i].SetActive(true);
+                
             }
             else
             {
@@ -57,13 +64,14 @@ public class TabGroup : MonoBehaviour
 
     public void ResetTabs()
     {
-        foreach(TabButton button in tabButtons)
+        foreach(TabUIButton button in tabButtons)
         {
             if(seletedTab != null && button == seletedTab)
             {
                 continue;
             }
             button.backGround.sprite = tabIdle;
+            button.icon.sprite = button.idleIcon;
         }
     }
 }
