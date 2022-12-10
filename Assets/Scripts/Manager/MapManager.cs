@@ -43,15 +43,14 @@ public class MapManager : MonoBehaviour
         }
 
         int scene_index = ToSceneIndex(index);
-        if (scene_index < 2 || IsMapLoaded(scene_index)) return null;
-        mapState = (MapState)index;
+        if (scene_index < AdditiveMapStartIndex || IsMapLoaded(scene_index)) return null;
         return SceneManager.LoadSceneAsync(scene_index, LoadSceneMode.Additive);
     }
 
     public AsyncOperation UnloadMap(int index)
     {
         int scene_index = ToSceneIndex(index);
-        if (scene_index < 2 || !IsMapLoaded(scene_index)) return null;
+        if (scene_index < AdditiveMapStartIndex || !IsMapLoaded(scene_index)) return null;
         return SceneManager.UnloadSceneAsync(scene_index);
     }
 
