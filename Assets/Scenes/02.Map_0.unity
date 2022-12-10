@@ -194,7 +194,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1131731505
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1071ef62a4a6f410f81f06bd9363924f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1495,7 +1495,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1131731505
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 49c68d13abf8e4f9fa1debde60ad49b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6189,7 +6189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82fb174ec0ef04ccfb324804574e55aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7f422d6
+  triggerList: ed167152
   useOtherObject: 0
   data:
     idInternal: 0
@@ -6211,7 +6211,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 513534085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f79fd4503f1da41f1a087d7230687ee2, type: 3}
+  m_Script: {fileID: 11500000, guid: 40c5d0ec5d5c7475b8cda17df74e34fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   triggerObject: {fileID: 1128416006}
@@ -7447,7 +7447,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1131731505
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f6878b11a809342d4916730ba580b782, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8144,7 +8144,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1131731505
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f815ab4c072674ea8a3ad8803872bcc3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8246,7 +8246,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1131731505
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d21d4bdcd98594d349575e19eb670592, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11964,7 +11964,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1131731505
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 787da5b05a48e4a3590a19043712bc3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12073,6 +12073,12 @@ PrefabInstance:
       propertyPath: land.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: 4f3049fe240ac4e42aefcc274e706246,
+        type: 2}
+    - target: {fileID: 4800962551722574817, guid: 3e4c3e109529a90498e025194dcfc44b,
+        type: 3}
+      propertyPath: state.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: df257b5a784cc4f6db81c984a4a06b1c,
         type: 2}
     - target: {fileID: 4800962551722574817, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
@@ -12323,7 +12329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82fb174ec0ef04ccfb324804574e55aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7f422d6
+  triggerList: ed167152
   useOtherObject: 0
   data:
     idInternal: 0
@@ -12345,7 +12351,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1180405372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f79fd4503f1da41f1a087d7230687ee2, type: 3}
+  m_Script: {fileID: 11500000, guid: 40c5d0ec5d5c7475b8cda17df74e34fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   triggerObject: {fileID: 1128416006}
@@ -13894,7 +13900,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1131731505
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 66c4bdea0372f4079aea438ed51b0296, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14838,7 +14844,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1884347589}
   - component: {fileID: 1884347588}
-  - component: {fileID: 1884347584}
   - component: {fileID: 1884347586}
   - component: {fileID: 1884347585}
   m_Layer: 0
@@ -14848,31 +14853,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1884347584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884347583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fb174ec0ef04ccfb324804574e55aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c958ca0ea
-  useOtherObject: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 1248d706033f940b8a8be638e781f348,
-      type: 2}
-  valueIdInternal: 0
-  groupIdInternal: 0
-  valueGuidInternal: 
-  groupGuidInternal: 
 --- !u!114 &1884347585
 MonoBehaviour:
   m_ObjectHideFlags: 0
