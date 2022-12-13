@@ -14,6 +14,7 @@ public partial class TableData : MonoBehaviour
         public string answer2_connect_id;
         public string conv_connect_id;
         public string quest_id;
+        public string portrait_id;
     }
 
     Dictionary<string, Dictionary<string, Dictionary<string, List<MainData>>>> mainDataDic = new Dictionary<string, Dictionary<string, Dictionary<string, List<MainData>>>>();
@@ -38,6 +39,7 @@ public partial class TableData : MonoBehaviour
             mainData.answer2_connect_id = data[i]["answer2_connect_id"].ToString();
             mainData.conv_connect_id = data[i]["conv_connect_id"].ToString();
             mainData.quest_id = data[i]["quest_id"].ToString();
+            mainData.portrait_id = data[i]["portrait_id"].ToString();
 
 
             if (!mainDataDic.ContainsKey(npc_diff_id))

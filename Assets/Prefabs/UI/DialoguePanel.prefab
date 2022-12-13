@@ -299,14 +299,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 179
     m_Right: 0
-    m_Top: 100
+    m_Top: 130
     m_Bottom: 0
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 1
-  m_CellSize: {x: 1000, y: 70}
+  m_CellSize: {x: 1235.07, y: 70}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -403,8 +403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 7495768348226865756}
-  dialogueImg: {fileID: 0}
-  dialogueButtonGroup: {fileID: 7495768347584120844}
+  characterName: {fileID: 8270172038883756452}
+  portraitImage: {fileID: 7495768349214150498}
   dialogueAnswer1Button: {fileID: 7495768349156209391}
   dialogueAnswer2Button: {fileID: 7495768348456558765}
   dialogueAnswer1Text: {fileID: 7495768348188689910}
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7dd2cb7e17b614b842a35d85d0d518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typewriterSpeed: 10
+  typewriterSpeed: 20
   isTyping: 0
 --- !u!1 &7495768348188689908
 GameObject:
@@ -664,7 +664,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -734,8 +734,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1380, y: -336}
-  m_SizeDelta: {x: 1000, y: 70}
+  m_AnchoredPosition: {x: 1587.0349, y: -351}
+  m_SizeDelta: {x: 1235.07, y: 70}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &7495768348456558767
 CanvasRenderer:
@@ -758,7 +758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -794,7 +794,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -991,8 +991,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 380, y: -266}
-  m_SizeDelta: {x: 1000, y: 70}
+  m_AnchoredPosition: {x: 351.96503, y: -281}
+  m_SizeDelta: {x: 1235.07, y: 70}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &7495768349156209385
 CanvasRenderer:
@@ -1015,7 +1015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1051,7 +1051,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
