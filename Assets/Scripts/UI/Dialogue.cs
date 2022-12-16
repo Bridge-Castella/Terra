@@ -29,14 +29,12 @@ public class Dialogue : MonoBehaviour
 
     string convType7LastDialogue;
 
-    NpcAction npc;
+    public NpcAction npc;
 
     private void Awake()
     {
         dialogueAnswer1Button.onClick.AddListener(OnClickDialogueAnswer1Button);
         dialogueAnswer2Button.onClick.AddListener(OnClickDialogueAnswer2Button);
-
-        npc = FindObjectOfType<NpcAction>();
     }
 
     private void Update()

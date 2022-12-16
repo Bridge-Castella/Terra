@@ -140,7 +140,7 @@ public class PlayerMove : MonoBehaviour
                 rigid.velocity = new Vector2(0, rigid.velocity.y);
             }
 
-            //e버튼 누르면
+            //f버튼 누르면
             if (Input.GetButtonDown("TalktoNpc"))
             {
                 if (!isTalking)
@@ -312,6 +312,7 @@ public class PlayerMove : MonoBehaviour
                 return;
             isTalking = true;
             Debug.Log("NPC감지");
+            raycastHit.collider.GetComponent<NpcAction>().dialogueUIObject.GetComponent<Dialogue>().npc = raycastHit.collider.GetComponent<NpcAction>();
             raycastHit.collider.GetComponent<NpcAction>().ShowDialogueUIObject();
             
         }
