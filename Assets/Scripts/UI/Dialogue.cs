@@ -99,16 +99,16 @@ public class Dialogue : MonoBehaviour
                 break;
             case 4:
                 //TODO: 퀘스트 구현
-                QuestManager.instance.StartQuest(list[string_idIdx].quest_id);
+                QuestManager.instance.StartQuest(npc.npc_diff_id);
                 break;
                 //퀘스트는 무조건 시작하므로 5일때는 그냥 대화(아무일도 일어나지 않음)
             case 6:
                 //퀘스트 포기
-                QuestManager.instance.StopQuest();
+                QuestManager.instance.StopQuest(npc.npc_diff_id);
                 break;
             case 7:
                 //퀘스트 완료, 보상받기
-                QuestManager.instance.SucceedQuest();
+                QuestManager.instance.SucceedQuest(npc.npc_diff_id);
                 break;
         }
     }

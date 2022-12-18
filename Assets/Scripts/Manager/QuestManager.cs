@@ -14,54 +14,65 @@ public class QuestManager : MonoBehaviour
         if (instance != null)
             return;
         instance = this;
+		questGroups = new Dictionary<string, QuestGroup>();
     }
     #endregion
 
-    //퀘스트 중인지 확인
-    [HideInInspector] public bool isQuesting = false;
-    [HideInInspector] public bool isComplete = false;
-    [HideInInspector] public bool isFailed = false;
+    public GameObject questUI;    
+    private Dictionary<string, QuestGroup> questGroups;
 
-    public GameObject questUI;
-    public List<QuestGroup> questItemGroups;
-    public TextMeshProUGUI questTitleText;
-    public TextMeshProUGUI questDescText;
-    public TextMeshProUGUI questStatusText;
 
-    public int curQuestItemNum = 0;
-    public int questItemTotalNum = 5;
+    public void add(string npcId, QuestGroup questGroup)
+    {
+        questGroups.Add(npcId, questGroup);
+    } 
 
     //TODO: 다이얼로그에서 퀘스트 아이디를 받아와야 할듯
-    public void StartQuest(string questID)
+    public void StartQuest(string npcId, string questId = null)
     {
-        curQuestItemNum = 0;
-        isQuesting = true;
+        Quest quest;
+        if (questId == null) quest = (Quest)getQuest(npcId);
+        else quest = (Quest)getQuest(npcId, questId);
+
+        quest.gameObject.SetActive(true);
+        quest.startQuest();
         questUI.SetActive(true);
-
-        foreach(QuestGroup questGroup in questItemGroups)
-        {
-            if(questGroup.questID == questID)
-            {
-                questGroup.gameObject.SetActive(true);
-
-                questItemTotalNum = questGroup.questItemTotalNum;
-                questTitleText.text = questGroup.questTitle;
-                questDescText.text = questGroup.questDesc;
-                questStatusText.text = string.Format("종이: {0} / {1}", curQuestItemNum, questGroup.questItemTotalNum);
-            }                
-        }
     }
 
-    public void StopQuest()
+    public void StopQuest(string npcId, string questId = null)
     {
-        isQuesting = false;
-        isFailed = true;
-        questUI.SetActive(false);
+		Quest quest;
+		if (questId == null) quest = (Quest)getQuest(npcId);
+		else quest = (Quest)getQuest(npcId, questId);
+
+		quest.stopQuest();
+		quest.gameObject.SetActive(false);
+		questUI.SetActive(false);
+	}
+
+    public void SucceedQuest(string npcId, string questId = null)
+    {
+		Quest quest;
+		if (questId == null) quest = (Quest)getQuest(npcId);
+		else quest = (Quest)getQuest(npcId, questId);
+
+		quest.successQuest();
+		quest.gameObject.SetActive(false);
+        questGroups[npcId].delete();
+		questUI.SetActive(false);
     }
 
-    public void SucceedQuest()
+    #nullable enable
+    public Quest? getQuest(string npcId)
     {
-        isQuesting = false;
-        questUI.SetActive(false);
+        if (questGroups.ContainsKey(npcId))
+            return questGroups[npcId].current;
+        return null;
     }
+
+    public Quest? getQuest(string npcId, string questId)
+    {
+        return questGroups[npcId].find(questId);
+    }
+    #nullable disable
 }

@@ -51,7 +51,10 @@ public class NpcAction : MonoBehaviour
 
     public void ShowDialogueUIObject()
     {
-        if(isDialogueEnd || QuestManager.instance.isFailed)
+        var currentQuest = QuestManager.instance.getQuest(npc_diff_id);
+        if (currentQuest == null) return;
+
+        if(isDialogueEnd || currentQuest.state == QuestState.Failed)
             return;
         //ui가 만들어져 있다면 생성안함.
         if (null == dialogueUiObjectInstance)
@@ -63,27 +66,27 @@ public class NpcAction : MonoBehaviour
 
             dialogueUiObjectInstance = Instantiate(dialogueUIObject, canvas.transform);
 
-            if (QuestManager.instance.isComplete)
+            if (currentQuest.state == QuestState.Succeeded)
             {
                 story_idIdx = story_idList.Count -1;
-                QuestManager.instance.isComplete = false;
                 isDialogueEnd = true;
+                currentQuest.resetState();
             }
 
             //마지막대화
-            if(QuestManager.instance.isFailed)
+            if(currentQuest.state == QuestState.Failed)
             {
                 story_idIdx = story_idList.Count - 1;
-                QuestManager.instance.isFailed = false;
                 isDialogueEnd = true;
-            }
+				currentQuest.resetState();
+			}
 
             List<string> npc_idList = new List<string>(TableData.instance.GetMainDataDic(npc_diff_id)[story_idList[story_idIdx]].Keys);
             dialogueUiObjectInstance.GetComponent<Dialogue>().DialogueWithNPC(story_idList[story_idIdx], npc_idList[0]);
 
             //퀘스트 중이라면 인덱스 넘어가지 않음(스토리 진행되지 않음)
             
-            if (!QuestManager.instance.isQuesting)
+            if (currentQuest.state != QuestState.Doing)
             {
                 if(story_idIdx != story_idList.Count-1)
                     story_idIdx++;

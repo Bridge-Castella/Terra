@@ -4,14 +4,43 @@ using UnityEngine;
 
 public class QuestGroup : MonoBehaviour
 {
-    public string questID;
-    public int questItemTotalNum;
-    public string questTitle;
-    public string questDesc;
+	public List<GameObject> questObject;
+	private List<Quest> questList;
 
-    private void Start()
-    {
-        //퀘스트 테이블 만들어지면 questID로 접근해서 값 가져오기..
-        questItemTotalNum = this.transform.childCount;
-    }
+	public Quest current = null;
+
+	private void Start()
+	{
+		string npcId = gameObject.GetComponent<NpcAction>().npc_diff_id;
+		QuestManager.instance.add(npcId, this);
+		questList = new List<Quest>();
+
+		foreach (GameObject quest in questObject)
+		{
+			current = quest.GetComponent<Quest>();
+		}
+	}
+
+	public void add(Quest quest)
+	{
+		questList.Add(quest);
+		current = quest;
+	}
+
+	public void delete()
+	{
+		questList.Remove(current);
+		current = null;
+	}
+
+	#nullable enable
+	public Quest? find(string questId)
+	{
+		foreach (Quest quest in questList)
+		{
+			if (quest.questId == questId) return quest;
+		}
+		return null;
+	}
+	#nullable disable
 }
