@@ -7,14 +7,6 @@ public class QuestRato : Quest
 	private int itemTotalNum;
 	private int currentItemNum;
 
-	protected override void Start()
-	{
-		base.Start();
-
-		//퀘스트 테이블 만들어지면 questID로 접근해서 값 가져오기..
-		itemTotalNum = this.transform.childCount;
-	}
-
 	protected override bool didSuccess()
 	{
 		return itemTotalNum == currentItemNum;
@@ -27,22 +19,17 @@ public class QuestRato : Quest
 									   this.itemTotalNum);
 	}
 
-	protected override void start()
+	protected override void reset()
 	{
 		currentItemNum = 0;
 	}
 
-	protected override void stop()
+	protected override void start()
 	{
-		
+		itemTotalNum = this.transform.childCount;
 	}
 
-	protected override void success()
-	{
-
-	}
-
-	public override void collideItem(Collider2D item)
+	public override void getItem(Collider2D item)
 	{
 		currentItemNum++;
 	}

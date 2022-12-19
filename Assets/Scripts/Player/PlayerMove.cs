@@ -305,12 +305,11 @@ public class PlayerMove : MonoBehaviour
         else
             x = -1f;
         RaycastHit2D raycastHit = Physics2D.Raycast(capsuleCollider2D.bounds.center, new Vector2(x, 0), capsuleCollider2D.bounds.extents.y * 2f, NPCLayerMask);
-        NpcAction npc = raycastHit.collider.GetComponent<NpcAction>();
         Color rayColor = Color.red;
         if(raycastHit.collider != null)
         {
-
-            if (npc.IsDialogueEnd)
+			NpcAction npc = raycastHit.collider.GetComponent<NpcAction>();
+			if (npc.IsDialogueEnd)
                 return;
             isTalking = true;
             Debug.Log("NPC감지");

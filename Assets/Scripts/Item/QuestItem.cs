@@ -6,8 +6,8 @@ public class QuestItem : Item
 {
 	public override void GetQuestItem(Collider2D collision)
     {
-        Quest quest = transform.parent.parent.GetComponent<QuestGroup>().current;
-        quest.collideItem(collision);
+        Quest quest = transform.parent.GetComponent<Quest>();
+        quest.getItem(collision);
         quest.updateState();
 
         bool wasPickedUp = Inventory.instance.Add(this, 1);

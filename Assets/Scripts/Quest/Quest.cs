@@ -12,6 +12,7 @@ public enum QuestState {
 public abstract class Quest : MonoBehaviour
 {
     public string questId;
+    public string portraitId;
     public string title;
     public string description;
     public string statusStr;
@@ -21,22 +22,18 @@ public abstract class Quest : MonoBehaviour
 
 
     protected abstract bool didSuccess();
-	protected abstract void start();
-    protected abstract void stop();
-	protected abstract void success();
+    protected abstract void start();
     protected abstract void update();
+    protected abstract void reset();
 
-    public virtual void collideItem(Collider2D item) { }
-
-
-	protected virtual void Start()
-	{
-        transform.parent.GetComponent<QuestGroup>().add((Quest)this);
-	}
+    protected virtual void stop() { }
+    protected virtual void success() { }
+    public virtual void getItem(Collider2D item) { }
 
 
 	public bool testQuest()
     {
+        if (state == QuestState.Null) return false;
         return didSuccess();
     }
 
@@ -49,34 +46,29 @@ public abstract class Quest : MonoBehaviour
 
     public void resetState()
     {
+        reset();
         _state = QuestState.Null;
     }
 
     public void startQuest()
     {
-        if (testQuest())
-        {
-            successQuest();
-            return;
-        }
 		_state = QuestState.Doing;
-        this.start();
+        reset();
+        start();
+        update();
     }
 
     public void stopQuest()
     {
-        if (testQuest())
-        {
-            successQuest();
-            return;
-        }
 		_state = QuestState.Failed;
-        this.stop();
+        stop();
+        reset();
     }
 
     public void successQuest()
     {
 		_state = QuestState.Succeeded;
-        this.success();
+        success();
+        reset();
     }
 }
