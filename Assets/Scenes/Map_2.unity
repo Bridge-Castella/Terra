@@ -1042,6 +1042,63 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 358149244}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &234067951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 234067953}
+  - component: {fileID: 234067952}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &234067952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234067951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b65eca0df2af429bb1f9975eefc7174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationSettings: {fileID: 11400000, guid: 7dd38e7be8cd04c30aa7b6408dc57420,
+    type: 2}
+  basePath: 
+  language: 
+  defaultPoolSize: 0
+  lowerPoolSize: 0
+  streamingPoolSize: 0
+  memoryCutoffThreshold: 0
+  monitorPoolSize: 0
+  monitorQueuePoolSize: 0
+  callbackManagerBufferSize: 0
+  spatialAudioPoolSize: 0
+  maxSoundPropagationDepth: 0
+  engineLogging: 0
+--- !u!4 &234067953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234067951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &251601588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2410,7 +2467,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &544994028
 PrefabInstance:
@@ -3021,6 +3078,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1018366618}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &663549328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663549327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe93bb58c55446bdaa050d43e2e464a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questObject:
+  - {fileID: 1843705997}
+  questList: []
 --- !u!1 &687193024
 GameObject:
   m_ObjectHideFlags: 0
@@ -4876,7 +4948,7 @@ Transform:
   - {fileID: 991386555}
   - {fileID: 1908211864}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1056405521
 GameObject:
@@ -6707,7 +6779,7 @@ PrefabInstance:
     - target: {fileID: 1449849089177048648, guid: 319620f6bf718f540a2d10d5ce774e33,
         type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 1449849089177048648, guid: 319620f6bf718f540a2d10d5ce774e33,
         type: 3}
@@ -17066,7 +17138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1843705998}
-  - component: {fileID: 1843705999}
+  - component: {fileID: 1843706000}
   m_Layer: 0
   m_Name: QuestItemGroup
   m_TagString: Untagged
@@ -17087,9 +17159,9 @@ Transform:
   m_Children:
   - {fileID: 3131713970464003357}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1843705999
+--- !u!114 &1843706000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17098,10 +17170,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1843705997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 577a53eaabf0c490f87bd727ea272af9, type: 3}
+  m_Script: {fileID: 11500000, guid: ed5dc81e2ddf044a49c777d8922a9f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   questId: quest_2
+  npcId: 
   portraitId: riche_p_1
   title: "\uB9AC\uCCB4\uC5D0\uAC8C \uC778\uD615 \uAC00\uC838\uB2E4\uC8FC\uAE30"
   description: "\uB9AC\uCCB4\uAC00 \uC783\uC5B4\uBC84\uB9B0 \uC778\uD615\uC744 \uAC00\uC838\uB2E4\uC8FC\uC790."
@@ -17921,52 +17994,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2015126423}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2018980419
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2018980421}
-  - component: {fileID: 2018980420}
-  m_Layer: 0
-  m_Name: QuestGroup
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2018980420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018980419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fe93bb58c55446bdaa050d43e2e464a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questObject:
-  - {fileID: 1843705997}
-  npc: {fileID: 663549327}
---- !u!4 &2018980421
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018980419}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000352, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 26
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2035985494
 PrefabInstance:
   m_ObjectHideFlags: 0

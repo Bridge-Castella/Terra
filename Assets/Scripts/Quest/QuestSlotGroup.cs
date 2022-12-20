@@ -11,11 +11,11 @@ public class QuestSlotGroup : MonoBehaviour
 
 	private void OnEnable()
 	{
-		List<(string, Quest)> quests = QuestManager.instance.getAllQuests();
-		foreach ((string npcId, Quest quest) in quests)
+		List<Quest> quests = QuestManager.instance.getActiveQuests();
+		foreach (Quest quest in quests)
 		{
 			GameObject questSlot = Instantiate(questSlotPrefab, transform);
-			questSlot.GetComponent<QuestSlot>().init(npcId, quest, detailPanel);
+			questSlot.GetComponent<QuestSlot>().init(quest, detailPanel);
 			questSlots.Add(questSlot);
 		}
 	}

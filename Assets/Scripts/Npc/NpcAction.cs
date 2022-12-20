@@ -47,14 +47,23 @@ public class NpcAction : MonoBehaviour
         story_idList = new List<string>(TableData.instance.GetMainDataDic(npc_diff_id).Keys);
         player = FindObjectOfType<PlayerMove>();
         animator = gameObject.GetComponent<Animator>();
-    }
+
+		string questId = QuestManager.instance.getNextQuestId(npc_diff_id);
+		QuestState? state = QuestManager.instance.getState(questId);
+		if (state == null) return;
+		QuestState questState = (QuestState)state;
+        if (questState == QuestState.Doing) Stroy_idIdx = 1;
+	}
 
     public void ShowDialogueUIObject()
     {
-        var currentQuest = QuestManager.instance.getQuest(npc_diff_id);
-        if (currentQuest == null) return;
+        string questId = QuestManager.instance.getNextQuestId(npc_diff_id);
+        QuestState? state = QuestManager.instance.getState(questId);
 
-        if(isDialogueEnd || currentQuest.state == QuestState.Failed)
+        if (state == null) return;
+        QuestState questState = (QuestState)state;
+
+        if(isDialogueEnd || questState == QuestState.End)
             return;
         //ui가 만들어져 있다면 생성안함.
         if (null == dialogueUiObjectInstance)
@@ -66,19 +75,17 @@ public class NpcAction : MonoBehaviour
 
             dialogueUiObjectInstance = Instantiate(dialogueUIObject, canvas.transform);
 
-            if (currentQuest.state == QuestState.Succeeded)
+            if (questState == QuestState.Succeeded)
             {
                 story_idIdx = story_idList.Count -1;
                 isDialogueEnd = true;
-                currentQuest.resetState();
             }
 
             //마지막대화
-            if(currentQuest.state == QuestState.Failed)
+            if(questState == QuestState.Failed)
             {
                 story_idIdx = story_idList.Count - 1;
                 isDialogueEnd = true;
-				currentQuest.resetState();
 			}
 
             List<string> npc_idList = new List<string>(TableData.instance.GetMainDataDic(npc_diff_id)[story_idList[story_idIdx]].Keys);
@@ -86,7 +93,7 @@ public class NpcAction : MonoBehaviour
 
             //퀘스트 중이라면 인덱스 넘어가지 않음(스토리 진행되지 않음)
             
-            if (currentQuest.state != QuestState.Doing)
+            if (questState != QuestState.Doing)
             {
                 if(story_idIdx != story_idList.Count-1)
                     story_idIdx++;

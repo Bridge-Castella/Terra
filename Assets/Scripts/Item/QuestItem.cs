@@ -8,7 +8,9 @@ public class QuestItem : Item
     {
         Quest quest = transform.parent.GetComponent<Quest>();
         quest.getItem(collision);
-        quest.updateState();
+        quest.update();
+        if (quest.didSuccess())
+            quest.success(); 
 
         bool wasPickedUp = Inventory.instance.Add(this, 1);
 

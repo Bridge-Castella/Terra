@@ -18,7 +18,7 @@ public class QuestSlot : MonoBehaviour
 		gameObject.GetComponent<Button>().onClick.AddListener(OnClick);
 	}
 
-	public void init(string npdId, Quest quest, DetailPanel panel)
+	public void init(Quest quest, DetailPanel panel)
 	{
 		this.quest = quest;
 		this.detailPanel = panel;
@@ -28,7 +28,7 @@ public class QuestSlot : MonoBehaviour
 
 	public void OnClick()
 	{
-		quest.updateState();
+		quest.update();
 		detailPanel.gameObject.SetActive(true);
 		detailPanel.icon.sprite = portraitImage.sprite;
 		detailPanel.itemNameText.text = quest.title + "\n" + quest.statusStr;

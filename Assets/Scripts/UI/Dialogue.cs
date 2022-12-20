@@ -99,7 +99,7 @@ public class Dialogue : MonoBehaviour
                 break;
             case 4:
                 //TODO: 퀘스트 구현
-                QuestManager.instance.StartQuest(npc.npc_diff_id);
+                QuestManager.instance.StartQuest(npc.npc_diff_id, list[string_idIdx].quest_id);
                 break;
                 //퀘스트는 무조건 시작하므로 5일때는 그냥 대화(아무일도 일어나지 않음)
             case 6:

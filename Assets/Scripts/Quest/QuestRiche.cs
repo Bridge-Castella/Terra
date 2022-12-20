@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestRato : Quest
+public class QuestRiche : Quest
 {
 	private int itemTotalNum;
 	private int currentItemNum;
@@ -14,7 +14,7 @@ public class QuestRato : Quest
 
 	public override void update()
 	{
-		this.statusStr = string.Format("종이: {0} / {1}",
+		this.statusStr = string.Format("인형: {0} / {1}",
 									   this.currentItemNum,
 									   this.itemTotalNum);
 	}

@@ -5,30 +5,28 @@ using UnityEngine;
 public class QuestGroup : MonoBehaviour
 {
 	[SerializeField] List<GameObject> questObject;
-	[SerializeField] GameObject npc;
 
-	private List<Quest> questList;
-	private IEnumerator<Quest> questIter;
+	public List<Quest> questList;
 
 	private void Start()
 	{
-		string npcId = npc.GetComponent<NpcAction>().npc_diff_id;
+		string npcId = gameObject.GetComponent<NpcAction>().npc_diff_id;
 		QuestManager.instance.add(npcId, this);
 
 		questList = new List<Quest>();
 		foreach (GameObject questEle in questObject)
 		{
 			Quest quest = questEle.GetComponent<Quest>();
+			quest.npcId = npcId;
 			questList.Add(quest);
+			QuestManager.instance.add(quest.questId, QuestState.Null);
 		}
-
-		questIter = questList.GetEnumerator();
-		questIter.MoveNext();
 	}
 
-	public void moveToNextQuest()
+	private void OnDestroy()
 	{
-		questIter.MoveNext();
+		string npcId = gameObject.GetComponent<NpcAction>().npc_diff_id;
+		QuestManager.instance.delete(npcId);
 	}
 
 	#nullable enable
@@ -40,7 +38,7 @@ public class QuestGroup : MonoBehaviour
 		}
 		return null;
 	}
-
-	public Quest? current => questIter.Current;
 	#nullable disable
+
+
 }
