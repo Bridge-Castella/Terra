@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class QuestItem : Item
 {
-    public override void GetQuestItem()
+	public override void GetQuestItem(Collider2D collision)
     {
-        QuestManager.instance.curQuestItemNum++;
-        QuestManager.instance.questStatusText.text = string.Format("종이: {0} / {1}", QuestManager.instance.curQuestItemNum, QuestManager.instance.questItemTotalNum);
-        //퀘스트아이템 다 모음
-        if (QuestManager.instance.curQuestItemNum >= QuestManager.instance.questItemTotalNum)
-        {
-            QuestManager.instance.isComplete = true;
-            QuestManager.instance.isQuesting = false;
-        }
+        Quest quest = transform.parent.GetComponent<Quest>();
+        quest.getItem(collision);
+        quest.update();
+        if (quest.didSuccess())
+            quest.success(); 
 
         bool wasPickedUp = Inventory.instance.Add(this, 1);
 

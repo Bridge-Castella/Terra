@@ -47,11 +47,23 @@ public class NpcAction : MonoBehaviour
         story_idList = new List<string>(TableData.instance.GetMainDataDic(npc_diff_id).Keys);
         player = FindObjectOfType<PlayerMove>();
         animator = gameObject.GetComponent<Animator>();
-    }
+
+		string questId = QuestManager.instance.getNextQuestId(npc_diff_id);
+		QuestState? state = QuestManager.instance.getState(questId);
+		if (state == null) return;
+		QuestState questState = (QuestState)state;
+        if (questState == QuestState.Doing) Stroy_idIdx = 1;
+	}
 
     public void ShowDialogueUIObject()
     {
-        if(isDialogueEnd || QuestManager.instance.isFailed)
+        string questId = QuestManager.instance.getNextQuestId(npc_diff_id);
+        QuestState? state = QuestManager.instance.getState(questId);
+
+        if (state == null) return;
+        QuestState questState = (QuestState)state;
+
+        if(isDialogueEnd || questState == QuestState.End)
             return;
         //ui가 만들어져 있다면 생성안함.
         if (null == dialogueUiObjectInstance)
@@ -63,27 +75,25 @@ public class NpcAction : MonoBehaviour
 
             dialogueUiObjectInstance = Instantiate(dialogueUIObject, canvas.transform);
 
-            if (QuestManager.instance.isComplete)
+            if (questState == QuestState.Succeeded)
             {
                 story_idIdx = story_idList.Count -1;
-                QuestManager.instance.isComplete = false;
                 isDialogueEnd = true;
             }
 
             //마지막대화
-            if(QuestManager.instance.isFailed)
+            if(questState == QuestState.Failed)
             {
                 story_idIdx = story_idList.Count - 1;
-                QuestManager.instance.isFailed = false;
                 isDialogueEnd = true;
-            }
+			}
 
             List<string> npc_idList = new List<string>(TableData.instance.GetMainDataDic(npc_diff_id)[story_idList[story_idIdx]].Keys);
             dialogueUiObjectInstance.GetComponent<Dialogue>().DialogueWithNPC(story_idList[story_idIdx], npc_idList[0]);
 
             //퀘스트 중이라면 인덱스 넘어가지 않음(스토리 진행되지 않음)
             
-            if (!QuestManager.instance.isQuesting)
+            if (questState != QuestState.Doing)
             {
                 if(story_idIdx != story_idList.Count-1)
                     story_idIdx++;
