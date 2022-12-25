@@ -1051,7 +1051,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 234067953}
-  - component: {fileID: 234067952}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -1059,32 +1058,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &234067952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234067951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b65eca0df2af429bb1f9975eefc7174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: 7dd38e7be8cd04c30aa7b6408dc57420,
-    type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
 --- !u!4 &234067953
 Transform:
   m_ObjectHideFlags: 0
@@ -3092,7 +3065,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questObject:
   - {fileID: 1843705997}
-  questList: []
 --- !u!1 &687193024
 GameObject:
   m_ObjectHideFlags: 0
@@ -17175,10 +17147,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questId: quest_2
   npcId: 
-  portraitId: riche_p_1
   title: "\uB9AC\uCCB4\uC5D0\uAC8C \uC778\uD615 \uAC00\uC838\uB2E4\uC8FC\uAE30"
   description: "\uB9AC\uCCB4\uAC00 \uC783\uC5B4\uBC84\uB9B0 \uC778\uD615\uC744 \uAC00\uC838\uB2E4\uC8FC\uC790."
-  statusStr: 
+  status: 
+  portrait: {fileID: 21300000, guid: 7126cc20f50f5b046adfc60dc17969d6, type: 3}
+  itemIcon: {fileID: 21300000, guid: aed08d6915e555147940533507499de8, type: 3}
 --- !u!1001 &1866829758
 PrefabInstance:
   m_ObjectHideFlags: 0

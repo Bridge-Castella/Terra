@@ -7,29 +7,25 @@ public class QuestRato : Quest
 	private int itemTotalNum;
 	private int currentItemNum;
 
-	public override bool didSuccess()
+	protected override bool didSuccess()
 	{
 		return itemTotalNum == currentItemNum;
 	}
 
-	public override void update()
+	protected override void onChange()
 	{
-		this.statusStr = string.Format("종이: {0} / {1}",
-									   this.currentItemNum,
-									   this.itemTotalNum);
+		this.status = string.Format("종이: {0} / {1}",
+									this.currentItemNum,
+									this.itemTotalNum);
 	}
 
-	public override void reset()
+	protected override void start()
 	{
+		itemTotalNum = this.transform.childCount;
 		currentItemNum = 0;
 	}
 
-	public override void start()
-	{
-		itemTotalNum = this.transform.childCount;
-	}
-
-	public override void getItem(Collider2D item)
+	protected override void getItemCallback(Collider2D item)
 	{
 		currentItemNum++;
 	}

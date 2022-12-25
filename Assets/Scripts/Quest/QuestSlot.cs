@@ -7,31 +7,35 @@ using static UnityEditor.Progress;
 
 public class QuestSlot : MonoBehaviour
 {
-    public Image portraitImage;
-	public TextMeshProUGUI questTitle;
-	public DetailPanel detailPanel;
+	public Image portrait;
+	public Image Item;
+	public TextMeshProUGUI title;
+	public TextMeshProUGUI npcId;
+	public TextMeshProUGUI status;
 
+	private QuestPanel questPanel;
 	private Quest quest;
 
-	public void Start()
+	private void Start()
 	{
 		gameObject.GetComponent<Button>().onClick.AddListener(OnClick);
 	}
 
-	public void init(Quest quest, DetailPanel panel)
+	public void init(Quest quest, QuestPanel panel)
 	{
 		this.quest = quest;
-		this.detailPanel = panel;
-		portraitImage.sprite = TableData.instance.GetPortrait(quest.portraitId);
-		questTitle.text = quest.title;
+		this.questPanel = panel;
+		portrait.sprite = quest.portrait;
+		Item.sprite = quest.itemIcon;
+		title.text = quest.title;
+		npcId.text = quest.npcId;
+		status.text = quest.status;
 	}
 
 	public void OnClick()
 	{
-		quest.update();
-		detailPanel.gameObject.SetActive(true);
-		detailPanel.icon.sprite = portraitImage.sprite;
-		detailPanel.itemNameText.text = quest.title + "\n" + quest.statusStr;
-		detailPanel.itemDescriptionText.text = quest.description;
+		questPanel.init(quest);
+		questPanel.gameObject.SetActive(true);
+		transform.parent.gameObject.SetActive(false);
 	}
 }
