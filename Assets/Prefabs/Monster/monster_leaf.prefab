@@ -225,8 +225,8 @@ MonoBehaviour:
   - {fileID: 5434825840943048861}
   - {fileID: 6245815455390486776}
   m_Bounds:
-    m_Center: {x: 0.0000019073486, y: 0.0024093986, z: 0}
-    m_Extent: {x: 1.0150019, y: 0.8875896, z: 0}
+    m_Center: {x: 0.000011444092, y: 0.0024103522, z: 0}
+    m_Extent: {x: 1.0150001, y: 0.8875905, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -260,6 +260,36 @@ Transform:
   m_Father: {fileID: 1376177343460197386}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5853047514171725218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6574072506495855859}
+  m_Layer: 18
+  m_Name: Ground Detection
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6574072506495855859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5853047514171725218}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.69, y: 0.697, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1376177343460197386}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7248532403271294005
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,8 +301,9 @@ GameObject:
   - component: {fileID: 1376177343460197386}
   - component: {fileID: 8430824425414189615}
   - component: {fileID: 8430824425414189617}
-  - component: {fileID: 8430824425414189616}
+  - component: {fileID: -7897891584577349052}
   - component: {fileID: 6613510968887567396}
+  - component: {fileID: 6722282723606176022}
   m_Layer: 18
   m_Name: monster_leaf
   m_TagString: Untagged
@@ -299,6 +330,7 @@ Transform:
   - {fileID: 5434825840943048861}
   - {fileID: 157433854898209660}
   - {fileID: 6245815455390486776}
+  - {fileID: 6574072506495855859}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -334,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 4
---- !u!114 &8430824425414189616
+--- !u!114 &-7897891584577349052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -343,12 +375,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7248532403271294005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a2f013fc6ea5d4db5efa005e9c505c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ad01d889ab202d41b6935932606bd5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPlatformParent: {fileID: 0}
-  wayPoints: []
   speed: 2
+  distance: 2
+  groundDetection: {fileID: 6574072506495855859}
+  layer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!70 &6613510968887567396
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -365,6 +400,27 @@ CapsuleCollider2D:
   m_Offset: {x: -0.029836655, y: 1.54}
   m_Size: {x: 2.5118065, y: 2.656725}
   m_Direction: 0
+--- !u!50 &6722282723606176022
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7248532403271294005}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &7734407654977545345
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,8 +552,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 157433854898209660}
   m_Bounds:
-    m_Center: {x: -0.0007650852, y: 0.0021499395, z: 0}
-    m_Extent: {x: 1.5042348, y: 1.2028499, z: 0}
+    m_Center: {x: -0.0007593632, y: 0.0021480322, z: 0}
+    m_Extent: {x: 1.5042349, y: 1.2028499, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
