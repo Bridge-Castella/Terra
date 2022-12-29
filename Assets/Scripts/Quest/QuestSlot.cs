@@ -6,10 +6,8 @@ using TMPro;
 
 public class QuestSlot : MonoBehaviour
 {
-	public Image portrait;
-	public Image Item;
+	//public Image portrait;
 	public TextMeshProUGUI title;
-	public TextMeshProUGUI npcId;
 	public TextMeshProUGUI status;
 
 	private QuestPanel questPanel;
@@ -24,10 +22,8 @@ public class QuestSlot : MonoBehaviour
 	{
 		this.quest = quest;
 		this.questPanel = panel;
-		portrait.sprite = quest.portrait;
-		Item.sprite = quest.itemIcon;
-		title.text = quest.title;
-		npcId.text = quest.npcId;
+		//portrait.sprite = quest.portrait;
+		title.text = quest.npcId + " - " + quest.title;
 		status.text = quest.status;
 	}
 
@@ -35,6 +31,6 @@ public class QuestSlot : MonoBehaviour
 	{
 		questPanel.init(quest);
 		questPanel.gameObject.SetActive(true);
-		transform.parent.gameObject.SetActive(false);
+		transform.parent.parent.gameObject.SetActive(false);
 	}
 }

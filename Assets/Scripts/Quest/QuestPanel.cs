@@ -27,7 +27,7 @@ public class QuestPanel : MonoBehaviour
 
         portrait.sprite = quest.portrait;
         item.sprite = quest.itemIcon;
-        title.text = quest.title;
+        title.text = quest.npcId + ": " + quest.title;
         status.text = quest.status;
         description.text = quest.description;
     }
@@ -40,6 +40,13 @@ public class QuestPanel : MonoBehaviour
 	private void OnEnable()
 	{
         backButton.gameObject.SetActive(true);
+        mapButton.gameObject.SetActive(true);
+	}
+
+	private void OnDisable()
+	{
+        backButton.gameObject.SetActive(false);
+        mapButton.gameObject.SetActive(false);
 	}
 
 	public void stopQuest()
