@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [Tooltip ("플랫폼 인식하는 레이어")]
+    [Header("플랫폼 인식하는 레이어")]
     [SerializeField] private LayerMask platformLayerMask = default;
-    [Tooltip("NPC 인식하는 레이어")]
+    [Header("NPC 인식하는 레이어")]
     [SerializeField] private LayerMask NPCLayerMask = default;
-    [Tooltip("중력 값")]
+    [Header("중력 값")]
     [SerializeField] private float gravityScale;
-    [Tooltip("떨어질때 중력에 곱하는 배수")]
+    [Header("떨어질때 중력에 곱하는 배수")]
     public float fallGravityMultiflier;
 
-    [Tooltip("플레이어 속도")]
+    [Header("플레이어 속도")]
     public float maxSpeed;
-    [Tooltip("플레이어 점프")]
+    [Header("플레이어 점프")]
     public float jumpPower;
-    [Tooltip("튕겨나가는 힘")]
+    [Header("튕겨나가는 힘")]
     public float knockBackPower = 30f;
 
     [HideInInspector]public bool isHurting = false; //데미지 입은 경우
@@ -42,13 +42,13 @@ public class PlayerMove : MonoBehaviour
     private PlayerAbilityTracker  abilities;
     private bool canDoubleJump = true;//더블 점프가 가능한지
 
-    [Tooltip("Sound generated object")]
+    [Header("Sound generated object")]
     [SerializeField] GameObject soundObject;
-    [Tooltip("Player jump")]
+    [Header("Player jump Sound")]
     [SerializeField] AK.Wwise.Event jump;
-    [Tooltip("Player land")]
+    [Header("Player land Sound")]
     [SerializeField] AK.Wwise.Event land;
-    [Tooltip("Player damaged")]
+    [Header("Player damaged Sound")]
     [SerializeField] AK.Wwise.Event damaged;
 
     void Awake()
@@ -260,7 +260,7 @@ public class PlayerMove : MonoBehaviour
         isHurting = true;
     }
 
-    public void DamageKnockBack(Vector3 targetPos, int damageAmount)
+    public void DamageKnockBack(Vector3 targetPos)
     {
         //플레이어와 대상의 위치를 계산해서 반대쪽으로 튕기도록 방향 설정
         int dir = transform.position.x - targetPos.x > 0 ? 1 : -1;
