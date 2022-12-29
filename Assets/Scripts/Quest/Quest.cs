@@ -7,35 +7,61 @@ public enum QuestState {
     Doing,
     Failed,
     Succeeded,
-    End
+    Completed
 };
 
 public abstract class Quest : MonoBehaviour
 {
     public string questId;
     public string npcId;
-    public string portraitId;
     public string title;
     public string description;
-    public string statusStr;
+    public string status;
 
-    public abstract bool didSuccess();
-    public abstract void start();
-    public abstract void update();
-    public abstract void reset();
+    public Sprite portrait;
+    public Sprite itemIcon;
 
+    protected abstract bool didSuccess();
+	protected abstract void start();
+    protected abstract void onChange();
+
+    public delegate void CallbackT();
+    private CallbackT OnChangeStatusCallback;
+
+    public void updateStatus()
+    {
+        onChange();
+		if (didSuccess()) success();
+		if (OnChangeStatusCallback != null)
+            OnChangeStatusCallback.Invoke();
+    }
+
+    public void submitCallback(CallbackT callback)
+    {
+        OnChangeStatusCallback += callback;
+    }
 
     public void success()
     {
 		QuestManager.instance.changeState(questId, QuestState.Succeeded);
 	}
 
-    public virtual void getItem(Collider2D item) { }
+	public void startQuest()
+	{
+		start();
+		updateStatus();
+	}
 
+	protected virtual void getItemCallback(Collider2D item) { }
+	public void getItem(Collider2D item)
+    {
+        getItemCallback(item);
+        updateStatus();
+    }
+
+	public QuestState state { get { return _state(); } }
 	private QuestState _state()
     {
         return (QuestState)QuestManager.instance.getState(questId);
     }
-
-    public QuestState state { get { return _state(); } }
 }

@@ -5,8 +5,7 @@ using UnityEngine;
 public class QuestGroup : MonoBehaviour
 {
 	[SerializeField] List<GameObject> questObject;
-
-	public List<Quest> questList;
+	private List<Quest> questList;
 
 	private void Start()
 	{
@@ -29,8 +28,7 @@ public class QuestGroup : MonoBehaviour
 		QuestManager.instance.delete(npcId);
 	}
 
-	#nullable enable
-	public Quest? find(string questId)
+	public Quest find(string questId)
 	{
 		foreach (Quest quest in questList)
 		{
@@ -38,7 +36,10 @@ public class QuestGroup : MonoBehaviour
 		}
 		return null;
 	}
-	#nullable disable
 
-
+	public Quest at(int index)
+	{
+		if (questList.Count <= index) return null;
+		return questList[index];
+	}
 }

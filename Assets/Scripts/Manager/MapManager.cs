@@ -33,12 +33,12 @@ public class MapManager : MonoBehaviour
 
     [SerializeField] private int AdditiveMapStartIndex = 3;
 
-    public AsyncOperation LoadMap(int index = 0)
+    public AsyncOperation LoadMap(int index)
     {
         if (SceneManager.sceneCount == 1)
         {
             var async = SceneManager.LoadSceneAsync("02.Map_0");
-            SceneManager.LoadScene("Map_1", LoadSceneMode.Additive);
+            SceneManager.LoadScene(ToSceneIndex(index), LoadSceneMode.Additive);
             return async;
         }
 

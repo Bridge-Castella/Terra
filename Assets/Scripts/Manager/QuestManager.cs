@@ -60,7 +60,7 @@ public class QuestManager : MonoBehaviour
 
 		questState[questId] = QuestState.Doing;
 		quest.gameObject.SetActive(true);
-		quest.start();
+		quest.startQuest();
         quest.gameObject.transform.parent = transform;
     }
 
@@ -87,7 +87,7 @@ public class QuestManager : MonoBehaviour
 			return;
 		}
 
-		questState[quest.questId] = QuestState.End;
+		questState[quest.questId] = QuestState.Completed;
         Destroy(quest.gameObject);
 		questIndex[npcId] += 1;
 	}
@@ -123,12 +123,16 @@ public class QuestManager : MonoBehaviour
 
     public string getNextQuestId(string npcId)
     {
-        if (!questGroup.ContainsKey(npcId)) return null;
-        int index = questIndex[npcId];
-        List<Quest> list = questGroup[npcId].questList;
-        if (list.Count <= index) return null;
-		return list[index].questId;
+        Quest quest = getNextQuest(npcId);
+        return quest == null ? null : quest.questId;
     }
+
+    public Quest getNextQuest(string npcId)
+    {
+		if (!questGroup.ContainsKey(npcId)) return null;
+		int index = questIndex[npcId];
+        return questGroup[npcId].at(index);
+	}
 
     public QuestState? getState(string questId)
     {

@@ -21,31 +21,34 @@ public class PlaceHolder
 		return _instance;
 	}
 
-    public void insert(string key, object value)
+    public void store(string key, object value)
 	{
-		placeHolder.Add(key, value);
+		if (contains(key)) placeHolder[key] = value;
+		else placeHolder.Add(key, value);
 	}
 
-	public void remove(string key)
+	public void pop(string key)
 	{
+		if (!contains(key)) return;
 		placeHolder.Remove(key);
 	}
 
-	public object find(string key)
+	public bool contains(string key)
 	{
 		if (placeHolder.ContainsKey(key))
 		{
-			return placeHolder[key];
+			return true;
 		}
-		return null;
+		return false;
 	}
 
-	public T find<T>(string key)
+	public object load(string key)
 	{
-		if (placeHolder.ContainsKey(key))
-		{
-			return (T)placeHolder[key];
-		}
-		return default(T);
+		return placeHolder[key];
+	}
+
+	public T load<T>(string key)
+	{
+		return (T)placeHolder[key];
 	}
 }

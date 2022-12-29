@@ -7,7 +7,6 @@ public class InventoryUI : MonoBehaviour
 {
     public Transform itemSlotGroup;
     public Transform skinSlotGroup;
-    public Transform questSlotGroup;
     public GameObject panel;
     public GameObject detailPanel;
 

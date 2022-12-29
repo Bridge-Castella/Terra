@@ -6,10 +6,17 @@ public class FadeController : MonoBehaviour
 {
     public GameObject[] environment;
     private FadeSwitcher switcher;
+    private static bool firstScene = true;
+    private bool firstLoad = true;
 
     private void Start()
     {
         switcher = gameObject.GetComponent<FadeSwitcher>();
+    }
+
+    public static void resetFade()
+    {
+        firstScene = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,7 +26,17 @@ public class FadeController : MonoBehaviour
             foreach (GameObject ele in environment)
             {
                 if (!ele.activeSelf) ele.SetActive(true);
-                else switcher.StartFadeIn();
+                if (firstLoad)
+                {
+                    switcher.SetAlpha(0.0f);
+                    firstLoad = false;
+					if (firstScene)
+					{
+						switcher.SetAlpha(0.6f);
+						firstScene = false;
+					}
+				}
+                switcher.StartFadeIn();
             }
         }
     }

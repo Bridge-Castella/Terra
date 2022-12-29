@@ -5,7 +5,7 @@ using UnityEngine;
 public class QuestSlotGroup : MonoBehaviour
 {
     [SerializeField] GameObject questSlotPrefab;
-	[SerializeField] DetailPanel detailPanel;
+	[SerializeField] QuestPanel questPanel;
 
 	private List<GameObject> questSlots = new List<GameObject>();
 
@@ -15,7 +15,7 @@ public class QuestSlotGroup : MonoBehaviour
 		foreach (Quest quest in quests)
 		{
 			GameObject questSlot = Instantiate(questSlotPrefab, transform);
-			questSlot.GetComponent<QuestSlot>().init(quest, detailPanel);
+			questSlot.GetComponent<QuestSlot>().init(quest, questPanel);
 			questSlots.Add(questSlot);
 		}
 	}

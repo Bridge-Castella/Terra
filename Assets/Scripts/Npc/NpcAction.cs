@@ -63,7 +63,7 @@ public class NpcAction : MonoBehaviour
         if (state == null) return;
         QuestState questState = (QuestState)state;
 
-        if(isDialogueEnd || questState == QuestState.End)
+        if(isDialogueEnd || questState == QuestState.Completed)
             return;
         //ui가 만들어져 있다면 생성안함.
         if (null == dialogueUiObjectInstance)

@@ -3,35 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using static UnityEditor.Progress;
 
 public class QuestSlot : MonoBehaviour
 {
-    public Image portraitImage;
-	public TextMeshProUGUI questTitle;
-	public DetailPanel detailPanel;
+	//public Image portrait;
+	public TextMeshProUGUI title;
+	public TextMeshProUGUI status;
 
+	private QuestPanel questPanel;
 	private Quest quest;
 
-	public void Start()
+	private void Start()
 	{
 		gameObject.GetComponent<Button>().onClick.AddListener(OnClick);
 	}
 
-	public void init(Quest quest, DetailPanel panel)
+	public void init(Quest quest, QuestPanel panel)
 	{
 		this.quest = quest;
-		this.detailPanel = panel;
-		portraitImage.sprite = TableData.instance.GetPortrait(quest.portraitId);
-		questTitle.text = quest.title;
+		this.questPanel = panel;
+		//portrait.sprite = quest.portrait;
+		title.text = quest.npcId + " - " + quest.title;
+		status.text = quest.status;
 	}
 
 	public void OnClick()
 	{
-		quest.update();
-		detailPanel.gameObject.SetActive(true);
-		detailPanel.icon.sprite = portraitImage.sprite;
-		detailPanel.itemNameText.text = quest.title + "\n" + quest.statusStr;
-		detailPanel.itemDescriptionText.text = quest.description;
+		questPanel.init(quest);
+		questPanel.gameObject.SetActive(true);
+		transform.parent.parent.gameObject.SetActive(false);
 	}
 }
