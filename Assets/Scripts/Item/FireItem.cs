@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FireItem : Item
 {
-    [SerializeField] private float showTime = 2f;
     [SerializeField] GameObject itemSprite;
 
     //불 아이템은 1회성. 다시 안생김,

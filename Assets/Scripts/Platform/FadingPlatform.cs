@@ -9,21 +9,15 @@ public class FadingPlatform : MonoBehaviour
 
     private BoxCollider2D boxCol2D;
     private PolygonCollider2D polygonCol2D;
-    //private SpriteRenderer spriteRend;
-    private bool isFading;
-    private Color platformAlpha;
 
     Animator animator;
     new Camera camera;
 
     private void Start()
     {
-        //platformAlpha = gameObject.GetComponent<SpriteRenderer>().material.color;
-        platformAlpha.a = 0;      
 
         boxCol2D = gameObject.GetComponent<BoxCollider2D>();
         polygonCol2D = gameObject.GetComponent<PolygonCollider2D>();
-        //spriteRend = gameObject.GetComponent<SpriteRenderer>();
 
         animator = GetComponent<Animator>();
         camera = Camera.main;
@@ -39,24 +33,6 @@ public class FadingPlatform : MonoBehaviour
         }
         else
             animator.speed = 0f;
-
-        if (isFading)
-        {
-            //애니메이션 sprite로 할 경우 사라지는 효과
-            /*gameObject.GetComponent<SpriteRenderer>().material.color = 
-            Color.Lerp(gameObject.GetComponent<SpriteRenderer>().material.color, platformAlpha, fadingSpeed * Time.deltaTime);*/
-
-            
-        }
-
-        //거의 다 사라져갈때 콜라이더 false
-        /*if(gameObject.GetComponent<SpriteRenderer>().material.color.a < 0.1f)
-        {
-            for (int i = 0; i < boxCol2D.Length; i++)
-            boxCol2D[i].enabled = false;
-            //spriteRend.enabled = false;
-            isFading = false;       
-        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -69,16 +45,6 @@ public class FadingPlatform : MonoBehaviour
             StartCoroutine(CoFadingPlatform());
         }
     }
-
-    /*public void ShowFadingPlatform()
-    {
-        StopAllCoroutines();
-        animator.SetBool("isFalling", false);
-        animator.SetBool("isQuaking", false);
-        //gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
-        for (int i = 0; i < boxCol2D.Length; i++)
-            boxCol2D[i].enabled = true;
-    }*/
 
     IEnumerator CoFadingPlatform()
     {
