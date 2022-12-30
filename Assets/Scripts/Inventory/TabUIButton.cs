@@ -34,6 +34,5 @@ public class TabUIButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
     {
         backGround = GetComponent<Image>();
         icon = transform.GetChild(0).GetComponentInChildren<Image>();
-        tabGroup.Subscribe(this);
     }
 }
