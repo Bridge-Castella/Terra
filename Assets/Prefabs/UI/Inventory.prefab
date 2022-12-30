@@ -811,7 +811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4668356105024759190
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1011,8 +1011,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tabGroup: {fileID: 789779220044333843}
   slotTitle: "\uC2A4\uD0A8"
-  backGround: {fileID: 0}
-  icon: {fileID: 0}
+  backGround: {fileID: 4668356105078170036}
+  icon: {fileID: 8635630461495140518}
   selectedIcon: {fileID: 21300000, guid: 578ea036eaf5ad046bd2cc3134414014, type: 3}
   idleIcon: {fileID: 21300000, guid: 3153456460b9dfb44879aab7edeaf169, type: 3}
 --- !u!1 &4668356105111707978
@@ -1090,7 +1090,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a87cb2dd51b87c41b3a5de0aed6d521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabButtons: []
+  tabButtons:
+  - {fileID: 4176371196216109920}
+  - {fileID: 2131048998386149996}
   tabIdle: {fileID: 21300000, guid: d8d8c160042b9f54da27b6283887fa09, type: 3}
   tabHover: {fileID: 21300000, guid: a7f7172bcc6ee9a49acd2520afe2e74e, type: 3}
   tabActive: {fileID: 21300000, guid: a7f7172bcc6ee9a49acd2520afe2e74e, type: 3}
@@ -1372,8 +1374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tabGroup: {fileID: 789779220044333843}
   slotTitle: "\uC544\uC774\uD15C"
-  backGround: {fileID: 0}
-  icon: {fileID: 0}
+  backGround: {fileID: 4668356105509204641}
+  icon: {fileID: 534047492108644671}
   selectedIcon: {fileID: 21300000, guid: d9476cab401f0c14fb7b9d0fc079c5d3, type: 3}
   idleIcon: {fileID: 21300000, guid: 87e4cb2870ebdb84b971d1706ce90ca4, type: 3}
 --- !u!1 &4668356105548756864
@@ -1564,7 +1566,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -50, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &4668356105800512574
 CanvasRenderer:
