@@ -16,7 +16,7 @@ public class QuestGroup : MonoBehaviour
 		foreach (GameObject questEle in questObject)
 		{
 			Quest quest = questEle.GetComponent<Quest>();
-			quest.npcId = npcId;
+			quest.init(npcId);
 			questList.Add(quest);
 			QuestManager.instance.add(quest.questId, QuestState.Null);
 		}
