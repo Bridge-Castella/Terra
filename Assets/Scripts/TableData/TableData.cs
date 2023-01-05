@@ -23,6 +23,7 @@ public partial class TableData : MonoBehaviour
         StringDataInit();
         MainDataInit();
         CharacterDataInit();
+        QuestDataInit();
     }
     #endregion
 }

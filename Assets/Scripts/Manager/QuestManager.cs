@@ -24,6 +24,9 @@ public class QuestManager : MonoBehaviour
     private Dictionary<string, QuestState> questState;
     private Dictionary<string, int> questIndex;
 
+    public delegate void QuestCallbackT(Quest quest);
+    public QuestCallbackT onQuestStart;
+
 
     public void add(string npcId, QuestGroup questGroup)
     {
@@ -62,6 +65,8 @@ public class QuestManager : MonoBehaviour
 		quest.gameObject.SetActive(true);
 		quest.startQuest();
         quest.gameObject.transform.parent = transform;
+
+        if (onQuestStart != null) onQuestStart.Invoke(quest);
     }
 
     public void StopQuest(string npcId)

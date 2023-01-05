@@ -13,25 +13,36 @@ public enum QuestState {
 public abstract class Quest : MonoBehaviour
 {
     public string questId;
-    public string npcId;
-    public string title;
-    public string description;
-    public string status;
+	[HideInInspector] public string npcId;
+	[HideInInspector] public string title;
+	[HideInInspector] public string description;
+	[HideInInspector] public string status;
 
-    public Sprite portrait;
-    public Sprite itemIcon;
+	[HideInInspector] public Sprite portrait;
+	[HideInInspector] public Sprite itemIcon;
 
     protected abstract bool didSuccess();
-	protected abstract void start();
+	protected abstract void onStart();
     protected abstract void onChange();
 
     public delegate void CallbackT();
     private CallbackT OnChangeStatusCallback;
 
-    public void updateStatus()
+    public void init(string npcId)
+    {
+        this.npcId = npcId;
+        TableData.QuestData data = TableData.instance.GetQuestData(questId);
+        this.title = data.title;
+        this.description = data.description;
+
+        portrait = TableData.instance.GetPortrait(data.portrait_id);
+        itemIcon = TableData.instance.GetItemSprite(data.item_id);
+	}
+
+	public void updateStatus()
     {
         onChange();
-		if (didSuccess()) success();
+		if (didSuccess()) onSuccess();
 		if (OnChangeStatusCallback != null)
             OnChangeStatusCallback.Invoke();
     }
@@ -41,14 +52,14 @@ public abstract class Quest : MonoBehaviour
         OnChangeStatusCallback += callback;
     }
 
-    public void success()
+    public void onSuccess()
     {
 		QuestManager.instance.changeState(questId, QuestState.Succeeded);
 	}
 
 	public void startQuest()
 	{
-		start();
+		onStart();
 		updateStatus();
 	}
 

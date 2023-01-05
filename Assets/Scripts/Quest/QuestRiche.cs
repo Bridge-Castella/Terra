@@ -19,7 +19,7 @@ public class QuestRiche : Quest
 									this.itemTotalNum);
 	}
 
-	protected override void start()
+	protected override void onStart()
 	{
 		itemTotalNum = this.transform.childCount;
 		currentItemNum = 0;
