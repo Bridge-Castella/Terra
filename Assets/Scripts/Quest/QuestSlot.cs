@@ -9,6 +9,7 @@ public class QuestSlot : MonoBehaviour
 	//public Image portrait;
 	public TextMeshProUGUI title;
 	public TextMeshProUGUI status;
+	public GameObject underLine;
 
 	private QuestPanel questPanel;
 	private Quest quest;
@@ -32,5 +33,10 @@ public class QuestSlot : MonoBehaviour
 		questPanel.init(quest);
 		questPanel.gameObject.SetActive(true);
 		transform.parent.parent.gameObject.SetActive(false);
+	}
+
+	public void DisableUnderLine()
+	{
+		underLine.SetActive(false);
 	}
 }

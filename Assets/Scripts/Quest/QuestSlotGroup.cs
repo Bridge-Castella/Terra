@@ -5,6 +5,7 @@ using UnityEngine;
 public class QuestSlotGroup : MonoBehaviour
 {
     [SerializeField] GameObject questSlotPrefab;
+	[SerializeField] GameObject emptyPrefab;
 	[SerializeField] QuestPanel questPanel;
 
 	private List<GameObject> questSlots = new List<GameObject>();
@@ -18,6 +19,15 @@ public class QuestSlotGroup : MonoBehaviour
 			questSlot.GetComponent<QuestSlot>().init(quest, questPanel);
 			questSlots.Add(questSlot);
 		}
+
+		if (quests.Count > 3)
+			questSlots[quests.Count - 1].GetComponent<QuestSlot>().DisableUnderLine();
+
+		for (int i = 0; i < 3 - quests.Count; i++)
+		{
+			GameObject emptySlot = Instantiate(emptyPrefab, transform);
+			questSlots.Add(emptySlot);
+		}
 	}
 
 	private void OnDisable()
@@ -27,5 +37,7 @@ public class QuestSlotGroup : MonoBehaviour
 			Destroy(questSlot);
 		}
 		questSlots.Clear();
+
+
 	}
 }
