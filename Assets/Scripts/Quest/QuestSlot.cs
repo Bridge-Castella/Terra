@@ -12,6 +12,7 @@ public class QuestSlot : MonoBehaviour
 	public GameObject underLine;
 
 	private QuestPanel questPanel;
+	private GameObject questList;
 	private Quest quest;
 
 	private void Start()
@@ -19,10 +20,11 @@ public class QuestSlot : MonoBehaviour
 		gameObject.GetComponent<Button>().onClick.AddListener(OnClick);
 	}
 
-	public void init(Quest quest, QuestPanel panel)
+	public void init(Quest quest, QuestPanel panel, GameObject questList)
 	{
 		this.quest = quest;
 		this.questPanel = panel;
+		this.questList = questList;
 		title.text = quest.npcId + " - " + quest.title;
 		status.text = quest.status;
 	}
@@ -31,7 +33,7 @@ public class QuestSlot : MonoBehaviour
 	{
 		questPanel.init(quest);
 		questPanel.gameObject.SetActive(true);
-		transform.parent.parent.gameObject.SetActive(false);
+		questList.SetActive(false);
 	}
 
 	public void DisableUnderLine()

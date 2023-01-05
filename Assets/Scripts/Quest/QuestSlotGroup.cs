@@ -7,6 +7,7 @@ public class QuestSlotGroup : MonoBehaviour
     [SerializeField] GameObject questSlotPrefab;
 	[SerializeField] GameObject emptyPrefab;
 	[SerializeField] QuestPanel questPanel;
+	[SerializeField] GameObject questList;
 
 	private List<GameObject> questSlots = new List<GameObject>();
 
@@ -17,6 +18,7 @@ public class QuestSlotGroup : MonoBehaviour
 
 	private void OnEnable()
 	{
+		ClearQuests();
 		UpdateQuests();
 	}
 
@@ -37,7 +39,7 @@ public class QuestSlotGroup : MonoBehaviour
 		foreach (Quest quest in quests)
 		{
 			GameObject questSlot = Instantiate(questSlotPrefab, transform);
-			questSlot.GetComponent<QuestSlot>().init(quest, questPanel);
+			questSlot.GetComponent<QuestSlot>().init(quest, questPanel, questList);
 			questSlots.Add(questSlot);
 		}
 
