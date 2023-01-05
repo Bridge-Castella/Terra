@@ -10,7 +10,28 @@ public class QuestSlotGroup : MonoBehaviour
 
 	private List<GameObject> questSlots = new List<GameObject>();
 
+	private void Start()
+	{
+		QuestManager.instance.onQuestStart += OnQuestAdd;
+	}
+
 	private void OnEnable()
+	{
+		UpdateQuests();
+	}
+
+	private void OnDisable()
+	{
+		ClearQuests();
+	}
+
+	private void OnQuestAdd(Quest quset)
+	{
+		ClearQuests();
+		UpdateQuests();
+	}
+
+	private void UpdateQuests()
 	{
 		List<Quest> quests = QuestManager.instance.getActiveQuests();
 		foreach (Quest quest in quests)
@@ -30,14 +51,12 @@ public class QuestSlotGroup : MonoBehaviour
 		}
 	}
 
-	private void OnDisable()
+	private void ClearQuests()
 	{
 		foreach (GameObject questSlot in questSlots)
 		{
 			Destroy(questSlot);
 		}
 		questSlots.Clear();
-
-
 	}
 }

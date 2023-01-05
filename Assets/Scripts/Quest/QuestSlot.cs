@@ -23,7 +23,6 @@ public class QuestSlot : MonoBehaviour
 	{
 		this.quest = quest;
 		this.questPanel = panel;
-		//portrait.sprite = quest.portrait;
 		title.text = quest.npcId + " - " + quest.title;
 		status.text = quest.status;
 	}
