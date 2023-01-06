@@ -13,6 +13,8 @@ public class FadingPlatform : MonoBehaviour
     Animator animator;
     new Camera camera;
 
+    public bool fadeOnce;
+
     private void Start()
     {
 
@@ -53,8 +55,11 @@ public class FadingPlatform : MonoBehaviour
         animator.SetBool("isQuaking", false);
         boxCol2D.enabled = false;
         polygonCol2D.enabled = false;
-        yield return new WaitForSeconds(showPlatformTime);
-        ShowingPlatform();
+        if (!fadeOnce)
+        {
+            yield return new WaitForSeconds(showPlatformTime);
+            ShowingPlatform();
+        }
     }
 
     private void ShowingPlatform()
