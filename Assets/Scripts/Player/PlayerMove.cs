@@ -77,7 +77,7 @@ public class PlayerMove : MonoBehaviour
             if (IsGrounded())
             {
                 coyoteandJumpTimeCounter = coyoteandJumpTime;
-                rigid.gravityScale = gravityScale;
+                //rigid.gravityScale = gravityScale;
 
                 //yesman: 아이템 먹고 땅에 내려왔을때 jumppower 변경
                 if (abilities.isSpringJump)
