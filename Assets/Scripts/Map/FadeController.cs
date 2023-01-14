@@ -5,6 +5,8 @@ using UnityEngine;
 public class FadeController : MonoBehaviour
 {
     public GameObject[] environment;
+    public GameObject[] nonFadeArea = new GameObject[] { };
+
     private FadeSwitcher switcher;
     private static bool firstScene = true;
     private bool firstLoad = true;
@@ -23,18 +25,38 @@ public class FadeController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
+            bool donotFade = false;
+            foreach (GameObject ele in nonFadeArea)
+            {
+                if (ele.GetComponent<AreaTriggerCallback>().isTriggered)
+                {
+					donotFade = true;
+                    break;
+                }
+            }
+
             foreach (GameObject ele in environment)
             {
                 if (!ele.activeSelf) ele.SetActive(true);
                 if (firstLoad)
                 {
+					firstLoad = false;
+					switcher.InitSprite(ele);
+
+                    if (donotFade)
+                    {
+                        switcher.SetAlpha(1.0f);
+                        InitBackgroundPosition(ele);
+                        continue;
+                    }
+
                     switcher.SetAlpha(0.0f);
-                    firstLoad = false;
 					if (firstScene)
 					{
 						switcher.SetAlpha(0.6f);
 						firstScene = false;
 					}
+                    else InitBackgroundPosition(ele);
 				}
                 switcher.StartFadeIn();
             }
@@ -45,12 +67,29 @@ public class FadeController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
+            foreach (GameObject ele in nonFadeArea)
+            {
+                if (ele.GetComponent<AreaTriggerCallback>().isTriggered)
+                {
+                    switcher.SetAlpha(0.0f);
+                    return;
+                }
+            }
+
             switcher.StartFadeOut();
             StartCoroutine(WaitForBackgroundToFinish());
         }
     }
 
-    private IEnumerator WaitForBackgroundToFinish()
+	private void InitBackgroundPosition(GameObject env)
+	{
+		foreach (ScrollingBackground ele in env.GetComponentsInChildren<ScrollingBackground>())
+		{
+			ele.InitPosition();
+		}
+	}
+
+	private IEnumerator WaitForBackgroundToFinish()
     {
         yield return new WaitForSeconds(switcher.GetFadeSeconds(0.0f));
         if (switcher.GetAlpha() == 0.0f)

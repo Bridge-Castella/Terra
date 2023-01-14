@@ -13,8 +13,6 @@ public class FadeSwitcher : MonoBehaviour
 
 	public void SetAlpha(float alpha)
     {
-        Init();
-        if (sprite == null) return;
         foreach (SpriteRenderer bg in sprite)
         {
             Color color = bg.color;
@@ -25,8 +23,6 @@ public class FadeSwitcher : MonoBehaviour
 
     public void StartFadeIn()
     {
-        Init();
-        if (sprite == null) return;
         StopAllCoroutines();
 		foreach (SpriteRenderer bg in sprite)
         {
@@ -36,8 +32,6 @@ public class FadeSwitcher : MonoBehaviour
 
     public void StartFadeOut()
     {
-        Init();
-        if (sprite == null) return;
         StopAllCoroutines();
         foreach (SpriteRenderer bg in sprite)
         {
@@ -83,22 +77,15 @@ public class FadeSwitcher : MonoBehaviour
 
     public float GetAlpha()
     {
-        Init();
-        if (sprite == null) return 0.0f;
         return sprite[0].color.a;
     }
 
-    public void Init()
-    {
-        InitSprite();
-    }
-
-    public void InitSprite()
+    public void InitSprite(GameObject environment)
     {
         if (sprite != null)
         {
             if (sprite.Length > 0) return;
         }
-        sprite = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        sprite = environment.GetComponentsInChildren<SpriteRenderer>();
     }
 }

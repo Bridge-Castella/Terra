@@ -31,7 +31,7 @@ public class MapManager : MonoBehaviour
     public MapState mapState;
 
 
-    [SerializeField] private int AdditiveMapStartIndex = 3;
+    [SerializeField] private int AdditiveMapStartIndex;
 
     public AsyncOperation LoadMap(int index)
     {
