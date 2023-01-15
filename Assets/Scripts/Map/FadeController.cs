@@ -5,7 +5,7 @@ using UnityEngine;
 public class FadeController : MonoBehaviour
 {
     public GameObject[] environment;
-    public GameObject[] nonFadeArea = new GameObject[] { };
+    public GameObject[] dontFadeArea = new GameObject[] { };
 
     private FadeSwitcher switcher;
     private static bool firstScene = true;
@@ -25,12 +25,13 @@ public class FadeController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            bool donotFade = false;
-            foreach (GameObject ele in nonFadeArea)
+            bool dontFade = false;
+            foreach (GameObject ele in dontFadeArea)
             {
+                var triggerobj = ele.GetComponent<AreaTriggerCallback>();
                 if (ele.GetComponent<AreaTriggerCallback>().isTriggered)
                 {
-					donotFade = true;
+					dontFade = true;
                     break;
                 }
             }
@@ -43,7 +44,7 @@ public class FadeController : MonoBehaviour
 					firstLoad = false;
 					switcher.InitSprite(ele);
 
-                    if (donotFade)
+                    if (dontFade)
                     {
                         switcher.SetAlpha(1.0f);
                         InitBackgroundPosition(ele);
@@ -67,13 +68,10 @@ public class FadeController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            foreach (GameObject ele in nonFadeArea)
+            foreach (GameObject ele in dontFadeArea)
             {
                 if (ele.GetComponent<AreaTriggerCallback>().isTriggered)
-                {
-                    switcher.SetAlpha(0.0f);
                     return;
-                }
             }
 
             switcher.StartFadeOut();

@@ -25,7 +25,7 @@ public class MapManager : MonoBehaviour
     {
         Login = 0,
         Forest,
-        Desert
+        Tree
     }
 
     public MapState mapState;
