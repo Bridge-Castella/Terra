@@ -28,6 +28,7 @@ public class PlayerMove : MonoBehaviour
     bool isJumping = false; //점프하는 상태인 경우
     [HideInInspector] public bool isTalking = false;
     [HideInInspector] public bool isFalling = false;
+    [HideInInspector] public bool isLaddering = false; //사다리관련 bool 변수
 
     private CapsuleCollider2D capsuleCollider2D;
     private SpriteRenderer[] spriteRenderer = new SpriteRenderer[5];
@@ -155,7 +156,7 @@ public class PlayerMove : MonoBehaviour
         float moveHorizontalInput = Input.GetAxisRaw("Horizontal");
         float moveVerticalInput = Input.GetAxisRaw("Vertical");
 
-        if (isKnockback || isFalling)
+        if (isKnockback || isFalling ||isLaddering)
         {
             moveHorizontalInput = 0;
         }
