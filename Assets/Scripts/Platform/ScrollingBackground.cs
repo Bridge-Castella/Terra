@@ -26,11 +26,16 @@ public class ScrollingBackground : MonoBehaviour
     {
         cameraTransform = Camera.main.transform;
 
-        if (!PlaceHolder.instance.contains(gameObject.name + "cameraPos")) startCameraPos = cameraTransform.position;
-        else startCameraPos = PlaceHolder.instance.load<Vector3>(gameObject.name + "cameraPos");
+		if (!PlaceHolder.instance.contains(gameObject.name + "cameraPos"))
+            startCameraPos = cameraTransform.position;
+        else
+            startCameraPos = PlaceHolder.instance.load<Vector3>(gameObject.name + "cameraPos");
 
-        if (!PlaceHolder.instance.contains(gameObject.name + "startPos")) startPos = transform.position;
-        else startPos = PlaceHolder.instance.load<Vector3>(gameObject.name + "startPos");
+        if (!PlaceHolder.instance.contains(gameObject.name + "startPos"))
+            startPos = transform.position;
+        else
+            startPos = PlaceHolder.instance.load<Vector3>(gameObject.name + "startPos");
+
 
         layers = new Transform[transform.childCount];
 
@@ -95,13 +100,18 @@ public class ScrollingBackground : MonoBehaviour
             leftIndex = 0;
     }
 
-    public float GetMultiplier()
+    public void InitPosition()
     {
-        return multiplier;
-    }
+		var rect = Camera.main.pixelRect;
+		float ratio = rect.width / rect.height;
+		float camera_width = Camera.main.orthographicSize * ratio * 2.0f;
 
-    public void SetStartPos(Vector3 position)
-    {
-        startPos = position;
-    }
+		float direction = Camera.main.transform.position.x - transform.position.x;
+		if (direction < 0.0f)
+			camera_width *= -1.0f;
+
+		var pos = transform.position;
+		pos.x += camera_width * multiplier;
+		transform.position = pos;
+	}
 }
