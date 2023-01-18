@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class FadeController : MonoBehaviour
 {
-    public GameObject[] environment;
-    public GameObject[] dontFadeArea = new GameObject[] { };
+	public bool initializePosition = true;
+
+	public GameObject[] environment;
+    [HideInInspector] public CustomFadeArea customArea = null;
 
     private FadeSwitcher switcher;
     private static bool firstScene = true;
@@ -26,40 +28,39 @@ public class FadeController : MonoBehaviour
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
             bool dontFade = false;
-            foreach (GameObject ele in dontFadeArea)
+            FadeSettings customSetting = null;
+            if (customArea != null)
             {
-                var triggerobj = ele.GetComponent<AreaTriggerCallback>();
-                if (ele.GetComponent<AreaTriggerCallback>().isTriggered)
-                {
-					dontFade = true;
-                    break;
-                }
+                if (customArea.settings.dontFade)
+                    dontFade = true;
+                customSetting = customArea.settings;
             }
-
-            foreach (GameObject ele in environment)
+            
+            foreach (GameObject env in environment)
             {
-                if (!ele.activeSelf) ele.SetActive(true);
+                if (!env.activeSelf) env.SetActive(true);
                 if (firstLoad)
                 {
 					firstLoad = false;
-					switcher.InitSprite(ele);
+					switcher.InitSprite(env);
+
+					if (initializePosition && !firstScene)
+						InitBackgroundPosition(env);
 
                     if (dontFade)
                     {
                         switcher.SetAlpha(1.0f);
-                        InitBackgroundPosition(ele);
                         continue;
                     }
 
                     switcher.SetAlpha(0.0f);
-					if (firstScene)
-					{
-						switcher.SetAlpha(0.6f);
-						firstScene = false;
-					}
-                    else InitBackgroundPosition(ele);
+                    if (firstScene)
+                    {
+                        switcher.SetAlpha(0.6f);
+                        firstScene = false;
+                    }                    
 				}
-                switcher.StartFadeIn();
+                switcher.StartFadeIn(customSetting);
             }
         }
     }
@@ -68,13 +69,15 @@ public class FadeController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            foreach (GameObject ele in dontFadeArea)
+            FadeSettings customSetting = null;
+            if (customArea != null)
             {
-                if (ele.GetComponent<AreaTriggerCallback>().isTriggered)
+                if (customArea.settings.dontFade)
                     return;
+                customSetting = customArea.settings;
             }
 
-            switcher.StartFadeOut();
+            switcher.StartFadeOut(customSetting);
             StartCoroutine(WaitForBackgroundToFinish());
         }
     }
@@ -87,9 +90,9 @@ public class FadeController : MonoBehaviour
 		}
 	}
 
-	private IEnumerator WaitForBackgroundToFinish()
+    private IEnumerator WaitForBackgroundToFinish()
     {
-        yield return new WaitForSeconds(switcher.GetFadeSeconds(0.0f));
+        yield return new WaitForSeconds(switcher.GetFadeOutSeconds());
         if (switcher.GetAlpha() == 0.0f)
         {
             foreach (GameObject ele in environment)
