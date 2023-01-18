@@ -11,7 +11,7 @@ public class FadeSwitcher : MonoBehaviour
 
     private SpriteRenderer[] sprite = null;
 
-    public void SetAlpha(float alpha)
+	public void SetAlpha(float alpha)
     {
         Init();
         if (sprite == null) return;
@@ -28,7 +28,7 @@ public class FadeSwitcher : MonoBehaviour
         Init();
         if (sprite == null) return;
         StopAllCoroutines();
-        foreach (SpriteRenderer bg in sprite)
+		foreach (SpriteRenderer bg in sprite)
         {
             StartCoroutine(FadeIn(bg, FadeInDelay));
         }
@@ -66,7 +66,7 @@ public class FadeSwitcher : MonoBehaviour
         Color color = renderer.color;
 
         yield return new WaitForSeconds(delay);
-        while (renderer.color.a > 0)
+        while (renderer.color.a > 0.0)
         {
             alpha -= FadeInterval;
             color.a = alpha;

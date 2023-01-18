@@ -33,25 +33,24 @@ public class MapManager : MonoBehaviour
 
     [SerializeField] private int AdditiveMapStartIndex = 3;
 
-    public AsyncOperation LoadMap(int index = 0)
+    public AsyncOperation LoadMap(int index)
     {
         if (SceneManager.sceneCount == 1)
         {
             var async = SceneManager.LoadSceneAsync("02.Map_0");
-            SceneManager.LoadScene("Map_1", LoadSceneMode.Additive);
+            SceneManager.LoadScene(ToSceneIndex(index), LoadSceneMode.Additive);
             return async;
         }
 
         int scene_index = ToSceneIndex(index);
-        if (scene_index < 2 || IsMapLoaded(scene_index)) return null;
-        mapState = (MapState)index;
+        if (scene_index < AdditiveMapStartIndex || IsMapLoaded(scene_index)) return null;
         return SceneManager.LoadSceneAsync(scene_index, LoadSceneMode.Additive);
     }
 
     public AsyncOperation UnloadMap(int index)
     {
         int scene_index = ToSceneIndex(index);
-        if (scene_index < 2 || !IsMapLoaded(scene_index)) return null;
+        if (scene_index < AdditiveMapStartIndex || !IsMapLoaded(scene_index)) return null;
         return SceneManager.UnloadSceneAsync(scene_index);
     }
 

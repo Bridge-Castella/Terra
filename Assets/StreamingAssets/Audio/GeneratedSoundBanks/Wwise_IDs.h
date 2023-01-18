@@ -42,8 +42,8 @@ namespace AK
 
             namespace STATE
             {
-                static const AkUniqueID DESERT = 1850388778U;
-                static const AkUniqueID FOREST = 491961918U;
+                static const AkUniqueID MAP_1 = 972330097U;
+                static const AkUniqueID MAP_2 = 972330098U;
                 static const AkUniqueID NONE = 748895195U;
             } // namespace STATE
         } // namespace BACKGROUNDMUSIC

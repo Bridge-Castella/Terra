@@ -74,6 +74,7 @@ public class Option : MonoBehaviour
         buttonGroup.SetActive(false);
         popUpObject.SetActive(true);
         popUpText.text = "게임을 종료하시겠습니까?";
+        FadeController.resetFade();
     }
 
     public void LoadLoginScene()

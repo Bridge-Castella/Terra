@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="73015004" Language="SFX" Hash="301898350">
+		<SoundBank Id="73015004" Language="SFX" Hash="4080002431">
 			<ObjectPath>\SoundBanks\Default Work Unit\Login</ObjectPath>
 			<ShortName>Login</ShortName>
 			<Path>Login.bnk</Path>
@@ -74,7 +74,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="1048449605" Language="SFX" Hash="2220948810">
+		<SoundBank Id="1048449605" Language="SFX" Hash="3411498108">
 			<ObjectPath>\SoundBanks\Default Work Unit\Map</ObjectPath>
 			<ShortName>Map</ShortName>
 			<Path>Map.bnk</Path>
@@ -153,9 +153,9 @@
 				</Event>
 				<Event Id="1671187981" Name="MapBGM" ObjectPath="\Events\Default Work Unit\BGM\MapBGM" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="139030541" Language="SFX">
-							<ShortName>bgm_login.wav</ShortName>
-							<Path>SFX/bgm_login_D79FB2B7.wem</Path>
+						<File Id="356710857" Language="SFX">
+							<ShortName>MAP_2.wav</ShortName>
+							<Path>SFX/MAP_2_D79FB2B7.wem</Path>
 						</File>
 						<File Id="677212553" Language="SFX">
 							<ShortName>bgm_forest.wav</ShortName>
@@ -170,7 +170,7 @@
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{099491FA-D060-4086-8836-202699A163C6}">
 							<Media>
-								<File Id="139030541"/>
+								<File Id="356710857"/>
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -204,13 +204,13 @@
 				<StateGroup Id="626769978" Name="BackGroundMusic" ObjectPath="\States\Default Work Unit\BackGroundMusic" GUID="{16D442EE-A81E-4073-BD4D-751E36DF9237}">
 					<States>
 						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\BackGroundMusic\None" GUID="{C5E56DF5-251A-4619-B478-BCC27EBAF850}"/>
-						<State Id="491961918" Name="Forest" ObjectPath="\States\Default Work Unit\BackGroundMusic\Forest" GUID="{AE25278A-9D5E-4D38-B682-924CB3CF8346}"/>
-						<State Id="1850388778" Name="Desert" ObjectPath="\States\Default Work Unit\BackGroundMusic\Desert" GUID="{099491FA-D060-4086-8836-202699A163C6}"/>
+						<State Id="972330097" Name="Map_1" ObjectPath="\States\Default Work Unit\BackGroundMusic\Map_1" GUID="{AE25278A-9D5E-4D38-B682-924CB3CF8346}"/>
+						<State Id="972330098" Name="Map_2" ObjectPath="\States\Default Work Unit\BackGroundMusic\Map_2" GUID="{099491FA-D060-4086-8836-202699A163C6}"/>
 					</States>
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="1069431850" Language="SFX" Hash="4291640215">
+		<SoundBank Id="1069431850" Language="SFX" Hash="2219549662">
 			<ObjectPath>\SoundBanks\Default Work Unit\Player</ObjectPath>
 			<ShortName>Player</ShortName>
 			<Path>Player.bnk</Path>

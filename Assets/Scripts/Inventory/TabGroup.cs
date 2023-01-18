@@ -14,17 +14,6 @@ public class TabGroup : MonoBehaviour
     public List<GameObject> objectsToSwap;
     public TextMeshProUGUI slotTitleText;
 
-    public void Subscribe(TabUIButton button)
-    {
-        if(tabButtons == null)
-        {
-            tabButtons = new List<TabUIButton>();
-        }
-
-        tabButtons.Add(button);
-        OnTabSelected(tabButtons[0]);
-    }
-
     public void OnTabEnter(TabUIButton button)
     {
         ResetTabs();
@@ -73,5 +62,10 @@ public class TabGroup : MonoBehaviour
             button.backGround.sprite = tabIdle;
             button.icon.sprite = button.idleIcon;
         }
+    }
+
+    private void Start()
+    {
+        OnTabSelected(tabButtons[0]);
     }
 }

@@ -14,8 +14,8 @@ public class ScrollingBackground : MonoBehaviour
 
     private Transform cameraTransform;
 
-    private Vector3 startCameraPos;
-    private Vector3 startPos;
+	private Vector3 startCameraPos;
+	private Vector3 startPos;
 
     private Transform[] layers;
     private float viewZone = 10;
@@ -25,8 +25,12 @@ public class ScrollingBackground : MonoBehaviour
     private void Start()
     {
         cameraTransform = Camera.main.transform;
-        startCameraPos = cameraTransform.position;
-        startPos = transform.position;
+
+        if (!PlaceHolder.instance.contains(gameObject.name + "cameraPos")) startCameraPos = cameraTransform.position;
+        else startCameraPos = PlaceHolder.instance.load<Vector3>(gameObject.name + "cameraPos");
+
+        if (!PlaceHolder.instance.contains(gameObject.name + "startPos")) startPos = transform.position;
+        else startPos = PlaceHolder.instance.load<Vector3>(gameObject.name + "startPos");
 
         layers = new Transform[transform.childCount];
 
@@ -37,7 +41,13 @@ public class ScrollingBackground : MonoBehaviour
         rightIndex = layers.Length -1;
     }
 
-    private void Update()
+	private void OnDestroy()
+	{
+		PlaceHolder.instance.store(gameObject.name + "cameraPos", startCameraPos);
+        PlaceHolder.instance.store(gameObject.name + "startPos", startPos);
+	}
+
+	private void Update()
     {
         if(scrolling)
         {

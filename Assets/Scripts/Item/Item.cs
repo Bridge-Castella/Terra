@@ -49,7 +49,7 @@ public class Item : MonoBehaviour
                     GetFireItem();
                     break;
                 case ItemType.Quest:
-                    GetQuestItem();
+                    GetQuestItem(collision);
                     break;
             }
         }        
@@ -67,7 +67,7 @@ public class Item : MonoBehaviour
     {
     }
 
-    public virtual void GetQuestItem()
+    public virtual void GetQuestItem(Collider2D collision)
     {
     }
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    [SerializeField] private int damageAmount;
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerMove player = collision.gameObject.GetComponent<PlayerMove>();
@@ -13,14 +11,8 @@ public class Spike : MonoBehaviour
         {
             if(!player.isHurting)
             {
-                player.DamageKnockBack(gameObject.transform.position, damageAmount);
+                player.DamageKnockBack(gameObject.transform.position);
             }
-
-            //if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())
-            //{
-            //    ControlManager.instance.RetryGame();
-            //    return;
-            //}
         }
     }
 }
