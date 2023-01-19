@@ -27,7 +27,9 @@ public class FadeController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            bool dontFade = false;
+			StopAllCoroutines();
+
+			bool dontFade = false;
             FadeSettings customSetting = null;
             if (customArea != null)
             {
@@ -39,6 +41,7 @@ public class FadeController : MonoBehaviour
             foreach (GameObject env in environment)
             {
                 if (!env.activeSelf) env.SetActive(true);
+
                 if (firstLoad)
                 {
 					firstLoad = false;
@@ -47,12 +50,6 @@ public class FadeController : MonoBehaviour
 					if (initializePosition && !firstScene)
 						InitBackgroundPosition(env);
 
-                    if (dontFade)
-                    {
-                        switcher.SetAlpha(1.0f);
-                        continue;
-                    }
-
                     switcher.SetAlpha(0.0f);
                     if (firstScene)
                     {
@@ -60,7 +57,14 @@ public class FadeController : MonoBehaviour
                         firstScene = false;
                     }                    
 				}
-                switcher.StartFadeIn(customSetting);
+
+				if (dontFade)
+				{
+					switcher.SetAlpha(1.0f);
+					continue;
+				}
+
+				switcher.StartFadeIn(customSetting);
             }
         }
     }
@@ -73,7 +77,10 @@ public class FadeController : MonoBehaviour
             if (customArea != null)
             {
                 if (customArea.settings.dontFade)
-                    return;
+                {
+                    StartCoroutine(WaitForBackgroundToFinish(true));
+					return;
+				}
                 customSetting = customArea.settings;
             }
 
@@ -90,10 +97,12 @@ public class FadeController : MonoBehaviour
 		}
 	}
 
-    private IEnumerator WaitForBackgroundToFinish()
+    private IEnumerator WaitForBackgroundToFinish(bool force = false)
     {
-        yield return new WaitForSeconds(switcher.GetFadeOutSeconds());
-        if (switcher.GetAlpha() == 0.0f)
+        float delay = switcher.GetFadeOutSeconds(customArea == null ? null : customArea.settings) + 0.5f;
+        yield return new WaitForSeconds(delay);
+
+        if (force || switcher.GetAlpha() == 0.0f)
         {
             foreach (GameObject ele in environment)
             {

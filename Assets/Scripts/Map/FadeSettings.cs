@@ -4,13 +4,13 @@ using System;
 public class FadeSettings
 {
 	[Serializable]
-	public class FadeValues
+	public struct FadeValues
 	{
-		public float updateInterval = 0.016f;
-		public float startDelay = 0.0f;
-		public float alphaInterval = 0.01f;
-		public float targetAlpha = 0.0f;
-		public float initAlpha = 0.0f;
+		public float updateInterval;
+		public float startDelay;
+		public float alphaInterval;
+		public float targetAlpha;
+		public float initAlpha;
 	}
 
 	public bool dontFade = false;

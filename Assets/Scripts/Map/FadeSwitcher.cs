@@ -77,18 +77,24 @@ public class FadeSwitcher : MonoBehaviour
         }
     }
 
-    public float GetFadeInSeconds()
+    public float GetFadeInSeconds(FadeSettings custom = null)
     {
-        float alpha_diff = settings.fadeIn.targetAlpha - GetAlpha();
+        FadeSettings setting = custom == null ? settings : custom;
+        if (setting.dontFade) return 0.0f;
+
+        float alpha_diff = setting.fadeIn.targetAlpha - GetAlpha();
         if (alpha_diff < 0.0f) return 0.0f;
-        return (alpha_diff / settings.fadeIn.alphaInterval) * settings.fadeIn.updateInterval * 1.5f;
+        return (alpha_diff / setting.fadeIn.alphaInterval) * setting.fadeIn.updateInterval;
     }
 
-    public float GetFadeOutSeconds()
+    public float GetFadeOutSeconds(FadeSettings custom = null)
     {
-        float alpha_diff = GetAlpha() - settings.fadeOut.targetAlpha;
+        FadeSettings setting = custom == null ? settings : custom;
+        if (settings.dontFade) return 0.0f;
+
+		float alpha_diff = GetAlpha() - setting.fadeOut.targetAlpha;
         if (alpha_diff < 0.0f) return 0.0f;
-        return (alpha_diff / settings.fadeOut.alphaInterval) * settings.fadeOut.updateInterval * 1.5f;
+        return (alpha_diff / setting.fadeOut.alphaInterval) * setting.fadeOut.updateInterval;
     }
 
     public float GetAlpha()
