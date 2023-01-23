@@ -15,6 +15,7 @@ using UnityEngine.U2D;
     Vector3[] controlPoints;
     int Direction = 1;
     float vertical;
+    public float LadderSpeed =3.5f;
 
     
     void Start()
@@ -32,11 +33,12 @@ using UnityEngine.U2D;
             controlPoints[i] = spline.GetPosition(i) +gameObject.transform.position;
         }
     }
+    
     void FixedUpdate()
     {
         if( bPointMove && null != playerTerra)
         {
-
+            Debug.Log("bPoint");
             vertical = Input.GetAxis("Vertical");
             if (Mathf.Abs(vertical) > 0f)
             {
@@ -54,7 +56,7 @@ using UnityEngine.U2D;
                     Direction = 1;
                     }
                     if (null != playerTerra)
-                        playerTerra.transform.position = Vector3.Lerp(playerTerra.transform.position, controlPoints[currentTargetIndex], Time.deltaTime);
+                        playerTerra.transform.position = Vector3.Lerp(playerTerra.transform.position, controlPoints[currentTargetIndex], Time.deltaTime * LadderSpeed );
                 }
                 else
                 {
@@ -68,17 +70,16 @@ using UnityEngine.U2D;
                     Direction = -1;
                     }
                     if (null != playerTerra)
-                        playerTerra.transform.position = Vector3.Lerp(playerTerra.transform.position, controlPoints[currentTargetIndex], Time.deltaTime);
+                        playerTerra.transform.position = Vector3.Lerp(playerTerra.transform.position, controlPoints[currentTargetIndex], Time.deltaTime * LadderSpeed);
                 }
 
 
             }
             else
             {
-                
+
             }
 
-            //Debug.Log("currentIndext "+currentTargetIndex);
             
             CheckArrivePoint();
         }
@@ -89,10 +90,24 @@ using UnityEngine.U2D;
         if (other.tag == "Player")
         {
             MoveToControlPoint(other.gameObject); 
-            //Debug.Log("TriggerOn");
+            Debug.Log("TriggerOn");
             //Terra 무중력 On
         }
     }
+
+    // private void OnTriggerExit2D(Collider2D other)
+    // {
+    //     if (other.tag == "Player")
+    //     {
+    //         Debug.Log("TriggerOFF");
+    //         PlayerMove playerMoveScript = playerTerra.GetComponent<PlayerMove>();
+    //         playerMoveScript.fallGravityMultiflier = 1.0f;
+    //         bPointMove = false;
+    //         playerMoveScript.isLaddering = false;
+    //         //Terra 무중력 On
+    //     }
+    // }
+
 
     private void MoveToControlPoint(GameObject player)
     {
@@ -110,7 +125,7 @@ using UnityEngine.U2D;
         if(0<= currentTargetIndex && currentTargetIndex <= controlPoints.Length)
         {
             float dist = Vector3.Distance(playerTerra.transform.position,controlPoints[currentTargetIndex]);   
-            if(dist <= 1.5f)
+            if(dist <= 1.0f)
             {         
                 currentTargetIndex = currentTargetIndex + (Direction * 1);
                 if(controlPoints.Length <= currentTargetIndex)
@@ -127,7 +142,7 @@ using UnityEngine.U2D;
 
                     return;
                 }
-                //Debug.Log("Clear" + (currentTargetIndex - 1) + controlPoints[currentTargetIndex]);
+                Debug.Log("Clear" + (currentTargetIndex - 1) + controlPoints[currentTargetIndex]);
             }
         }
     }

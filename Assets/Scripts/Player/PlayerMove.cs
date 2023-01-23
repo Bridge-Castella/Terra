@@ -1,23 +1,23 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [Header("플랫폼 인식하는 레이어")]
+    [Tooltip ("플랫폼 인식하는 레이어")]
     [SerializeField] private LayerMask platformLayerMask = default;
-    [Header("NPC 인식하는 레이어")]
+    [Tooltip("NPC 인식하는 레이어")]
     [SerializeField] private LayerMask NPCLayerMask = default;
-    [Header("중력 값")]
+    [Tooltip("중력 값")]
     [SerializeField] private float gravityScale;
-    [Header("떨어질때 중력에 곱하는 배수")]
+    [Tooltip("떨어질때 중력에 곱하는 배수")]
     public float fallGravityMultiflier;
 
-    [Header("플레이어 속도")]
+    [Tooltip("플레이어 속도")]
     public float maxSpeed;
-    [Header("플레이어 점프")]
+    [Tooltip("플레이어 점프")]
     public float jumpPower;
-    [Header("튕겨나가는 힘")]
+    [Tooltip("튕겨나가는 힘")]
     public float knockBackPower = 30f;
 
     [HideInInspector]public bool isHurting = false; //데미지 입은 경우
@@ -43,30 +43,32 @@ public class PlayerMove : MonoBehaviour
     private PlayerAbilityTracker  abilities;
     private bool canDoubleJump = true;//더블 점프가 가능한지
 
-    [Header("Sound generated object")]
+    [Tooltip("Sound generated object")]
     [SerializeField] GameObject soundObject;
-    [Header("Player jump Sound")]
+    [Tooltip("Player jump")]
     [SerializeField] AK.Wwise.Event jump;
-    [Header("Player land Sound")]
+    [Tooltip("Player land")]
     [SerializeField] AK.Wwise.Event land;
-    [Header("Player damaged Sound")]
+    [Tooltip("Player damaged")]
     [SerializeField] AK.Wwise.Event damaged;
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+
         for(int i = 0; i < 5; i++)
         {
             spriteRenderer[i] = transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>();
         }
+        
         animator = GetComponent<Animator>();        
         abilities = GetComponent<PlayerAbilityTracker>();
     }
 
     void Update()
     {
-        if(abilities.isFlying)
+        if(abilities.isFlying||isLaddering)
         {
             rigid.gravityScale = 0f;
             rigid.velocity = new Vector2(0, 0);
@@ -141,7 +143,7 @@ public class PlayerMove : MonoBehaviour
                 rigid.velocity = new Vector2(0, rigid.velocity.y);
             }
 
-            //f버튼 누르면
+            //e버튼 누르면
             if (Input.GetButtonDown("TalktoNpc"))
             {
                 if (!isTalking)
@@ -261,7 +263,7 @@ public class PlayerMove : MonoBehaviour
         isHurting = true;
     }
 
-    public void DamageKnockBack(Vector3 targetPos)
+    public void DamageKnockBack(Vector3 targetPos, int damageAmount)
     {
         //플레이어와 대상의 위치를 계산해서 반대쪽으로 튕기도록 방향 설정
         int dir = transform.position.x - targetPos.x > 0 ? 1 : -1;
@@ -309,13 +311,11 @@ public class PlayerMove : MonoBehaviour
         Color rayColor = Color.red;
         if(raycastHit.collider != null)
         {
-			NpcAction npc = raycastHit.collider.GetComponent<NpcAction>();
-			if (npc.IsDialogueEnd)
+            if (raycastHit.collider.GetComponent<NpcAction>().IsDialogueEnd || QuestManager.instance)
                 return;
             isTalking = true;
             Debug.Log("NPC감지");
-            npc.dialogueUIObject.GetComponent<Dialogue>().npc = npc;
-            npc.ShowDialogueUIObject();
+            raycastHit.collider.GetComponent<NpcAction>().ShowDialogueUIObject();
             
         }
         Debug.DrawRay(capsuleCollider2D.bounds.center, new Vector2(x, 0) * (capsuleCollider2D.bounds.extents.y) * 2f, rayColor);

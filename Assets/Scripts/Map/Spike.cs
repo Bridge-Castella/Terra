@@ -11,7 +11,7 @@ public class Spike : MonoBehaviour
         {
             if(!player.isHurting)
             {
-                player.DamageKnockBack(gameObject.transform.position);
+                player.DamageKnockBack(gameObject.transform.position,1);
             }
         }
     }
