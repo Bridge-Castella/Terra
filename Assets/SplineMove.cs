@@ -38,12 +38,11 @@ using UnityEngine.U2D;
     {
         if( bPointMove && null != playerTerra)
         {
-            Debug.Log("bPoint");
             vertical = Input.GetAxis("Vertical");
             if (Mathf.Abs(vertical) > 0f)
             {
                 float inputDirection = (vertical);
-                if(inputDirection >= 0)
+                if(inputDirection > 0)
                 {
                     //currentTargetIndex -=1;
                     if(Direction == -1)
@@ -95,19 +94,37 @@ using UnityEngine.U2D;
         }
     }
 
-    // private void OnTriggerExit2D(Collider2D other)
-    // {
-    //     if (other.tag == "Player")
-    //     {
-    //         Debug.Log("TriggerOFF");
-    //         PlayerMove playerMoveScript = playerTerra.GetComponent<PlayerMove>();
-    //         playerMoveScript.fallGravityMultiflier = 1.0f;
-    //         bPointMove = false;
-    //         playerMoveScript.isLaddering = false;
-    //         //Terra 무중력 On
-    //     }
-    // }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            Debug.Log("TriggerOFF");
+            PlayerMove playerMoveScript = playerTerra.GetComponent<PlayerMove>();
+            playerMoveScript.fallGravityMultiflier = 1.0f;
+            bPointMove = false;
+            playerMoveScript.isLaddering = false;
+            //Terra 무중력 On
+        }
+    }
 
+    private void FindNearestGoal()
+    {
+        if(playerTerra)
+        {
+            int index = 0;
+            float minDist = 999999;
+            for (int i = 0; i < controlPoints.Length; i++)
+            {
+                float distanceGoalandTerra = Vector3.Distance(playerTerra.transform.position, controlPoints[i]);
+                if(minDist >= distanceGoalandTerra)
+                {
+                    minDist = distanceGoalandTerra;
+                    index = i;
+                }
+            }
+            currentTargetIndex = index;
+        }
+    }
 
     private void MoveToControlPoint(GameObject player)
     {
@@ -118,10 +135,12 @@ using UnityEngine.U2D;
         playerMoveScript.fallGravityMultiflier=0.0f;
         bPointMove = true;
         playerMoveScript.isLaddering = true;
+        FindNearestGoal();
     }
     
     private void CheckArrivePoint()
     {
+        Debug.Log(currentTargetIndex);
         if(0<= currentTargetIndex && currentTargetIndex <= controlPoints.Length)
         {
             float dist = Vector3.Distance(playerTerra.transform.position,controlPoints[currentTargetIndex]);   
@@ -139,6 +158,7 @@ using UnityEngine.U2D;
                     PlayerMove playerMoveScript = playerTerra.GetComponent<PlayerMove>();
                     playerMoveScript.fallGravityMultiflier=10.0f;
                     playerMoveScript.isLaddering =false;
+                    playerMoveScript.Jump();
 
                     return;
                 }

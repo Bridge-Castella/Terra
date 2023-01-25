@@ -102,39 +102,13 @@ public class PlayerMove : MonoBehaviour
             if ((Input.GetButtonDown("Jump") && (IsGrounded() || (canDoubleJump && abilities.canDoubleJump))) 
                 || (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump")))
             {
-                //if (AudioManager.instance != null)                            // Outdated audio engine
-                //AudioManager.instance.PlaySound("jump_01");
-                if (jump != null)
-                    jump.Post(soundObject);
-
-                if (IsGrounded())
-                {
-                    canDoubleJump = true;
-                }
-                else
-                {
-                    canDoubleJump = false;
-                }
-
-                isJumping = true;
-                rigid.velocity = Vector2.up * jumpPower;
+                Jump();
             }
 
             //yesman: 버튼 누른시간만큼 점프높이 높아짐
             if (Input.GetButtonUp("Jump"))
             {
-                //yesman: 스프링 아이템 먹고 점프 버튼 떼면 점프높이 원래대로
-                if(abilities.isSpringJump && (jumpPower == abilities.springJumpPower))
-                {
-                    abilities.isSpringJump = false;
-                    jumpPower /= 1.5f;
-                }
-
-                if (rigid.velocity.y > 0f)
-                {
-                    rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * 0.5f);
-                    coyoteandJumpTimeCounter = 0f;
-                }
+                AddJump();
             }
 
             //Stop Speed
@@ -152,13 +126,49 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    public void Jump()
+    {
+        //if (AudioManager.instance != null)                            // Outdated audio engine
+        //AudioManager.instance.PlaySound("jump_01");
+        if (jump != null)
+            jump.Post(soundObject);
+
+        if (IsGrounded())
+        {
+            canDoubleJump = true;
+        }
+        else
+        {
+            canDoubleJump = false;
+        }
+
+        isJumping = true;
+        rigid.velocity = Vector2.up * jumpPower;
+    }
+
+    private void AddJump()
+    {
+        //yesman: 스프링 아이템 먹고 점프 버튼 떼면 점프높이 원래대로
+        if (abilities.isSpringJump && (jumpPower == abilities.springJumpPower))
+        {
+            abilities.isSpringJump = false;
+            jumpPower /= 1.5f;
+        }
+
+        if (rigid.velocity.y > 0f)
+        {
+            rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * 0.5f);
+            coyoteandJumpTimeCounter = 0f;
+        }
+    }
+
     void FixedUpdate()
     {
         //튕겨 나간 경우 방향키 입력x
         float moveHorizontalInput = Input.GetAxisRaw("Horizontal");
         float moveVerticalInput = Input.GetAxisRaw("Vertical");
 
-        if (isKnockback || isFalling ||isLaddering)
+        if (isKnockback || isFalling )
         {
             moveHorizontalInput = 0;
         }
