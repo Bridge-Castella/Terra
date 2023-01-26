@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [Tooltip ("플랫폼 인식하는 레이어")]
+    [Header ("플랫폼 인식하는 레이어")]
     [SerializeField] private LayerMask platformLayerMask = default;
-    [Tooltip("NPC 인식하는 레이어")]
+    [Header("NPC 인식하는 레이어")]
     [SerializeField] private LayerMask NPCLayerMask = default;
-    [Tooltip("중력 값")]
+    [Header("중력 값")]
     [SerializeField] private float gravityScale;
-    [Tooltip("떨어질때 중력에 곱하는 배수")]
+    [Header("떨어질때 중력에 곱하는 배수")]
     public float fallGravityMultiflier;
 
-    [Tooltip("플레이어 속도")]
+    [Header("플레이어 속도")]
     public float maxSpeed;
-    [Tooltip("플레이어 점프")]
+    [Header("플레이어 점프")]
     public float jumpPower;
-    [Tooltip("튕겨나가는 힘")]
+    [Header("튕겨나가는 힘")]
     public float knockBackPower = 30f;
 
     [HideInInspector]public bool isHurting = false; //데미지 입은 경우
