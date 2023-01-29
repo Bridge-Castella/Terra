@@ -677,7 +677,6 @@ GameObject:
   - component: {fileID: 4800962551722574817}
   - component: {fileID: 5049055802667473305}
   - component: {fileID: 8797165674562098757}
-  - component: {fileID: 488456457548252624}
   - component: {fileID: 1727648254068334714}
   - component: {fileID: 624225813616047329}
   - component: {fileID: 7934910794149013522}
@@ -796,32 +795,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &488456457548252624
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5247316185781844994}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 98283932e2a929243af5809036afa9d0, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.016010284, y: 0.1514206}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5043564, y: 3.2428246}
-  m_EdgeRadius: 0
 --- !u!70 &1727648254068334714
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -835,8 +808,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00999999, y: -1.6788769}
-  m_Size: {x: 1.2401543, y: 1.2401543}
+  m_Offset: {x: 0.00999999, y: -0.21176863}
+  m_Size: {x: 1.2401543, y: 4.174371}
   m_Direction: 0
 --- !u!95 &624225813616047329
 Animator:
@@ -1375,7 +1348,7 @@ MonoBehaviour:
   - {fileID: 7187593713535377600}
   - {fileID: 7641922345650322707}
   m_Bounds:
-    m_Center: {x: 0.032600522, y: -0.22077405, z: 0}
+    m_Center: {x: 0.032600522, y: -0.22077596, z: 0}
     m_Extent: {x: 1.2136848, y: 1.0012467, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
