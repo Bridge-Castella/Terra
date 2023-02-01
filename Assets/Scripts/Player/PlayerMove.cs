@@ -222,7 +222,7 @@ public class PlayerMove : MonoBehaviour
         animator.SetFloat("xVelocity", Mathf.Abs(rigid.velocity.x));
     }
 
-    void Flip()
+    public void Flip()
     {
         Vector3 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;

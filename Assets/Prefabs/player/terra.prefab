@@ -680,7 +680,6 @@ GameObject:
   - component: {fileID: 1727648254068334714}
   - component: {fileID: 624225813616047329}
   - component: {fileID: 7934910794149013522}
-  - component: {fileID: 6897413521033188813}
   - component: {fileID: 1128416007}
   - component: {fileID: 1128416014}
   - component: {fileID: 1128416016}
@@ -737,6 +736,7 @@ MonoBehaviour:
   knockBackPower: 10
   isHurting: 0
   facingRight: 1
+  isJumping: 0
   isTalking: 0
   isFalling: 0
   isLaddering: 0
@@ -843,19 +843,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab_obj: {fileID: 9294334541143079, guid: 0652598f561e689409c62311deee4e8d, type: 3}
---- !u!114 &6897413521033188813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5247316185781844994}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a05667bef1b2c4da72036b2bc97ffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 8797165674562098757}
 --- !u!114 &1128416007
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3166614700574826587}
   - component: {fileID: 3166614700574826586}
   - component: {fileID: 3166614700574826585}
-  - component: {fileID: 3166614700574826590}
   - component: {fileID: -7311234452448971915}
+  - component: {fileID: 123429264312450770}
   m_Layer: 0
   m_Name: Ladder
   m_TagString: Untagged
@@ -163,19 +163,6 @@ MonoBehaviour:
   m_EnableTangents: 0
   m_GeometryCached: 0
   m_UTess2D: 0
---- !u!114 &3166614700574826590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3166614700574826584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9738469f10ee3cc46b50948877ae3eeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LadderSpeed: 1
 --- !u!68 &-7311234452448971915
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -219,3 +206,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &123429264312450770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3166614700574826584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a05667bef1b2c4da72036b2bc97ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 1
+  DistanceTrash: 1.5
+  scope:
+    begin: 5
+    end: -1
