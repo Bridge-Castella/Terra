@@ -178,6 +178,7 @@ public class PlayerMove : MonoBehaviour
             rigid.velocity = new Vector2(0, 0);
             moveHorizontalInput = 0;
         }
+        else if (isLaddering) return;
         //날개 아이템 사용
         else if (abilities.isFlying)
         {
