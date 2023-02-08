@@ -321,12 +321,14 @@ public class PlayerMove : MonoBehaviour
         Color rayColor = Color.red;
         if(raycastHit.collider != null)
         {
-            if (raycastHit.collider.GetComponent<NpcAction>().IsDialogueEnd || QuestManager.instance)
+            NpcAction npc = raycastHit.collider.GetComponent<NpcAction>();
+            if (npc.IsDialogueEnd)
                 return;
             isTalking = true;
             Debug.Log("NPC감지");
-            raycastHit.collider.GetComponent<NpcAction>().ShowDialogueUIObject();
-            
+            npc.dialogueUIObject.GetComponent<Dialogue>().npc = npc;
+            npc.ShowDialogueUIObject();
+
         }
         Debug.DrawRay(capsuleCollider2D.bounds.center, new Vector2(x, 0) * (capsuleCollider2D.bounds.extents.y) * 2f, rayColor);
     }
