@@ -4,63 +4,56 @@ using UnityEngine;
 
 public class LadderMovement : MonoBehaviour
 {
-    private float vertical;
-    private float speed = 8f;
-    private bool isLadder;
-    private bool isClimbing;
-
-    [SerializeField] private Rigidbody2D rb;
-
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public struct Range
     {
-        
+        public int begin;
+        public int end;
+
+        static public Range Init()
+        {
+			return new Range
+            {
+				begin = 0,
+				end = -1
+			};
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        vertical = Input.GetAxis("Vertical");
+    private Vector2[] points;
+    private SplineMove spline;
 
-        if (isLadder && Mathf.Abs(vertical) > 0f)
-        {
-            isClimbing = true;
-        }
-        else 
-        {
-            isClimbing = false;
-        }
-        
-    }
+    public float Speed = 1.0f;
+    public float DistanceTrash = 0.5f;
+    public Range scope = Range.Init();
 
-    private void FixedUpdate()
+	void Start()
     {
-        if (isClimbing)
-        {
-            rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, vertical * speed);
-        }
-        else 
-        {
-            rb.gravityScale = 10f;
-        }
-    }
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        spline = player.GetComponent<SplineMove>();
+
+		//Spline points 위치 초기화
+		points = gameObject.GetComponent<EdgeCollider2D>().points;
+		Vector2 pos = transform.position;
+		for (int i = 0; i < points.Length; i++)
+		{
+			points[i] += pos;
+		}
+	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ladder"))
+        if (collision.CompareTag("Player"))
         {
-            isLadder = true;
+            spline.Activate(points, Speed, DistanceTrash, scope);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ladder"))
+        if (collision.CompareTag("Player"))
         {
-            isLadder = false;
-            isClimbing = false;
-            rb.gravityScale = 3f;
+            spline.Deactivate();
         }
     }
 }

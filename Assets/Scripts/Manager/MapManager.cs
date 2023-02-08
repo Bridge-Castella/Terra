@@ -25,13 +25,13 @@ public class MapManager : MonoBehaviour
     {
         Login = 0,
         Forest,
-        Desert
+        Tree
     }
 
     public MapState mapState;
 
 
-    [SerializeField] private int AdditiveMapStartIndex = 3;
+    [SerializeField] private int AdditiveMapStartIndex;
 
     public AsyncOperation LoadMap(int index)
     {

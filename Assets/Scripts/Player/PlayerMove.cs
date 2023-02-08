@@ -25,7 +25,7 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rigid;
     [HideInInspector] public bool facingRight = true; //flip관련 bool 변수
     bool isKnockback = false; //튕겨나간 경우
-    bool isJumping = false; //점프하는 상태인 경우
+    [HideInInspector] public bool isJumping = false; //점프하는 상태인 경우
     [HideInInspector] public bool isTalking = false;
     [HideInInspector] public bool isFalling = false;
     [HideInInspector] public bool isLaddering = false; //사다리관련 bool 변수
@@ -68,7 +68,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if(abilities.isFlying||isLaddering)
+        if (abilities.isFlying)
         {
             rigid.gravityScale = 0f;
             rigid.velocity = new Vector2(0, 0);
@@ -95,11 +95,11 @@ public class PlayerMove : MonoBehaviour
             }
 
             //yesman: 바닥에 있는 동안은 점프 애니메이션을 출력하지 않음.
-            animator.SetBool("isJumping", !IsGrounded());
+            animator.SetBool("isJumping", (!IsGrounded() && !isLaddering));
 
             //Coyote Time
             //Jump and Double Jump
-            if ((Input.GetButtonDown("Jump") && (IsGrounded() || (canDoubleJump && abilities.canDoubleJump))) 
+            if ((Input.GetButtonDown("Jump") && (IsGrounded() || (canDoubleJump && abilities.canDoubleJump) || isLaddering))
                 || (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump")))
             {
                 Jump();
@@ -168,18 +168,19 @@ public class PlayerMove : MonoBehaviour
         float moveHorizontalInput = Input.GetAxisRaw("Horizontal");
         float moveVerticalInput = Input.GetAxisRaw("Vertical");
 
-        if (isKnockback || isFalling )
+        if (isKnockback || isFalling)
         {
             moveHorizontalInput = 0;
         }
-        else if(isTalking)
+        else if (isTalking)
         {
             //대화할때 움직이지 않도록
             rigid.velocity = new Vector2(0, 0);
             moveHorizontalInput = 0;
         }
+        else if (isLaddering) return;
         //날개 아이템 사용
-        else if(abilities.isFlying)
+        else if (abilities.isFlying)
         {
             rigid.velocity = new Vector2(moveHorizontalInput * maxSpeed, moveVerticalInput * maxSpeed);
 
@@ -222,7 +223,7 @@ public class PlayerMove : MonoBehaviour
         animator.SetFloat("xVelocity", Mathf.Abs(rigid.velocity.x));
     }
 
-    void Flip()
+    public void Flip()
     {
         Vector3 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;

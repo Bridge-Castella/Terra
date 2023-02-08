@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class FadeController : MonoBehaviour
 {
-    public GameObject[] environment;
+	public bool initializePosition = true;
+
+	public GameObject[] environment;
+    [HideInInspector] public CustomFadeArea customArea = null;
+
     private FadeSwitcher switcher;
     private static bool firstScene = true;
     private bool firstLoad = true;
@@ -23,20 +27,44 @@ public class FadeController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            foreach (GameObject ele in environment)
+			StopAllCoroutines();
+
+			bool dontFade = false;
+            FadeSettings customSetting = null;
+            if (customArea != null)
             {
-                if (!ele.activeSelf) ele.SetActive(true);
+                if (customArea.settings.dontFade)
+                    dontFade = true;
+                customSetting = customArea.settings;
+            }
+            
+            foreach (GameObject env in environment)
+            {
+                if (!env.activeSelf) env.SetActive(true);
+
                 if (firstLoad)
                 {
+					firstLoad = false;
+					switcher.InitSprite(env);
+
+					if (initializePosition && !firstScene)
+						InitBackgroundPosition(env);
+
                     switcher.SetAlpha(0.0f);
-                    firstLoad = false;
-					if (firstScene)
-					{
-						switcher.SetAlpha(0.6f);
-						firstScene = false;
-					}
+                    if (firstScene)
+                    {
+                        switcher.SetAlpha(0.6f);
+                        firstScene = false;
+                    }                    
 				}
-                switcher.StartFadeIn();
+
+				if (dontFade)
+				{
+					switcher.SetAlpha(1.0f);
+					continue;
+				}
+
+				switcher.StartFadeIn(customSetting);
             }
         }
     }
@@ -45,15 +73,36 @@ public class FadeController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            switcher.StartFadeOut();
+            FadeSettings customSetting = null;
+            if (customArea != null)
+            {
+                if (customArea.settings.dontFade)
+                {
+                    StartCoroutine(WaitForBackgroundToFinish(true));
+					return;
+				}
+                customSetting = customArea.settings;
+            }
+
+            switcher.StartFadeOut(customSetting);
             StartCoroutine(WaitForBackgroundToFinish());
         }
     }
 
-    private IEnumerator WaitForBackgroundToFinish()
+	private void InitBackgroundPosition(GameObject env)
+	{
+		foreach (ScrollingBackground ele in env.GetComponentsInChildren<ScrollingBackground>())
+		{
+			ele.InitPosition();
+		}
+	}
+
+    private IEnumerator WaitForBackgroundToFinish(bool force = false)
     {
-        yield return new WaitForSeconds(switcher.GetFadeSeconds(0.0f));
-        if (switcher.GetAlpha() == 0.0f)
+        float delay = switcher.GetFadeOutSeconds(customArea == null ? null : customArea.settings) + 0.5f;
+        yield return new WaitForSeconds(delay);
+
+        if (force || switcher.GetAlpha() == 0.0f)
         {
             foreach (GameObject ele in environment)
             {

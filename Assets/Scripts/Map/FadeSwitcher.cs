@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class FadeSwitcher : MonoBehaviour
 {
-    public float UpdateInterval = 0.016f;
-    public float FadeInterval = 0.01f;
-    public float FadeInDelay = 0.5f;
-    public float FadeOutDelay = 0.0f;
-
+    public FadeSettings settings = new FadeSettings();
     private SpriteRenderer[] sprite = null;
 
 	public void SetAlpha(float alpha)
     {
-        Init();
-        if (sprite == null) return;
         foreach (SpriteRenderer bg in sprite)
         {
             Color color = bg.color;
@@ -23,82 +17,97 @@ public class FadeSwitcher : MonoBehaviour
         }
     }
 
-    public void StartFadeIn()
+    public void StartFadeIn(FadeSettings setting = null)
     {
-        Init();
-        if (sprite == null) return;
         StopAllCoroutines();
 		foreach (SpriteRenderer bg in sprite)
         {
-            StartCoroutine(FadeIn(bg, FadeInDelay));
+            StartCoroutine(FadeIn(bg, setting));
         }
     }
 
-    public void StartFadeOut()
+    public void StartFadeOut(FadeSettings setting = null)
     {
-        Init();
-        if (sprite == null) return;
-        StopAllCoroutines();
+		StopAllCoroutines();
         foreach (SpriteRenderer bg in sprite)
         {
-            StartCoroutine(FadeOut(bg, FadeOutDelay));
+            StartCoroutine(FadeOut(bg, setting));
         }
     }
 
-    private IEnumerator FadeIn(SpriteRenderer renderer, float delay)
+    private IEnumerator FadeIn(SpriteRenderer renderer, FadeSettings custom)
     {
         float alpha = renderer.color.a;
         Color color = renderer.color;
-
-        yield return new WaitForSeconds(delay);
-        while (renderer.color.a < 1.0f)
+        FadeSettings.FadeValues setting = custom == null ? settings.fadeIn : custom.fadeIn;
+        if (setting.initAlpha >= 0.0f)
         {
-            alpha += FadeInterval;
+            color.a = setting.initAlpha;
+            renderer.color = color;
+        }
+
+        yield return new WaitForSeconds(setting.startDelay);
+        while (renderer.color.a < setting.targetAlpha)
+        {
+            alpha += setting.alphaInterval;
             color.a = alpha;
             renderer.color = color;
-            yield return new WaitForSeconds(UpdateInterval);
+            yield return new WaitForSeconds(setting.updateInterval);
         }
     }
 
-    private IEnumerator FadeOut(SpriteRenderer renderer, float delay)
+    private IEnumerator FadeOut(SpriteRenderer renderer, FadeSettings custom)
     {
         float alpha = renderer.color.a;
         Color color = renderer.color;
+		FadeSettings.FadeValues setting = custom == null ? settings.fadeOut : custom.fadeOut;
+		if (setting.initAlpha >= 0.0f)
+		{
+			color.a = setting.initAlpha;
+			renderer.color = color;
+		}
 
-        yield return new WaitForSeconds(delay);
-        while (renderer.color.a > 0.0)
+		yield return new WaitForSeconds(setting.startDelay);
+        while (renderer.color.a > setting.targetAlpha)
         {
-            alpha -= FadeInterval;
+            alpha -= setting.alphaInterval;
             color.a = alpha;
             renderer.color = color;
-            yield return new WaitForSeconds(UpdateInterval);
+            yield return new WaitForSeconds(setting.updateInterval);
         }
     }
 
-    public float GetFadeSeconds(float endAlpha)
+    public float GetFadeInSeconds(FadeSettings custom = null)
     {
-        float alpha_diff = Math.Abs(GetAlpha() - endAlpha);
-        return (alpha_diff / FadeInterval) * UpdateInterval * 1.5f;
+        FadeSettings setting = custom == null ? settings : custom;
+        if (setting.dontFade) return 0.0f;
+
+        float alpha_diff = setting.fadeIn.targetAlpha - GetAlpha();
+        if (alpha_diff < 0.0f) return 0.0f;
+        return (alpha_diff / setting.fadeIn.alphaInterval) * setting.fadeIn.updateInterval;
+    }
+
+    public float GetFadeOutSeconds(FadeSettings custom = null)
+    {
+        FadeSettings setting = custom == null ? settings : custom;
+        if (settings.dontFade) return 0.0f;
+
+		float alpha_diff = GetAlpha() - setting.fadeOut.targetAlpha;
+        if (alpha_diff < 0.0f) return 0.0f;
+        return (alpha_diff / setting.fadeOut.alphaInterval) * setting.fadeOut.updateInterval;
     }
 
     public float GetAlpha()
     {
-        Init();
-        if (sprite == null) return 0.0f;
         return sprite[0].color.a;
     }
 
-    public void Init()
-    {
-        InitSprite();
-    }
-
-    public void InitSprite()
+    public void InitSprite(GameObject environment)
     {
         if (sprite != null)
         {
             if (sprite.Length > 0) return;
         }
-        sprite = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        sprite = environment.GetComponentsInChildren<SpriteRenderer>();
     }
 }
