@@ -2,18 +2,26 @@ using UnityEngine;
 
 public class SplineMove : MonoBehaviour
 {
-	private int currentIndex = -1;
-	private int predictedIndex = -1;
-	private bool onLadder = false;
+	public enum SplineState
+	{
+		Idle,
+		Entered,
+		OnLadder,
+		Climbing
+	}
 
-    private Vector2[] points;
-    private float speed = 1.0f;
+    private int currentIndex;
+    private int predictedIndex;
+
+	private Vector2[] points;
+	private float speed = 1.0f;
 	private float distanceTrash = 1.0f;
-	private LadderMovement.Range scope;
 
 	private PlayerMove move;
 	private Rigidbody2D rigid;
 	private Animator animator;
+
+	private SplineState state;
 
 	private void Start()
 	{
@@ -21,28 +29,33 @@ public class SplineMove : MonoBehaviour
 		move = gameObject.GetComponent<PlayerMove>();
 		rigid = gameObject.GetComponent<Rigidbody2D>();
 		animator = gameObject.GetComponent<Animator>();
+
+		state = SplineState.Idle;
 	}
 
 	private void FixedUpdate()
 	{
 		//Ladder 위에 있는 경우에만 연산을 수행
-		if (!onLadder) return;
+		if (state == SplineState.Idle) return;
 
 		float verticalInput = Input.GetAxisRaw("Vertical");
-		if (HandleInput(verticalInput)) return;
+		ChangeState(verticalInput);
+
+		if (state != SplineState.Climbing)
+		{
+			if (state == SplineState.Entered)
+				ExitLaddering();
+			else if (state == SplineState.OnLadder)
+				FixMovement();
+			return;
+		}
 
 		//가장 가까운 point 탐색
-		currentIndex = FindClosestPoint(/*currentIndex, predictedIndex*/);
+		//이전 위치 기반 index search range narrowing 적용
+		currentIndex = FindClosestPoint(verticalInput);
 
 		//목표지점을 설정
 		predictedIndex = PredictWayPoint(verticalInput);
-
-		//끝에 도달한 경우
-		if (currentIndex == predictedIndex)
-		{
-			OnReachEnd();
-			return;
-		}
 
 		//현재 player 위치
 		Vector2 pos = transform.position;
@@ -59,37 +72,121 @@ public class SplineMove : MonoBehaviour
 			move.Flip();
 	}
 
-	public void Activate(Vector2[] points, float speed, float distanceTrash, LadderMovement.Range scope)
+	private void ChangeState(float verticalInput)
+	{
+		//양끝에 도달했는지 검사
+		int end_state = TestEnd();
+
+		//입력 없을 경우
+		if (verticalInput == 0.0f)
+		{
+			//점프시 탈출
+			if (move.isJumping)
+			{
+				state = SplineState.Entered;
+				return;
+			}
+
+			//가만히 멈춰있는 경우
+			if (move.isLaddering)
+			{
+				state = SplineState.OnLadder;
+				return;
+			}
+		}
+
+        //입력이 존재할 때
+        else
+        {
+			//reached below end, 아래 방향을 향할때
+			if (end_state == 2 && verticalInput < 0f)
+			{
+				state = SplineState.Entered;
+				return;
+			}
+
+			//reached top end, 위 방향을 향할때
+			else if (end_state == 1 && verticalInput > 0f)
+			{
+                if (!move.isJumping)
+                    state = SplineState.OnLadder;
+                else
+                    state = SplineState.Entered;
+                return;
+			}
+
+			//사다리타기 시작
+			if (!move.isLaddering)
+			{
+				if (!InitLaddering())
+					return;
+			}
+
+			//사다리타고 있는 동안 무중력
+			rigid.gravityScale = 0.0f;
+			state = SplineState.Climbing;
+		}
+	}
+
+    public void Activate(Vector2[] points, float speed, float distanceTrash)
 	{
 		this.points = points;
 		this.speed = speed;
 		this.distanceTrash = distanceTrash;
-		this.scope = scope;
-		onLadder = true;
+		this.state = SplineState.Entered;
+
 	}
 
 	public void Deactivate()
 	{
 		points = null;
-		onLadder = false;
-		move.isLaddering = false;
-		animator.SetBool("isLaddering", false);
-		rigid.gravityScale = 10.0f;
+		this.state = SplineState.Idle;
+		ExitLaddering();
 	}
 
-    //TODO: fix index narrowing
-    private int FindClosestPoint(int begin = -1, int end = -1)
+	// 전체탐색, initladdering
+	private (int, int) FindClosestPoint()
 	{
 		Vector2 pos = transform.position;
-		float min_dist = float.MaxValue;
-		int min_index = -1;
+		(float, float) min_dist = (float.MaxValue, float.MaxValue);
+		(int, int) min_index = (-1, 0);
 
-		int begin_idx = begin == -1 ? 0 : begin;
-		int end_idx = end == -1 ? points.Length - 1 : end;
-		if (begin_idx > end_idx)
-			(begin_idx, end_idx) = (end_idx, begin_idx);
+		for (int i = 0; i < points.Length; i++)
+		{
+			float dist = Vector2.Distance(pos, points[i]);
+			if (dist < min_dist.Item1)
+			{
+				min_dist.Item1 = dist;
+				min_index.Item1 = i;
+			}
+			else if (dist < min_dist.Item2)
+			{
+				min_dist.Item2 = dist;
+				min_index.Item2 = i;
+			}
+		}
 
-		for (int i = begin_idx; i < end_idx; i++)
+		return min_index;
+	}
+
+	// 범위 탐색, fixedupdate
+	private int FindClosestPoint(float verticalInput)
+	{
+		Vector2 pos = transform.position;
+        int begin = currentIndex;
+        int end = predictedIndex;
+        if (begin > end)
+            (begin, end) = (end, begin);
+
+		if (begin > 0)
+			begin -= 1;
+		if (end < points.Length - 2)
+			end += 1;
+
+        float min_dist = Vector2.Distance(pos, points[begin]);
+		int min_index = begin;
+
+		for (int i = begin+1; i < end; i++)
 		{
 			float dist = Vector2.Distance(pos, points[i]);
 			if (dist < min_dist)
@@ -124,55 +221,41 @@ public class SplineMove : MonoBehaviour
 		{
 			predicted_idx += idx_direction;
 
-			if (predicted_idx < scope.begin || predicted_idx > points.Length + scope.end)
-				return currentIndex;
+			if (predicted_idx < 0)
+				return 0;
+			else if (predicted_idx > points.Length - 1)
+				return points.Length - 1;
 
 			path_distance += Vector2.Distance(pos, points[predicted_idx]);
+			pos = points[predicted_idx];
 		}
 
 		return predicted_idx;
 	}
 
-	private bool HandleInput(float verticalInput)
-	{
-		//입력 없을 경우
-		if (verticalInput == 0.0f)
-		{
-			//점프시 탈출
-			if (move.isJumping)
-				ExitLaddering();
-
-			//사다리타고 있는 동안 제자리
-			if (move.isLaddering)
-				FixMovement();
-
-			return true;
-		}
-		else //입력이 존재할 때
-		{
-			//사다리타기 시작
-			if (!move.isLaddering)
-			{
-				if (InitLaddering())
-					return true;
-			}
-
-			//사다리타고 있는 동안 무중력
-			rigid.gravityScale = 0.0f;
-		}
-
-		return false;
-	}
-
 	private bool InitLaddering()
 	{
-		currentIndex = FindClosestPoint();
-		Vector2 closestPoint = points[currentIndex];
+		var closest = FindClosestPoint();
+		currentIndex = closest.Item1;
+		predictedIndex = closest.Item2;
+
+		// 방향벡터
+		Vector2 diff = (points[closest.Item2] - points[closest.Item1]).normalized;
+
+		// player로의 방향벡터
+		Vector2 pos = transform.position;
+		Vector2 player_dir = pos - points[closest.Item1];
+
+		// 거리
+		float distance = Vector2.Dot(diff, player_dir);
+
+		// 원하는 위치 = 방향벡터 x 거리 + 방향벡터의 원점
+		Vector2 closestPoint = (diff * distance) + points[closest.Item1];
 
 		//사다리와 충분히 가까운지 검사
 		float dist = Vector2.Distance(transform.position, closestPoint);
 		if (dist > distanceTrash)
-			return true;
+			return false;
 
 		//사다리방향으로 방향전환
 		bool ladderFacingRight = closestPoint.x - transform.position.x > 0;
@@ -186,13 +269,15 @@ public class SplineMove : MonoBehaviour
 		move.isJumping = false;
 		animator.SetBool("isLaddering", true);
 
-		return false;
+		return true;
 	}
 
 	private void ExitLaddering()
 	{
+		if (!move.isLaddering) return;
 		move.isLaddering = false;
 		animator.SetBool("isLaddering", false);
+		rigid.gravityScale = 10.0f;
 	}
 
 	private void FixMovement()
@@ -201,191 +286,20 @@ public class SplineMove : MonoBehaviour
 		rigid.gravityScale = 0.0f;
 	}
 
-	private void OnReachEnd()
+	private int TestEnd()
 	{
-		//하단 끝
-		if (currentIndex < scope.begin + 2)
-			ExitLaddering();
-		//상단 끝
-		else if (currentIndex > points.Length + scope.end - 2)
-		{
-			transform.position = points[points.Length + scope.end];
-			if (!move.isJumping)
-				FixMovement();
-			else
-				ExitLaddering();
-		}
+		Vector2 pos = transform.position;
+
+		// Reach top end
+		if (Vector2.Distance(pos, points[points.Length - 1]) < 0.25f)
+			return 1;
+
+		// Reach below end
+		else if (move.IsGrounded())
+			return 2;
+
+		// Non reached
+		else
+			return 0;
 	}
 }
-
-
-//using UnityEngine;
-//#if UNITY_EDITOR
-//using UnityEditor.U2D;
-//#endif
-
-//using UnityEngine.U2D;
-////{
-//public class SplineMove : MonoBehaviour
-//{
-
-//    bool bPointMove = false;
-//    int currentTargetIndex = 1;
-//    private GameObject playerTerra = null;
-//    Vector3[] controlPoints;
-//    int Direction = 1;
-//    float vertical;
-//    public float LadderSpeed = 3.5f;
-
-
-//    void Start()
-//    {
-//        SpriteShapeController spriteShapeController = gameObject.GetComponent<SpriteShapeController>();
-//        // Get the Spline component of the Sprite Shape Controller
-//        Spline spline = spriteShapeController.spline;
-
-//        // Create an array to store the control points
-//        controlPoints = new Vector3[spriteShapeController.spline.GetPointCount()];
-
-//        // Get the control points of the spline and store them in the array
-//        for (int i = 0; i < controlPoints.Length; i++)
-//        {
-//            controlPoints[i] = spline.GetPosition(i) + gameObject.transform.position;
-//        }
-//    }
-
-//    void FixedUpdate()
-//    {
-//        if (bPointMove && null != playerTerra)
-//        {
-//            vertical = Input.GetAxis("Vertical");
-//            if (Mathf.Abs(vertical) > 0f)
-//            {
-//                float inputDirection = (vertical);
-//                if (inputDirection > 0)
-//                {
-//                    //currentTargetIndex -=1;
-//                    if (Direction == -1)
-//                    {
-//                        if (currentTargetIndex < controlPoints.Length - 1)
-//                            currentTargetIndex += 1;
-//                        else
-//                            currentTargetIndex = controlPoints.Length - 1;
-
-//                        Direction = 1;
-//                    }
-//                    if (null != playerTerra)
-//                        playerTerra.transform.position = Vector3.Lerp(playerTerra.transform.position, controlPoints[currentTargetIndex], Time.deltaTime * LadderSpeed);
-//                }
-//                else
-//                {
-//                    if (Direction == 1)
-//                    {
-//                        if (currentTargetIndex >= 1)
-//                            currentTargetIndex -= 1;
-//                        else
-//                            currentTargetIndex = 0;
-
-//                        Direction = -1;
-//                    }
-//                    if (null != playerTerra)
-//                        playerTerra.transform.position = Vector3.Lerp(playerTerra.transform.position, controlPoints[currentTargetIndex], Time.deltaTime * LadderSpeed);
-//                }
-
-
-//            }
-//            else
-//            {
-
-//            }
-
-
-//            CheckArrivePoint();
-//        }
-//    }
-
-//    private void OnTriggerEnter2D(Collider2D other)
-//    {
-
-//        if (other.tag == "Player")
-//        {
-//            MoveToControlPoint(other.gameObject);
-//            Debug.Log("TriggerOn");
-//            //Terra 무중력 On
-//        }
-//    }
-
-//    private void OnTriggerExit2D(Collider2D other)
-//    {
-//        if (other.tag == "Player")
-//        {
-//            Debug.Log("TriggerOFF");
-//            PlayerMove playerMoveScript = playerTerra.GetComponent<PlayerMove>();
-//            playerMoveScript.fallGravityMultiflier = 1.0f;
-//            bPointMove = false;
-//            playerMoveScript.isLaddering = false;
-//            //Terra 무중력 On
-//        }
-//    }
-
-//    private void FindNearestGoal()
-//    {
-//        if (playerTerra)
-//        {
-//            int index = 0;
-//            float minDist = 999999;
-//            for (int i = 0; i < controlPoints.Length; i++)
-//            {
-//                float distanceGoalandTerra = Vector3.Distance(playerTerra.transform.position, controlPoints[i]);
-//                if (minDist >= distanceGoalandTerra)
-//                {
-//                    minDist = distanceGoalandTerra;
-//                    index = i;
-//                }
-//            }
-//            currentTargetIndex = index;
-//        }
-//    }
-
-//    private void MoveToControlPoint(GameObject player)
-//    {
-//        playerTerra = player;
-//        //currentTargetIndex = 1;
-
-//        PlayerMove playerMoveScript = playerTerra.GetComponent<PlayerMove>();
-//        playerMoveScript.fallGravityMultiflier=0.0f;
-//        bPointMove = true;
-//        playerMoveScript.isLaddering = true;
-//        FindNearestGoal();
-//    }
-
-//    private void CheckArrivePoint()
-//    {
-//        Debug.Log(currentTargetIndex);
-//        if (0 <= currentTargetIndex && currentTargetIndex <= controlPoints.Length)
-//        {
-//            float dist = Vector3.Distance(playerTerra.transform.position, controlPoints[currentTargetIndex]);
-//            if (dist <= 1.0f)
-//            {
-//                currentTargetIndex = currentTargetIndex + (Direction * 1);
-//                if (controlPoints.Length <= currentTargetIndex)
-//                {
-//                    currentTargetIndex = 0;
-//                    bPointMove = false;
-//                    Debug.Log("Arrive");
-
-//                    //Terra 무중력 Off
-
-//                    PlayerMove playerMoveScript = playerTerra.GetComponent<PlayerMove>();
-//                    playerMoveScript.fallGravityMultiflier=10.0f;
-//                    playerMoveScript.isLaddering = false;
-//                    playerMoveScript.Jump();
-
-//                    return;
-//                }
-//                Debug.Log("Clear" + (currentTargetIndex - 1) + controlPoints[currentTargetIndex]);
-//            }
-//        }
-//    }
-//}
-////}
