@@ -19,6 +19,8 @@ public class PlayerMove : MonoBehaviour
     public float jumpPower;
     [Header("튕겨나가는 힘")]
     public float knockBackPower = 30f;
+    [Header("발자국 먼지 파티클")]
+    public ParticleSystem dust;
 
     [HideInInspector]public bool isHurting = false; //데미지 입은 경우
 
@@ -144,6 +146,7 @@ public class PlayerMove : MonoBehaviour
 
         isJumping = true;
         rigid.velocity = Vector2.up * jumpPower;
+        CreateDust();
     }
 
     private void AddJump()
@@ -230,6 +233,7 @@ public class PlayerMove : MonoBehaviour
         gameObject.transform.localScale = currentScale;
 
         facingRight = !facingRight;
+        CreateDust();
     }
 
     private bool IsGrounded()
@@ -332,5 +336,10 @@ public class PlayerMove : MonoBehaviour
 
         }
         Debug.DrawRay(capsuleCollider2D.bounds.center, new Vector2(x, 0) * (capsuleCollider2D.bounds.extents.y) * 2f, rayColor);
+    }
+
+    void CreateDust()
+    {
+        dust.Play();
     }
 }
