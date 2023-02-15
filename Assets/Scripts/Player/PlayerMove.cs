@@ -236,7 +236,7 @@ public class PlayerMove : MonoBehaviour
         CreateDust();
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         float extraHeightText = .3f;
 
