@@ -1456,7 +1456,7 @@ PrefabInstance:
     - target: {fileID: 5666106530132410269, guid: ad6b1d7b43bfa6741bdb53d90041cb92,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5666106530132410269, guid: ad6b1d7b43bfa6741bdb53d90041cb92,
         type: 3}
@@ -1471,7 +1471,7 @@ PrefabInstance:
     - target: {fileID: 5666106530132410269, guid: ad6b1d7b43bfa6741bdb53d90041cb92,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.319
+      value: -2.11
       objectReference: {fileID: 0}
     - target: {fileID: 5666106530132410269, guid: ad6b1d7b43bfa6741bdb53d90041cb92,
         type: 3}
@@ -1535,6 +1535,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8475246037711552385, guid: ad6b1d7b43bfa6741bdb53d90041cb92,
         type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475246037711552385, guid: ad6b1d7b43bfa6741bdb53d90041cb92,
+        type: 3}
       propertyPath: ShapeModule.m_Texture
       value: 
       objectReference: {fileID: 0}
@@ -1545,13 +1550,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8475246037711552385, guid: ad6b1d7b43bfa6741bdb53d90041cb92,
         type: 3}
+      propertyPath: VelocityModule.y.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475246037711552385, guid: ad6b1d7b43bfa6741bdb53d90041cb92,
+        type: 3}
       propertyPath: ShapeModule.alignToDirection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8475246037711552385, guid: ad6b1d7b43bfa6741bdb53d90041cb92,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.1
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 8475246037711552385, guid: ad6b1d7b43bfa6741bdb53d90041cb92,
         type: 3}
