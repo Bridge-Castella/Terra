@@ -409,6 +409,8 @@ MonoBehaviour:
   dialogueAnswer2Button: {fileID: 7495768348456558765}
   dialogueAnswer1Text: {fileID: 7495768348188689910}
   dialogueAnswer2Text: {fileID: 7495768348874335629}
+  gowunBatangBold: {fileID: 0}
+  gowunBatangRegular: {fileID: 0}
   npc: {fileID: 0}
 --- !u!114 &495971700270950301
 MonoBehaviour:
@@ -435,6 +437,7 @@ GameObject:
   - component: {fileID: 7495768348188689911}
   - component: {fileID: 7495768348188689905}
   - component: {fileID: 7495768348188689910}
+  - component: {fileID: 7898416497652221336}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -559,6 +562,53 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7898416497652221336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495768348188689908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7495768348188689910}
+          m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_MethodName: set_font
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 3046d72ad4de1f24195a227915d77408,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TMP_FontAsset, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7495768348188689910}
+          m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_MethodName: set_font
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 97cef21703320f244b742bfdc92f4ce0,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TMP_FontAsset, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7495768348226865730
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,6 +882,7 @@ GameObject:
   - component: {fileID: 7495768348874335666}
   - component: {fileID: 7495768348874335628}
   - component: {fileID: 7495768348874335629}
+  - component: {fileID: 4633878625886880742}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -956,6 +1007,53 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4633878625886880742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495768348874335667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7495768348874335629}
+          m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_MethodName: set_font
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 3046d72ad4de1f24195a227915d77408,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TMP_FontAsset, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7495768348874335629}
+          m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_MethodName: set_font
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 97cef21703320f244b742bfdc92f4ce0,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: TMPro.TMP_FontAsset, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7495768349156209389
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +1090,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 351.96503, y: -281}
+  m_AnchoredPosition: {x: 351.96503, y: -316}
   m_SizeDelta: {x: 1235.07, y: 70}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &7495768349156209385
