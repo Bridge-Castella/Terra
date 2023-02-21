@@ -31,8 +31,12 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector] public bool isTalking = false;
     [HideInInspector] public bool isFalling = false;
     [HideInInspector] public bool isLaddering = false; //사다리관련 bool 변수
+    [HideInInspector] public bool onSceneChange = false; //Scene 변경관련 bool 변수
 
-    private CapsuleCollider2D capsuleCollider2D;
+	//Scene 변경시 목표지점
+	[HideInInspector] public Vector3 waypoint;
+
+	private CapsuleCollider2D capsuleCollider2D;
     private SpriteRenderer[] spriteRenderer = new SpriteRenderer[5];
     private Animator animator;
     private Color materialTintColor;
@@ -75,6 +79,7 @@ public class PlayerMove : MonoBehaviour
             rigid.gravityScale = 0f;
             rigid.velocity = new Vector2(0, 0);
         }
+        else if (onSceneChange) return;
         else
         {
             animator.SetFloat("yVelocity", rigid.velocity.y);
@@ -130,8 +135,6 @@ public class PlayerMove : MonoBehaviour
 
     public void Jump()
     {
-        //if (AudioManager.instance != null)                            // Outdated audio engine
-        //AudioManager.instance.PlaySound("jump_01");
         if (jump != null)
             jump.Post(soundObject);
 
@@ -182,6 +185,22 @@ public class PlayerMove : MonoBehaviour
             moveHorizontalInput = 0;
         }
         else if (isLaddering) return;
+        else if (onSceneChange)
+        {
+            Vector3 diff = waypoint - transform.position;
+            bool direction = Mathf.Abs(diff.x) > Mathf.Abs(diff.y);
+
+            if (direction)
+            {
+                float speed = diff.x > 0.0f ? maxSpeed : -maxSpeed;
+                rigid.velocity = new Vector2(speed, rigid.velocity.y);
+            }
+            else
+            {
+                float speed = diff.y > 0.0f ? maxSpeed : -maxSpeed;
+                rigid.velocity = new Vector2(rigid.velocity.x, speed);
+            }
+        }
         //날개 아이템 사용
         else if (abilities.isFlying)
         {
@@ -202,14 +221,10 @@ public class PlayerMove : MonoBehaviour
 
             if (moveHorizontalInput != 0 && IsGrounded())
             {
-                //if (AudioManager.instance != null)                            // Outdated audio engine
-                //AudioManager.instance.PlayWalkSound("grass");
                 AkSoundEngine.SetState("Player", "Grass");
             }
             else
             {
-                //if (AudioManager.instance != null)                            // Outdated audio engine
-                //AudioManager.instance.StopWalkSound();
                 AkSoundEngine.SetState("Player", "None");
             }
 
@@ -260,8 +275,6 @@ public class PlayerMove : MonoBehaviour
     {
         if(collision.gameObject.layer == 10 && isJumping)
         {
-            //if (AudioManager.instance != null)                                // Outdated audio engine
-            //AudioManager.instance.PlaySound("jump_02");
             if (land != null)
                 land.Post(soundObject);
             isJumping = false;
@@ -286,8 +299,6 @@ public class PlayerMove : MonoBehaviour
         rigid.AddForce(knockBack, ForceMode2D.Impulse);
         DamageFlash();
         //부딪히면 나는 소리
-        //if (AudioManager.instance != null)                                    // Outdated audio engine
-        //AudioManager.instance.PlaySound("warn_01");
         if (damaged != null)
             damaged.Post(soundObject);
 

@@ -102,6 +102,9 @@ public class ScrollingBackground : MonoBehaviour
 
     public void InitPosition()
     {
+        if (PlaceHolder.instance.contains(gameObject.name + "cameraPos"))
+            return;
+
 		var rect = Camera.main.pixelRect;
 		float ratio = rect.width / rect.height;
 		float camera_width = Camera.main.orthographicSize * ratio * 2.0f;
