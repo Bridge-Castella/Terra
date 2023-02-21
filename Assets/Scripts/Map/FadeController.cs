@@ -5,67 +5,42 @@ using UnityEngine;
 public class FadeController : MonoBehaviour
 {
 	public bool initializePosition = true;
-
 	public GameObject[] environment;
-    [HideInInspector] public CustomFadeArea customArea = null;
+    public GameObject[] waypoints;
 
-    private FadeSwitcher switcher;
-    private static bool firstScene = true;
     private bool firstLoad = true;
+    private PlayerMove player;
 
-    private void Start()
-    {
-        switcher = gameObject.GetComponent<FadeSwitcher>();
-    }
+	private void Start()
+	{
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
+	}
 
-    public static void resetFade()
-    {
-        firstScene = true;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+	private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-			StopAllCoroutines();
-
-			bool dontFade = false;
-            FadeSettings customSetting = null;
-            if (customArea != null)
+            if (firstLoad)
             {
-                if (customArea.settings.dontFade)
-                    dontFade = true;
-                customSetting = customArea.settings;
-            }
-            
-            foreach (GameObject env in environment)
-            {
-                if (!env.activeSelf) env.SetActive(true);
-
-                if (firstLoad)
-                {
-					firstLoad = false;
-					switcher.InitSprite(env);
-
-					if (initializePosition && !firstScene)
-						InitBackgroundPosition(env);
-
-                    switcher.SetAlpha(0.0f);
-                    if (firstScene)
-                    {
-                        switcher.SetAlpha(0.6f);
-                        firstScene = false;
-                    }                    
-				}
-
-				if (dontFade)
+				firstLoad = false;
+				foreach (GameObject env in environment)
 				{
-					switcher.SetAlpha(1.0f);
-					continue;
-				}
+					if (!env.activeSelf)
+						env.SetActive(true);
 
-				switcher.StartFadeIn(customSetting);
-            }
+					if (initializePosition)
+					{
+						var bg = env.GetComponentsInChildren<ScrollingBackground>();
+						foreach (ScrollingBackground ele in bg)
+						{
+							ele.InitPosition();
+						}
+					}
+				}
+			}
+
+			player.onSceneChange = false;
+			SceneFader.instance.FadeIn();
         }
     }
 
@@ -73,41 +48,25 @@ public class FadeController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            FadeSettings customSetting = null;
-            if (customArea != null)
-            {
-                if (customArea.settings.dontFade)
-                {
-                    StartCoroutine(WaitForBackgroundToFinish(true));
-					return;
+			Vector3 waypoint = new Vector3();
+			Vector3 player_pos = player.transform.position;
+			float min_distance = float.MaxValue;
+
+			foreach (var candidate in waypoints)
+			{
+				Vector3 candidate_pos = candidate.transform.position;
+				float distance = Vector3.Distance(player_pos, candidate_pos);
+
+                if (distance < min_distance)
+				{
+					waypoint = candidate_pos;
+					min_distance = distance;
 				}
-                customSetting = customArea.settings;
-            }
+			}
 
-            switcher.StartFadeOut(customSetting);
-            StartCoroutine(WaitForBackgroundToFinish());
-        }
-    }
-
-	private void InitBackgroundPosition(GameObject env)
-	{
-		foreach (ScrollingBackground ele in env.GetComponentsInChildren<ScrollingBackground>())
-		{
-			ele.InitPosition();
-		}
-	}
-
-    private IEnumerator WaitForBackgroundToFinish(bool force = false)
-    {
-        float delay = switcher.GetFadeOutSeconds(customArea == null ? null : customArea.settings) + 0.5f;
-        yield return new WaitForSeconds(delay);
-
-        if (force || switcher.GetAlpha() == 0.0f)
-        {
-            foreach (GameObject ele in environment)
-            {
-                ele.SetActive(false);
-            }
+			player.waypoint = waypoint;
+			player.onSceneChange = true;
+			SceneFader.instance.FadeOut();
         }
     }
 }
