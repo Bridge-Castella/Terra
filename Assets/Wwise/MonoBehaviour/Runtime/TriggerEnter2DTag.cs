@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TriggerEnter2DTag : AkTriggerBase
 {
-	public string TriggerTag;
+	public string TriggerTag = "Player";
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{

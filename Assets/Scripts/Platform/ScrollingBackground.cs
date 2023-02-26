@@ -21,21 +21,17 @@ public class ScrollingBackground : MonoBehaviour
     private float viewZone = 10;
     private int leftIndex;
     private int rightIndex;
+    private bool enable;
 
     private void Start()
     {
         cameraTransform = Camera.main.transform;
-
-		if (!PlaceHolder.instance.contains(gameObject.name + "cameraPos"))
-            startCameraPos = cameraTransform.position;
-        else
-            startCameraPos = PlaceHolder.instance.load<Vector3>(gameObject.name + "cameraPos");
-
-        if (!PlaceHolder.instance.contains(gameObject.name + "startPos"))
-            startPos = transform.position;
-        else
-            startPos = PlaceHolder.instance.load<Vector3>(gameObject.name + "startPos");
-
+        startCameraPos = PlaceHolder.instance.contains(gameObject.name + "cameraPos") ?
+            PlaceHolder.instance.load<Vector3>(gameObject.name + "cameraPos") :
+            cameraTransform.position;
+        startPos = PlaceHolder.instance.contains(gameObject.name + "startPos") ?
+            PlaceHolder.instance.load<Vector3>(gameObject.name + "startPos") :
+            transform.position;
 
         layers = new Transform[transform.childCount];
 
@@ -52,7 +48,7 @@ public class ScrollingBackground : MonoBehaviour
         PlaceHolder.instance.store(gameObject.name + "startPos", startPos);
 	}
 
-	private void Update()
+    private void Update()
     {
         if(scrolling)
         {
@@ -105,16 +101,16 @@ public class ScrollingBackground : MonoBehaviour
         if (PlaceHolder.instance.contains(gameObject.name + "cameraPos"))
             return;
 
-		var rect = Camera.main.pixelRect;
-		float ratio = rect.width / rect.height;
-		float camera_width = Camera.main.orthographicSize * ratio * 2.0f;
+        var rect = Camera.main.pixelRect;
+        float ratio = rect.width / rect.height;
+        float camera_width = Camera.main.orthographicSize * ratio * 2.0f;
 
-		float direction = Camera.main.transform.position.x - transform.position.x;
-		if (direction < 0.0f)
-			camera_width *= -1.0f;
+        float direction = Camera.main.transform.position.x - transform.position.x;
+        if (direction < 0.0f)
+            camera_width *= -1.0f;
 
-		var pos = transform.position;
-		pos.x += camera_width * multiplier;
-		transform.position = pos;
-	}
+        var pos = transform.position;
+        pos.x += camera_width * multiplier;
+        transform.position = pos;
+    }
 }

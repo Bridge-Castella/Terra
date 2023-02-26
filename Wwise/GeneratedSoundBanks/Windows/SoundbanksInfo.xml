@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="73015004" Language="SFX" Hash="2374603234">
+		<SoundBank Id="73015004" Language="SFX" Hash="2082102559">
 			<ObjectPath>\SoundBanks\Default Work Unit\Login</ObjectPath>
 			<ShortName>Login</ShortName>
 			<Path>Login.bnk</Path>
@@ -50,9 +50,9 @@
 				</Event>
 				<Event Id="978919826" Name="LoginBGM" ObjectPath="\Events\Default Work Unit\BGM\LoginBGM" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="912691396" Language="SFX">
-							<ShortName>로그인테마2.wav</ShortName>
-							<Path>SFX/로그인테마2_D79FB2B7.wem</Path>
+						<File Id="746387063" Language="SFX">
+							<ShortName>BGM_Login_loopx2.wav</ShortName>
+							<Path>SFX/BGM_Login_loopx2_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -74,7 +74,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="1048449605" Language="SFX" Hash="2394174140">
+		<SoundBank Id="1048449605" Language="SFX" Hash="3961855189">
 			<ObjectPath>\SoundBanks\Default Work Unit\Map</ObjectPath>
 			<ShortName>Map</ShortName>
 			<Path>Map.bnk</Path>
@@ -153,24 +153,24 @@
 				</Event>
 				<Event Id="1671187981" Name="MapBGM" ObjectPath="\Events\Default Work Unit\BGM\MapBGM" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="356710857" Language="SFX">
-							<ShortName>MAP_2.wav</ShortName>
-							<Path>SFX/MAP_2_D79FB2B7.wem</Path>
+						<File Id="232231629" Language="SFX">
+							<ShortName>BGM_Map1_loopx2.wav</ShortName>
+							<Path>SFX/BGM_Map1_loopx2_D79FB2B7.wem</Path>
 						</File>
-						<File Id="677212553" Language="SFX">
-							<ShortName>bgm_forest.wav</ShortName>
-							<Path>SFX/bgm_forest_D79FB2B7.wem</Path>
+						<File Id="304299835" Language="SFX">
+							<ShortName>BGM_Map2_loopx2.wav</ShortName>
+							<Path>SFX/BGM_Map2_loopx2_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{AE25278A-9D5E-4D38-B682-924CB3CF8346}">
 							<Media>
-								<File Id="677212553"/>
+								<File Id="232231629"/>
 							</Media>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{099491FA-D060-4086-8836-202699A163C6}">
 							<Media>
-								<File Id="356710857"/>
+								<File Id="304299835"/>
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
