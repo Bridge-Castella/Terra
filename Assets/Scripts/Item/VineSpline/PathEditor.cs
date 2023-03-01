@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(PathCreator))]
-public class PathEditor : Editor {
+public class PathEditor : Editor
+{
 
     PathCreator creator;
     Path path;

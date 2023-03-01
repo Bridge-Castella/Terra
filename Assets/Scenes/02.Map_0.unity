@@ -739,7 +739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &99362481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10885,7 +10885,7 @@ GameObject:
   - component: {fileID: 1279230051}
   - component: {fileID: 1279230050}
   m_Layer: 0
-  m_Name: Forest
+  m_Name: Map1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10959,7 +10959,7 @@ GameObject:
   - component: {fileID: 1392845672}
   - component: {fileID: 1392845671}
   m_Layer: 0
-  m_Name: Tree
+  m_Name: Map2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11553,7 +11553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!60 &1495483083
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -16501,8 +16501,8 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 0
+  m_UpdateMethod: 1
+  m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 0
     m_Time: 2
@@ -16584,7 +16584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933451257}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.55374, y: -14.129235, z: -10}
+  m_LocalPosition: {x: -47.20315, y: -13.8, z: -10}
   m_LocalScale: {x: 1.0000352, y: 1, z: 1}
   m_Children:
   - {fileID: 352975916}
@@ -16630,7 +16630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!60 &1965344287
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -16656,14 +16656,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 46.078487, y: 30.911972}
-      - {x: 71.70184, y: 30.685425}
+    - - {x: 70.01077, y: -25.68576}
       - {x: 72.462326, y: 178.1892}
-      - {x: -35.579582, y: 178.78944}
-      - {x: -36.05622, y: 30.800404}
-      - {x: -46.376255, y: 30.786385}
+      - {x: -46.637817, y: 176.94633}
       - {x: -46.06326, y: -25.831568}
-      - {x: 45.9662, y: -26.018274}
 --- !u!4 &1965344288
 Transform:
   m_ObjectHideFlags: 0
@@ -16966,7 +16962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!60 &2696858488835874825
 PolygonCollider2D:
   m_ObjectHideFlags: 0
