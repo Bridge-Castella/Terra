@@ -35,8 +35,8 @@ public class LoginManager : MonoBehaviour
 
     public void LoadScene()
     {
-        MapManager.instance.mapState = MapManager.MapState.Forest;
-        MapManager.instance.LoadMap((int)MapManager.MapState.Forest);
+        MapManager.instance.mapState = MapManager.MapState.Map1;
+        MapManager.instance.LoadMap((int)MapManager.MapState.Map1);
     }
 
     public void OnClickExitGame()

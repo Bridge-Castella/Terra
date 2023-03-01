@@ -24,8 +24,8 @@ public class MapManager : MonoBehaviour
     public enum MapState
     {
         Login = 0,
-        Forest,
-        Tree
+        Map1,
+        Map2
     }
 
     public MapState mapState;
