@@ -25,6 +25,7 @@ public class Item : MonoBehaviour
     public Sprite icon;
     public string itemName;
     public string desc;
+    public GameObject pickupParticlePrefab; 
 
     //플레이어가 아이템에 부딪히면 아이템 얻음
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,7 +53,8 @@ public class Item : MonoBehaviour
                     GetQuestItem(collision);
                     break;
             }
-        }        
+        }
+        SpawnPickUpParticle();    
     }
 
     public virtual void GetWingItem()
@@ -67,6 +69,16 @@ public class Item : MonoBehaviour
     {
     }
 
+    public virtual void SpawnPickUpParticle()
+    {
+        if(pickupParticlePrefab)
+        {
+            GameObject obj = MonoBehaviour.Instantiate(pickupParticlePrefab);
+            obj.transform.position = gameObject.transform.position;
+            ParticleSystem particle = obj.GetComponent<ParticleSystem>();
+            particle.Play();
+        }
+    }
     public virtual void GetQuestItem(Collider2D collision)
     {
     }
