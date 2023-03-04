@@ -13,6 +13,10 @@ public class Spike : MonoBehaviour
             {
                 player.DamageKnockBack(gameObject.transform.position,1);
             }
+            if(HeartManager.instance.IsPlayerDead())
+            {
+                ControlManager.instance.RetryGame();
+            }
         }
     }
 }

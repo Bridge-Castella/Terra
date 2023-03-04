@@ -45,7 +45,7 @@ public class FallDetector : MonoBehaviour
             StartCoroutine(player.CoEnableDamage(0.5f, 1.5f));
         }
 
-        if (HeartsHealthVisual.heartHealthSystemStatic.IsDead())             
+        if (HeartManager.instance.IsPlayerDead())             
         {
             ControlManager.instance.RetryGame();
             checkPoint = startPoint; //체크포인트 다시 startpoint로 

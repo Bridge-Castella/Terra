@@ -38,4 +38,13 @@ public class HeartManager : MonoBehaviour
         heartNum = 5;
         heartNumText.text = heartNum.ToString();
     }
+
+    public bool IsPlayerDead()
+    {
+        if(heartNum <= 0)
+        {
+            return true;
+        }
+        return false;
+    }
 }

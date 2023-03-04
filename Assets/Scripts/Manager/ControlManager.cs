@@ -15,7 +15,7 @@ public class ControlManager : MonoBehaviour
     }
     #endregion
 
-    public GameObject startPoint;
+    public Transform startPoint;
     public GameObject player;
 
     public GameObject optionObject;
@@ -25,6 +25,11 @@ public class ControlManager : MonoBehaviour
 
     [SerializeField] AK.Wwise.Event pause;
     [SerializeField] AK.Wwise.Event resume;
+
+    private void Start()
+    {
+        startPoint = GameObject.Find("StartPoint").transform;
+    }
 
     private void Update()
     {
@@ -69,8 +74,7 @@ public class ControlManager : MonoBehaviour
 
     public void RetryGame()
     {
-        player.transform.position = startPoint.transform.position;
-        int fullHealAmount = HeartHealthSystem.MAX_FRAGMENT_AMOUNT * HeartsHealthVisual.heartHealthSystemStatic.GetHeartList().Count;
-        HeartsHealthVisual.heartHealthSystemStatic.Heal(fullHealAmount);
+        player.transform.position = startPoint.position;
+        HeartManager.instance.PlayerIsDead();
     }
 }
