@@ -82,7 +82,7 @@ public class Option : MonoBehaviour
         //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
         keyExit.Post(gameObject);
         Time.timeScale = 1;
-        MapManager.instance.mapState = MapManager.MapState.Login;
+        MapManager.state.map = MapManager.MapIndex.Login;
         SceneManager.LoadScene("01.Login");
 
         //TODO 임시: 아이템 개수 초기화
@@ -108,7 +108,7 @@ public class Option : MonoBehaviour
             audioGroup.SetActive(false);
             buttonGroup.SetActive(true);
             popUpObject.SetActive(false);
-            if (MapManager.instance.mapState == MapManager.MapState.Login)
+            if (MapManager.state.map == MapManager.MapIndex.Login)
             {
                 //AudioManager.instance.PlaySound("ui_02");                     // Outdated audio engine
                 keyPause.Post(gameObject);
