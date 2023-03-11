@@ -40,6 +40,7 @@ public class Option : MonoBehaviour
     {
         //세이브 버튼 addlistener 추가해야함.
         audioButton.onClick.AddListener(OnClickAudioButton);
+        saveButton.onClick.AddListener(OnClickSaveButton);
         quitButton.onClick.AddListener(OnClickQuitButton);
         initialButton.onClick.AddListener(InitailizeVolume);
         cancelButton.onClick.AddListener(OnClickCancelButton);
@@ -67,19 +68,22 @@ public class Option : MonoBehaviour
         sfxVolumeNum.text = Mathf.CeilToInt(sfxSlider.value * 10).ToString();
     }
 
+    public void OnClickSaveButton()
+    {
+        SaveManager.SaveGame();
+
+    }
+
     public void OnClickQuitButton()
     {
-        //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
         keyExit.Post(gameObject);
         buttonGroup.SetActive(false);
         popUpObject.SetActive(true);
         popUpText.text = "게임을 종료하시겠습니까?";
-        //FadeController.resetFade();
     }
 
     public void LoadLoginScene()
     {
-        //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
         keyExit.Post(gameObject);
         Time.timeScale = 1;
         MapManager.state.map = MapManager.MapIndex.Login;
@@ -94,7 +98,6 @@ public class Option : MonoBehaviour
 
     public void OnClickPopupNoButton()
     {
-        //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
         keyExit.Post(gameObject);
         popUpObject.SetActive(false);
         buttonGroup.SetActive(true);
@@ -110,7 +113,6 @@ public class Option : MonoBehaviour
             popUpObject.SetActive(false);
             if (MapManager.state.map == MapManager.MapIndex.Login)
             {
-                //AudioManager.instance.PlaySound("ui_02");                     // Outdated audio engine
                 keyPause.Post(gameObject);
                 mainMenuObject.SetActive(true);
                 logoObject.SetActive(true);
@@ -139,7 +141,6 @@ public class Option : MonoBehaviour
 
     public void OnClickAudioButton()
     {
-        //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
         keyExit.Post(gameObject);
         buttonGroup.SetActive(false);
         popUpObject.SetActive(false);

@@ -31,9 +31,7 @@ public class FallDetector : MonoBehaviour
 
         StartCoroutine(CoPlayerStop());
 
-        //if(AudioManager.instance != null)                                     // Outdated audio engine
-        //AudioManager.instance.PlaySound("life_01");
-        life.Post(soundObject);
+        life.Post(soundObject == null ? gameObject : soundObject);
 
         player = collision.gameObject.GetComponent<PlayerMove>();
         player.isFalling = true;

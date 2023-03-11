@@ -22,6 +22,9 @@ public class HeartManager : MonoBehaviour
 
     void Start()
     {
+        if (GlobalContainer.contains("Heart"))
+            heartNum = GlobalContainer.load<int>("Heart");
+
         heartNumText.text = heartNum.ToString();
     }
 

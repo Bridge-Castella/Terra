@@ -23,15 +23,13 @@ public class ScrollingBackground : MonoBehaviour
     private int rightIndex;
     private bool enable;
 
+    public Transform startTransform;
+
     private void Start()
     {
         cameraTransform = Camera.main.transform;
-        startCameraPos = PlaceHolder.instance.contains(gameObject.name + "cameraPos") ?
-            PlaceHolder.instance.load<Vector3>(gameObject.name + "cameraPos") :
-            cameraTransform.position;
-        startPos = PlaceHolder.instance.contains(gameObject.name + "startPos") ?
-            PlaceHolder.instance.load<Vector3>(gameObject.name + "startPos") :
-            transform.position;
+        startCameraPos = startTransform.position;
+        startPos = transform.position;
 
         layers = new Transform[transform.childCount];
 
@@ -41,12 +39,6 @@ public class ScrollingBackground : MonoBehaviour
         leftIndex = 0;
         rightIndex = layers.Length -1;
     }
-
-	private void OnDestroy()
-	{
-		PlaceHolder.instance.store(gameObject.name + "cameraPos", startCameraPos);
-        PlaceHolder.instance.store(gameObject.name + "startPos", startPos);
-	}
 
     private void Update()
     {
@@ -98,9 +90,6 @@ public class ScrollingBackground : MonoBehaviour
 
     public void InitPosition()
     {
-        if (PlaceHolder.instance.contains(gameObject.name + "cameraPos"))
-            return;
-
         var rect = Camera.main.pixelRect;
         float ratio = rect.width / rect.height;
         float camera_width = Camera.main.orthographicSize * ratio * 2.0f;

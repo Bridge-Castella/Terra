@@ -27,6 +27,7 @@ public class MapManager : MonoBehaviour
     }
 
     public static State state = new State();
+    private static List<MapIndex> outOfRange = new List<MapIndex>();
     private static int AdditiveMapStartIndex = 2;
 
     public static AsyncOperation LoadMap(MapIndex index)
@@ -39,21 +40,23 @@ public class MapManager : MonoBehaviour
         }
 
         int scene_index = ToSceneIndex(index);
-        if (scene_index < AdditiveMapStartIndex
-            || IsMapLoaded(index))
+        if (scene_index < AdditiveMapStartIndex || IsMapLoaded(index))
             return null;
         return SceneManager.LoadSceneAsync(scene_index, LoadSceneMode.Additive);
     }
 
     public static AsyncOperation UnloadMap(MapIndex index)
     {
-        Debug.Log(index);
-        Debug.Log(state.checkPoint);
         int scene_index = ToSceneIndex(index);
-        if (scene_index < AdditiveMapStartIndex
-            || !IsMapLoaded(index)
-            || index == state.checkPoint)
+        if (scene_index < AdditiveMapStartIndex || !IsMapLoaded(index))
             return null;
+
+        if (index == state.checkPoint)
+        {
+            outOfRange.Add(index);
+            return null;
+        }
+
         return SceneManager.UnloadSceneAsync(scene_index);
     }
 
@@ -91,6 +94,21 @@ public class MapManager : MonoBehaviour
             if (SceneManager.GetSceneAt(i).buildIndex == ToSceneIndex(index))
                 return true;
         }
+        return false;
+    }
+
+    public static bool IsMapOutOfRange(MapIndex index)
+    {
+        for (int i = 0; i < outOfRange.Count(); i++)
+        {
+            MapIndex map = outOfRange[i];
+            if (map != index)
+                continue;
+
+            outOfRange.RemoveAt(i);
+            return true;
+        }
+
         return false;
     }
 
