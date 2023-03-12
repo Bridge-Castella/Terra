@@ -29,6 +29,9 @@ public class Option : MonoBehaviour
     public Button popUpYesButton;
     public Button popUpNoButton;
 
+    public GameObject popUpSave;
+    public Button popUpSaveButton;
+
     public TextMeshProUGUI masterVolumeNum;
     public TextMeshProUGUI bgmVolumeNum;
     public TextMeshProUGUI sfxVolumeNum;
@@ -47,6 +50,8 @@ public class Option : MonoBehaviour
 
         popUpYesButton.onClick.AddListener(LoadLoginScene);
         popUpNoButton.onClick.AddListener(OnClickPopupNoButton);
+
+        popUpSaveButton.onClick.AddListener(OnClickPopUpSaveButton);
 
         //일반 볼륨
         masterSlider.onValueChanged.AddListener(SetMasterVolume);
@@ -70,8 +75,10 @@ public class Option : MonoBehaviour
 
     public void OnClickSaveButton()
     {
+        keyExit.Post(gameObject);
         SaveManager.SaveGame();
-
+        buttonGroup.SetActive(false);
+        popUpSave.SetActive(true);
     }
 
     public void OnClickQuitButton()
@@ -127,6 +134,12 @@ public class Option : MonoBehaviour
                 }    
             }
         }
+    }
+
+    public void OnClickPopUpSaveButton() {
+        keyExit.Post(gameObject);
+        popUpSave.SetActive(false);
+        buttonGroup.SetActive(true);
     }
 
 
