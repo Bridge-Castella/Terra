@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MapManager : MonoBehaviour
+public class MapManager
 {
     public enum MapIndex
     {
@@ -24,9 +24,18 @@ public class MapManager : MonoBehaviour
     {
         public MapIndex map;
         public MapIndex checkPoint;
+
+        public static State createDefault()
+        {
+            State state = new State();
+            state.map = MapIndex.Map1;
+            state.checkPoint = MapIndex.Map1;
+            return state;
+        }
     }
 
-    public static State state = new State();
+
+    public static State state = State.createDefault();
     private static List<MapIndex> outOfRange = new List<MapIndex>();
     private static int AdditiveMapStartIndex = 2;
 
