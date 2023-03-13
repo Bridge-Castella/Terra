@@ -12,22 +12,23 @@ public enum QuestState {
 
 public abstract class Quest : MonoBehaviour
 {
-    public string questId;
-	[HideInInspector] public string npcId;
-	[HideInInspector] public string title;
-	[HideInInspector] public string description;
-	[HideInInspector] public string status;
+    public string questId;                              // quest name
+	[HideInInspector] public string npcId;              // npc name
+	[HideInInspector] public string title;              // display title
+	[HideInInspector] public string description;        // display description
+	[HideInInspector] public string status;             // display status
 
-	[HideInInspector] public Sprite portrait;
-	[HideInInspector] public Sprite itemIcon;
+	[HideInInspector] public Sprite portrait;           // display npc portrait
+	[HideInInspector] public Sprite itemIcon;           // display item icon
 
-    protected abstract bool didSuccess();
-	protected abstract void onStart();
-    protected abstract void onChange();
+    protected abstract bool didSuccess();               // check if quest has been succeeded, abstract function
+	protected abstract void onStart();                  // called on starting of the quest, abstract function
+    protected abstract void onChange();                 // called when quest state is changed, abstract function
 
     public delegate void CallbackT();
     private CallbackT OnChangeStatusCallback;
 
+    // Initialize distplay variables
     public void init(string npcId)
     {
         this.npcId = npcId;

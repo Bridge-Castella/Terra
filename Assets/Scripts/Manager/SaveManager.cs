@@ -19,6 +19,7 @@ public class SaveManager
 
         public int playerHeart;
         public MapManager.MapIndex mapIndex;
+        public Dictionary<string, QuestState> questState;
     }
 
     public static void SaveGame()
@@ -30,6 +31,7 @@ public class SaveManager
         data.checkPoint_z = checkPoint.z;
         data.playerHeart = HeartManager.instance.heartNum;
         data.mapIndex = MapManager.state.checkPoint;
+        data.questState = QuestManager.instance.getState();
 
         try
         {
@@ -85,6 +87,7 @@ public class SaveManager
         checkPoint.z = data.checkPoint_z;
 
         MapManager.state.checkPoint = data.mapIndex;
+        GlobalContainer.store("QuestState", data.questState);
         GlobalContainer.store("StartPos", checkPoint);
         GlobalContainer.store("Heart", data.playerHeart);
 
