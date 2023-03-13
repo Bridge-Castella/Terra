@@ -33,8 +33,10 @@ public class Dialogue : MonoBehaviour
 
     private void Awake()
     {
-        dialogueAnswer1Button.onClick.AddListener(OnClickDialogueAnswer1Button);
-        dialogueAnswer2Button.onClick.AddListener(OnClickDialogueAnswer2Button);
+        // issue: Event Trigger Component가 Event를 Block하고 있어, 아래 callback이 호출되지 않음
+        // fix: Event Trigger Component에 해당 함수를 직접 등록하여 해결
+        //dialogueAnswer1Button.onClick.AddListener(OnClickDialogueAnswer1Button);
+        //dialogueAnswer2Button.onClick.AddListener(OnClickDialogueAnswer2Button);
     }
 
     private void Update()
@@ -113,7 +115,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    void OnClickDialogueAnswer1Button()
+    public void OnClickDialogueAnswer1Button()
     {
         dialogueAnswer1Button.gameObject.SetActive(false);
         dialogueAnswer2Button.gameObject.SetActive(false);
@@ -122,7 +124,7 @@ public class Dialogue : MonoBehaviour
         DialogueWithNPC(story_id, answer1_connect_id);
     }
 
-    void OnClickDialogueAnswer2Button()
+    public void OnClickDialogueAnswer2Button()
     {
         dialogueAnswer1Button.gameObject.SetActive(false);
         dialogueAnswer2Button.gameObject.SetActive(false);
