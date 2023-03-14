@@ -25,6 +25,9 @@ public abstract class Quest : MonoBehaviour
 	protected abstract void onStart();                  // called on starting of the quest, abstract function
     protected abstract void onChange();                 // called when quest state is changed, abstract function
 
+    public abstract int[] saveData();                   // save current state of quest
+    public abstract void loadData(int[] data);          // load saved state of quest
+
     public delegate void CallbackT();
     private CallbackT OnChangeStatusCallback;
 
@@ -55,7 +58,7 @@ public abstract class Quest : MonoBehaviour
 
     public void onSuccess()
     {
-		QuestManager.instance.changeState(questId, QuestState.Succeeded);
+		QuestManager.changeState(questId, QuestState.Succeeded);
 	}
 
 	public void startQuest()
@@ -74,6 +77,6 @@ public abstract class Quest : MonoBehaviour
 	public QuestState state { get { return _state(); } }
 	private QuestState _state()
     {
-        return (QuestState)QuestManager.instance.getState(questId);
+        return (QuestState)QuestManager.getState(questId);
     }
 }

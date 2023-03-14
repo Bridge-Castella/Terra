@@ -48,8 +48,8 @@ public class NpcAction : MonoBehaviour
         player = FindObjectOfType<PlayerMove>();
         animator = gameObject.GetComponent<Animator>();
 
-		string questId = QuestManager.instance.getNextQuestId(npc_diff_id);
-		QuestState? state = QuestManager.instance.getState(questId);
+		string questId = QuestManager.getNextQuestId(npc_diff_id);
+		QuestState? state = QuestManager.getState(questId);
 		if (state == null) return;
 		QuestState questState = (QuestState)state;
         if (questState == QuestState.Doing) Stroy_idIdx = 1;
@@ -57,8 +57,8 @@ public class NpcAction : MonoBehaviour
 
     public void ShowDialogueUIObject()
     {
-        string questId = QuestManager.instance.getNextQuestId(npc_diff_id);
-        QuestState? state = QuestManager.instance.getState(questId);
+        string questId = QuestManager.getNextQuestId(npc_diff_id);
+        QuestState? state = QuestManager.getState(questId);
 
         if (state == null) return;
         QuestState questState = (QuestState)state;
@@ -74,6 +74,10 @@ public class NpcAction : MonoBehaviour
             transform.localScale = new Vector3(player.transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
             dialogueUiObjectInstance = Instantiate(dialogueUIObject, canvas.transform);
+
+            // Canvas 내 상단 위치
+            // 상단에 위치해야 Fade Image와 Option창 아래 위치
+            dialogueUiObjectInstance.transform.SetSiblingIndex(0);
 
             if (questState == QuestState.Succeeded)
             {

@@ -16,10 +16,15 @@ public class QuestGroup : MonoBehaviour
 		string npcId = gameObject.GetComponent<NpcAction>().npc_diff_id;
 
 		// Add this QuestGroup to QuestManager
-		QuestManager.instance.add(npcId, this);
+		QuestManager.add(npcId, this);
 
-		// Create a quest list from quest object list
-		questList = new List<Quest>();
+		// Load substate from saved data
+		var substate = GlobalContainer.contains("questData") ?
+			GlobalContainer.load<Dictionary<string, int[]>>("questData") :
+			null;
+
+        // Create a quest list from quest object list
+        questList = new List<Quest>();
 		foreach (GameObject questEle in questObject)
 		{
 			// Get quest
@@ -29,18 +34,20 @@ public class QuestGroup : MonoBehaviour
 			quest.init(npcId);
 			questList.Add(quest);
 
-			// If quest state already exits
-			if (!QuestManager.instance.add(quest.questId, QuestState.Null))
-			{
-				// Get quest state
-				QuestState state = (QuestState)QuestManager.instance.getState(quest.questId);
+			// submit quest to manager
+			QuestManager.add(quest.questId, QuestState.Null);
 
-				// TODO: Get details on quest state
-				if (state == QuestState.Doing)
-					QuestManager.instance.StartQuest(quest, false);
-				else if (state == QuestState.Succeeded)
-					QuestManager.instance.StartQuest(quest, false);
-			}
+			// when substate is not in saved data
+			if (substate == null)
+				continue;
+			if (!substate.ContainsKey(quest.questId))
+				continue;
+
+			// Load substate
+			quest.loadData(substate[quest.questId]);
+
+			// Start quest
+			QuestManager.StartQuest(quest, false);
 		}
 	}
 
@@ -48,7 +55,7 @@ public class QuestGroup : MonoBehaviour
 	private void OnDestroy()
 	{
 		string npcId = gameObject.GetComponent<NpcAction>().npc_diff_id;
-		QuestManager.instance.delete(npcId);
+		QuestManager.delete(npcId);
 	}
 
 	// Find quest on quest list

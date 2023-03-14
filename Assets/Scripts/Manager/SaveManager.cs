@@ -18,8 +18,8 @@ public class SaveManager
         // TODO: inventory 저장
 
         public int playerHeart;
-        public MapManager.MapIndex mapIndex;
-        public Dictionary<string, QuestState> questState;
+        public MapManager.MapData mapData;
+        public QuestManager.QuestData questData;
     }
 
     public static void SaveGame()
@@ -30,8 +30,9 @@ public class SaveManager
         data.checkPoint_y = checkPoint.y;
         data.checkPoint_z = checkPoint.z;
         data.playerHeart = HeartManager.instance.heartNum;
-        data.mapIndex = MapManager.state.checkPoint;
-        data.questState = QuestManager.instance.getState();
+
+        data.mapData = MapManager.saveData();
+        data.questData = QuestManager.saveData();
 
         try
         {
@@ -43,15 +44,15 @@ public class SaveManager
         catch (Exception exception) when (exception is IOException ||
                                           exception is SerializationException)
         {
-            Debug.Log("저장 파일이 손상되었습니다");
+            Debug.Log("파일을 저장할 수 없습니다");
         }
         catch (Exception)
         {
-            Debug.Log("알 수 없는 오류가 발생하여 저장파일을 불러올 수 없습니다");
+            Debug.Log("알 수 없는 오류가 발생하여 게임을 저장할 수 없습니다");
         }
     }
 
-    public static SaveData LoadGame()
+    public static SaveData? LoadGame()
     {
         BinaryFormatter binary = new BinaryFormatter();
         FileStream file;
@@ -66,19 +67,18 @@ public class SaveManager
         catch (Exception exception) when (exception is FileNotFoundException)
         {
             Debug.Log("저장 파일이 존재하지 않습니다");
-
-            SaveData dummy = new SaveData();
-            dummy.mapIndex = MapManager.MapIndex.Login;
-            return dummy;
+            return null;
         }
         catch (Exception exception) when (exception is IOException ||
                                           exception is SerializationException)
         {
             Debug.Log("저장 파일이 손상되었습니다");
-
-            SaveData dummy = new SaveData();
-            dummy.mapIndex = MapManager.MapIndex.Login;
-            return dummy;
+            return null;
+        }
+        catch (Exception)
+        {
+            Debug.Log("알 수 없는 오류가 발생하여 게임을 불러올 수 없습니다");
+            return null;
         }
 
         Vector3 checkPoint = new Vector3();
@@ -86,8 +86,8 @@ public class SaveManager
         checkPoint.y = data.checkPoint_y;
         checkPoint.z = data.checkPoint_z;
 
-        MapManager.state.checkPoint = data.mapIndex;
-        GlobalContainer.store("QuestState", data.questState);
+        MapManager.loadData(data.mapData);
+        QuestManager.loadData(data.questData);
         GlobalContainer.store("StartPos", checkPoint);
         GlobalContainer.store("Heart", data.playerHeart);
 

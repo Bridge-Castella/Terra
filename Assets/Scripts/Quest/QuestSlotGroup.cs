@@ -13,7 +13,7 @@ public class QuestSlotGroup : MonoBehaviour
 
 	private void Start()
 	{
-		QuestManager.instance.onQuestStart += OnQuestAdd;
+		QuestManager.submitOnQuestStart(OnQuestAdd);
 	}
 
 	private void OnEnable()
@@ -35,7 +35,7 @@ public class QuestSlotGroup : MonoBehaviour
 
 	private void UpdateQuests()
 	{
-		List<Quest> quests = QuestManager.instance.getActiveQuests();
+		List<Quest> quests = QuestManager.getActiveQuests();
 		foreach (Quest quest in quests)
 		{
 			GameObject questSlot = Instantiate(questSlotPrefab, transform);

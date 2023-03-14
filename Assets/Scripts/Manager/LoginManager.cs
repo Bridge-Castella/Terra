@@ -43,12 +43,13 @@ public class LoginManager : MonoBehaviour
 
     public void ContinueGame()
     {
-        SaveManager.SaveData data = SaveManager.LoadGame();
-        if (data.mapIndex == MapManager.MapIndex.Login)
+        SaveManager.SaveData? data_optional = SaveManager.LoadGame();
+        if (data_optional == null)
             return;
 
-        MapManager.state.map = data.mapIndex;
-        MapManager.LoadMap(data.mapIndex);
+        SaveManager.SaveData data = (SaveManager.SaveData)data_optional;
+        MapManager.state.map = data.mapData.index;
+        MapManager.LoadMap(data.mapData.index);
     }
 
     public void OnClickExitGame()

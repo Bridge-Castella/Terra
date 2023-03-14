@@ -127,9 +127,27 @@ public class MapManager
         return (MapIndex)mapIndex;
     }
 
+    [System.Serializable]
+    public struct MapData
+    {
+        public MapIndex index;
+    }
+
     public static int ToSceneIndex(MapIndex index)
     {
         MapIndex sceneIndex = index + AdditiveMapStartIndex - 1;
         return (int)sceneIndex;
+    }
+
+    public static MapData saveData()
+    {
+        var data = new MapData();
+        data.index = state.checkPoint;
+        return data;
+    }
+
+    public static void loadData(MapData data)
+    {
+        state.checkPoint = data.index;
     }
 }
