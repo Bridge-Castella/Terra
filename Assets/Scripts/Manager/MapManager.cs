@@ -28,8 +28,8 @@ public class MapManager
         public static State createDefault()
         {
             State state = new State();
-            state.map = MapIndex.Map1;
-            state.checkPoint = MapIndex.Map1;
+            state.map = MapIndex.Login;
+            state.checkPoint = MapIndex.Login;
             return state;
         }
     }

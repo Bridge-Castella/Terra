@@ -51,7 +51,9 @@ public class Option : MonoBehaviour
         popUpYesButton.onClick.AddListener(LoadLoginScene);
         popUpNoButton.onClick.AddListener(OnClickPopupNoButton);
 
-        popUpSaveButton.onClick.AddListener(OnClickPopUpSaveButton);
+        // 저장 버튼, 인게임에서만 작동
+        if (MapManager.state.map != MapManager.MapIndex.Login)
+            popUpSaveButton.onClick.AddListener(OnClickPopUpSaveButton);
 
         //일반 볼륨
         masterSlider.onValueChanged.AddListener(SetMasterVolume);
