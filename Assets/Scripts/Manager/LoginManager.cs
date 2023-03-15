@@ -28,15 +28,28 @@ public class LoginManager : MonoBehaviour
     public void Start()
     {
         //ÀúÀåÆÄÀÏÀÌ ÀÖ´Ù¸é continuebutton setactive true
-        NewGameButton.onClick.AddListener(LoadScene);
+        NewGameButton.onClick.AddListener(NewGame);
+        ContinueButton.onClick.AddListener(ContinueGame);
         SettingButton.onClick.AddListener(OnClickSettingButton);
         ExitGameButton.onClick.AddListener(OnClickExitGame);
     }
 
-    public void LoadScene()
+    public void NewGame()
     {
-        MapManager.instance.mapState = MapManager.MapState.Map1;
-        MapManager.instance.LoadMap((int)MapManager.MapState.Map1);
+        MapManager.state.map = MapManager.MapIndex.Map1;
+        MapManager.LoadMap(MapManager.MapIndex.Map1);
+        GlobalContainer.clear();
+    }
+
+    public void ContinueGame()
+    {
+        SaveManager.SaveData? data_optional = SaveManager.LoadGame();
+        if (data_optional == null)
+            return;
+
+        SaveManager.SaveData data = (SaveManager.SaveData)data_optional;
+        MapManager.state.map = data.mapData.index;
+        MapManager.LoadMap(data.mapData.index);
     }
 
     public void OnClickExitGame()

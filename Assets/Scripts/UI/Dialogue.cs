@@ -33,8 +33,10 @@ public class Dialogue : MonoBehaviour
 
     private void Awake()
     {
-        dialogueAnswer1Button.onClick.AddListener(OnClickDialogueAnswer1Button);
-        dialogueAnswer2Button.onClick.AddListener(OnClickDialogueAnswer2Button);
+        // issue: Event Trigger Component가 Event를 Block하고 있어, 아래 callback이 호출되지 않음
+        // fix: Event Trigger Component에 해당 함수를 직접 등록하여 해결
+        //dialogueAnswer1Button.onClick.AddListener(OnClickDialogueAnswer1Button);
+        //dialogueAnswer2Button.onClick.AddListener(OnClickDialogueAnswer2Button);
     }
 
     private void Update()
@@ -99,21 +101,21 @@ public class Dialogue : MonoBehaviour
                 break;
             case 4:
                 //TODO: 퀘스트 구현
-                QuestManager.instance.StartQuest(npc.npc_diff_id, list[string_idIdx].quest_id);
+                QuestManager.StartQuest(npc.npc_diff_id, list[string_idIdx].quest_id);
                 break;
                 //퀘스트는 무조건 시작하므로 5일때는 그냥 대화(아무일도 일어나지 않음)
             case 6:
                 //퀘스트 포기
-                QuestManager.instance.StopQuest(npc.npc_diff_id);
+                QuestManager.StopQuest(npc.npc_diff_id);
                 break;
             case 7:
                 //퀘스트 완료, 보상받기
-                QuestManager.instance.SucceedQuest(npc.npc_diff_id);
+                QuestManager.SucceedQuest(npc.npc_diff_id);
                 break;
         }
     }
 
-    void OnClickDialogueAnswer1Button()
+    public void OnClickDialogueAnswer1Button()
     {
         dialogueAnswer1Button.gameObject.SetActive(false);
         dialogueAnswer2Button.gameObject.SetActive(false);
@@ -122,7 +124,7 @@ public class Dialogue : MonoBehaviour
         DialogueWithNPC(story_id, answer1_connect_id);
     }
 
-    void OnClickDialogueAnswer2Button()
+    public void OnClickDialogueAnswer2Button()
     {
         dialogueAnswer1Button.gameObject.SetActive(false);
         dialogueAnswer2Button.gameObject.SetActive(false);

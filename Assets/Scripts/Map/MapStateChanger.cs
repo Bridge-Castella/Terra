@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScrollingGroundEnabler : MonoBehaviour
+public class MapStateChanger : MonoBehaviour
 {
     [SerializeField] private GameObject[] scrollingGrounds;
 
@@ -11,6 +11,12 @@ public class ScrollingGroundEnabler : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player"))
             return;
 
+        // Map state 변경
+        int sceneIndex = gameObject.scene.buildIndex;
+        MapManager.MapIndex mapIndex = MapManager.ToMapIndex(sceneIndex);
+        MapManager.state.map = mapIndex;
+
+        // Scrolling Ground 활성화
         StartCoroutine(SetActive(true));
     }
 
