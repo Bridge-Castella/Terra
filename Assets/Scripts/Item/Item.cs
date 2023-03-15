@@ -25,7 +25,8 @@ public class Item : MonoBehaviour
     public Sprite icon;
     public string itemName;
     public string desc;
-    public GameObject pickupParticlePrefab; 
+    public GameObject pickupParticlePrefab;
+    public GameObject pickupSubParticlePrefab;
 
     //플레이어가 아이템에 부딪히면 아이템 얻음
     private void OnTriggerEnter2D(Collider2D collision)
@@ -74,6 +75,13 @@ public class Item : MonoBehaviour
         if(pickupParticlePrefab)
         {
             GameObject obj = MonoBehaviour.Instantiate(pickupParticlePrefab);
+            obj.transform.position = gameObject.transform.position;
+            ParticleSystem particle = obj.GetComponent<ParticleSystem>();
+            particle.Play();
+        }
+        if(pickupSubParticlePrefab)
+        {
+            GameObject obj = MonoBehaviour.Instantiate(pickupSubParticlePrefab);
             obj.transform.position = gameObject.transform.position;
             ParticleSystem particle = obj.GetComponent<ParticleSystem>();
             particle.Play();
