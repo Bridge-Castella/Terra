@@ -1,276 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>/Users/naburang/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Desktop/Terra.nosync/Wwise/</ProjectRoot>
-		<SourceFilesRoot>/Users/naburang/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Desktop/Terra.nosync/Wwise/.cache/Windows/</SourceFilesRoot>
-		<SoundBanksRoot>/Users/naburang/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Desktop/Terra.nosync/Wwise/GeneratedSoundBanks/Windows/</SoundBanksRoot>
+		<ProjectRoot>D:\TERRA\Terra\Wwise\</ProjectRoot>
+		<SourceFilesRoot>D:\TERRA\Terra\Wwise\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\TERRA\Terra\Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>/Users/naburang/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Desktop/Terra.nosync/Wwise/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\TERRA\Terra\Wwise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="73015004" Language="SFX" Hash="4145720922">
+		<SoundBank Id="73015004" Language="SFX" Hash="1325814194">
 			<ObjectPath>\SoundBanks\Default Work Unit\Login</ObjectPath>
 			<ShortName>Login</ShortName>
 			<Path>Login.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2371688259" Name="KeyEscape" ObjectPath="\Events\Default Work Unit\UI\KeyEscape" DurationType="OneShot" DurationMin="1.130952" DurationMax="1.130952">
-					<IncludedMemoryFiles>
-						<File Id="790640650" Language="SFX">
-							<ShortName>UI_02.wav</ShortName>
-							<Path>SFX/UI_02_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2324342138" Name="KeyExit" ObjectPath="\Events\Default Work Unit\UI\KeyExit" DurationType="OneShot" DurationMin="0.90886" DurationMax="0.90886">
-					<IncludedMemoryFiles>
-						<File Id="545133625" Language="SFX">
-							<ShortName>UI_04.wav</ShortName>
-							<Path>SFX/UI_04_7FBFB449.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="4165085968" Name="KeyPause" ObjectPath="\Events\Default Work Unit\UI\KeyPause" DurationType="OneShot" DurationMin="2.117642" DurationMax="2.117642">
-					<IncludedMemoryFiles>
-						<File Id="887999339" Language="SFX">
-							<ShortName>UI_01.wav</ShortName>
-							<Path>SFX/UI_01_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2084889547" Name="KeyResume" ObjectPath="\Events\Default Work Unit\UI\KeyResume" DurationType="OneShot" DurationMin="1.130952" DurationMax="1.130952">
-					<IncludedMemoryFiles>
-						<File Id="790640650" Language="SFX">
-							<ShortName>UI_02.wav</ShortName>
-							<Path>SFX/UI_02_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="978919826" Name="LoginBGM" ObjectPath="\Events\Default Work Unit\BGM\LoginBGM" DurationType="Infinite">
+				<Event Id="73015004" Name="Login" ObjectPath="\Events\Default Work Unit\BGM\Login">
 					<IncludedMemoryFiles>
 						<File Id="746387063" Language="SFX">
 							<ShortName>BGM_Login_loopx2.wav</ShortName>
-							<Path>SFX/BGM_Login_loopx2_D79FB2B7.wem</Path>
+							<Path>SFX\BGM_Login_loopx2_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4010314750" Name="MouseClick" ObjectPath="\Events\Default Work Unit\UI\MouseClick" DurationType="OneShot" DurationMin="0.90886" DurationMax="0.90886">
+				<Event Id="1902423899" Name="UI_in" ObjectPath="\Events\Default Work Unit\UI Event\UI_in">
 					<IncludedMemoryFiles>
-						<File Id="545133625" Language="SFX">
-							<ShortName>UI_04.wav</ShortName>
-							<Path>SFX/UI_04_7FBFB449.wem</Path>
+						<File Id="1050397081" Language="SFX">
+							<ShortName>UI_in.wav</ShortName>
+							<Path>SFX\UI_in_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3478063044" Name="MouseHover" ObjectPath="\Events\Default Work Unit\UI\MouseHover" DurationType="OneShot" DurationMin="0.119651" DurationMax="0.119651">
+				<Event Id="3312508406" Name="UI_out" ObjectPath="\Events\Default Work Unit\UI Event\UI_out">
 					<IncludedMemoryFiles>
-						<File Id="222728699" Language="SFX">
-							<ShortName>UI_03.wav</ShortName>
-							<Path>SFX/UI_03_C4357CA3.wem</Path>
+						<File Id="69267668" Language="SFX">
+							<ShortName>UI_out.wav</ShortName>
+							<Path>SFX\UI_out_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2616536741" Name="UI_pick" ObjectPath="\Events\Default Work Unit\UI Event\UI_pick">
+					<IncludedMemoryFiles>
+						<File Id="924890708" Language="SFX">
+							<ShortName>UI_pick.wav</ShortName>
+							<Path>SFX\UI_pick_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2774129122" Name="UI_select" ObjectPath="\Events\Default Work Unit\UI Event\UI_select">
+					<IncludedMemoryFiles>
+						<File Id="298831950" Language="SFX">
+							<ShortName>UI_select.wav</ShortName>
+							<Path>SFX\UI_select_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="1048449605" Language="SFX" Hash="2146482759">
-			<ObjectPath>\SoundBanks\Default Work Unit\Map</ObjectPath>
-			<ShortName>Map</ShortName>
-			<Path>Map.bnk</Path>
+		<SoundBank Id="133134211" Language="SFX" Hash="764755592">
+			<ObjectPath>\SoundBanks\Default Work Unit\Map_Forest</ObjectPath>
+			<ShortName>Map_Forest</ShortName>
+			<Path>Map_Forest.bnk</Path>
 			<IncludedEvents>
-				<Event Id="612075679" Name="CheckPoint" ObjectPath="\Events\Default Work Unit\Stage\CheckPoint" DurationType="OneShot" DurationMin="2.117642" DurationMax="2.117642">
+				<Event Id="2493066170" Name="inGame_BLOCK_01" ObjectPath="\Events\Default Work Unit\InGame_Object_Event\inGame_BLOCK_01">
 					<IncludedMemoryFiles>
-						<File Id="256189056" Language="SFX">
-							<ShortName>CheckPoint_01.wav</ShortName>
-							<Path>SFX/CheckPoint_01_10C4C929.wem</Path>
+						<File Id="1057121906" Language="SFX">
+							<ShortName>inGame_BLOCK_01.wav</ShortName>
+							<Path>SFX\inGame_BLOCK_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="601950270" Name="itemCollect" ObjectPath="\Events\Default Work Unit\Item\itemCollect" DurationType="OneShot" DurationMin="2.117664" DurationMax="2.117664">
+				<Event Id="996803069" Name="inGame_NPC_Quest" ObjectPath="\Events\Default Work Unit\InGame_NPC\inGame_NPC_Quest">
 					<IncludedMemoryFiles>
-						<File Id="671404968" Language="SFX">
-							<ShortName>ITEM_01.wav</ShortName>
-							<Path>SFX/ITEM_01_10C4C929.wem</Path>
+						<File Id="956849654" Language="SFX">
+							<ShortName>inGame_NPC_Quest.wav</ShortName>
+							<Path>SFX\inGame_NPC_Quest_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2274340669" Name="ItemUseFire" ObjectPath="\Events\Default Work Unit\Item\ItemUseFire" DurationType="OneShot" DurationMin="5.327641" DurationMax="5.327641">
+				<Event Id="3273732107" Name="inGame_NPC_succ" ObjectPath="\Events\Default Work Unit\InGame_NPC\inGame_NPC_succ">
 					<IncludedMemoryFiles>
-						<File Id="152658555" Language="SFX">
-							<ShortName>ITEM_02.wav</ShortName>
-							<Path>SFX/ITEM_02_10C4C929.wem</Path>
+						<File Id="781578696" Language="SFX">
+							<ShortName>inGame_NPC_succ.wav</ShortName>
+							<Path>SFX\inGame_NPC_succ_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3925246423" Name="ItemUseLight" ObjectPath="\Events\Default Work Unit\Item\ItemUseLight" DurationType="OneShot" DurationMin="3.888685" DurationMax="3.888685">
+				<Event Id="2320862640" Name="inGame_Quest_get" ObjectPath="\Events\Default Work Unit\InGame_Object_Event\inGame_Quest_get">
 					<IncludedMemoryFiles>
-						<File Id="470544452" Language="SFX">
-							<ShortName>ITEM_03.wav</ShortName>
-							<Path>SFX/ITEM_03_10C4C929.wem</Path>
+						<File Id="485184253" Language="SFX">
+							<ShortName>inGame_Quest_get.wav</ShortName>
+							<Path>SFX\inGame_Quest_get_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2091985118" Name="ItemUseWater" ObjectPath="\Events\Default Work Unit\Item\ItemUseWater" DurationType="OneShot" DurationMin="2.875283" DurationMax="2.875283">
+				<Event Id="2749440426" Name="inGame_STAGE_CheckPoint" ObjectPath="\Events\Default Work Unit\InGame_Stage\inGame_STAGE_CheckPoint">
 					<IncludedMemoryFiles>
-						<File Id="99169713" Language="SFX">
-							<ShortName>ITEM_04.wav</ShortName>
-							<Path>SFX/ITEM_04_10C4C929.wem</Path>
+						<File Id="88042947" Language="SFX">
+							<ShortName>inGame_STAGE_CheckPoint.wav</ShortName>
+							<Path>SFX\inGame_STAGE_CheckPoint_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2371688259" Name="KeyEscape" ObjectPath="\Events\Default Work Unit\UI\KeyEscape" DurationType="OneShot" DurationMin="1.130952" DurationMax="1.130952">
+				<Event Id="3604523983" Name="inGame_STAGE_CLEAR" ObjectPath="\Events\Default Work Unit\InGame_Stage\inGame_STAGE_CLEAR">
 					<IncludedMemoryFiles>
-						<File Id="790640650" Language="SFX">
-							<ShortName>UI_02.wav</ShortName>
-							<Path>SFX/UI_02_10C4C929.wem</Path>
+						<File Id="406551680" Language="SFX">
+							<ShortName>inGame_STAGE_CLEAR.wav</ShortName>
+							<Path>SFX\inGame_STAGE_CLEAR_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2324342138" Name="KeyExit" ObjectPath="\Events\Default Work Unit\UI\KeyExit" DurationType="OneShot" DurationMin="0.90886" DurationMax="0.90886">
+				<Event Id="2692549916" Name="inGame_STAGE_FAIL" ObjectPath="\Events\Default Work Unit\InGame_Stage\inGame_STAGE_FAIL">
 					<IncludedMemoryFiles>
-						<File Id="545133625" Language="SFX">
-							<ShortName>UI_04.wav</ShortName>
-							<Path>SFX/UI_04_7FBFB449.wem</Path>
+						<File Id="1029252159" Language="SFX">
+							<ShortName>inGame_STAGE_FAIL.wav</ShortName>
+							<Path>SFX\inGame_STAGE_FAIL_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4165085968" Name="KeyPause" ObjectPath="\Events\Default Work Unit\UI\KeyPause" DurationType="OneShot" DurationMin="2.117642" DurationMax="2.117642">
+				<Event Id="904126367" Name="inGame_UI_01" ObjectPath="\Events\Default Work Unit\UI Event\inGame_UI_01">
 					<IncludedMemoryFiles>
-						<File Id="887999339" Language="SFX">
-							<ShortName>UI_01.wav</ShortName>
-							<Path>SFX/UI_01_10C4C929.wem</Path>
+						<File Id="326724976" Language="SFX">
+							<ShortName>inGame_UI_01.wav</ShortName>
+							<Path>SFX\inGame_UI_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2084889547" Name="KeyResume" ObjectPath="\Events\Default Work Unit\UI\KeyResume" DurationType="OneShot" DurationMin="1.130952" DurationMax="1.130952">
+				<Event Id="904126364" Name="inGame_UI_02" ObjectPath="\Events\Default Work Unit\UI Event\inGame_UI_02">
 					<IncludedMemoryFiles>
-						<File Id="790640650" Language="SFX">
-							<ShortName>UI_02.wav</ShortName>
-							<Path>SFX/UI_02_10C4C929.wem</Path>
+						<File Id="864658284" Language="SFX">
+							<ShortName>inGame_UI_02.wav</ShortName>
+							<Path>SFX\inGame_UI_02_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1671187981" Name="MapBGM" ObjectPath="\Events\Default Work Unit\BGM\MapBGM" DurationType="Infinite">
+				<Event Id="4084005133" Name="inGame_WARN_01" ObjectPath="\Events\Default Work Unit\InGame_Object_Event\inGame_WARN_01">
 					<IncludedMemoryFiles>
-						<File Id="232231629" Language="SFX">
-							<ShortName>BGM_Map1_loopx2.wav</ShortName>
-							<Path>SFX/BGM_Map1_loopx2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="304299835" Language="SFX">
-							<ShortName>BGM_Map2_loopx2.wav</ShortName>
-							<Path>SFX/BGM_Map2_loopx2_D79FB2B7.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-					<SwitchContainers>
-						<SwitchContainer SwitchValue="{AE25278A-9D5E-4D38-B682-924CB3CF8346}">
-							<Media>
-								<File Id="232231629"/>
-							</Media>
-						</SwitchContainer>
-						<SwitchContainer SwitchValue="{099491FA-D060-4086-8836-202699A163C6}">
-							<Media>
-								<File Id="304299835"/>
-							</Media>
-						</SwitchContainer>
-					</SwitchContainers>
-				</Event>
-				<Event Id="4010314750" Name="MouseClick" ObjectPath="\Events\Default Work Unit\UI\MouseClick" DurationType="OneShot" DurationMin="0.90886" DurationMax="0.90886">
-					<IncludedMemoryFiles>
-						<File Id="545133625" Language="SFX">
-							<ShortName>UI_04.wav</ShortName>
-							<Path>SFX/UI_04_7FBFB449.wem</Path>
+						<File Id="216948165" Language="SFX">
+							<ShortName>inGame_WARN_01.wav</ShortName>
+							<Path>SFX\inGame_WARN_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3478063044" Name="MouseHover" ObjectPath="\Events\Default Work Unit\UI\MouseHover" DurationType="OneShot" DurationMin="0.119651" DurationMax="0.119651">
+				<Event Id="1658504087" Name="ITEM_Fire_01" ObjectPath="\Events\Default Work Unit\Item\ITEM_Fire_01">
 					<IncludedMemoryFiles>
-						<File Id="222728699" Language="SFX">
-							<ShortName>UI_03.wav</ShortName>
-							<Path>SFX/UI_03_C4357CA3.wem</Path>
+						<File Id="98574007" Language="SFX">
+							<ShortName>ITEM_Fire_01.wav</ShortName>
+							<Path>SFX\ITEM_Fire_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="665150140" Name="StageClear" ObjectPath="\Events\Default Work Unit\Stage\StageClear" DurationType="OneShot" DurationMin="3.532517" DurationMax="3.532517">
+				<Event Id="1658504084" Name="ITEM_Fire_02" ObjectPath="\Events\Default Work Unit\Item\ITEM_Fire_02">
 					<IncludedMemoryFiles>
-						<File Id="288976125" Language="SFX">
-							<ShortName>STAGE_CLEAR_01.wav</ShortName>
-							<Path>SFX/STAGE_CLEAR_01_10C4C929.wem</Path>
+						<File Id="231652932" Language="SFX">
+							<ShortName>ITEM_Fire_02.wav</ShortName>
+							<Path>SFX\ITEM_Fire_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="26485641" Name="ITEM_Get_01" ObjectPath="\Events\Default Work Unit\Item\ITEM_Get_01">
+					<IncludedMemoryFiles>
+						<File Id="169358870" Language="SFX">
+							<ShortName>ITEM_Get_01.wav</ShortName>
+							<Path>SFX\ITEM_Get_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1852220582" Name="ITEM_Plant" ObjectPath="\Events\Default Work Unit\Item\ITEM_Plant">
+					<IncludedMemoryFiles>
+						<File Id="158652197" Language="SFX">
+							<ShortName>ITEM_Plant.wav</ShortName>
+							<Path>SFX\ITEM_Plant_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2320067736" Name="ITEM_Portion" ObjectPath="\Events\Default Work Unit\Item\ITEM_Portion">
+					<IncludedMemoryFiles>
+						<File Id="643268392" Language="SFX">
+							<ShortName>ITEM_Portion.wav</ShortName>
+							<Path>SFX\ITEM_Portion_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 			</IncludedEvents>
-			<StateGroups>
-				<StateGroup Id="626769978" Name="BackGroundMusic" ObjectPath="\States\Default Work Unit\BackGroundMusic" GUID="{16D442EE-A81E-4073-BD4D-751E36DF9237}">
-					<States>
-						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\BackGroundMusic\None" GUID="{C5E56DF5-251A-4619-B478-BCC27EBAF850}"/>
-						<State Id="972330097" Name="Map_1" ObjectPath="\States\Default Work Unit\BackGroundMusic\Map_1" GUID="{AE25278A-9D5E-4D38-B682-924CB3CF8346}"/>
-						<State Id="972330098" Name="Map_2" ObjectPath="\States\Default Work Unit\BackGroundMusic\Map_2" GUID="{099491FA-D060-4086-8836-202699A163C6}"/>
-					</States>
-				</StateGroup>
-			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="1069431850" Language="SFX" Hash="2219549662">
+		<SoundBank Id="1069431850" Language="SFX" Hash="1508209575">
 			<ObjectPath>\SoundBanks\Default Work Unit\Player</ObjectPath>
 			<ShortName>Player</ShortName>
 			<Path>Player.bnk</Path>
 			<IncludedEvents>
-				<Event Id="3258988170" Name="Damaged" ObjectPath="\Events\Default Work Unit\Player\Damaged" DurationType="OneShot" DurationMin="1.346689" DurationMax="1.346689">
+				<Event Id="2978423563" Name="inGame_CH_Die" ObjectPath="\Events\Default Work Unit\InGame_CH\inGame_CH_Die">
 					<IncludedMemoryFiles>
-						<File Id="150627539" Language="SFX">
-							<ShortName>WARN_01.wav</ShortName>
-							<Path>SFX/WARN_01_10C4C929.wem</Path>
+						<File Id="551850443" Language="SFX">
+							<ShortName>inGame_CH_Die.wav</ShortName>
+							<Path>SFX\inGame_CH_Die_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3833651337" Name="Jump" ObjectPath="\Events\Default Work Unit\Player\Jump" DurationType="OneShot" DurationMin="2." DurationMax="2.">
+				<Event Id="3634777221" Name="inGame_CH_Life" ObjectPath="\Events\Default Work Unit\InGame_CH\inGame_CH_Life">
 					<IncludedMemoryFiles>
-						<File Id="104479959" Language="SFX">
-							<ShortName>MOTION_JUMP_01.wav</ShortName>
-							<Path>SFX/MOTION_JUMP_01_10C4C929.wem</Path>
+						<File Id="409028535" Language="SFX">
+							<ShortName>inGame_CH_Life.wav</ShortName>
+							<Path>SFX\inGame_CH_Life_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="674522502" Name="Land" ObjectPath="\Events\Default Work Unit\Player\Land" DurationType="OneShot" DurationMin="1.051723" DurationMax="1.051723">
+				<Event Id="2847307841" Name="inGame_JUMP_01" ObjectPath="\Events\Default Work Unit\InGame_CH\inGame_JUMP_01">
 					<IncludedMemoryFiles>
-						<File Id="802406400" Language="SFX">
-							<ShortName>MOTION_JUMP_02.wav</ShortName>
-							<Path>SFX/MOTION_JUMP_02_10C4C929.wem</Path>
+						<File Id="895520807" Language="SFX">
+							<ShortName>inGame_JUMP_01.wav</ShortName>
+							<Path>SFX\inGame_JUMP_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2137943" Name="Life" ObjectPath="\Events\Default Work Unit\Player\Life" DurationType="OneShot" DurationMin="2.117642" DurationMax="2.117642">
+				<Event Id="1471556008" Name="inGame_Land_01" ObjectPath="\Events\Default Work Unit\InGame_CH\inGame_Land_01">
 					<IncludedMemoryFiles>
-						<File Id="638774488" Language="SFX">
-							<ShortName>LIFE_01.wav</ShortName>
-							<Path>SFX/LIFE_01_10C4C929.wem</Path>
+						<File Id="473586834" Language="SFX">
+							<ShortName>inGame_Land_01.wav</ShortName>
+							<Path>SFX\inGame_Land_01_F0244EE1.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3011204530" Name="Move" ObjectPath="\Events\Default Work Unit\Player\Move" DurationType="Infinite">
-					<IncludedMemoryFiles>
-						<File Id="30361057" Language="SFX">
-							<ShortName>STEP_01 (001).wav</ShortName>
-							<Path>SFX/STEP_01 (001)_D79FB2B7.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-					<SwitchContainers>
-						<SwitchContainer SwitchValue="{E6CE56CE-8460-44AE-9C73-D7A2B39EF748}">
-							<Media>
-								<File Id="30361057"/>
-							</Media>
-						</SwitchContainer>
-					</SwitchContainers>
 				</Event>
 			</IncludedEvents>
-			<StateGroups>
-				<StateGroup Id="1069431850" Name="Player" ObjectPath="\States\Default Work Unit\Player" GUID="{52E442A6-D0A6-4E0A-A6D7-43460C89E9D0}">
-					<States>
-						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Player\None" GUID="{8585FB97-3B31-4E15-994F-6F6FA85DF229}"/>
-						<State Id="4248645337" Name="Grass" ObjectPath="\States\Default Work Unit\Player\Grass" GUID="{E6CE56CE-8460-44AE-9C73-D7A2B39EF748}"/>
-					</States>
-				</StateGroup>
-			</StateGroups>
 		</SoundBank>
 		<SoundBank Id="1355168291" Language="SFX" Hash="1936500567">
 			<ObjectPath>Init</ObjectPath>
@@ -281,6 +233,33 @@
 				<GameParameter Id="412724365" Name="BGM" ObjectPath="\Game Parameters\Default Work Unit\Volume\BGM"/>
 				<GameParameter Id="4056684167" Name="Master" ObjectPath="\Game Parameters\Default Work Unit\Volume\Master"/>
 			</GameParameters>
+		</SoundBank>
+		<SoundBank Id="3461836331" Language="SFX" Hash="305208676">
+			<ObjectPath>\SoundBanks\Default Work Unit\Player_Step</ObjectPath>
+			<ShortName>Player_Step</ShortName>
+			<Path>Player_Step.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1935105875" Name="inGame_Step_container" ObjectPath="\Events\Default Work Unit\InGame_Step\inGame_Step_container">
+					<IncludedMemoryFiles>
+						<File Id="64408120" Language="SFX">
+							<ShortName>스텝\inGame_STEP_01.wav</ShortName>
+							<Path>SFX\스텝\inGame_STEP_01_10C4C929.wem</Path>
+						</File>
+						<File Id="121341849" Language="SFX">
+							<ShortName>스텝\inGame_STEP_011.wav</ShortName>
+							<Path>SFX\스텝\inGame_STEP_011_10C4C929.wem</Path>
+						</File>
+						<File Id="546420539" Language="SFX">
+							<ShortName>스텝\inGame_STEP_0111.wav</ShortName>
+							<Path>SFX\스텝\inGame_STEP_0111_10C4C929.wem</Path>
+						</File>
+						<File Id="1052430165" Language="SFX">
+							<ShortName>스텝\inGame_STEP_01111.wav</ShortName>
+							<Path>SFX\스텝\inGame_STEP_01111_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>
