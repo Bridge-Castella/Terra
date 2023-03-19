@@ -581,14 +581,12 @@ PrefabInstance:
         type: 3}
       propertyPath: keyExit.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 30053126876624a2480f995d959b2dfc,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3937664840547010573, guid: 050ce762919edb341a9616389f0df9c2,
         type: 3}
       propertyPath: keyPause.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 285293721cf6f4e709d6f23f283d663e,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3937664840547010574, guid: 050ce762919edb341a9616389f0df9c2,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2617,12 +2615,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4800962551722574817, guid: 3e4c3e109529a90498e025194dcfc44b,
+        type: 3}
+      propertyPath: jump.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800962551722574817, guid: 3e4c3e109529a90498e025194dcfc44b,
+        type: 3}
+      propertyPath: land.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800962551722574817, guid: 3e4c3e109529a90498e025194dcfc44b,
+        type: 3}
+      propertyPath: damaged.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5247316185781844994, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
       propertyPath: m_Name
       value: Terra
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1128416016, guid: 3e4c3e109529a90498e025194dcfc44b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3e4c3e109529a90498e025194dcfc44b, type: 3}
 --- !u!4 &1128416005 stripped
 Transform:
@@ -3598,7 +3612,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884347583}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f036d77b0d2134abc8f14b291b627de1, type: 3}
   m_Name: 
@@ -3655,7 +3669,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884347583}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e92d228e62e14b4d8584a0b54752500, type: 3}
   m_Name: 
@@ -4180,13 +4194,11 @@ MonoBehaviour:
   pause:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 8f28ff89a4f05449991845f1933cd294,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   resume:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 40653fdeef31545deb7b3994a4acb07b,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
 --- !u!4 &2139116303
 Transform:
   m_ObjectHideFlags: 0

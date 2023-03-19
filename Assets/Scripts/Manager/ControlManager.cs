@@ -56,7 +56,9 @@ public class ControlManager : MonoBehaviour
 
     public void Resume()
     {
-        resume.Post(gameObject);
+        if (resume != null)
+            resume.Post(gameObject);
+
         //Destroy(optionObjectInstace);
         optionObject.GetComponent<Option>().OnClickCancelButton();
         optionObject.SetActive(false);
@@ -66,7 +68,9 @@ public class ControlManager : MonoBehaviour
 
     void Pause()
     {
-        pause.Post(gameObject);
+        if (pause != null)
+            pause.Post(gameObject);
+
         //optionObjectInstace = Instantiate(optionObject, FindObjectOfType<Canvas>().gameObject.transform);
         optionObject.SetActive(true);
         Time.timeScale = 0f;

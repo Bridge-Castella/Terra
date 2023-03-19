@@ -77,7 +77,9 @@ public class Option : MonoBehaviour
 
     public void OnClickSaveButton()
     {
-        keyExit.Post(gameObject);
+        if (keyExit != null)
+            keyExit.Post(gameObject);
+
         SaveManager.SaveGame();
         buttonGroup.SetActive(false);
         popUpSave.SetActive(true);
@@ -85,7 +87,9 @@ public class Option : MonoBehaviour
 
     public void OnClickQuitButton()
     {
-        keyExit.Post(gameObject);
+        if (keyExit != null)
+            keyExit.Post(gameObject);
+
         buttonGroup.SetActive(false);
         popUpObject.SetActive(true);
         popUpText.text = "게임을 종료하시겠습니까?";
@@ -93,7 +97,9 @@ public class Option : MonoBehaviour
 
     public void LoadLoginScene()
     {
-        keyExit.Post(gameObject);
+        if (keyExit != null)
+            keyExit.Post(gameObject);
+
         Time.timeScale = 1;
         MapManager.state.map = MapManager.MapIndex.Login;
         SceneManager.LoadScene("01.Login");
@@ -107,7 +113,9 @@ public class Option : MonoBehaviour
 
     public void OnClickPopupNoButton()
     {
-        keyExit.Post(gameObject);
+        if (keyExit != null)
+            keyExit.Post(gameObject);
+
         popUpObject.SetActive(false);
         buttonGroup.SetActive(true);
     }
@@ -122,7 +130,9 @@ public class Option : MonoBehaviour
             popUpObject.SetActive(false);
             if (MapManager.state.map == MapManager.MapIndex.Login)
             {
-                keyPause.Post(gameObject);
+                if (keyPause != null)
+                    keyPause.Post(gameObject);
+
                 mainMenuObject.SetActive(true);
                 logoObject.SetActive(true);
                 audioGroup.SetActive(false);
@@ -139,7 +149,9 @@ public class Option : MonoBehaviour
     }
 
     public void OnClickPopUpSaveButton() {
-        keyExit.Post(gameObject);
+        if (keyExit != null)
+            keyExit.Post(gameObject);
+
         popUpSave.SetActive(false);
         buttonGroup.SetActive(true);
     }
@@ -156,7 +168,9 @@ public class Option : MonoBehaviour
 
     public void OnClickAudioButton()
     {
-        keyExit.Post(gameObject);
+        if (keyExit != null)
+            keyExit.Post(gameObject);
+
         buttonGroup.SetActive(false);
         popUpObject.SetActive(false);
         audioGroup.SetActive(true);
