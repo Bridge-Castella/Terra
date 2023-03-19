@@ -15,7 +15,7 @@ public class ControlManager : MonoBehaviour
     }
     #endregion
 
-    public Transform startPoint;
+    public Vector3 startPoint;
     public GameObject player;
 
     public GameObject optionObject;
@@ -28,7 +28,10 @@ public class ControlManager : MonoBehaviour
 
     private void Start()
     {
-        startPoint = GameObject.Find("StartPoint").transform;
+        if (GlobalContainer.contains("StartPos"))
+            startPoint = GlobalContainer.load<Vector3>("StartPos");
+        else
+            startPoint = GameObject.Find("StartPoint").transform.position;
     }
 
     private void Update()
@@ -53,8 +56,9 @@ public class ControlManager : MonoBehaviour
 
     public void Resume()
     {
-        //AudioManager.instance.PlaySound("ui_02");                             // Outdated audio engine
-        resume.Post(gameObject);
+        if (resume != null)
+            resume.Post(gameObject);
+
         //Destroy(optionObjectInstace);
         optionObject.GetComponent<Option>().OnClickCancelButton();
         optionObject.SetActive(false);
@@ -64,8 +68,9 @@ public class ControlManager : MonoBehaviour
 
     void Pause()
     {
-        //AudioManager.instance.PlaySound("ui_01");                             // Outdated audio engine
-        pause.Post(gameObject);
+        if (pause != null)
+            pause.Post(gameObject);
+
         //optionObjectInstace = Instantiate(optionObject, FindObjectOfType<Canvas>().gameObject.transform);
         optionObject.SetActive(true);
         Time.timeScale = 0f;
@@ -74,7 +79,7 @@ public class ControlManager : MonoBehaviour
 
     public void RetryGame()
     {
-        player.transform.position = startPoint.position;
+        player.transform.position = startPoint;
         HeartManager.instance.PlayerIsDead();
     }
 }

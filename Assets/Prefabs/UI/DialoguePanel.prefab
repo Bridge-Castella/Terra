@@ -409,8 +409,6 @@ MonoBehaviour:
   dialogueAnswer2Button: {fileID: 7495768348456558765}
   dialogueAnswer1Text: {fileID: 7495768348188689910}
   dialogueAnswer2Text: {fileID: 7495768348874335629}
-  gowunBatangBold: {fileID: 0}
-  gowunBatangRegular: {fileID: 0}
   npc: {fileID: 0}
 --- !u!114 &495971700270950301
 MonoBehaviour:
@@ -604,6 +602,22 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 11400000, guid: 97cef21703320f244b742bfdc92f4ce0,
               type: 2}
             m_ObjectArgumentAssemblyTypeName: TMPro.TMP_FontAsset, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7495768347635487276}
+          m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
+          m_MethodName: OnClickDialogueAnswer1Button
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1049,6 +1063,22 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 11400000, guid: 97cef21703320f244b742bfdc92f4ce0,
               type: 2}
             m_ObjectArgumentAssemblyTypeName: TMPro.TMP_FontAsset, Unity.TextMeshPro
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7495768347635487276}
+          m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
+          m_MethodName: OnClickDialogueAnswer2Button
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

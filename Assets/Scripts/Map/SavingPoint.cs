@@ -50,7 +50,7 @@ public class SavingPoint : MonoBehaviour
 
     private void PositionSaved()
     {
-        ControlManager.instance.startPoint = transform;
+        ControlManager.instance.startPoint = transform.position;
     }
 
     private bool PlayerInSight()

@@ -1,39 +1,45 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MapManager : MonoBehaviour
+public class MapManager
 {
-    #region Singleton
-    public static MapManager instance;
-
-    private void Awake()
-    {
-        if (instance != null)
-            Destroy(gameObject);
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }
-    #endregion
-
-    public enum MapState
+    public enum MapIndex
     {
         Login = 0,
         Map1,
-        Map2
+        Map2,
+        Map3,
+        Map4,
+        Map5,
+        Map6,
+        Map7,
+        Map8
     }
 
-    public MapState mapState;
+    public struct State
+    {
+        public MapIndex map;
+        public MapIndex checkPoint;
+
+        public static State createDefault()
+        {
+            State state = new State();
+            state.map = MapIndex.Login;
+            state.checkPoint = MapIndex.Login;
+            return state;
+        }
+    }
 
 
-    [SerializeField] private int AdditiveMapStartIndex;
+    public static State state = State.createDefault();
+    private static List<MapIndex> outOfRange = new List<MapIndex>();
+    private static int AdditiveMapStartIndex = 2;
 
-    public AsyncOperation LoadMap(int index)
+    public static AsyncOperation LoadMap(MapIndex index)
     {
         if (SceneManager.sceneCount == 1)
         {
@@ -43,29 +49,39 @@ public class MapManager : MonoBehaviour
         }
 
         int scene_index = ToSceneIndex(index);
-        if (scene_index < AdditiveMapStartIndex || IsMapLoaded(scene_index)) return null;
+        if (scene_index < AdditiveMapStartIndex || IsMapLoaded(index))
+            return null;
         return SceneManager.LoadSceneAsync(scene_index, LoadSceneMode.Additive);
     }
 
-    public AsyncOperation UnloadMap(int index)
+    public static AsyncOperation UnloadMap(MapIndex index)
     {
         int scene_index = ToSceneIndex(index);
-        if (scene_index < AdditiveMapStartIndex || !IsMapLoaded(scene_index)) return null;
+        if (scene_index < AdditiveMapStartIndex || !IsMapLoaded(index))
+            return null;
+
+        if (index == state.checkPoint)
+        {
+            outOfRange.Add(index);
+            return null;
+        }
+
         return SceneManager.UnloadSceneAsync(scene_index);
     }
 
-    public Scene? GetMap(int index)
+    public static Scene? GetMap(MapIndex index)
     {
         int sceneIndex = ToSceneIndex(index);
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
             Scene scene = SceneManager.GetSceneAt(i);
-            if (scene.buildIndex == sceneIndex) return scene;
+            if (scene.buildIndex == sceneIndex)
+                return scene;
         }
         return null;
     }
 
-    public GameObject FindObjectInMap(int index, string name)
+    public static GameObject FindObjectInMap(MapIndex index, string name)
     {
         Scene? scene = GetMap(index);
         if (scene == null) return null;
@@ -79,22 +95,59 @@ public class MapManager : MonoBehaviour
         return null;
     }
 
-    private bool IsMapLoaded(int index)
+    
+    public static bool IsMapLoaded(MapIndex index)
     {
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
-            if (SceneManager.GetSceneAt(i).buildIndex == index) return true;
+            if (SceneManager.GetSceneAt(i).buildIndex == ToSceneIndex(index))
+                return true;
         }
         return false;
     }
 
-    public int ToMapIndex(int index)
+    public static bool IsMapOutOfRange(MapIndex index)
     {
-        return index - AdditiveMapStartIndex + 1;
+        for (int i = 0; i < outOfRange.Count(); i++)
+        {
+            MapIndex map = outOfRange[i];
+            if (map != index)
+                continue;
+
+            outOfRange.RemoveAt(i);
+            return true;
+        }
+
+        return false;
     }
 
-    public int ToSceneIndex(int index)
+    public static MapIndex ToMapIndex(int index)
     {
-        return index + AdditiveMapStartIndex - 1;
+        int mapIndex = index - AdditiveMapStartIndex + 1;
+        return (MapIndex)mapIndex;
+    }
+
+    [System.Serializable]
+    public struct MapData
+    {
+        public MapIndex index;
+    }
+
+    public static int ToSceneIndex(MapIndex index)
+    {
+        MapIndex sceneIndex = index + AdditiveMapStartIndex - 1;
+        return (int)sceneIndex;
+    }
+
+    public static MapData saveData()
+    {
+        var data = new MapData();
+        data.index = state.checkPoint;
+        return data;
+    }
+
+    public static void loadData(MapData data)
+    {
+        state.checkPoint = data.index;
     }
 }

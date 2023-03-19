@@ -70,6 +70,9 @@ public class PlayerMove : MonoBehaviour
         
         animator = GetComponent<Animator>();        
         abilities = GetComponent<PlayerAbilityTracker>();
+
+        if (GlobalContainer.contains("StartPos"))
+            transform.position = GlobalContainer.load<Vector3>("StartPos");
     }
 
     void Update()
