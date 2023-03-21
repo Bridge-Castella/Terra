@@ -25,8 +25,8 @@ public class QuestSlot : MonoBehaviour
 		this.quest = quest;
 		this.questPanel = panel;
 		this.questList = questList;
-		title.text = quest.npcId + " - " + quest.title;
-		status.text = quest.status;
+		title.text = quest.data.npcId + " - " + quest.data.title;
+		status.text = quest.data.status;
 	}
 
 	public void OnClick()

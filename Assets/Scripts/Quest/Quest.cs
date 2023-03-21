@@ -10,23 +10,28 @@ public enum QuestState {
     Completed
 };
 
-public abstract class Quest : MonoBehaviour
+public class Quest : MonoBehaviour
 {
-    public string questId;                              // quest name
-	[HideInInspector] public string npcId;              // npc name
-	[HideInInspector] public string title;              // display title
-	[HideInInspector] public string description;        // display description
-	[HideInInspector] public string status;             // display status
+    [System.Serializable]
+    public struct Save
+    {
+        public string npcId;                         
+        public string title;
+        public string description;
+        public string status;
+        public string portraitId;
+        public string itemId;
+        public int[] substate;
+    }
 
-	[HideInInspector] public Sprite portrait;           // display npc portrait
-	[HideInInspector] public Sprite itemIcon;           // display item icon
+    public string questId;                                  // quest name
+    [HideInInspector] public Save data;
+	[HideInInspector] public Sprite portrait;               // display npc portrait
+	[HideInInspector] public Sprite itemIcon;               // display item icon
 
-    protected abstract bool didSuccess();               // check if quest has been succeeded, abstract function
-	protected abstract void onStart();                  // called on starting of the quest, abstract function
-    protected abstract void onChange();                 // called when quest state is changed, abstract function
-
-    public abstract int[] saveData();                   // save current state of quest
-    public abstract void loadData(int[] data);          // load saved state of quest
+    protected virtual bool didSuccess() { return false; }   // check if quest has been succeeded, abstract function
+    protected virtual void onStart() { }                    // called on starting of the quest, abstract function
+    protected virtual void onChange() { }                   // called when quest state is changed, abstract function
 
     public delegate void CallbackT();
     private CallbackT OnChangeStatusCallback;
@@ -34,13 +39,12 @@ public abstract class Quest : MonoBehaviour
     // Initialize distplay variables
     public void init(string npcId)
     {
-        this.npcId = npcId;
-        TableData.QuestData data = TableData.instance.GetQuestData(questId);
-        this.title = data.title;
-        this.description = data.description;
+        Quest.Save data = TableData.instance.GetQuestData(questId);
+        this.data = data;
+        this.data.npcId = npcId;
 
-        portrait = TableData.instance.GetPortrait(data.portrait_id);
-        itemIcon = TableData.instance.GetItemSprite(data.item_id);
+        portrait = TableData.instance.GetPortrait(data.portraitId);
+        itemIcon = TableData.instance.GetItemSprite(data.itemId);
 	}
 
 	public void updateStatus()
@@ -78,5 +82,19 @@ public abstract class Quest : MonoBehaviour
 	private QuestState _state()
     {
         return (QuestState)QuestManager.getState(questId);
+    }
+
+    // save current state of quest
+    public virtual Save saveData()
+    {
+        return this.data;
+    }
+
+    public virtual void loadData(Save data)
+    {
+        this.data = data;
+
+        portrait = TableData.instance.GetPortrait(data.portraitId);
+        itemIcon = TableData.instance.GetItemSprite(data.itemId);
     }
 }
