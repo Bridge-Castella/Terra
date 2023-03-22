@@ -254,6 +254,8 @@ public class QuestManager : MonoBehaviour
     public static void loadData(Save saved)
     {
         state = saved.state;
+        group = new Dictionary<string, QuestGroup>();
+        index = new Dictionary<string, int>();
 
         if (saved.data == null)
             return;

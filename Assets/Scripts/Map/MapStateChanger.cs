@@ -60,7 +60,7 @@ public class MapStateChanger : MonoBehaviour
     {
         int intMapIndex = (int)mapIndex - 1;
         bool[] active = MapManager.active[intMapIndex];
-        if (active == null)
+        if (active == null || objectGroups == null)
             return;
 
         int counter = 0;
@@ -73,6 +73,9 @@ public class MapStateChanger : MonoBehaviour
 
     public void saveData()
     {
+        if (objectGroups == null)
+            return;
+
         List<bool> active = new List<bool>();
         foreach (var objectGroup in objectGroups)
         {

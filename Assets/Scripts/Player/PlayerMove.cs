@@ -148,6 +148,7 @@ public class PlayerMove : MonoBehaviour
         else
         {
             canDoubleJump = false;
+            animator.SetTrigger("DougleJump");
         }
 
         isJumping = true;
