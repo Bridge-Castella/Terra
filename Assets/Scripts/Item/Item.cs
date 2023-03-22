@@ -22,6 +22,7 @@ public class Item : MonoBehaviour
     public bool isStackable;
     public int amount;
     public int uid;
+    public string itemId;
     public Sprite icon;
     public string itemName;
     public string desc;
@@ -32,7 +33,9 @@ public class Item : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //TODO yeseul:아이템 얻을시 나는 소리: 종류마다 다르게 해야함
-        itemCollect.Post(gameObject);
+        if (itemCollect != null) 
+            itemCollect.Post(gameObject);
+
         if (collision.tag == "Player")
         {
             player = collision.gameObject.GetComponent<PlayerMove>();
@@ -89,5 +92,40 @@ public class Item : MonoBehaviour
     }
     public virtual void GetQuestItem(Collider2D collision)
     {
+    }
+
+    // 저장 파일에 기록할 정보
+    [System.Serializable]
+    public struct Save
+    {
+        public bool isStackable;
+        public int amount;
+        public int uid;
+        public string itemId;
+        public string itemName;
+        public string desc;
+    }
+
+    public Save SaveData()
+    {
+        Save data = new Save();
+        data.isStackable = isStackable;
+        data.amount = amount;
+        data.uid = uid;
+        data.itemId = itemId;
+        data.itemName = itemName;
+        data.desc = desc;
+        return data;
+    }
+
+    public void LoadData(Save data)
+    {
+        isStackable = data.isStackable;
+        amount = data.amount;
+        uid = data.uid;
+        itemId = data.itemId;
+        itemName = data.itemName;
+        desc = data.desc;
+        icon = TableData.instance.GetItemSprite(itemId);
     }
 }

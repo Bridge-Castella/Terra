@@ -784,151 +784,6 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="inGame_STEP_01" ID="{E68E9B23-392C-456D-91E1-105521D59DA5}" ShortID="178529251">
-							<PropertyList>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-8</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{AFAF2AB6-8BF2-4820-9855-8F8CC1418BB5}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="inGame_STEP_01" ID="{9AACD9A1-7282-4450-9216-201AC66CA6B7}">
-									<Language>SFX</Language>
-									<AudioFile>inGame_STEP_01.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="260941476"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ObjectLists/>
-							<ActiveSourceList>
-								<ActiveSource Name="inGame_STEP_01" ID="{9AACD9A1-7282-4450-9216-201AC66CA6B7}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="inGame_STEP_011" ID="{95491603-5211-4D3C-865E-FE3951832996}" ShortID="876094705">
-							<PropertyList>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-5</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{AFAF2AB6-8BF2-4820-9855-8F8CC1418BB5}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="inGame_STEP_011" ID="{816668F1-0395-440B-BD48-79B038C6373E}">
-									<Language>SFX</Language>
-									<AudioFile>inGame_STEP_011.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="752951112"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ObjectLists/>
-							<ActiveSourceList>
-								<ActiveSource Name="inGame_STEP_011" ID="{816668F1-0395-440B-BD48-79B038C6373E}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="inGame_STEP_0111" ID="{2E9EC2BF-F52E-493C-9B1C-BB2FBB08A2C4}" ShortID="753034210">
-							<PropertyList>
-								<Property Name="Lowpass" Type="int16">
-									<ValueList>
-										<Value>14</Value>
-									</ValueList>
-								</Property>
-								<Property Name="MakeUpGain" Type="Real64">
-									<ValueList>
-										<Value>-4</Value>
-									</ValueList>
-								</Property>
-								<Property Name="Pitch" Type="int32">
-									<ValueList>
-										<Value>-250</Value>
-									</ValueList>
-								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-8</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{AFAF2AB6-8BF2-4820-9855-8F8CC1418BB5}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="inGame_STEP_0111" ID="{819D723E-85C6-4D58-B168-73355C0B96D7}">
-									<Language>SFX</Language>
-									<AudioFile>inGame_STEP_0111.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="781065733"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ObjectLists/>
-							<ActiveSourceList>
-								<ActiveSource Name="inGame_STEP_0111" ID="{819D723E-85C6-4D58-B168-73355C0B96D7}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="inGame_STEP_01111" ID="{6CFC313E-8FC0-40EE-8F2D-F65FB2936DAE}" ShortID="804891299">
-							<PropertyList>
-								<Property Name="Lowpass" Type="int16">
-									<ValueList>
-										<Value>16</Value>
-									</ValueList>
-								</Property>
-								<Property Name="Pitch" Type="int32">
-									<ValueList>
-										<Value>-180</Value>
-									</ValueList>
-								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-5</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{AFAF2AB6-8BF2-4820-9855-8F8CC1418BB5}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="inGame_STEP_01111" ID="{9B8B3449-A399-4CDB-8D01-21EF07A47407}">
-									<Language>SFX</Language>
-									<AudioFile>inGame_STEP_01111.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="206889229"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ObjectLists/>
-							<ActiveSourceList>
-								<ActiveSource Name="inGame_STEP_01111" ID="{9B8B3449-A399-4CDB-8D01-21EF07A47407}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 						<RandomSequenceContainer Name="step random container" ID="{F27E3262-DF3B-4B6F-A043-0DB7CB5DCD2E}" ShortID="345839159">
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -939,47 +794,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="inGame_STEP_01111" ID="{89C434F7-A991-446A-B8C7-FA13D39DF68B}" ShortID="154494180">
-									<PropertyList>
-										<Property Name="Lowpass" Type="int16">
-											<ValueList>
-												<Value>16</Value>
-											</ValueList>
-										</Property>
-										<Property Name="Pitch" Type="int32">
-											<ValueList>
-												<Value>-180</Value>
-											</ValueList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-5</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_STEP_01111" ID="{AA18C0A4-C17A-4B9F-A241-FA5F28C06963}">
-											<Language>SFX</Language>
-											<AudioFile>스텝\inGame_STEP_01111.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="1052430165"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_STEP_01111" ID="{AA18C0A4-C17A-4B9F-A241-FA5F28C06963}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_STEP_01" ID="{7859EB8F-BF66-4A4C-A1B9-3F63FB9F40F5}" ShortID="414928034">
+								<Sound Name="inGame_STEP_01" ID="{E68E9B23-392C-456D-91E1-105521D59DA5}" ShortID="178529251">
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
@@ -996,20 +811,20 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="inGame_STEP_01" ID="{E7AE4786-31C7-4C00-AF11-A27D1E44B718}">
+										<AudioFileSource Name="inGame_STEP_01" ID="{9AACD9A1-7282-4450-9216-201AC66CA6B7}">
 											<Language>SFX</Language>
-											<AudioFile>스텝\inGame_STEP_01.wav</AudioFile>
+											<AudioFile>inGame_STEP_01.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="64408120"/>
+												<MediaID ID="260941476"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ObjectLists/>
 									<ActiveSourceList>
-										<ActiveSource Name="inGame_STEP_01" ID="{E7AE4786-31C7-4C00-AF11-A27D1E44B718}" Platform="Linked"/>
+										<ActiveSource Name="inGame_STEP_01" ID="{9AACD9A1-7282-4450-9216-201AC66CA6B7}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="inGame_STEP_011" ID="{970FB919-5BE7-4074-B5A7-A5FC975FA310}" ShortID="415574232">
+								<Sound Name="inGame_STEP_011" ID="{95491603-5211-4D3C-865E-FE3951832996}" ShortID="876094705">
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
@@ -1026,20 +841,20 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="inGame_STEP_011" ID="{CB394949-3356-4BF9-A7E5-CC1DD934B8B3}">
+										<AudioFileSource Name="inGame_STEP_011" ID="{816668F1-0395-440B-BD48-79B038C6373E}">
 											<Language>SFX</Language>
-											<AudioFile>스텝\inGame_STEP_011.wav</AudioFile>
+											<AudioFile>inGame_STEP_011.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="121341849"/>
+												<MediaID ID="752951112"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ObjectLists/>
 									<ActiveSourceList>
-										<ActiveSource Name="inGame_STEP_011" ID="{CB394949-3356-4BF9-A7E5-CC1DD934B8B3}" Platform="Linked"/>
+										<ActiveSource Name="inGame_STEP_011" ID="{816668F1-0395-440B-BD48-79B038C6373E}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="inGame_STEP_0111" ID="{34E3063C-071F-4B49-AFB8-0439FDD7DE8D}" ShortID="837199908">
+								<Sound Name="inGame_STEP_0111" ID="{2E9EC2BF-F52E-493C-9B1C-BB2FBB08A2C4}" ShortID="753034210">
 									<PropertyList>
 										<Property Name="Lowpass" Type="int16">
 											<ValueList>
@@ -1071,17 +886,57 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="inGame_STEP_0111" ID="{C88319DC-F4A4-44F1-A06C-F4F513B81543}">
+										<AudioFileSource Name="inGame_STEP_0111" ID="{819D723E-85C6-4D58-B168-73355C0B96D7}">
 											<Language>SFX</Language>
-											<AudioFile>스텝\inGame_STEP_0111.wav</AudioFile>
+											<AudioFile>inGame_STEP_0111.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="546420539"/>
+												<MediaID ID="781065733"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ObjectLists/>
 									<ActiveSourceList>
-										<ActiveSource Name="inGame_STEP_0111" ID="{C88319DC-F4A4-44F1-A06C-F4F513B81543}" Platform="Linked"/>
+										<ActiveSource Name="inGame_STEP_0111" ID="{819D723E-85C6-4D58-B168-73355C0B96D7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="inGame_STEP_01111" ID="{6CFC313E-8FC0-40EE-8F2D-F65FB2936DAE}" ShortID="804891299">
+									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>16</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-180</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="inGame_STEP_01111" ID="{9B8B3449-A399-4CDB-8D01-21EF07A47407}">
+											<Language>SFX</Language>
+											<AudioFile>inGame_STEP_01111.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="206889229"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="inGame_STEP_01111" ID="{9B8B3449-A399-4CDB-8D01-21EF07A47407}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

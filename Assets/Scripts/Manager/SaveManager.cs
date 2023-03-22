@@ -9,30 +9,42 @@ using UnityEngine;
 public class SaveManager
 {
     [System.Serializable]
+    public struct SerializableVec
+    {
+        public float x;
+        public float y;
+        public float z;
+
+        public static SerializableVec convert(Vector3 vec)
+        {
+            return new SerializableVec { x = vec.x, y = vec.y, z = vec.z };
+        }
+
+        public static Vector3 ToVec3(SerializableVec vec)
+        {
+            return new Vector3 { x = vec.x, y = vec.y, z = vec.z };
+        }
+    }
+
+    [System.Serializable]
     public struct SaveData
     {
-        public float checkPoint_x;
-        public float checkPoint_y;
-        public float checkPoint_z;
-
-        // TODO: inventory 저장
-
+        public SerializableVec checkPoint;
         public int playerHeart;
-        public MapManager.MapData mapData;
-        public QuestManager.QuestData questData;
+
+        public MapManager.Save mapData;
+        public QuestManager.Save questData;
+        public Inventory.Save inventoryData;
     }
 
     public static void SaveGame()
     {
         SaveData data = new SaveData();
-        Vector3 checkPoint = ControlManager.instance.startPoint;
-        data.checkPoint_x = checkPoint.x;
-        data.checkPoint_y = checkPoint.y;
-        data.checkPoint_z = checkPoint.z;
+        data.checkPoint = SerializableVec.convert(ControlManager.instance.startPoint);
         data.playerHeart = HeartManager.instance.heartNum;
-
         data.mapData = MapManager.saveData();
         data.questData = QuestManager.saveData();
+        data.inventoryData = Inventory.instance.SaveData();
 
         try
         {
@@ -81,14 +93,10 @@ public class SaveManager
             return null;
         }
 
-        Vector3 checkPoint = new Vector3();
-        checkPoint.x = data.checkPoint_x;
-        checkPoint.y = data.checkPoint_y;
-        checkPoint.z = data.checkPoint_z;
-
         MapManager.loadData(data.mapData);
         QuestManager.loadData(data.questData);
-        GlobalContainer.store("StartPos", checkPoint);
+        GlobalContainer.store("inventory", data.inventoryData);
+        GlobalContainer.store("StartPos", SerializableVec.ToVec3(data.checkPoint));
         GlobalContainer.store("Heart", data.playerHeart);
 
         return data;
