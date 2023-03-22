@@ -6704,6 +6704,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &809929884 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9081606639190985756, guid: 3e4c3e109529a90498e025194dcfc44b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1128416004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &924153994
 GameObject:
   m_ObjectHideFlags: 3
@@ -10539,6 +10545,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4800962551722574817, guid: 3e4c3e109529a90498e025194dcfc44b,
+        type: 3}
+      propertyPath: dust
+      value: 
+      objectReference: {fileID: 809929884}
+    - target: {fileID: 4800962551722574817, guid: 3e4c3e109529a90498e025194dcfc44b,
+        type: 3}
+      propertyPath: landDustPrefab
+      value: 
+      objectReference: {fileID: 8130464370141800946, guid: 4aec76568be0a0e4088374ca7954d64a,
+        type: 3}
     - target: {fileID: 5247316185781844994, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
       propertyPath: m_Name

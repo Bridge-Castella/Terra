@@ -21,6 +21,8 @@ public class PlayerMove : MonoBehaviour
     public float knockBackPower = 30f;
     [Header("발자국 먼지 파티클")]
     public ParticleSystem dust;
+    [Header("착지 먼지 파티클")]
+    public GameObject landDustPrefab;
 
     [HideInInspector]public bool isHurting = false; //데미지 입은 경우
 
@@ -222,6 +224,7 @@ public class PlayerMove : MonoBehaviour
             if (moveHorizontalInput != 0 && IsGrounded())
             {
                 AkSoundEngine.SetState("Player", "Grass");
+                
             }
             else
             {
@@ -278,6 +281,7 @@ public class PlayerMove : MonoBehaviour
             if (land != null)
                 land.Post(soundObject);
             isJumping = false;
+            CreateLandDust();  
         }
     }
 
@@ -352,5 +356,13 @@ public class PlayerMove : MonoBehaviour
     void CreateDust()
     {
         dust.Play();
+    }
+
+    void CreateLandDust()
+    {
+        GameObject obj = MonoBehaviour.Instantiate(landDustPrefab);
+        obj.transform.position = gameObject.transform.position + new Vector3(0,-2.8f,0);
+        ParticleSystem landDust = obj.GetComponent<ParticleSystem>();
+        landDust.Play();
     }
 }
