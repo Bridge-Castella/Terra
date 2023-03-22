@@ -17,9 +17,9 @@ public class QuestManager : MonoBehaviour
     }
     #endregion
 
-    private static Dictionary<string, QuestState> state = new Dictionary<string, QuestState>();
-    private static Dictionary<string, QuestGroup> group = new Dictionary<string, QuestGroup>();
-    private static Dictionary<string, int> index = new Dictionary<string, int>();
+    private static Dictionary<string, QuestState> state;
+    private static Dictionary<string, QuestGroup> group;
+    private static Dictionary<string, int> index;
 
     public delegate void QuestCallbackT(Quest quest);
     private QuestCallbackT onQuestStart;
@@ -259,5 +259,12 @@ public class QuestManager : MonoBehaviour
             return;
 
         GlobalContainer.store("questData", saved.data);
+    }
+
+    public static void resetData()
+    {
+        state = new Dictionary<string, QuestState>();
+        group = new Dictionary<string, QuestGroup>();
+        index = new Dictionary<string, int>();
     }
 }

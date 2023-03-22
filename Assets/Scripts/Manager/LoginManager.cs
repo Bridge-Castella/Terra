@@ -36,6 +36,8 @@ public class LoginManager : MonoBehaviour
 
     public void NewGame()
     {
+        QuestManager.resetData();
+        MapManager.resetData();
         MapManager.state.map = MapManager.MapIndex.Map1;
         MapManager.LoadMap(MapManager.MapIndex.Map1);
         GlobalContainer.clear();

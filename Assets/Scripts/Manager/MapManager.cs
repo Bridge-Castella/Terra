@@ -43,8 +43,8 @@ public class MapManager
         public bool[][] active;
     }
 
-    public static State state = State.createDefault();
-    public static bool[][] active = new bool[8][];
+    public static State state;
+    public static bool[][] active;
 
     private static List<MapIndex> outOfRange = new List<MapIndex>();
     private static int AdditiveMapStartIndex = 2;
@@ -164,5 +164,11 @@ public class MapManager
     {
         state.checkPoint = data.index;
         active = data.active;
+    }
+
+    public static void resetData()
+    {
+        state = State.createDefault();
+        active = new bool[8][];
     }
 }
