@@ -35,18 +35,18 @@ public class QuestSlotGroup : MonoBehaviour
 
 	private void UpdateQuests()
 	{
-		List<Quest> quests = QuestManager.getActiveQuests();
-		foreach (Quest quest in quests)
+		var quests = QuestManager.getActiveQuests();
+		foreach (var quest in quests)
 		{
 			GameObject questSlot = Instantiate(questSlotPrefab, transform);
 			questSlot.GetComponent<QuestSlot>().init(quest, questPanel, questList);
 			questSlots.Add(questSlot);
 		}
 
-		if (quests.Count > 3)
-			questSlots[quests.Count - 1].GetComponent<QuestSlot>().DisableUnderLine();
+		if (quests.Length > 3)
+			questSlots[quests.Length - 1].GetComponent<QuestSlot>().DisableUnderLine();
 
-		for (int i = 0; i < 3 - quests.Count; i++)
+		for (int i = 0; i < 3 - quests.Length; i++)
 		{
 			GameObject emptySlot = Instantiate(emptyPrefab, transform);
 			questSlots.Add(emptySlot);

@@ -1481,8 +1481,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403100641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.004463196, y: -8.925003, z: 0}
-  m_LocalScale: {x: 1.0000352, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 15
@@ -2560,6 +2560,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1128416007, guid: 3e4c3e109529a90498e025194dcfc44b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 131001603900362971, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
       propertyPath: m_RootOrder
@@ -2637,6 +2641,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1128416016, guid: 3e4c3e109529a90498e025194dcfc44b, type: 3}
+    - {fileID: 1128416014, guid: 3e4c3e109529a90498e025194dcfc44b, type: 3}
+    - {fileID: 1128416007, guid: 3e4c3e109529a90498e025194dcfc44b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3e4c3e109529a90498e025194dcfc44b, type: 3}
 --- !u!4 &1128416005 stripped
 Transform:
@@ -3625,8 +3631,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 7a65e4ad3b79747749963bbd0d495d31,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   useCallbacks: 0
   Callbacks: []
   playingId: 0
@@ -4022,18 +4027,15 @@ MonoBehaviour:
   itemLight:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: f03a681ebdf3947f3b62721fbfaec79f,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   itemFire:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: b4e781e3f52614a87a402ee4b537ea84,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   itemWater:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 979d2bc3d79d14174b06d90b431dc5aa,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
 --- !u!4 &2084288216
 Transform:
   m_ObjectHideFlags: 0
@@ -4042,8 +4044,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2084288214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.87973, y: -12.659445, z: -10.164514}
-  m_LocalScale: {x: 1.0000352, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14

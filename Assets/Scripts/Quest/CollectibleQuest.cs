@@ -6,7 +6,7 @@ public class CollectibleQuest : Quest
 {
     protected int itemTotalNum;
     protected int currentItemNum;
-    public string displayName = "";
+    [SerializeField] private string displayName = "";
 
     protected override bool didSuccess()
     {
@@ -21,9 +21,9 @@ public class CollectibleQuest : Quest
 
     protected override void onChange()
     {
-        status = string.Format(displayName + ": {0} / {1}",
-                               this.currentItemNum,
-                               this.itemTotalNum);
+        data.status = string.Format(displayName + ": {0} / {1}",
+                                    this.currentItemNum,
+                                    this.itemTotalNum);
     }
 
     protected override void getItemCallback(Collider2D item)
@@ -31,28 +31,19 @@ public class CollectibleQuest : Quest
         currentItemNum++;
     }
 
-    public override int[] saveData()
+    public override Save saveData()
     {
-        int[] data = new int[transform.childCount];
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            var item = transform.GetChild(i).gameObject;
-            data[item.transform.GetSiblingIndex()] = item.activeSelf ? 1 : 0;
-        }
-
+        Save data = base.saveData();
+        data.substate = new int[2];
+        data.substate[0] = itemTotalNum;
+        data.substate[1] = currentItemNum;
         return data;
     }
 
-    public override void loadData(int[] data)
+    public override void loadData(Save data)
     {
-        itemTotalNum = this.transform.childCount;
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            if (data[i] == 0)
-            {
-                transform.GetChild(i).gameObject.SetActive(false);
-                currentItemNum++;
-            }
-        }
+        base.loadData(data);
+        itemTotalNum = data.substate[0];
+        currentItemNum = data.substate[1];
     }
 }

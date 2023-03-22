@@ -4,15 +4,7 @@ using UnityEngine;
 
 public partial class TableData : MonoBehaviour
 {
-    public class QuestData
-    {
-        public string title;
-        public string description;
-        public string portrait_id;
-        public string item_id;
-    }
-
-    Dictionary<string, QuestData> questDict = new Dictionary<string, QuestData>();
+    Dictionary<string, Quest.Save> questDict = new Dictionary<string, Quest.Save>();
 
     void QuestDataInit()
     {
@@ -23,24 +15,24 @@ public partial class TableData : MonoBehaviour
 			string quest_id = data[i]["quest_id"].ToString();
             if (mainDataDic.ContainsKey(quest_id)) continue;
 
-			QuestData questData = new QuestData();
+			Quest.Save questData = new Quest.Save();
 
             questData.title = data[i]["title"].ToString();
             questData.description = data[i]["description"].ToString();
-            questData.portrait_id = data[i]["portrait_id"].ToString();
-            questData.item_id = data[i]["item_id"].ToString();
+            questData.portraitId = data[i]["portrait_id"].ToString();
+            questData.itemId = data[i]["item_id"].ToString();
 
             questDict.Add(quest_id, questData);
         }
     }
 
-    public QuestData GetQuestData(string quest_id)
+    public Quest.Save GetQuestData(string quest_id)
     {
         return questDict[quest_id];
     }
 
     public Sprite GetItemSprite(string item_id)
     {
-        return Resources.Load<Sprite>("quest_items/" + item_id);
+        return Resources.Load<Sprite>("items/" + item_id);
 	}
 }

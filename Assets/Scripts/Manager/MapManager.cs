@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static MapManager;
 
 public class MapManager
 {
@@ -24,6 +25,7 @@ public class MapManager
     {
         public MapIndex map;
         public MapIndex checkPoint;
+        public MapStateChanger current;
 
         public static State createDefault()
         {
@@ -34,8 +36,16 @@ public class MapManager
         }
     }
 
+    [System.Serializable]
+    public struct Save
+    {
+        public MapIndex index;
+        public bool[][] active;
+    }
 
-    public static State state = State.createDefault();
+    public static State state;
+    public static bool[][] active;
+
     private static List<MapIndex> outOfRange = new List<MapIndex>();
     private static int AdditiveMapStartIndex = 2;
 
@@ -127,27 +137,38 @@ public class MapManager
         return (MapIndex)mapIndex;
     }
 
-    [System.Serializable]
-    public struct MapData
-    {
-        public MapIndex index;
-    }
-
     public static int ToSceneIndex(MapIndex index)
     {
         MapIndex sceneIndex = index + AdditiveMapStartIndex - 1;
         return (int)sceneIndex;
     }
 
-    public static MapData saveData()
+    public static Save saveData()
     {
-        var data = new MapData();
+        // 현재 맵 상태 최신화
+        state.current.saveData();
+
+        // Save 객체 생성
+        var data = new Save();
+
+        // CheckPoint가 기록된 맵 index 저장
         data.index = state.checkPoint;
+
+        // 맵 active 정보 저장
+        data.active = active;
+
         return data;
     }
 
-    public static void loadData(MapData data)
+    public static void loadData(Save data)
     {
         state.checkPoint = data.index;
+        active = data.active;
+    }
+
+    public static void resetData()
+    {
+        state = State.createDefault();
+        active = new bool[8][];
     }
 }

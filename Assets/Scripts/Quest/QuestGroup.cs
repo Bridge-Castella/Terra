@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuestGroup : MonoBehaviour
 {
-	// List of quest objects
+	[Header("Quest Objects")]
 	[SerializeField] List<GameObject> questObject;
 
 	// List of quests
@@ -18,11 +18,6 @@ public class QuestGroup : MonoBehaviour
 		// Add this QuestGroup to QuestManager
 		QuestManager.add(npcId, this);
 
-		// Load substate from saved data
-		var substate = GlobalContainer.contains("questData") ?
-			GlobalContainer.load<Dictionary<string, int[]>>("questData") :
-			null;
-
         // Create a quest list from quest object list
         questList = new List<Quest>();
 		foreach (GameObject questEle in questObject)
@@ -30,24 +25,21 @@ public class QuestGroup : MonoBehaviour
 			// Get quest
 			Quest quest = questEle.GetComponent<Quest>();
 
-			// initialize quest
+			QuestState? state = QuestManager.getState(quest.questId);
+
+			if (state != null)
+			{
+				QuestManager.StartQuest(quest, false);
+				return;
+			}
+
+            // initialize quest
 			quest.init(npcId);
 			questList.Add(quest);
 
 			// submit quest to manager
 			QuestManager.add(quest.questId, QuestState.Null);
-
-			// when substate is not in saved data
-			if (substate == null)
-				continue;
-			if (!substate.ContainsKey(quest.questId))
-				continue;
-
-			// Load substate
-			quest.loadData(substate[quest.questId]);
-
-			// Start quest
-			QuestManager.StartQuest(quest, false);
+            
 		}
 	}
 

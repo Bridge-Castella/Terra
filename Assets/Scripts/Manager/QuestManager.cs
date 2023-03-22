@@ -17,13 +17,37 @@ public class QuestManager : MonoBehaviour
     }
     #endregion
 
-    // TODO: save quest details
-    public static Dictionary<string, QuestGroup> group = new Dictionary<string, QuestGroup>();
-    public static Dictionary<string, QuestState> state = new Dictionary<string, QuestState>();
-    private static Dictionary<string, int> index = new Dictionary<string, int>();
+    private static Dictionary<string, QuestState> state;
+    private static Dictionary<string, QuestGroup> group;
+    private static Dictionary<string, int> index;
 
     public delegate void QuestCallbackT(Quest quest);
     private QuestCallbackT onQuestStart;
+
+    [System.Serializable]
+    public struct Save
+    {
+        public Dictionary<string, QuestState> state;
+        public Dictionary<string, Quest.Save> data;
+    }
+
+    private void Start()
+    {
+        if (!GlobalContainer.contains("questData"))
+            return;
+
+        Dictionary<string, Quest.Save> data =
+            GlobalContainer.load<Dictionary<string, Quest.Save>>("questData");
+
+        foreach (var questData in data)
+        {
+            GameObject questObj = new GameObject(questData.Key);
+            questObj.transform.SetParent(instance.transform);
+            Quest quest = questObj.AddComponent<Quest>();
+            quest.questId = questData.Key;
+            quest.loadData(questData.Value);
+        }
+    }
 
     // Quest Group 추가
     public static void add(string npcId, QuestGroup questGroup)
@@ -76,10 +100,6 @@ public class QuestManager : MonoBehaviour
     {
         // Quest 상태 update
         state[quest.questId] = QuestState.Doing;
-        quest.gameObject.SetActive(true);
-
-        // Quest destroy 방지
-        quest.gameObject.transform.parent = instance.transform;
 
         if (initialize)
         {
@@ -87,10 +107,26 @@ public class QuestManager : MonoBehaviour
             quest.startQuest();
             if (instance.onQuestStart != null)
                 instance.onQuestStart.Invoke(quest);
+
+            // Quest 아이템 활성화
+            for (int i = 0; i < quest.transform.childCount; i++)
+                quest.transform.GetChild(i).gameObject.SetActive(true);
         }
         else
+        {
+            // load saved data
+            Quest saved = getActiveQuest(quest.questId);
+            quest.loadData(saved.data);
+
             // Quest 상태 업데이트만
             quest.updateStatus();
+
+            // 임시 quest object 삭제
+            Destroy(saved.gameObject);
+        }
+
+        // Quest destroy 방지
+        quest.transform.SetParent(instance.transform);
     }
 
     // Quest 포기
@@ -136,37 +172,33 @@ public class QuestManager : MonoBehaviour
 	}
 
     // Get active quests
-    public static List<Quest> getActiveQuests()
+    public static Quest[] getActiveQuests()
     {
-        List<Quest> questList = new List<Quest>();
-        foreach (Quest quest in instance.GetComponentsInChildren<Quest>())
-        {
-            questList.Add(quest);
-        }
-        return questList;
+        return instance.transform.GetComponentsInChildren<Quest>();
     }
 
     // Get active quest by quest id
     public static Quest getActiveQuest(string questId)
     {
-		foreach (Quest quest in instance.GetComponentsInChildren<Quest>())
-		{
+        foreach (Quest quest in getActiveQuests())
+        {
             if (quest.questId == questId)
                 return quest;
-		}
+        }
         return null;
-	}
+    }
 
     // Get active quest by npc id
     // Only one quest for each npc can be activated
     public static Quest getActiveQuestByNpc(string npcId)
     {
-		foreach (Quest quest in instance.GetComponentsInChildren<Quest>())
-		{
-			if (quest.npcId == npcId) return quest;
-		}
-		return null;
-	}
+        foreach (Quest quest in getActiveQuests())
+        {
+            if (quest.data.npcId == npcId)
+                return quest;
+        }
+        return null;
+    }
 
     // Get next quest id by npc id
     public static string getNextQuestId(string npcId)
@@ -178,7 +210,8 @@ public class QuestManager : MonoBehaviour
     // Get next quest by npc id
     public static Quest getNextQuest(string npcId)
     {
-		if (!group.ContainsKey(npcId)) return null;
+		if (!group.ContainsKey(npcId))
+            return null;
 		int questIndex = index[npcId];
         return group[npcId].at(questIndex);
 	}
@@ -196,7 +229,8 @@ public class QuestManager : MonoBehaviour
     // Change state
 	public static void changeState(string questId, QuestState questState)
 	{
-        if (!state.ContainsKey(questId)) return;
+        if (!state.ContainsKey(questId))
+            return;
 		state[questId] = questState;
 	}
 
@@ -205,31 +239,34 @@ public class QuestManager : MonoBehaviour
         instance.onQuestStart += callback;
     }
 
-    [System.Serializable]
-    public struct QuestData
+    public static Save saveData()
     {
-        public Dictionary<string, QuestState> state;
-        public Dictionary<string, int[]> substate;
-    }
+        Save save = new Save();
+        save.state = state;
+        save.data = new Dictionary<string, Quest.Save>();
 
-    public static QuestData saveData()
-    {
-        QuestData data = new QuestData();
-
-        // save quest state
-        data.state = state;
-        data.substate = new Dictionary<string, int[]>();
-
-        // save quest substate
         foreach (var quest in getActiveQuests())
-            data.substate[quest.questId] = quest.saveData();
+            save.data[quest.questId] = quest.saveData();
 
-        return data;
+        return save;
     }
 
-    public static void loadData(QuestData data)
+    public static void loadData(Save saved)
     {
-        state = data.state;
-        GlobalContainer.store("questData", data.substate);
+        state = saved.state;
+        group = new Dictionary<string, QuestGroup>();
+        index = new Dictionary<string, int>();
+
+        if (saved.data == null)
+            return;
+
+        GlobalContainer.store("questData", saved.data);
+    }
+
+    public static void resetData()
+    {
+        state = new Dictionary<string, QuestState>();
+        group = new Dictionary<string, QuestGroup>();
+        index = new Dictionary<string, int>();
     }
 }

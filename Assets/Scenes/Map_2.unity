@@ -826,7 +826,7 @@ GameObject:
   - component: {fileID: 183520514}
   - component: {fileID: 183520515}
   m_Layer: 0
-  m_Name: QuestItemGroup
+  m_Name: Quest_1_Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -865,10 +865,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questId: quest_1
-  npcId: 
-  title: 
-  description: 
-  status: 
+  data:
+    npcId: 
+    title: 
+    description: 
+    status: 
+    portraitId: 
+    itemId: 
+    substate: 
   portrait: {fileID: 0}
   itemIcon: {fileID: 0}
   displayName: "\uC885\uC774"
@@ -16774,6 +16778,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollingGrounds:
   - {fileID: 108948636}
+  objectGroups:
+  - {fileID: 183520513}
 --- !u!1001 &1797048720
 PrefabInstance:
   m_ObjectHideFlags: 0

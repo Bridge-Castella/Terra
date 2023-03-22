@@ -27,14 +27,14 @@ public class QuestPanel : MonoBehaviour
 
         portrait.sprite = quest.portrait;
         item.sprite = quest.itemIcon;
-        title.text = quest.npcId + ": " + quest.title;
-        status.text = quest.status;
-        description.text = quest.description;
+        title.text = quest.data.npcId + ": " + quest.data.title;
+        status.text = quest.data.status;
+        description.text = quest.data.description;
     }
 
     private void OnUpdate()
     {
-		status.text = quest.status;
+		status.text = quest.data.status;
     }
 
 	private void OnEnable()
@@ -51,6 +51,6 @@ public class QuestPanel : MonoBehaviour
 
 	public void stopQuest()
     {
-        QuestManager.StopQuest(quest.npcId);
+        QuestManager.StopQuest(quest.data.npcId);
     }
 }
