@@ -76,14 +76,25 @@ crashlytics-build.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/unity
 
+### Wwise ###
 # Wwise caches
 /[Aa]ssets/Wwise/Editor/ProjectData/*.asset
 /[Aa]ssets/Wwise/.cache/*
+/[Aa]ssets/StreamingAssets/Audio/*
 /Wwise/.cache/
 /Wwise/*.prof
 /Wwise/*.*.validationcache
 /Wwise/*.*.wsettings
 
+# Wwise User Info
+/[Aa]ssets/Wwise/LauncherInfo.json
+/[Aa]ssets/WwiseSettings.xml
+
+# Wwise files
+/[Ww]wise/GeneratedSoundBanks/
+/[Ww]wise/Originals/
+
+### Others ###
 .vsconfig
 *.log
 

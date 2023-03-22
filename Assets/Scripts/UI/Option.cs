@@ -29,6 +29,9 @@ public class Option : MonoBehaviour
     public Button popUpYesButton;
     public Button popUpNoButton;
 
+    public GameObject popUpSave;
+    public Button popUpSaveButton;
+
     public TextMeshProUGUI masterVolumeNum;
     public TextMeshProUGUI bgmVolumeNum;
     public TextMeshProUGUI sfxVolumeNum;
@@ -40,12 +43,17 @@ public class Option : MonoBehaviour
     {
         //세이브 버튼 addlistener 추가해야함.
         audioButton.onClick.AddListener(OnClickAudioButton);
+        saveButton.onClick.AddListener(OnClickSaveButton);
         quitButton.onClick.AddListener(OnClickQuitButton);
         initialButton.onClick.AddListener(InitailizeVolume);
         cancelButton.onClick.AddListener(OnClickCancelButton);
 
         popUpYesButton.onClick.AddListener(LoadLoginScene);
         popUpNoButton.onClick.AddListener(OnClickPopupNoButton);
+
+        // 저장 버튼, 인게임에서만 작동
+        if (MapManager.state.map != MapManager.MapIndex.Login)
+            popUpSaveButton.onClick.AddListener(OnClickPopUpSaveButton);
 
         //일반 볼륨
         masterSlider.onValueChanged.AddListener(SetMasterVolume);
@@ -67,22 +75,33 @@ public class Option : MonoBehaviour
         sfxVolumeNum.text = Mathf.CeilToInt(sfxSlider.value * 10).ToString();
     }
 
+    public void OnClickSaveButton()
+    {
+        if (keyExit != null)
+            keyExit.Post(gameObject);
+
+        SaveManager.SaveGame();
+        buttonGroup.SetActive(false);
+        popUpSave.SetActive(true);
+    }
+
     public void OnClickQuitButton()
     {
-        //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
-        keyExit.Post(gameObject);
+        if (keyExit != null)
+            keyExit.Post(gameObject);
+
         buttonGroup.SetActive(false);
         popUpObject.SetActive(true);
         popUpText.text = "게임을 종료하시겠습니까?";
-        //FadeController.resetFade();
     }
 
     public void LoadLoginScene()
     {
-        //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
-        keyExit.Post(gameObject);
+        if (keyExit != null)
+            keyExit.Post(gameObject);
+
         Time.timeScale = 1;
-        MapManager.instance.mapState = MapManager.MapState.Login;
+        MapManager.state.map = MapManager.MapIndex.Login;
         SceneManager.LoadScene("01.Login");
 
         //TODO 임시: 아이템 개수 초기화
@@ -94,8 +113,9 @@ public class Option : MonoBehaviour
 
     public void OnClickPopupNoButton()
     {
-        //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
-        keyExit.Post(gameObject);
+        if (keyExit != null)
+            keyExit.Post(gameObject);
+
         popUpObject.SetActive(false);
         buttonGroup.SetActive(true);
     }
@@ -108,10 +128,11 @@ public class Option : MonoBehaviour
             audioGroup.SetActive(false);
             buttonGroup.SetActive(true);
             popUpObject.SetActive(false);
-            if (MapManager.instance.mapState == MapManager.MapState.Login)
+            if (MapManager.state.map == MapManager.MapIndex.Login)
             {
-                //AudioManager.instance.PlaySound("ui_02");                     // Outdated audio engine
-                keyPause.Post(gameObject);
+                if (keyPause != null)
+                    keyPause.Post(gameObject);
+
                 mainMenuObject.SetActive(true);
                 logoObject.SetActive(true);
                 audioGroup.SetActive(false);
@@ -127,6 +148,14 @@ public class Option : MonoBehaviour
         }
     }
 
+    public void OnClickPopUpSaveButton() {
+        if (keyExit != null)
+            keyExit.Post(gameObject);
+
+        popUpSave.SetActive(false);
+        buttonGroup.SetActive(true);
+    }
+
 
 
     #region Volume Control
@@ -139,8 +168,9 @@ public class Option : MonoBehaviour
 
     public void OnClickAudioButton()
     {
-        //AudioManager.instance.PlaySound("ui_04");                             // Outdated audio engine
-        keyExit.Post(gameObject);
+        if (keyExit != null)
+            keyExit.Post(gameObject);
+
         buttonGroup.SetActive(false);
         popUpObject.SetActive(false);
         audioGroup.SetActive(true);

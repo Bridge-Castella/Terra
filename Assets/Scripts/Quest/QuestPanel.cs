@@ -51,6 +51,6 @@ public class QuestPanel : MonoBehaviour
 
 	public void stopQuest()
     {
-        QuestManager.instance.StopQuest(quest.npcId);
+        QuestManager.StopQuest(quest.npcId);
     }
 }

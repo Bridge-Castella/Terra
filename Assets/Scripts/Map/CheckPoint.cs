@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckPoint : MonoBehaviour
 {
@@ -21,7 +22,27 @@ public class CheckPoint : MonoBehaviour
         {
             fallDetector.CheckPoint = gameObject.transform;
             //animator.SetTrigger("Move");
+
+            // 현재 check point 등록
+            SubmitCheckPoint();
         }
         GetComponent<Collider2D>().enabled = false;
+    }
+
+    private void SubmitCheckPoint()
+    {
+        // 현재 Map index 정보
+        int sceneIndex = gameObject.scene.buildIndex;
+        MapManager.MapIndex mapIndex = MapManager.ToMapIndex(sceneIndex);
+
+        // 새로운 check point 등록
+        MapManager.MapIndex previous = MapManager.state.checkPoint;
+        MapManager.state.checkPoint = mapIndex;
+        ControlManager.instance.startPoint = transform.position;
+
+        // 이전 Check Point가 위치한 map unload
+        if (MapManager.state.checkPoint != MapManager.MapIndex.Login
+            && MapManager.IsMapOutOfRange(previous))
+                MapManager.UnloadMap(previous);
     }
 }
