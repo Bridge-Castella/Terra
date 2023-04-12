@@ -44,7 +44,7 @@ public class MapManager
     }
 
     public static State state;
-    public static bool[][] active;
+    public static bool[][] active = new bool[8][];
 
     private static List<MapIndex> outOfRange = new List<MapIndex>();
     private static int AdditiveMapStartIndex = 2;
