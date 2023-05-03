@@ -34,7 +34,10 @@ public class FadingPlatform : MonoBehaviour
             animator.speed = 1f;
         }
         else
-            animator.speed = 0f;
+        {
+                animator.speed = 0f;
+                ShowingPlatform();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
