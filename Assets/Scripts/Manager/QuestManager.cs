@@ -34,7 +34,10 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
         if (!GlobalContainer.contains("questData"))
+        {
+            resetData();
             return;
+        }
 
         Dictionary<string, Quest.Save> data =
             GlobalContainer.load<Dictionary<string, Quest.Save>>("questData");

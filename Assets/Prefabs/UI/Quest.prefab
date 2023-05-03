@@ -317,7 +317,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 414358131825329420}
-  - component: {fileID: 2158744509013514988}
   - component: {fileID: 2409324440714870096}
   m_Layer: 0
   m_Name: Viewport
@@ -346,14 +345,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -10}
   m_SizeDelta: {x: -17, y: -30}
   m_Pivot: {x: 0, y: 1}
---- !u!222 &2158744509013514988
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364825945793288227}
-  m_CullTransparentMesh: 1
 --- !u!114 &2409324440714870096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2216,7 +2207,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8104895423352435166}
-  - component: {fileID: 7882791428238792064}
   - component: {fileID: 3033176116317575053}
   m_Layer: 0
   m_Name: Scroll View
@@ -2245,14 +2235,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -52}
   m_SizeDelta: {x: 1000, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &7882791428238792064
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6269581880541616519}
-  m_CullTransparentMesh: 1
 --- !u!114 &3033176116317575053
 MonoBehaviour:
   m_ObjectHideFlags: 0
