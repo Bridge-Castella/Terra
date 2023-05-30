@@ -34,6 +34,9 @@ public class HomeItemGroup : MonoBehaviour
             itemUI.UpdateUI(item.icon, item.amount, item.desc, i, detailPanel);
         }
 
+        // Reset detail panel
+        detailPanel.gameObject.SetActive(false);
+
         StartCoroutine(UpdateUILate());
     }
 

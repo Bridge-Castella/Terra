@@ -8,13 +8,12 @@ public class HomeDetailPanel : MonoBehaviour
     [SerializeField] GameObject pointer;
     [SerializeField] TextMeshProUGUI description;
 
-    private float y_init = 0.0f;
-    private float height;
+    [SerializeField] private float y_init = 0.0f;
     private float pointer_init = 0.0f;
 
     public void UpdateUI(string description, int idx)
     {
-        if (y_init == 0.0f)
+        if (pointer_init == 0.0f)
             Init();
 
         int column = itemGrid.constraintCount;
@@ -53,8 +52,7 @@ public class HomeDetailPanel : MonoBehaviour
 
     private void Init()
     {
-        y_init = transform.localPosition.y;
+        //y_init = transform.localPosition.y;
         pointer_init = Mathf.Abs(pointer.transform.localPosition.y);
-        height = GetComponent<RectTransform>().rect.height;
     }
 }
