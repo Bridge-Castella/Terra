@@ -9,6 +9,7 @@ public class HomeDetailPanel : MonoBehaviour
     [SerializeField] TextMeshProUGUI description;
 
     private float y_init = 0.0f;
+    private float height;
     private float pointer_init = 0.0f;
 
     public void UpdateUI(string description, int idx)
@@ -21,7 +22,15 @@ public class HomeDetailPanel : MonoBehaviour
 
         // transform detail panel
         pos = transform.localPosition;
-        pos.y = idx < column ? -y_init : y_init;
+        float cell_height = itemGrid.spacing.y + itemGrid.cellSize.y;
+        if (idx > 3)
+        {
+            pos.y = y_init - (((idx / 4) - 2) * cell_height);
+        }
+        else
+        {
+            pos.y = y_init;
+        }
         transform.localPosition = pos;
 
         // rotate pointer direction
@@ -44,7 +53,8 @@ public class HomeDetailPanel : MonoBehaviour
 
     private void Init()
     {
-        y_init = Mathf.Abs(transform.localPosition.y);
+        y_init = transform.localPosition.y;
         pointer_init = Mathf.Abs(pointer.transform.localPosition.y);
+        height = GetComponent<RectTransform>().rect.height;
     }
 }
