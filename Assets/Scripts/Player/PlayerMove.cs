@@ -260,7 +260,7 @@ public class PlayerMove : MonoBehaviour
 
     public bool IsGrounded()
     {
-        float extraHeightText = .3f;
+        float extraHeightText = .35f;
 
         RaycastHit2D raycastHit = Physics2D.Raycast(capsuleCollider2D.bounds.center, Vector2.down, capsuleCollider2D.bounds.extents.y + extraHeightText, platformLayerMask);
         Color rayColor;
