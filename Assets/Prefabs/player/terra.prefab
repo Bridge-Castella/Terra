@@ -737,28 +737,28 @@ MonoBehaviour:
   jumpPower: 30
   knockBackPower: 10
   dust: {fileID: 9081606639190985756}
+  landDustPrefab: {fileID: 0}
   isHurting: 0
   facingRight: 1
   isJumping: 0
   isTalking: 0
   isFalling: 0
   isLaddering: 0
+  onSceneChange: 0
+  waypoint: {x: 0, y: 0, z: 0}
   soundObject: {fileID: 5247316185781844994}
   jump:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 5c10eef4ec7d14846956daee041432ae,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   land:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 4f3049fe240ac4e42aefcc274e706246,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   damaged:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: c8f9088461ab04d6eb03c6a072934f84,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
 --- !u!114 &5049055802667473305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,7 +809,7 @@ CapsuleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.00999999, y: -0.21176863}
   m_Size: {x: 1.2401543, y: 4.174371}
@@ -913,8 +913,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 586411205fdb64a08a55f1c0a7603787,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   useCallbacks: 0
   Callbacks: []
   playingId: 0
