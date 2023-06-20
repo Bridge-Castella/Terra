@@ -17,11 +17,11 @@ public class LadderMovement : MonoBehaviour
         spline = player.GetComponent<SplineMove>();
 
         //Spline points 위치 초기화
-        points = GetComponent<EdgeCollider2D>().points;
-		Vector2 pos = transform.position;
+        var edgeCollider = GetComponent<EdgeCollider2D>();
+        points = edgeCollider.points;
 		for (int i = 0; i < points.Length; i++)
 		{
-			points[i] += pos;
+            points[i] = edgeCollider.transform.TransformPoint(points[i]);
 		}
 	}
 

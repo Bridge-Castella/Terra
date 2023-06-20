@@ -28,14 +28,25 @@ public class WallEffector : MonoBehaviour
     {
         if ((1 << collision.gameObject.layer & layer.value) > 0)
         {
+            // get contact
             var contact = collision.GetContact(collision.contactCount - 1);
+
+            // get contact normal, which represents the normal vector of contact point
             Vector2 contactNormal = contact.normal;
+
             Color debugColor = Color.green;
 
+            // get angle: theta = Atan(y/x)
+            // Abs is used to get angle at range 0 ~ 90
             float angle = Mathf.Atan(Mathf.Abs(contactNormal.y) / Mathf.Abs(contactNormal.x));
+
+            // if angle is less than the desired degree, it is considered as touching the wall
+            // 90 - angle is used, since the angle is from normal vector
             if (angle < (Mathf.Deg2Rad * (90 - degree)))
             {
                 isTouchingWall = true;
+
+                // red line is drawn, when it is touching the wall
                 debugColor = Color.red;
             }
             else
