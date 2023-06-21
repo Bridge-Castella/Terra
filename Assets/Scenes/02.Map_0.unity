@@ -6316,11 +6316,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1727648254068334714, guid: 3e4c3e109529a90498e025194dcfc44b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4800962551722574817, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
       propertyPath: jump.WwiseObjectReference
@@ -6340,11 +6335,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Terra
-      objectReference: {fileID: 0}
-    - target: {fileID: 8797165674562098757, guid: 3e4c3e109529a90498e025194dcfc44b,
-        type: 3}
-      propertyPath: m_Interpolate
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1128416016, guid: 3e4c3e109529a90498e025194dcfc44b, type: 3}
@@ -6375,7 +6365,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8bc2264201a84b018ebc3299a7b5c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  degree: 70
+  option:
+    condition:
+      degree: 65
+      yVelocityThreshold: 100
+    xVelocity:
+      changeXVelocity: 1
+      fixedValue: 0
+      xVelocity: 0.2
+    friction:
+      changeFrictionValue: 1
+      friction: 0
+      defaultFriction: 0
   layer:
     serializedVersion: 2
     m_Bits: 1024

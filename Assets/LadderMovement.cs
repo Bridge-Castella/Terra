@@ -18,10 +18,11 @@ public class LadderMovement : MonoBehaviour
 
         //Spline points 위치 초기화
         var edgeCollider = GetComponent<EdgeCollider2D>();
-        points = edgeCollider.points;
-		for (int i = 0; i < points.Length; i++)
+        var rawPoints = edgeCollider.points;
+        points = new Vector2[rawPoints.Length];
+		for (int i = 0; i < rawPoints.Length; i++)
 		{
-            points[i] = edgeCollider.transform.TransformPoint(points[i]);
+            points[i] = edgeCollider.transform.TransformPoint(rawPoints[i]);
 		}
 	}
 
