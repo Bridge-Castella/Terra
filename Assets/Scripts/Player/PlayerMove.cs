@@ -64,7 +64,17 @@ public class PlayerMove : MonoBehaviour
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+
+        var capsuleColliders = GetComponents<CapsuleCollider2D>();
+        foreach (var coll in capsuleColliders)
+        {
+            // choose collider which is not effected by the effector
+            if (!coll.usedByEffector)
+            {
+                capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+                break;
+            }
+        }
 
         for(int i = 0; i < 5; i++)
         {
@@ -366,6 +376,7 @@ public class PlayerMove : MonoBehaviour
 
     void CreateLandDust()
     {
+        // TODO: temporary fix for null landDustPrefab
         if (landDustPrefab == null)
             return;
 

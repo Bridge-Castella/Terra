@@ -72,6 +72,10 @@ public class WallEffector : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // below values only concern about the friction
+        if (!option.friction.changeFrictionValue)
+            return;
+
         var coll = ChooseCollider(collision);
 
         // if the collision object does not have physics material, create default
@@ -158,6 +162,4 @@ public class WallEffector : MonoBehaviour
         return collision.collider.CompareTag("Player") ?
             collision.otherCollider : collision.collider;
     }
-
-
 }
