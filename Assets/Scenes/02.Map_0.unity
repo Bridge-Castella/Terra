@@ -6316,16 +6316,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1727648254068334714, guid: 3e4c3e109529a90498e025194dcfc44b,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727648254068334714, guid: 3e4c3e109529a90498e025194dcfc44b,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 3.7
-      objectReference: {fileID: 0}
     - target: {fileID: 4800962551722574817, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
       propertyPath: jump.WwiseObjectReference
@@ -6371,7 +6361,7 @@ PlatformEffector2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128416006}
   m_Enabled: 1
-  m_UseColliderMask: 1
+  m_UseColliderMask: 0
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -6408,22 +6398,6 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 1024
---- !u!70 &1128416016
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128416006}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.00999999, y: -0.21176863}
-  m_Size: {x: 1.25, y: 4.2}
-  m_Direction: 0
 --- !u!1 &1130298457
 GameObject:
   m_ObjectHideFlags: 0

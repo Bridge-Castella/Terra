@@ -64,17 +64,7 @@ public class PlayerMove : MonoBehaviour
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-
-        var capsuleColliders = GetComponents<CapsuleCollider2D>();
-        foreach (var coll in capsuleColliders)
-        {
-            // choose collider which is not effected by the effector
-            if (!coll.usedByEffector)
-            {
-                capsuleCollider2D = GetComponent<CapsuleCollider2D>();
-                break;
-            }
-        }
+        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
 
         for(int i = 0; i < 5; i++)
         {

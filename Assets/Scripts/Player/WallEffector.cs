@@ -46,6 +46,12 @@ public class WallEffector : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         contactingObjects = new Dictionary<int, float>();
+
+        if (option.friction.changeFrictionValue)
+        {
+            Debug.LogError("Friction option is not compatible with grid collider. " +
+                "Use platform collider 2d instead");
+        }
     }
 
     public void CheckWall()
