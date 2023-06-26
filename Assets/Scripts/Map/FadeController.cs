@@ -34,13 +34,17 @@ public class FadeController : MonoBehaviour
 
             player.waypoint = waypoint;
             player.onSceneChange = true;
-            SceneFader.instance.FadeOut();
+
+            if (SceneFader.instance != null)
+                SceneFader.instance.FadeOut();
         }
 	}
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         player.onSceneChange = false;
-        SceneFader.instance.FadeIn();
+
+        if (SceneFader.instance != null)
+            SceneFader.instance.FadeIn();
     }
 }

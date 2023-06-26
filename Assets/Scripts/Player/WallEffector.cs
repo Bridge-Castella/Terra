@@ -14,7 +14,7 @@ public class WallEffector : MonoBehaviour
     public struct TargetXVelocity
     {
         [Header("활성화시 벽에 접근했을때 해당 값으로 조정")] public bool changeXVelocity;
-        [Header("xVelocity 조정시 고정 비율로 조정")] public bool fixedValue;
+        [Header("xVelocity 조정시 고정 값으로 조정")] public bool fixedValue;
         [Header("xVelocity 조정시 해당 값으로 조정")] public float xVelocity;
     }
 
@@ -37,8 +37,6 @@ public class WallEffector : MonoBehaviour
     [SerializeField] LayerMask layer;
 
     private bool isTouchingWall = false;
-
-    // TODO: free values when it is not used
     private Dictionary<int, float> contactingObjects;
     private Rigidbody2D rigid;
 
@@ -93,6 +91,7 @@ public class WallEffector : MonoBehaviour
             return;
         }
 
+        // TODO: free values when it is not used
         if (!contactingObjects.ContainsKey(coll.GetInstanceID()))
         {
             contactingObjects.Add(coll.GetInstanceID(), coll.friction);

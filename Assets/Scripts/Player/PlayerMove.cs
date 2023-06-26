@@ -374,5 +374,6 @@ public class PlayerMove : MonoBehaviour
         obj.transform.position = gameObject.transform.position + new Vector3(0,-2.8f,0);
         ParticleSystem landDust = obj.GetComponent<ParticleSystem>();
         landDust.Play();
+        Destroy(obj, 1f);
     }
 }

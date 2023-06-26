@@ -140,10 +140,10 @@ public class Option : MonoBehaviour
             }
             else
             {
-                if(ControlManager.instance != null)
+                /*if(ControlManager.instance != null)
                 {
                     ControlManager.instance.Resume();
-                }    
+                } */   
             }
         }
     }
@@ -155,8 +155,6 @@ public class Option : MonoBehaviour
         popUpSave.SetActive(false);
         buttonGroup.SetActive(true);
     }
-
-
 
     #region Volume Control
     public void InitailizeVolume()

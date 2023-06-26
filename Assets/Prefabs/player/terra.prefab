@@ -244,8 +244,8 @@ MonoBehaviour:
   - {fileID: 9080822370061482481}
   - {fileID: 4952619740263836504}
   m_Bounds:
-    m_Center: {x: 0.06553, y: -0.21987033, z: 0}
-    m_Extent: {x: 0.34763443, y: 0.59425235, z: 0}
+    m_Center: {x: 0.065528095, y: -0.21987033, z: 0}
+    m_Extent: {x: 0.34763253, y: 0.59425235, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -505,8 +505,8 @@ MonoBehaviour:
   - {fileID: 4763772092541772409}
   - {fileID: 5072274492433537949}
   m_Bounds:
-    m_Center: {x: 0.05765903, y: -0.2729159, z: 0}
-    m_Extent: {x: 0.381836, y: 0.6463742, z: 0}
+    m_Center: {x: 0.057655215, y: -0.2729159, z: 0}
+    m_Extent: {x: 0.38183218, y: 0.6463742, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -737,7 +737,7 @@ MonoBehaviour:
   jumpPower: 30
   knockBackPower: 10
   dust: {fileID: 9081606639190985756}
-  landDustPrefab: {fileID: 0}
+  landDustPrefab: {fileID: 3860328403707997732}
   isHurting: 0
   facingRight: 1
   isJumping: 0
@@ -1038,8 +1038,8 @@ MonoBehaviour:
   - {fileID: 4256967578420804504}
   - {fileID: 7595242188648478089}
   m_Bounds:
-    m_Center: {x: 0.081267536, y: -0.24055469, z: 0}
-    m_Extent: {x: 0.767745, y: 1.0062642, z: 0}
+    m_Center: {x: 0.08126372, y: -0.24055564, z: 0}
+    m_Extent: {x: 0.767745, y: 1.0062652, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1239,8 +1239,8 @@ MonoBehaviour:
   - {fileID: 1878769366794991892}
   - {fileID: 101136856770213636}
   m_Bounds:
-    m_Center: {x: 0.04593408, y: -0.24528432, z: 0}
-    m_Extent: {x: 0.8212976, y: 0.6859073, z: 0}
+    m_Center: {x: 0.045933783, y: -0.24528432, z: 0}
+    m_Extent: {x: 0.8213011, y: 0.6859073, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1349,8 +1349,8 @@ MonoBehaviour:
   - {fileID: 7187593713535377600}
   - {fileID: 7641922345650322707}
   m_Bounds:
-    m_Center: {x: 0.03260231, y: -0.22077596, z: 0}
-    m_Extent: {x: 1.2136867, y: 1.0012467, z: 0}
+    m_Center: {x: 0.032600522, y: -0.22077405, z: 0}
+    m_Extent: {x: 1.2136848, y: 1.0012467, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1584,6 +1584,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad6b1d7b43bfa6741bdb53d90041cb92, type: 3}
+--- !u!1 &3860328403707997732 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4468945751661485497, guid: ad6b1d7b43bfa6741bdb53d90041cb92,
+    type: 3}
+  m_PrefabInstance: {fileID: 834932026499642269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4986693835004021760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5666106530132410269, guid: ad6b1d7b43bfa6741bdb53d90041cb92,
