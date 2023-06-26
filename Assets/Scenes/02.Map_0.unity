@@ -139,7 +139,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &14421065
 RectTransform:
@@ -550,7 +550,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &243773841
 MonoBehaviour:
@@ -593,7 +593,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &263462360
 RectTransform:
@@ -734,7 +734,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &403100642
 MonoBehaviour:
@@ -966,7 +966,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &584888423
 RectTransform:
@@ -1017,7 +1017,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &604233462
 RectTransform:
@@ -1328,8 +1328,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 932187230}
-  - component: {fileID: 932187229}
   - component: {fileID: 932187231}
+  - component: {fileID: 932187229}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -1569,6 +1569,51 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1128416004}
   m_PrefabAsset: {fileID: 0}
+--- !u!251 &1128416007
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128416006}
+  m_Enabled: 1
+  m_UseColliderMask: 0
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 65
+--- !u!114 &1128416008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128416006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8bc2264201a84b018ebc3299a7b5c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  option:
+    condition:
+      degree: 65
+      yVelocityThreshold: 100
+    xVelocity:
+      changeXVelocity: 1
+      fixedValue: 0
+      xVelocity: 0.2
+    friction:
+      changeFrictionValue: 0
+      friction: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &1192121990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,7 +1658,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1231506434
 Transform:
@@ -1887,7 +1932,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1279230049
 Transform:
@@ -1961,7 +2006,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &1332273141
 RectTransform:
@@ -2171,7 +2216,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1392845670
 Transform:
@@ -2409,7 +2454,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &1830478675
 RectTransform:
@@ -2598,7 +2643,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1884347585
 MonoBehaviour:
@@ -2641,7 +2686,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884347583}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed5010e364ab2494e9486b4b932cfeb8, type: 3}
   m_Name: 
@@ -2650,7 +2695,7 @@ MonoBehaviour:
     initialListenerList: []
     useDefaultListeners: 1
   isEnvironmentAware: 1
-  isStaticObject: 0
+  isStaticObject: 1
   m_positionOffsetData:
     KeepMe: 0
     positionOffset: {x: 0, y: 0, z: 0}
@@ -2996,7 +3041,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &2084288215
 MonoBehaviour:
@@ -3054,7 +3099,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &2109500936
 MonoBehaviour:
@@ -3163,7 +3208,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &2139116302
 MonoBehaviour:
@@ -17311,6 +17356,7 @@ MonoBehaviour:
   itemGrid: {fileID: 5747177441394388705}
   pointer: {fileID: 5747177440280760420}
   description: {fileID: 5747177441276579786}
+  y_init: 0
 --- !u!114 &5747177440220554125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20895,6 +20941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc51d9ed029e446dacf83db70971548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homeItemPrefab: {fileID: 0}
   detailPanel: {fileID: 5747177440220554124}
 --- !u!1 &5747177441396568144
 GameObject:

@@ -27,6 +27,7 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector]public bool isHurting = false; //데미지 입은 경우
 
     Rigidbody2D rigid;
+    WallEffector effector;
     [HideInInspector] public bool facingRight = true; //flip관련 bool 변수
     bool isKnockback = false; //튕겨나간 경우
     [HideInInspector] public bool isJumping = false; //점프하는 상태인 경우
@@ -72,6 +73,7 @@ public class PlayerMove : MonoBehaviour
         
         animator = GetComponent<Animator>();        
         abilities = GetComponent<PlayerAbilityTracker>();
+        effector = GetComponent<WallEffector>();
 
         if (GlobalContainer.contains("StartPos"))
             transform.position = GlobalContainer.load<Vector3>("StartPos");
@@ -224,11 +226,11 @@ public class PlayerMove : MonoBehaviour
         else
         {
             rigid.velocity = new Vector2(moveHorizontalInput * maxSpeed, rigid.velocity.y);
+            effector.CheckWall();
 
             if (moveHorizontalInput != 0 && IsGrounded())
             {
                 AkSoundEngine.SetState("Player", "Grass");
-                
             }
             else
             {
@@ -260,7 +262,7 @@ public class PlayerMove : MonoBehaviour
 
     public bool IsGrounded()
     {
-        float extraHeightText = .3f;
+        float extraHeightText = .35f;
 
         RaycastHit2D raycastHit = Physics2D.Raycast(capsuleCollider2D.bounds.center, Vector2.down, capsuleCollider2D.bounds.extents.y + extraHeightText, platformLayerMask);
         Color rayColor;
@@ -273,7 +275,7 @@ public class PlayerMove : MonoBehaviour
             rayColor = Color.red;
         }
         Debug.DrawRay(capsuleCollider2D.bounds.center, Vector2.down * (capsuleCollider2D.bounds.extents.y + extraHeightText), rayColor);
-        
+
         return raycastHit.collider != null;
     }
 
@@ -364,6 +366,10 @@ public class PlayerMove : MonoBehaviour
 
     void CreateLandDust()
     {
+        // TODO: temporary fix for null landDustPrefab
+        if (landDustPrefab == null)
+            return;
+
         GameObject obj = MonoBehaviour.Instantiate(landDustPrefab);
         obj.transform.position = gameObject.transform.position + new Vector3(0,-2.8f,0);
         ParticleSystem landDust = obj.GetComponent<ParticleSystem>();
