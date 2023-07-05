@@ -42,7 +42,7 @@ public class WallEffector : MonoBehaviour
 
     private void Start()
     {
-        rigid = GetComponent<Rigidbody2D>();
+        rigid = GetComponentInParent<Rigidbody2D>();
         contactingObjects = new Dictionary<int, float>();
 
         if (option.friction.changeFrictionValue)

@@ -73,7 +73,7 @@ public class PlayerMove : MonoBehaviour
         
         animator = GetComponent<Animator>();        
         abilities = GetComponent<PlayerAbilityTracker>();
-        effector = GetComponent<WallEffector>();
+        effector = GetComponentInChildren<WallEffector>();
 
         if (GlobalContainer.contains("StartPos"))
             transform.position = GlobalContainer.load<Vector3>("StartPos");
