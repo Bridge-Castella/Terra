@@ -1442,7 +1442,7 @@ GameObject:
   - component: {fileID: 1073228442}
   - component: {fileID: 1073228444}
   m_Layer: 13
-  m_Name: PlatformCoolider
+  m_Name: PlatformCollider
   m_TagString: PlayerPlatformCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1509,6 +1509,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8bc2264201a84b018ebc3299a7b5c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  move: {fileID: 1128416014}
+  rigid: {fileID: 1128416012}
+  animator: {fileID: 1128416010}
+  animParam: isClimbing
   option:
     condition:
       degree: 65
@@ -1517,9 +1521,6 @@ MonoBehaviour:
       changeXVelocity: 1
       fixedValue: 0
       xVelocity: 0.25
-    friction:
-      changeFrictionValue: 0
-      friction: 0
   layer:
     serializedVersion: 2
     m_Bits: 132096
@@ -1579,12 +1580,12 @@ PrefabInstance:
     - target: {fileID: 131001603900362971, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -65.8
+      value: -64.5
       objectReference: {fileID: 0}
     - target: {fileID: 131001603900362971, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18.4
+      value: -17.5
       objectReference: {fileID: 0}
     - target: {fileID: 131001603900362971, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
@@ -1651,11 +1652,31 @@ PrefabInstance:
       propertyPath: damaged.WwiseObjectReference
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5049055802667473305, guid: 3e4c3e109529a90498e025194dcfc44b,
+        type: 3}
+      propertyPath: canClimb
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5247316185781844994, guid: 3e4c3e109529a90498e025194dcfc44b,
         type: 3}
       propertyPath: m_Name
       value: Terra
       objectReference: {fileID: 0}
+    - target: {fileID: 5688039548213717201, guid: 3e4c3e109529a90498e025194dcfc44b,
+        type: 3}
+      propertyPath: move
+      value: 
+      objectReference: {fileID: 1128416014}
+    - target: {fileID: 5688039548213717201, guid: 3e4c3e109529a90498e025194dcfc44b,
+        type: 3}
+      propertyPath: rigid
+      value: 
+      objectReference: {fileID: 1128416012}
+    - target: {fileID: 5688039548213717201, guid: 3e4c3e109529a90498e025194dcfc44b,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1128416010}
     m_RemovedComponents:
     - {fileID: 1128416016, guid: 3e4c3e109529a90498e025194dcfc44b, type: 3}
     - {fileID: 1128416014, guid: 3e4c3e109529a90498e025194dcfc44b, type: 3}
@@ -1692,6 +1713,30 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 0
+--- !u!95 &1128416010 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 624225813616047329, guid: 3e4c3e109529a90498e025194dcfc44b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1128416004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1128416012 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8797165674562098757, guid: 3e4c3e109529a90498e025194dcfc44b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1128416004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1128416014 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4800962551722574817, guid: 3e4c3e109529a90498e025194dcfc44b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1128416004}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128416006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92534bed830db9241b1914733c8d0f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1192121990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,12 +2450,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 46, y: 180}
-      - {x: -60, y: 180}
-      - {x: -60, y: 40}
+    - - {x: 50, y: 180}
+      - {x: -75, y: 180}
+      - {x: -75, y: 40}
       - {x: -100, y: 40}
       - {x: -100, y: -30}
-      - {x: 46, y: -30}
+      - {x: 50, y: -30}
 --- !u!1 &1460042438
 GameObject:
   m_ObjectHideFlags: 0

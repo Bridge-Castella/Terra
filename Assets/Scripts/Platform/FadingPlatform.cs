@@ -42,7 +42,8 @@ public class FadingPlatform : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.tag == "Player")
+        // fix: fading platform is not triggered by new platform collider
+        if(collider.gameObject.tag == "PlayerPlatformCollider")
         {
             animator.SetBool("isShowing", false);
             animator.SetBool("isQuaking", true);

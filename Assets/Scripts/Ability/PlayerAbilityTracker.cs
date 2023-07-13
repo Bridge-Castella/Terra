@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAbilityTracker : MonoBehaviour
 {
-    public bool canDoubleJump, canDash;
+    public bool canDoubleJump, canDash, canClimb;
 
     [HideInInspector] public bool isFlying, isSpringJump, isHoldingFire;
 
