@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class HomeItemGroup : MonoBehaviour
 {
-    HomeItem[] itemObjects;
+    List<HomeItem> itemObjects;
+
+    [SerializeField] GameObject homeItemPrefab;
     [SerializeField] HomeDetailPanel detailPanel;
 
     public void UpdateUI()
@@ -13,6 +15,17 @@ public class HomeItemGroup : MonoBehaviour
             Init();
 
         var items = Inventory.instance.items;
+        if (itemObjects.Count < items.Count)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                var item = GameObject.Instantiate(homeItemPrefab);
+                item.transform.SetParent(this.transform);
+                item.transform.localScale = new Vector3(1.0f, 1.0f);
+                itemObjects.Add(item.GetComponent<HomeItem>());
+            }
+        }
+
         for (int i = 0; i < items.Count; i++)
         {
             var itemUI = itemObjects[i];
@@ -20,12 +33,27 @@ public class HomeItemGroup : MonoBehaviour
 
             itemUI.UpdateUI(item.icon, item.amount, item.desc, i, detailPanel);
         }
+
+        // Reset detail panel
+        detailPanel.gameObject.SetActive(false);
+
+        StartCoroutine(UpdateUILate());
+    }
+
+    private IEnumerator UpdateUILate()
+    {
+        // Wait single frame
+        yield return null;
+
+        // Match the rect size
+        var parent_rect = transform.parent.GetComponent<RectTransform>();
+        parent_rect.sizeDelta = GetComponent<RectTransform>().sizeDelta;
     }
 
     private void Init()
     {
-        itemObjects = new HomeItem[transform.childCount];
+        itemObjects = new List<HomeItem>();
         for (int i = 0; i < transform.childCount; i++)
-            itemObjects[i] = transform.GetChild(i).GetComponent<HomeItem>();
+            itemObjects.Add(transform.GetChild(i).GetComponent<HomeItem>());
     }
 }

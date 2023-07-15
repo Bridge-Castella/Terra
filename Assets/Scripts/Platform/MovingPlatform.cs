@@ -52,6 +52,11 @@ public class MovingPlatform : MonoBehaviour
         {
             isMoving = true;
             collision.gameObject.transform.SetParent(transform);
+
+            // Fix: smoothing the jump animation
+            // This fixes the slower move on moveing platform
+            collision.gameObject.GetComponent<Rigidbody2D>().interpolation
+                = RigidbodyInterpolation2D.Extrapolate;
         }
     }
 
@@ -61,6 +66,11 @@ public class MovingPlatform : MonoBehaviour
         {
             isMoving = true;
             collision.gameObject.transform.SetParent(null);
+
+            // Fix: smoothing the jump animation
+            // This prevents terra digging into the ground
+            collision.gameObject.GetComponent<Rigidbody2D>().interpolation
+                = RigidbodyInterpolation2D.Interpolate;
         }
     }
     
