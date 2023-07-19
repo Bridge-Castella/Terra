@@ -32,12 +32,14 @@ public class WallEffector : ClimbingMove
         public float normalAngle;
     }
 
-    [SerializeField] Option option;
+    [SerializeField] Vector2 jumpEscapeScaleFactor = new Vector2(1.5f, 1.0f);
     [SerializeField] LayerMask layer;
+    [SerializeField] Option option;
 
     private List<WallContactInfo> wallContactList;
 
     private WallContactInfo wallContact;
+    private WallJump wallJump = new WallJump { state = WallJump.State.Null };
     private bool isClimbing;
     private float targetAngle;
 
@@ -60,7 +62,7 @@ public class WallEffector : ClimbingMove
         // this is because OnCollisionStay2D is synchronized with the fixedupdate
         if (wallContactList.Count > 0)
         {
-            // reset list to get next frame
+            // reset variables
             wallContactList.Clear();
 
             if (ability.canClimb)
@@ -88,6 +90,7 @@ public class WallEffector : ClimbingMove
         }
         else
         {
+            // when there is no other collision with wall, we should exit climbing
             if (isClimbing)
             {
                 // exit tracking to exit climbing
@@ -96,7 +99,16 @@ public class WallEffector : ClimbingMove
             }
         }
 
+        if (wallJump.state != WallJump.State.Null)
+            return CalculateWallJump();
+
         return rigid.velocity;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collsion)
+    {
+        // wall jump should be deactivated no matter what the collision is
+        wallJump.state = WallJump.State.Null;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -153,8 +165,24 @@ public class WallEffector : ClimbingMove
         //입력 없을 경우
         if (input.y == 0.0f)
         {
-            // 점프시, 바닥일 경우, 벽과 닿고있을 경우 -> 탈출
-            if (move.isJumping || move.IsGrounded())
+            // exit on jump
+            if (move.isJumping)
+            {
+                // wall jump is only enabled when there is x axis input
+                if (input.x != 0)
+                {
+                    // dont wait for re-entry when jumping from wall
+                    waitForReEntry = false;
+                    wallJump = new WallJump
+                    {
+                        state = WallJump.State.Begin,
+                        StartDir = input
+                    };
+                }
+                return State.Tracking;
+            }
+            // 바닥인데 아래로 갈려고 하는 경우 -> 탈출
+            else if (move.IsGrounded())
                 return State.Tracking;
 
             // 일단 벽에 붙기
@@ -209,13 +237,11 @@ public class WallEffector : ClimbingMove
         return direction;
     }
 
-    protected override bool OnStart()
+    protected override void OnStart()
     {
         bool wallFacingRight = wallContact.point.x - transform.position.x > 0;
         if (wallFacingRight != move.facingRight)
             move.Flip();
-
-        return true;
     }
 
     private bool CheckCollisionMask(Collision2D collision)
@@ -231,5 +257,44 @@ public class WallEffector : ClimbingMove
     {
         // this returns last contact info only for temporary perpose
         return wallContactList[wallContactList.Count - 1];
+    }
+
+
+    struct WallJump
+    {
+        public enum State
+        {
+            Null,
+            Begin,
+            Doing
+        }
+
+        public State state;
+        public Vector2 StartDir;
+    }
+
+    private Vector2 CalculateWallJump()
+    {
+        if (wallJump.StartDir.x * rigid.velocity.x < 0)
+            wallJump.state = WallJump.State.Null;
+
+        switch (wallJump.state)
+        {
+            case WallJump.State.Begin:
+                wallJump.state = WallJump.State.Doing;
+                return new Vector2(
+                    rigid.velocity.x * jumpEscapeScaleFactor.x,
+                    rigid.velocity.y * jumpEscapeScaleFactor.y);
+
+            case WallJump.State.Doing:
+                return new Vector2(
+                    rigid.velocity.x * jumpEscapeScaleFactor.x,
+                    rigid.velocity.y);
+
+            case WallJump.State.Null:
+                break;
+        }
+
+        return rigid.velocity;
     }
 }

@@ -145,7 +145,8 @@ public class PlayerMove : MonoBehaviour
         if (jump != null)
             jump.Post(soundObject);
 
-        if (IsGrounded())
+        // Climbing 중에도 double jump가 가능하게끔 수정
+        if (IsGrounded() || isClimbing)
         {
             canDoubleJump = true;
         }

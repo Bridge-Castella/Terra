@@ -9,11 +9,12 @@ public class SplineMove : ClimbingMove
 		BelowEnd
 	}
 
+	[SerializeField] private float orientationFactor = 1.0f;
+	[SerializeField] private GameObject arm;
     private int currentIndex;
     private int predictedIndex;
 
 	private Vector2[] points;
-	private float distanceTrash = 1.0f;
 
     protected override Vector2 UpdateDirection(Vector2 input)
     {
@@ -28,8 +29,12 @@ public class SplineMove : ClimbingMove
         Vector2 pos = transform.position;
 
         //목표지점으로의 방향 벡터
-        Vector2 direction = points[predictedIndex] - pos;
-        direction.Normalize();
+        Vector2 direction = (points[predictedIndex] - pos).normalized;
+
+		// 방향 보정 계수 * 진행방향
+		// 테라가 급격하게 중앙점으로 향하는 현상을 완화
+		Vector2 desiredDir = (points[predictedIndex] - points[currentIndex]).normalized;
+		direction = (direction + orientationFactor * desiredDir).normalized;
 
         if (Mathf.Abs(direction.x) > 0.4
             && ((direction.x > 0f) != move.facingRight))
@@ -38,39 +43,19 @@ public class SplineMove : ClimbingMove
         return direction;
     }
 
-    protected override bool OnStart()
+    protected override void OnStart()
     {
         var closest = FindClosestPoint();
         currentIndex = closest.Item1;
         predictedIndex = closest.Item2;
 
-        // 방향벡터
-        Vector2 diff = (points[closest.Item2] - points[closest.Item1]).normalized;
-
-        // player로의 방향벡터
-        Vector2 pos = transform.position;
-        Vector2 player_dir = pos - points[closest.Item1];
-
-        // 거리
-        float distance = Vector2.Dot(diff, player_dir);
-
-        // 원하는 위치 = 방향벡터 x 거리 + 방향벡터의 원점
-        Vector2 closestPoint = (diff * distance) + points[closest.Item1];
-
-        //사다리와 충분히 가까운지 검사
-        float dist = Vector2.Distance(transform.position, closestPoint);
-        if (dist > distanceTrash)
-            return false;
+        // 원하는 위치 = 가장 가까운 위치
+        Vector2 closestPoint = points[closest.Item1];
 
         //사다리방향으로 방향전환
         bool ladderFacingRight = closestPoint.x - transform.position.x > 0;
         if (ladderFacingRight != move.facingRight)
             move.Flip();
-
-        //사다리에서 가장 가까운 위치로 이동
-        transform.position = closestPoint;
-
-		return true;
     }
 
     protected override State UpdateState(Vector2 input)
@@ -113,19 +98,16 @@ public class SplineMove : ClimbingMove
 		}
 	}
 
-    public void Activate(Vector2[] points, float speed, float distanceTrash)
+    public void Activate(Vector2[] points, float speed)
 	{
 		this.points = points;
-		this.speed = speed;
-		this.distanceTrash = distanceTrash;
-
+		settings.speed = speed;
 		StartTracking();
 	}
 
 	public void Deactivate()
 	{
 		points = null;
-
 		ExitTracking();
 	}
 

@@ -6,19 +6,15 @@ using UnityEngine.U2D;
 public class LadderMovement : MonoBehaviour
 {
     private Vector2[] points;
-    private SplineMove spline;
-
+    
     public float Speed = 1.0f;
-    public float DistanceTrash = 0.5f;
 
 	void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        spline = player.GetComponent<SplineMove>();
-
         //Spline points 위치 초기화
         var edgeCollider = GetComponent<EdgeCollider2D>();
         var rawPoints = edgeCollider.points;
+
         points = new Vector2[rawPoints.Length];
 		for (int i = 0; i < rawPoints.Length; i++)
 		{
@@ -28,17 +24,18 @@ public class LadderMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("PlayerLadderCollider"))
         {
-            spline.Activate(points, Speed, DistanceTrash);
+            collision.GetComponent<SplineMove>()
+                .Activate(points, Speed);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("PlayerLadderCollider"))
         {
-            spline.Deactivate();
+            collision.GetComponent<SplineMove>().Deactivate();
         }
     }
 }
