@@ -16276,6 +16276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc51d9ed029e446dacf83db70971548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homeItemPrefab: {fileID: 0}
   detailPanel: {fileID: 7578334381513568928}
 --- !u!1 &7578334380349088124
 GameObject:
@@ -20845,6 +20846,7 @@ MonoBehaviour:
   itemGrid: {fileID: 7578334380338298829}
   pointer: {fileID: 7578334381447577928}
   description: {fileID: 7578334380422012646}
+  y_init: 0
 --- !u!1 &7578334381532424831
 GameObject:
   m_ObjectHideFlags: 0
