@@ -181,7 +181,8 @@ public class WallEffector : ClimbingMove
                 }
                 return State.Tracking;
             }
-            // 바닥인데 아래로 갈려고 하는 경우 -> 탈출
+
+            // 바닥인경우
             else if (move.IsGrounded())
                 return State.Tracking;
 
@@ -242,6 +243,15 @@ public class WallEffector : ClimbingMove
         bool wallFacingRight = wallContact.point.x - transform.position.x > 0;
         if (wallFacingRight != move.facingRight)
             move.Flip();
+
+        foreach (var sprite in transform.parent.GetComponentsInChildren<SpriteRenderer>())
+            sprite.sortingLayerName = "Flake";
+    }
+
+    protected override void OnExit()
+    {
+        foreach (var sprite in transform.parent.GetComponentsInChildren<SpriteRenderer>())
+            sprite.sortingLayerName = "Player";
     }
 
     private bool CheckCollisionMask(Collision2D collision)
