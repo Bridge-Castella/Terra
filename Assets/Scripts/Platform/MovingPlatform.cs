@@ -58,6 +58,17 @@ public class MovingPlatform : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().interpolation
                 = RigidbodyInterpolation2D.Extrapolate;
         }
+
+        // fix: sticky wall
+        // second fix for non interactive other objects
+        else if (collision.gameObject.CompareTag("PlayerPlatformCollider"))
+        {
+            isMoving = true;
+            collision.transform.parent.SetParent(transform);
+
+            collision.gameObject.GetComponent<Rigidbody2D>().interpolation
+                = RigidbodyInterpolation2D.Extrapolate;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -69,6 +80,17 @@ public class MovingPlatform : MonoBehaviour
 
             // Fix: smoothing the jump animation
             // This prevents terra digging into the ground
+            collision.gameObject.GetComponent<Rigidbody2D>().interpolation
+                = RigidbodyInterpolation2D.Interpolate;
+        }
+
+        // fix: sticky wall
+        // second fix for non interactive other objects
+        else if (collision.gameObject.CompareTag("PlayerPlatformCollider"))
+        {
+            isMoving = true;
+            collision.transform.parent.SetParent(null);
+
             collision.gameObject.GetComponent<Rigidbody2D>().interpolation
                 = RigidbodyInterpolation2D.Interpolate;
         }

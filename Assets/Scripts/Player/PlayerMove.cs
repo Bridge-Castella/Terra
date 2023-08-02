@@ -9,7 +9,7 @@ public class PlayerMove : MonoBehaviour
     [Header("NPC 인식하는 레이어")]
     [SerializeField] private LayerMask NPCLayerMask = default;
     [Header("중력 값")]
-    [SerializeField] private float gravityScale;
+    [SerializeField] internal float gravityScale;
     [Header("떨어질때 중력에 곱하는 배수")]
     public float fallGravityMultiflier;
 
@@ -33,7 +33,7 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector] public bool isJumping = false; //점프하는 상태인 경우
     [HideInInspector] public bool isTalking = false;
     [HideInInspector] public bool isFalling = false;
-    [HideInInspector] public bool isLaddering = false; //사다리관련 bool 변수
+    [HideInInspector] public bool isClimbing = false; //사다리관련 bool 변수
     [HideInInspector] public bool onSceneChange = false; //Scene 변경관련 bool 변수
 
 	//Scene 변경시 목표지점
@@ -73,7 +73,7 @@ public class PlayerMove : MonoBehaviour
         
         animator = GetComponent<Animator>();        
         abilities = GetComponent<PlayerAbilityTracker>();
-        effector = GetComponent<WallEffector>();
+        effector = GetComponentInChildren<WallEffector>();
 
         if (GlobalContainer.contains("StartPos"))
             transform.position = GlobalContainer.load<Vector3>("StartPos");
@@ -109,11 +109,11 @@ public class PlayerMove : MonoBehaviour
             }
 
             //yesman: 바닥에 있는 동안은 점프 애니메이션을 출력하지 않음.
-            animator.SetBool("isJumping", (!IsGrounded() && !isLaddering));
+            animator.SetBool("isJumping", (!IsGrounded() && !isClimbing));
 
             //Coyote Time
             //Jump and Double Jump
-            if ((Input.GetButtonDown("Jump") && (IsGrounded() || (canDoubleJump && abilities.canDoubleJump) || isLaddering))
+            if ((Input.GetButtonDown("Jump") && (IsGrounded() || (canDoubleJump && abilities.canDoubleJump) || isClimbing))
                 || (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump")))
             {
                 Jump();
@@ -145,7 +145,8 @@ public class PlayerMove : MonoBehaviour
         if (jump != null)
             jump.Post(soundObject);
 
-        if (IsGrounded())
+        // Climbing 중에도 double jump가 가능하게끔 수정
+        if (IsGrounded() || isClimbing)
         {
             canDoubleJump = true;
         }
@@ -192,7 +193,7 @@ public class PlayerMove : MonoBehaviour
             rigid.velocity = new Vector2(0, 0);
             moveHorizontalInput = 0;
         }
-        else if (isLaddering) return;
+        else if (isClimbing) return;
         else if (onSceneChange)
         {
             Vector3 diff = waypoint - transform.position;
@@ -226,7 +227,7 @@ public class PlayerMove : MonoBehaviour
         else
         {
             rigid.velocity = new Vector2(moveHorizontalInput * maxSpeed, rigid.velocity.y);
-            effector.CheckWall();
+            rigid.velocity = effector.CheckWall();
 
             if (moveHorizontalInput != 0 && IsGrounded())
             {

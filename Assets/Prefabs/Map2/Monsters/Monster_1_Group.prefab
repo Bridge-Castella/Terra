@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Edge1: {fileID: 3875875704006075142}
   Edge2: {fileID: 3875875702886615337}
-  enemy: {fileID: 0}
+  enemy: {fileID: 2796957926700923191}
   speed: 2
   idleDuration: 1
 --- !u!1 &3875875703999344960
@@ -152,7 +152,7 @@ PrefabInstance:
     - target: {fileID: 66306985377900665, guid: 71e2ce90abf2f564cbafd13d1398f883,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.0000076293945
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 66306985377900665, guid: 71e2ce90abf2f564cbafd13d1398f883,
         type: 3}
@@ -239,10 +239,15 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Extent.x
       value: 1.5042349
       objectReference: {fileID: 0}
+    - target: {fileID: 1585255207144149505, guid: 71e2ce90abf2f564cbafd13d1398f883,
+        type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 1.2028499
+      objectReference: {fileID: 0}
     - target: {fileID: 7248532403271294005, guid: 71e2ce90abf2f564cbafd13d1398f883,
         type: 3}
       propertyPath: m_Name
-      value: monster_leaf 1
+      value: monster_leaf
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71e2ce90abf2f564cbafd13d1398f883, type: 3}
