@@ -55,12 +55,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3875875702952728824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 111.16, y: 36.07, z: 0}
+  m_LocalPosition: {x: 109.3, y: 35.45, z: 0}
   m_LocalScale: {x: 0.9999649, y: 1, z: 1}
   m_Children:
   - {fileID: 3875875704006075142}
   - {fileID: 3875875702886615337}
-  - {fileID: 2796957926700923191}
+  - {fileID: 7647867422989688202}
   m_Father: {fileID: 3875875703999344961}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Edge1: {fileID: 3875875704006075142}
   Edge2: {fileID: 3875875702886615337}
-  enemy: {fileID: 0}
+  enemy: {fileID: 7647867422989688202}
   speed: 2
   idleDuration: 1
 --- !u!1 &3875875703999344960
@@ -104,7 +104,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3875875703999344960}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 82.78906, y: -8.497032, z: 0}
   m_LocalScale: {x: 1.0000352, y: 1, z: 1}
   m_Children:
@@ -142,7 +142,7 @@ Transform:
   m_Father: {fileID: 3875875702952728825}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3875875704232639805
+--- !u!1001 &8735722025667516800
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -152,22 +152,22 @@ PrefabInstance:
     - target: {fileID: 66306985377900665, guid: 71e2ce90abf2f564cbafd13d1398f883,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.0000076293945
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 66306985377900665, guid: 71e2ce90abf2f564cbafd13d1398f883,
         type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.0016989112
+      value: 0.0017008185
       objectReference: {fileID: 0}
     - target: {fileID: 66306985377900665, guid: 71e2ce90abf2f564cbafd13d1398f883,
         type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 1.0149925
+      value: 1.0150001
       objectReference: {fileID: 0}
     - target: {fileID: 66306985377900665, guid: 71e2ce90abf2f564cbafd13d1398f883,
         type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 0.8883011
+      value: 0.88829917
       objectReference: {fileID: 0}
     - target: {fileID: 1376177343460197386, guid: 71e2ce90abf2f564cbafd13d1398f883,
         type: 3}
@@ -227,7 +227,7 @@ PrefabInstance:
     - target: {fileID: 1585255207144149505, guid: 71e2ce90abf2f564cbafd13d1398f883,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.00074982643
+      value: -0.0007650852
       objectReference: {fileID: 0}
     - target: {fileID: 1585255207144149505, guid: 71e2ce90abf2f564cbafd13d1398f883,
         type: 3}
@@ -239,16 +239,21 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Extent.x
       value: 1.5042349
       objectReference: {fileID: 0}
+    - target: {fileID: 1585255207144149505, guid: 71e2ce90abf2f564cbafd13d1398f883,
+        type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 1.2028499
+      objectReference: {fileID: 0}
     - target: {fileID: 7248532403271294005, guid: 71e2ce90abf2f564cbafd13d1398f883,
         type: 3}
       propertyPath: m_Name
-      value: monster_leaf 1
+      value: monster_leaf
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71e2ce90abf2f564cbafd13d1398f883, type: 3}
---- !u!4 &2796957926700923191 stripped
+--- !u!4 &7647867422989688202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1376177343460197386, guid: 71e2ce90abf2f564cbafd13d1398f883,
     type: 3}
-  m_PrefabInstance: {fileID: 3875875704232639805}
+  m_PrefabInstance: {fileID: 8735722025667516800}
   m_PrefabAsset: {fileID: 0}
