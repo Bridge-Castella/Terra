@@ -17,8 +17,6 @@ public class PlayerMove : MonoBehaviour
     public float maxSpeed;
     [Header("플레이어 점프")]
     public float jumpPower;
-    [Header("튕겨나가는 힘")]
-    public float knockBackPower = 30f;
     [Header("발자국 먼지 파티클")]
     public ParticleSystem dust;
     [Header("착지 먼지 파티클")]
@@ -302,7 +300,7 @@ public class PlayerMove : MonoBehaviour
         isHurting = true;
     }
 
-    public void DamageKnockBack(Vector3 targetPos, int damageAmount)
+    public void DamageKnockBack(Vector3 targetPos, float knockBackPower = 30f)
     {
         //플레이어와 대상의 위치를 계산해서 반대쪽으로 튕기도록 방향 설정
         int dir = transform.position.x - targetPos.x > 0 ? 1 : -1;
