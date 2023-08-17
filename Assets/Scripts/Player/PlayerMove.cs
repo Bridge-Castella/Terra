@@ -32,10 +32,10 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector] public bool isTalking = false;
     [HideInInspector] public bool isFalling = false;
     [HideInInspector] public bool isClimbing = false; //사다리관련 bool 변수
-    [HideInInspector] public bool onSceneChange = false; //Scene 변경관련 bool 변수
+    [HideInInspector] public bool isAutoMove = false; //Scene 변경관련 bool 변수
 
 	//Scene 변경시 목표지점
-	[HideInInspector] public Vector3 waypoint;
+	[HideInInspector] public Vector3 prefferedDirection;
 
 	private CapsuleCollider2D capsuleCollider2D;
     private SpriteRenderer[] spriteRenderer = new SpriteRenderer[5];
@@ -84,7 +84,11 @@ public class PlayerMove : MonoBehaviour
             rigid.gravityScale = 0f;
             rigid.velocity = new Vector2(0, 0);
         }
-        else if (onSceneChange) return;
+        else if (isAutoMove)
+        {
+            //yesman: 바닥에 있는 동안은 점프 애니메이션을 출력하지 않음.
+            animator.SetBool("isJumping", (!IsGrounded() && !isClimbing));
+        }
         else
         {
             animator.SetFloat("yVelocity", rigid.velocity.y);
@@ -192,20 +196,37 @@ public class PlayerMove : MonoBehaviour
             moveHorizontalInput = 0;
         }
         else if (isClimbing) return;
-        else if (onSceneChange)
+        else if (isAutoMove)
         {
-            Vector3 diff = waypoint - transform.position;
-            bool direction = Mathf.Abs(diff.x) > Mathf.Abs(diff.y);
+            float multiplier;
 
-            if (direction)
+            // 움직이고자 하는 방향이 zero라면 움직이지 않음
+            if (prefferedDirection == Vector3.zero)
             {
-                float speed = diff.x > 0.0f ? maxSpeed : -maxSpeed;
-                rigid.velocity = new Vector2(speed, rigid.velocity.y);
+                multiplier = 0f;
             }
             else
             {
-                float speed = diff.y > 0.0f ? maxSpeed : -maxSpeed;
-                rigid.velocity = new Vector2(rigid.velocity.x, speed);
+                // normalize 비스무리한 값 산출
+                // velocity가 horizontal.normalized + vertical.normalized로 적용되기에 아래와 같이 계산
+                // 절대값이 더 큰 쪽을 10으로 만들고 나머지를 이에 비례하는 값으로 만듦
+                multiplier = Mathf.Abs(prefferedDirection.x) > Mathf.Abs(prefferedDirection.y) ?
+                    maxSpeed / Mathf.Abs(prefferedDirection.x) :
+                    maxSpeed / Mathf.Abs(prefferedDirection.y);
+            }
+
+            rigid.velocity = IsGrounded() ? prefferedDirection * multiplier :
+                // 점프중에는 진행방향 y velocity 무시
+                // 기존 velocity의 y velocity를 그대로 사용
+                new Vector3((prefferedDirection * multiplier).x, rigid.velocity.y, 0f);
+
+            if (rigid.velocity.x > 0 && !facingRight)
+            {
+                Flip();
+            }
+            else if (rigid.velocity.x < 0 && facingRight)
+            {
+                Flip();
             }
         }
         //날개 아이템 사용

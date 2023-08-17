@@ -19,7 +19,7 @@ public class MapStateChanger : MonoBehaviour
         mapIndex = MapManager.ToMapIndex(sceneIndex);
 
         // Load Data from saved file
-        loadData();
+        LoadData();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,7 +32,7 @@ public class MapStateChanger : MonoBehaviour
         MapManager.state.current = this;
 
         // Scrolling Ground 활성화
-        StartCoroutine(SetActive(true));
+        SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -41,22 +41,22 @@ public class MapStateChanger : MonoBehaviour
             return;
 
         // Disable scrolling background
-        StartCoroutine(SetActive(false));
+        SetActive(false);
 
         // Save active state objects before unload
-        saveData();
+        SaveData();
     }
 
-    private IEnumerator SetActive(bool active)
+    private void SetActive(bool active)
     {
-        yield return new WaitForSeconds(0.1f);
+        //yield return new WaitForSeconds(0.1f);
         foreach (var sg in scrollingGrounds)
         {
             sg.SetActive(active);
         }
     }
 
-    public void loadData()
+    public void LoadData()
     {
         int intMapIndex = (int)mapIndex - 1;
         bool[] active = MapManager.active[intMapIndex];
@@ -71,7 +71,7 @@ public class MapStateChanger : MonoBehaviour
         }
     }
 
-    public void saveData()
+    public void SaveData()
     {
         if (objectGroups == null)
             return;

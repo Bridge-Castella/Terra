@@ -42,7 +42,7 @@ public class CheckPoint : MonoBehaviour
 
         // 이전 Check Point가 위치한 map unload
         if (MapManager.state.checkPoint != MapManager.MapIndex.Login
-            && MapManager.IsMapOutOfRange(previous))
+            && MapManager.TryRemoveFromOutOfRange(previous))
                 MapManager.UnloadMap(previous);
     }
 }
