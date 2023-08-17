@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
@@ -15,7 +13,7 @@ public class SaveManager
         public float y;
         public float z;
 
-        public static SerializableVec convert(Vector3 vec)
+        public static SerializableVec Convert(Vector3 vec)
         {
             return new SerializableVec { x = vec.x, y = vec.y, z = vec.z };
         }
@@ -39,12 +37,14 @@ public class SaveManager
 
     public static void SaveGame()
     {
-        SaveData data = new SaveData();
-        data.checkPoint = SerializableVec.convert(ControlManager.instance.startPoint);
-        data.playerHeart = HeartManager.instance.heartNum;
-        data.mapData = MapManager.saveData();
-        data.questData = QuestManager.saveData();
-        data.inventoryData = Inventory.instance.SaveData();
+        SaveData data = new SaveData
+        {
+            checkPoint = SerializableVec.Convert(ControlManager.instance.startPoint),
+            playerHeart = HeartManager.instance.heartNum,
+            mapData = MapManager.SaveData(),
+            questData = QuestManager.saveData(),
+            inventoryData = Inventory.instance.SaveData()
+        };
 
         try
         {
@@ -93,7 +93,7 @@ public class SaveManager
             return null;
         }
 
-        MapManager.loadData(data.mapData);
+        MapManager.LoadData(data.mapData);
         QuestManager.loadData(data.questData);
         GlobalContainer.store("inventory", data.inventoryData);
         GlobalContainer.store("StartPos", SerializableVec.ToVec3(data.checkPoint));

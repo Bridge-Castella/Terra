@@ -5,12 +5,17 @@ using Cinemachine;
 
 public class VirtualCamController : MonoBehaviour
 {
+    public static VirtualCamController Current;
     public GameObject virtualCam;
+
+    private CinemachineVirtualCamera cinemachineCam;
+    private Transform playerTransform;
 
     private void Awake()
     {
-        Transform player_tf = GameObject.FindGameObjectWithTag("Player").transform;
-        virtualCam.GetComponent<CinemachineVirtualCamera>().Follow = player_tf;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        cinemachineCam = virtualCam.GetComponent<CinemachineVirtualCamera>();
+        cinemachineCam.Follow = playerTransform;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,6 +23,7 @@ public class VirtualCamController : MonoBehaviour
         if(collision.CompareTag("Player") && !collision.isTrigger)
         {
             virtualCam.SetActive(true);
+            Current = this;
         }
     }
 
@@ -26,6 +32,7 @@ public class VirtualCamController : MonoBehaviour
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
             virtualCam.SetActive(false);
+            Current = null;
         }
     }
 }
