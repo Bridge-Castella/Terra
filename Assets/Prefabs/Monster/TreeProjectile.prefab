@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6524455231704052412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.402, y: 0.402, z: 1}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2a67d18d0924840a4147aa12366241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 1000
-  torque: 45
+  force: 1500
+  torque: 100
   rigid: {fileID: 6796055967246437006}
   popEffect: {fileID: 2233205474477863648, guid: 5d2a211c6f8be8246b8670a201b3118c,
     type: 3}
@@ -145,8 +145,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 1.9866899
   m_LinearDrag: 0
   m_AngularDrag: 1
   m_GravityScale: 1
