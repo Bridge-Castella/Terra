@@ -29,6 +29,7 @@ public class SaveManager
     {
         public SerializableVec checkPoint;
         public int playerHeart;
+        public bool homePhotoInitialized;
 
         public MapManager.Save mapData;
         public QuestManager.Save questData;
@@ -43,7 +44,8 @@ public class SaveManager
             playerHeart = HeartManager.instance.heartNum,
             mapData = MapManager.SaveData(),
             questData = QuestManager.saveData(),
-            inventoryData = Inventory.instance.SaveData()
+            inventoryData = Inventory.instance.SaveData(),
+            homePhotoInitialized = GlobalContainer.load<bool>("HomePhoto")
         };
 
         try
@@ -98,6 +100,7 @@ public class SaveManager
         GlobalContainer.store("inventory", data.inventoryData);
         GlobalContainer.store("StartPos", SerializableVec.ToVec3(data.checkPoint));
         GlobalContainer.store("Heart", data.playerHeart);
+        GlobalContainer.store("HomePhoto", data.homePhotoInitialized);
 
         return data;
     }
