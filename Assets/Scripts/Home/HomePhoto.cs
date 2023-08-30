@@ -23,14 +23,14 @@ public class HomePhoto : MonoBehaviour
 
     private void Start()
     {
-        if (!GlobalContainer.contains("HomePhoto"))
-            GlobalContainer.store("HomePhoto", false);
-
         UpdateUI();
     }
 
     public void UpdateUI()
     {
+        if (!GlobalContainer.contains("HomePhoto"))
+            GlobalContainer.store("HomePhoto", false);
+
         ActivatePhotos(GlobalContainer.load<bool>("HomePhoto"));
     }
 
