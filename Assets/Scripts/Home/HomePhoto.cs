@@ -128,7 +128,7 @@ public class HomePhoto : MonoBehaviour
             yield return null;
 
         // finally play the video
-        //prologuePlayer.Play();
+        prologuePlayer.Play();
         while (prologuePlayer.isPlaying)
             yield return null;
 
