@@ -1,25 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class HomePhotoButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+public class HomePhotoButton : HomeButtonBase
 {
     static int hoverRefCount = 0;
 
     [SerializeField] HomePhoto controller;
 
-    private void Start()
-    {
-        GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
+    public override void OnMouseEnter()
     {
         hoverRefCount++;
         controller.OnEnterPhoto();
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public override void OnMouseExit()
     {
         hoverRefCount--;
         if (hoverRefCount <= 0)
@@ -29,7 +23,7 @@ public class HomePhotoButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
         }
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public override void OnMouseClick()
     {
         hoverRefCount = 0;
         controller.OnExitPhoto();

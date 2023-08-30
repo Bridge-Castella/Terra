@@ -2,17 +2,23 @@ using UnityEngine;
 
 public class Home : MonoBehaviour
 {
-    [SerializeField] GameObject[] buttons;
+    [SerializeField] HomeButtonBase[] buttons;
+    [SerializeField] GameObject PanelBackgroud;
 
     public void EnableButtons()
     {
         foreach (var button in buttons)
-            button.SetActive(true);
+            button.interactable = true;
     }
 
     public void DisableButtons()
     {
         foreach (var button in buttons)
-            button.SetActive(false);
+            button.interactable = false;
+    }
+
+    public void ActivatePanelBackground(bool active)
+    {
+        PanelBackgroud.SetActive(active);
     }
 }

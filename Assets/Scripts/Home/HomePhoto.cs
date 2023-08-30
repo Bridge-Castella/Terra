@@ -5,65 +5,48 @@ using UnityEngine.Video;
 
 public class HomePhoto : MonoBehaviour
 {
+    [SerializeField] Home homeController;
     [SerializeField] GameObject detail;
     [SerializeField] GameObject panel;
 
     [SerializeField] VideoPlayer prologuePlayer;
     [SerializeField] int frameToSkip;
 
-    [SerializeField] GameObject mainButton;
-    [SerializeField] GameObject mainShadow;
-    [SerializeField] Image mainImage;
-    [SerializeField] Image extraImage;
-    [SerializeField] Sprite prev;
-    [SerializeField] Sprite after;
+    [SerializeField] RectTransform photoGroup;
     [SerializeField] float appearDuration;
     [SerializeField] float suspendDuration;
     [SerializeField] Vector2 mouseHoverPos;
 
-    [SerializeField] Image[] photos;
-    [SerializeField] GameObject[] buttons;
-    [SerializeField] GameObject[] shadows;
+    [SerializeField] Image[] activatablePhotos;
+    [SerializeField] GameObject[] activatableButtons;
+    [SerializeField] GameObject[] activatableShadows;
 
     private void Start()
     {
-        // if the prologue vidoe has been played
-        if (GlobalContainer.contains("HomePhoto") &&
-            GlobalContainer.load<bool>("HomePhoto"))
-        {
-            // load full image
-            mainImage.sprite = after;
-
-            // now buttons should be interactive on start
-            foreach (var button in buttons)
-                button.SetActive(true);
-        }
-
-        // if the prologue video has not been played
-        else
-        {
-            // store value just to prevent null key
+        if (!GlobalContainer.contains("HomePhoto"))
             GlobalContainer.store("HomePhoto", false);
 
-            // load partial image
-            mainImage.sprite = prev;
-            mainShadow.SetActive(true);
-            extraImage.gameObject.SetActive(true);
-
-            // disable buttons
-            foreach (var button in buttons)
-                button.SetActive(false);
-
-            // disable other photos
-            foreach (var photo in photos)
-                photo.gameObject.SetActive(false);
-
-            foreach (var shadow in shadows)
-                shadow.SetActive(false);
-        }
+        UpdateUI();
     }
 
-    public void UpdateUI(Image photo)
+    public void UpdateUI()
+    {
+        ActivatePhotos(GlobalContainer.load<bool>("HomePhoto"));
+    }
+
+    private void ActivatePhotos(bool active)
+    {
+        foreach (var button in activatableButtons)
+            button.SetActive(active);
+
+        foreach (var photo in activatablePhotos)
+            photo.gameObject.SetActive(active);
+
+        foreach (var shadow in activatableShadows)
+            shadow.SetActive(active);
+    }
+
+    public void UpdateDetailPanel(Image photo)
     {
         var rect = detail.GetComponent<RectTransform>();
         var image = detail.GetComponent<Image>();
@@ -82,14 +65,12 @@ public class HomePhoto : MonoBehaviour
 
     public void OnEnterPhoto()
     {
-        mainImage.transform.parent.GetComponent<RectTransform>()
-            .anchoredPosition = mouseHoverPos;
+        photoGroup.anchoredPosition = mouseHoverPos;
     }
 
     public void OnExitPhoto()
     {
-        mainImage.transform.parent.GetComponent<RectTransform>()
-            .anchoredPosition = Vector3.zero;
+        photoGroup.anchoredPosition = Vector3.zero;
     }
 
     public void OnClickPhoto()
@@ -98,6 +79,9 @@ public class HomePhoto : MonoBehaviour
 
         if (GlobalContainer.load<bool>("HomePhoto"))
         {
+            homeController.DisableButtons();
+            homeController.ActivatePanelBackground(true);
+
             // show the panel
             panel.SetActive(true);
         }
@@ -113,8 +97,8 @@ public class HomePhoto : MonoBehaviour
 
     private IEnumerator PlayPrologue()
     {
-        // disable buttons
-        mainButton.SetActive(false);
+        // disable all the buttons
+        homeController.DisableButtons();
 
         // this is to make video player prepare for playing
         prologuePlayer.Pause();
@@ -132,7 +116,7 @@ public class HomePhoto : MonoBehaviour
                 yield return null;
         }
 
-        // now appear the rendered image
+        // now appear the rendering image which used in video player
         var drawImage = prologuePlayer.GetComponent<RawImage>();
         var color = drawImage.color;
         color.a = 1.0f;
@@ -144,7 +128,7 @@ public class HomePhoto : MonoBehaviour
             yield return null;
 
         // finally play the video
-        prologuePlayer.Play();
+        //prologuePlayer.Play();
         while (prologuePlayer.isPlaying)
             yield return null;
 
@@ -155,21 +139,26 @@ public class HomePhoto : MonoBehaviour
         // now we can show other photos
         yield return PhotoAppearLearp();
 
-        // and activate other buttons too
-        mainButton.transform.parent.gameObject.SetActive(true);
-        mainButton.SetActive(true);
-        foreach (var button in buttons)
+        // and activate other buttons
+        foreach (var button in activatableButtons)
             button.SetActive(true);
 
-        foreach (var shadow in shadows)
+        // reset shader for shadow effect
+        foreach (var photo in activatablePhotos)
+            photo.material = null;
+
+        // enable shaders
+        foreach (var shadow in activatableShadows)
             shadow.SetActive(true);
+
+        homeController.EnableButtons();
     }
 
     private IEnumerator PhotoAppearLearp()
     {
         // just grab one of the material
         // since all the photos use same shader, we can just grab anything
-        var material = photos[0].material;
+        var material = activatablePhotos[0].material;
         var timeElasped = 0f;
 
         // just to make sure that the photo starts from the beginning
@@ -183,7 +172,7 @@ public class HomePhoto : MonoBehaviour
         }
 
         // now photo can appear
-        foreach (var photo in photos)
+        foreach (var photo in activatablePhotos)
             photo.gameObject.SetActive(true);
 
         timeElasped = 0f;
