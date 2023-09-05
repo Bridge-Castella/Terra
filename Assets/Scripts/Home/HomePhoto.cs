@@ -3,13 +3,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
+using static HomePhotoButton;
+
 public class HomePhoto : MonoBehaviour
 {
+    [System.Serializable]
+    public struct Photo
+    {
+        public bool activatable;
+        public Image image;
+        public GameObject shadow;
+        public VideoPlayer prologueVideo;
+        public PhotoType photo;
+    }
+
     [SerializeField] Home homeController;
     [SerializeField] GameObject detail;
     [SerializeField] GameObject panel;
 
-    [SerializeField] VideoPlayer prologuePlayer;
     [SerializeField] int frameToSkip;
 
     [SerializeField] RectTransform photoGroup;
@@ -17,33 +28,66 @@ public class HomePhoto : MonoBehaviour
     [SerializeField] float suspendDuration;
     [SerializeField] Vector2 mouseHoverPos;
 
-    [SerializeField] Image[] activatablePhotos;
-    [SerializeField] GameObject[] activatableButtons;
-    [SerializeField] GameObject[] activatableShadows;
+    [SerializeField] Photo[] photos;
+
+    private int hoverRefCount = 0;
 
     private void Start()
     {
         UpdateUI();
+
+        for (int i = 0; i < photos.Length; i++)
+        {
+            var current = photos[i];
+            if ((int)current.photo != i)
+            {
+                var temp = photos[(int)current.photo];
+                photos[(int)current.photo] = current;
+                photos[i] = temp;
+            }
+        }
     }
 
     public void UpdateUI()
     {
         if (!GlobalContainer.contains("HomePhoto"))
-            GlobalContainer.store("HomePhoto", false);
+        {
+            var status = new bool[photos.Length];
+            for (int i = 0; i < photos.Length; i++)
+                status[i] = photos[i].activatable;
 
-        ActivatePhotos(GlobalContainer.load<bool>("HomePhoto"));
+            GlobalContainer.store("HomePhoto", status);
+        }
+
+        ActivatePhotos();
     }
 
-    private void ActivatePhotos(bool active)
+    private void ActivatePhotos()
     {
-        foreach (var button in activatableButtons)
-            button.SetActive(active);
+        var active = AllPhotoShouldAppear();
 
-        foreach (var photo in activatablePhotos)
-            photo.gameObject.SetActive(active);
+        foreach (var photo in photos)
+        {
+            if (!photo.activatable)
+                continue;
 
-        foreach (var shadow in activatableShadows)
-            shadow.SetActive(active);
+            photo.image.gameObject.SetActive(active);
+            photo.shadow.SetActive(active);
+        }
+    }
+
+    private bool AllPhotoShouldAppear()
+    {
+        bool active = true;
+        foreach (var state in GlobalContainer.load<bool[]>("HomePhoto"))
+        {
+            if (!state)
+            {
+                active = false;
+                break;
+            }
+        }
+        return active;
     }
 
     public void UpdateDetailPanel(Image photo)
@@ -63,39 +107,68 @@ public class HomePhoto : MonoBehaviour
         image.sprite = photo.sprite;
     }
 
-    public void OnEnterPhoto()
+    public void OnEnterPhoto(PhotoType photo)
     {
+        if (!AllPhotoShouldAppear())
+        {
+            photos[(int)photo].image.GetComponent<RectTransform>()
+                .anchoredPosition = mouseHoverPos;
+            return;
+        }
+
+        hoverRefCount++;
         photoGroup.anchoredPosition = mouseHoverPos;
     }
 
-    public void OnExitPhoto()
+    public void OnExitPhoto(PhotoType photo)
     {
-        photoGroup.anchoredPosition = Vector3.zero;
+        if (!AllPhotoShouldAppear())
+        {
+            photos[(int)photo].image.GetComponent<RectTransform>()
+                .anchoredPosition = Vector3.zero;
+            return;
+        }
+
+        hoverRefCount--;
+        if (hoverRefCount <= 0)
+        {
+            hoverRefCount = 0;
+            photoGroup.anchoredPosition = Vector3.zero;
+        }
     }
 
-    public void OnClickPhoto()
+    public void OnClickPhoto(PhotoType photo)
     {
+        hoverRefCount = 0;
         GetComponentInParent<Home>().DisableButtons();
 
-        if (GlobalContainer.load<bool>("HomePhoto"))
+        if (AllPhotoShouldAppear())
         {
             homeController.DisableButtons();
             homeController.ActivatePanelBackground(true);
 
             // show the panel
             panel.SetActive(true);
+
+            // early return
+            return;
         }
-        else
+
+        var videoPlayer = photos[(int)photo].prologueVideo;
+        if (videoPlayer == null)
         {
-            // play prologue video
-            prologuePlayer.gameObject.SetActive(true);
-            prologuePlayer.Play();
-            prologuePlayer.frame = 0;
-            StartCoroutine(PlayPrologue());
+            Debug.LogError("ERROR: Unable to find prologue video from such photo. " +
+                "This will effect nothing.");
+            return;
         }
+
+        videoPlayer.gameObject.SetActive(true);
+        videoPlayer.Play();
+        videoPlayer.frame = 0;
+        StartCoroutine(PlayPrologue(videoPlayer, photo));
     }
 
-    private IEnumerator PlayPrologue()
+    private IEnumerator PlayPrologue(VideoPlayer prologuePlayer, PhotoType photoType)
     {
         // disable all the buttons
         homeController.DisableButtons();
@@ -115,6 +188,18 @@ public class HomePhoto : MonoBehaviour
             while (!prologuePlayer.isPrepared)
                 yield return null;
         }
+        else
+        {
+            Debug.LogError("ERROR: Could not find prologue video file. " +
+                "Please download it from google drive.\n" +
+                "Since some files exceeds the size limit of github recommendation, " +
+                "it is better to be managed manually.");
+            Debug.LogError("Files should be placed in Assets/Art/Prologue/, " +
+                "and must be linked to each video player.\n" +
+                "Video Player components are located in the following path (in hierachy)\n" +
+                "Family photo: 02.Map_0/GNBCanvas/Content/HomePanel/PrologueFamily\n" +
+                "Town photo: 02.Map_0/GNBCanvas/Content/HomePanel/PrologueTown");
+        }
 
         // now appear the rendering image which used in video player
         var drawImage = prologuePlayer.GetComponent<RawImage>();
@@ -132,24 +217,26 @@ public class HomePhoto : MonoBehaviour
         while (prologuePlayer.isPlaying)
             yield return null;
 
-        // notify that the video has been played
-        GlobalContainer.store("HomePhoto", true);
+        var status = GlobalContainer.load<bool[]>("HomePhoto");
+        status[(int)photoType] = true;
+        GlobalContainer.store("HomePhoto", status);
         prologuePlayer.gameObject.SetActive(false);
+
+        if (!AllPhotoShouldAppear())
+        {
+            homeController.EnableButtons();
+            yield break;
+        }
 
         // now we can show other photos
         yield return PhotoAppearLearp();
 
-        // and activate other buttons
-        foreach (var button in activatableButtons)
-            button.SetActive(true);
-
         // reset shader for shadow effect
-        foreach (var photo in activatablePhotos)
-            photo.material = null;
-
-        // enable shaders
-        foreach (var shadow in activatableShadows)
-            shadow.SetActive(true);
+        foreach (var photo in photos)
+        {
+            photo.image.material = null;
+            photo.shadow.SetActive(true);
+        }
 
         homeController.EnableButtons();
     }
@@ -158,7 +245,7 @@ public class HomePhoto : MonoBehaviour
     {
         // just grab one of the material
         // since all the photos use same shader, we can just grab anything
-        var material = activatablePhotos[0].material;
+        var material = photos[0].image.material;
         var timeElasped = 0f;
 
         // just to make sure that the photo starts from the beginning
@@ -172,8 +259,8 @@ public class HomePhoto : MonoBehaviour
         }
 
         // now photo can appear
-        foreach (var photo in activatablePhotos)
-            photo.gameObject.SetActive(true);
+        foreach (var photo in photos)
+            photo.image.gameObject.SetActive(true);
 
         timeElasped = 0f;
         while (timeElasped < appearDuration)

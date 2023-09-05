@@ -3,30 +3,32 @@ using UnityEngine.UI;
 
 public class HomePhotoButton : HomeButtonBase
 {
-    static int hoverRefCount = 0;
+    [System.Serializable]
+    public enum PhotoType
+    {
+        Self = 0,
+        Tree,
+        Family,
+        Town,
+        Prophecy
+    }
 
     [SerializeField] HomePhoto controller;
+    [SerializeField] PhotoType photo;
 
     public override void OnMouseEnter()
     {
-        hoverRefCount++;
-        controller.OnEnterPhoto();
+        controller.OnEnterPhoto(photo);
     }
 
     public override void OnMouseExit()
     {
-        hoverRefCount--;
-        if (hoverRefCount <= 0)
-        {
-            hoverRefCount = 0;
-            controller.OnExitPhoto();
-        }
+        controller.OnExitPhoto(photo);
     }
 
     public override void OnMouseClick()
     {
-        hoverRefCount = 0;
-        controller.OnExitPhoto();
-        controller.OnClickPhoto();
+        controller.OnExitPhoto(photo);
+        controller.OnClickPhoto(photo);
     }
 }
