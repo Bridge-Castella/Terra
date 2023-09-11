@@ -71,7 +71,7 @@ public class NpcAction : MonoBehaviour
             dialogueUIObject.SetActive(true);
             animator.SetBool("isTalking", true);
             //플레이어 방향 바라보기
-            transform.localScale = new Vector3(player.transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(player.transform.localScale.x * transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
             dialogueUiObjectInstance = Instantiate(dialogueUIObject, canvas.transform);
 
