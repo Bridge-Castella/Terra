@@ -12,7 +12,8 @@ public class HomePhoto : MonoBehaviour
     {
         public bool activatable;
         public Image image;
-        public GameObject shadow;
+        public Shadow shadow;
+        public GameObject button;
         public VideoPlayer prologueVideo;
         public PhotoType photo;
     }
@@ -72,7 +73,7 @@ public class HomePhoto : MonoBehaviour
                 continue;
 
             photo.image.gameObject.SetActive(active);
-            photo.shadow.SetActive(active);
+            photo.shadow.gameObject.SetActive(active);
         }
     }
 
@@ -235,7 +236,8 @@ public class HomePhoto : MonoBehaviour
         foreach (var photo in photos)
         {
             photo.image.material = null;
-            photo.shadow.SetActive(true);
+            photo.shadow.gameObject.SetActive(true);
+            photo.button.SetActive(true);
         }
 
         homeController.EnableButtons();
