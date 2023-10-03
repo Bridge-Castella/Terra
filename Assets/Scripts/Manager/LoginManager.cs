@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class LoginManager : MonoBehaviour
 {
@@ -17,12 +18,15 @@ public class LoginManager : MonoBehaviour
     }
     #endregion
 
-    public Button ContinueButton;
-    public Button ExitGameButton;
-    public Button SettingButton;
-    public Button NewGameButton;
+    [SerializeField] private Button ContinueButton;
+    [SerializeField] private Button ExitGameButton;
+    [SerializeField] private Button SettingButton;
+    [SerializeField] private Button NewGameButton;
 
-    public GameObject optionObject;
+    [SerializeField] private RawImage prologueRawImage;
+    [SerializeField] private VideoPlayer prologuePlayer;
+
+    [SerializeField] private GameObject optionObject;
 
 
     public void Start()
@@ -36,10 +40,9 @@ public class LoginManager : MonoBehaviour
 
     public void NewGame()
     {
-        GlobalContainer.clear();
-        MapManager.ResetData();
-        MapManager.state.map = MapManager.MapIndex.Map1;
-        MapManager.LoadMap(MapManager.MapIndex.Map1);
+        prologueRawImage.gameObject.SetActive(true);
+        prologuePlayer.Play();
+        prologuePlayer.loopPointReached += EndReached;        
     }
 
     public void ContinueGame()
@@ -61,5 +64,13 @@ public class LoginManager : MonoBehaviour
     public void OnClickSettingButton()
     {
         optionObject.SetActive(true);
+    }
+
+    void EndReached(VideoPlayer vp)
+    {
+        GlobalContainer.clear();
+        MapManager.ResetData();
+        MapManager.state.map = MapManager.MapIndex.Map1;
+        MapManager.LoadMap(MapManager.MapIndex.Map1);
     }
 }
