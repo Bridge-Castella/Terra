@@ -57,6 +57,18 @@ public class GlobalContainer
 		return (T)instance.container[key];
 	}
 
+	public static bool tryLoad<T>(string key, out T value) 
+	{
+		if (!instance.container.ContainsKey(key))
+		{
+			value = default;
+			return false;
+		}
+
+		value = load<T>(key);
+		return true;
+	}
+
 	public static void clear()
 	{
 		instance.container.Clear();

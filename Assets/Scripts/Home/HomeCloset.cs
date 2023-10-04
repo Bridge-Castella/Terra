@@ -8,7 +8,7 @@ public class HomeCloset : MonoBehaviour
     [SerializeField] Sprite closedCloset;
     [SerializeField] Sprite openedCloset;
 
-    [SerializeField] GameObject Panel;
+    [SerializeField] InventoryUI inventoryUI;
 
     private bool isOpended = false;
 
@@ -30,7 +30,11 @@ public class HomeCloset : MonoBehaviour
         homeController.ActivatePanelBackground(true);
         isOpended = true;
         closetImage.sprite = openedCloset;
-        Panel.SetActive(true);
+        
+        inventoryUI.gameObject.SetActive(true);
+        inventoryUI.skinSlotGroup.gameObject.SetActive(true);
+        inventoryUI.itemSlotGroup.gameObject.SetActive(false);
+        inventoryUI.UpdateUI();
     }
 
     public void OnExitCloset()
@@ -39,6 +43,7 @@ public class HomeCloset : MonoBehaviour
         homeController.ActivatePanelBackground(false);
         isOpended = false;
         closetImage.sprite = closedCloset;
-        Panel.SetActive(false);
+        
+        inventoryUI.gameObject.SetActive(false);
     }
 }

@@ -29,6 +29,7 @@ public class HomePhoto : MonoBehaviour
     [SerializeField] float suspendDuration;
     [SerializeField] Vector2 mouseHoverPos;
 
+    [SerializeField] bool DEBUG_DONT_PLAY_PROLOGUE_VIDEO;
     [SerializeField] Photo[] photos;
 
     private int hoverRefCount = 0;
@@ -51,7 +52,8 @@ public class HomePhoto : MonoBehaviour
 
     public void UpdateUI()
     {
-        if (!GlobalContainer.contains("HomePhoto"))
+        if (!GlobalContainer.contains("HomePhoto") ||
+            GlobalContainer.load<bool[]>("HomePhoto") == null)
         {
             var status = new bool[photos.Length];
             for (int i = 0; i < photos.Length; i++)
@@ -75,6 +77,13 @@ public class HomePhoto : MonoBehaviour
             photo.image.gameObject.SetActive(active);
             photo.shadow.gameObject.SetActive(active);
         }
+    }
+
+    private void StoreShownHistory(PhotoType photoType)
+    {
+        var status = GlobalContainer.load<bool[]>("HomePhoto");
+        status[(int)photoType] = true;
+        GlobalContainer.store("HomePhoto", status);
     }
 
     private bool AllPhotoShouldAppear()
@@ -138,7 +147,7 @@ public class HomePhoto : MonoBehaviour
         }
     }
 
-    public void OnClickPhoto(PhotoType photo)
+    public void OnClickPhoto(PhotoType photoType)
     {
         hoverRefCount = 0;
         GetComponentInParent<Home>().DisableButtons();
@@ -155,7 +164,7 @@ public class HomePhoto : MonoBehaviour
             return;
         }
 
-        var videoPlayer = photos[(int)photo].prologueVideo;
+        var videoPlayer = photos[(int)photoType].prologueVideo;
         if (videoPlayer == null)
         {
             Debug.LogError("ERROR: Unable to find prologue video from such photo. " +
@@ -163,10 +172,28 @@ public class HomePhoto : MonoBehaviour
             return;
         }
 
+#if UNITY_EDITOR
+        if (DEBUG_DONT_PLAY_PROLOGUE_VIDEO)
+        {
+            StoreShownHistory(photoType);
+            if (!AllPhotoShouldAppear())
+            {
+                homeController.EnableButtons();
+                return;
+            }
+
+            // now we can show other photos
+            StartCoroutine(PhotoAppearLearp());
+
+            homeController.EnableButtons();
+            return;
+        }
+#endif
+
         videoPlayer.gameObject.SetActive(true);
         videoPlayer.Play();
         videoPlayer.frame = 0;
-        StartCoroutine(PlayPrologue(videoPlayer, photo));
+        StartCoroutine(PlayPrologue(videoPlayer, photoType));
     }
 
     private IEnumerator PlayPrologue(VideoPlayer prologuePlayer, PhotoType photoType)
@@ -218,9 +245,7 @@ public class HomePhoto : MonoBehaviour
         while (prologuePlayer.isPlaying)
             yield return null;
 
-        var status = GlobalContainer.load<bool[]>("HomePhoto");
-        status[(int)photoType] = true;
-        GlobalContainer.store("HomePhoto", status);
+        StoreShownHistory(photoType);
         prologuePlayer.gameObject.SetActive(false);
 
         if (!AllPhotoShouldAppear())
@@ -231,14 +256,6 @@ public class HomePhoto : MonoBehaviour
 
         // now we can show other photos
         yield return PhotoAppearLearp();
-
-        // reset shader for shadow effect
-        foreach (var photo in photos)
-        {
-            photo.image.material = null;
-            photo.shadow.gameObject.SetActive(true);
-            photo.button.SetActive(true);
-        }
 
         homeController.EnableButtons();
     }
@@ -272,5 +289,13 @@ public class HomePhoto : MonoBehaviour
             yield return null;
         }
         material.SetFloat("Value", 1f);
+
+        // reset shader for shadow effect
+        foreach (var photo in photos)
+        {
+            photo.image.material = null;
+            photo.shadow.gameObject.SetActive(true);
+            photo.button.SetActive(true);
+        }
     }
 }

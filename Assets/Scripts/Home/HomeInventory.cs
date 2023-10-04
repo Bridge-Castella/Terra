@@ -8,8 +8,7 @@ public class HomeInventory : MonoBehaviour
     [SerializeField] Sprite closedInventory;
     [SerializeField] Sprite openedInventory;
 
-    [SerializeField] HomeItemGroup itemGroup;
-    [SerializeField] GameObject panel;
+    [SerializeField] InventoryUI inventoryUI;
 
     private bool isOpened = false;
 
@@ -32,8 +31,11 @@ public class HomeInventory : MonoBehaviour
 
         isOpened = true;
         inventoryImage.sprite = openedInventory;
-        panel.SetActive(true);
-        itemGroup.UpdateUI();
+        
+        inventoryUI.gameObject.SetActive(true);
+        inventoryUI.skinSlotGroup.gameObject.SetActive(false);
+        inventoryUI.itemSlotGroup.gameObject.SetActive(true);
+        inventoryUI.UpdateUI();
     }
 
     public void OnExitInventory()
@@ -43,6 +45,7 @@ public class HomeInventory : MonoBehaviour
 
         isOpened = false;
         inventoryImage.sprite = closedInventory;
-        panel.SetActive(false);
+        
+        inventoryUI.gameObject.SetActive(false);
     }
 }

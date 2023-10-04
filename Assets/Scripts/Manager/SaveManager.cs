@@ -29,7 +29,7 @@ public class SaveManager
     {
         public SerializableVec checkPoint;
         public int playerHeart;
-        public bool homePhotoInitialized;
+        public bool[] homePhotoInitialized;
 
         public MapManager.Save mapData;
         public QuestManager.Save questData;
@@ -45,8 +45,13 @@ public class SaveManager
             mapData = MapManager.SaveData(),
             questData = QuestManager.saveData(),
             inventoryData = Inventory.instance.SaveData(),
-            homePhotoInitialized = GlobalContainer.load<bool>("HomePhoto")
+            homePhotoInitialized = null
         };
+
+        if (GlobalContainer.tryLoad<bool[]>("HomePhoto", out var homePhotoInit)) 
+        {
+            data.homePhotoInitialized = homePhotoInit;
+        }
 
         try
         {
