@@ -57,11 +57,20 @@ public abstract class ClimbingMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // do nothing on normal condition
         // if terra is unavailable to re-enter climbing we should not enter
         // only one climbing move can own the controll
-        if (state == State.Idle || (ownership != 0 && index != ownership))
+        if (ownership != 0 && index != ownership)
             return;
+
+        // do nothing on normal condition
+        if (state == State.Idle)
+        {
+            // reset values to ensure that current climbing move has lost controll
+            // fix: unable to retrive controll after exiting the ladder
+            //  - now control is forced back to playermove when player has exited the ladder
+            _ReleaseControll();
+            return;
+        }
 
         float verticalInput = Input.GetAxisRaw("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -132,16 +141,9 @@ public abstract class ClimbingMove : MonoBehaviour
         // invoke callback
         OnExit();
 
-        // exit climbing
-        move.isClimbing = false;
-        animator.SetBool(settings.animParam, false);
-        rigid.gravityScale = originalGravity;
-
-        // rotate to normal degree
-        rigid.gameObject.transform.Rotate(GroundUpVector, 0f);
-
-        // reset mutex to release controll of terra
-        ownership = 0;
+        // release current control
+        // this will return control of terra back to playermove
+        _ReleaseControll();
 
         // Wait for some time before re-entering the climbstate
         if (waitForReEntry)
@@ -177,6 +179,20 @@ public abstract class ClimbingMove : MonoBehaviour
     private IEnumerator WaitForReEntry()
     {
         yield return new WaitForSeconds(settings.reEntryTime);
+        ownership = 0;
+    }
+
+    private void _ReleaseControll()
+    {
+        // exit climbing
+        move.isClimbing = false;
+        animator.SetBool(settings.animParam, false);
+        rigid.gravityScale = originalGravity;
+
+        // rotate to normal degree
+        rigid.gameObject.transform.Rotate(GroundUpVector, 0f);
+
+        // reset mutex to release control of terra
         ownership = 0;
     }
 }
