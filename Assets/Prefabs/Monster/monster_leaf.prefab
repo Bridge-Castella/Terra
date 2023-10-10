@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 8430824425414189615}
   - component: {fileID: 8430824425414189617}
   - component: {fileID: 6613510968887567396}
+  - component: {fileID: 6582669562952841395}
   - component: {fileID: 6722282723606176022}
   m_Layer: 18
   m_Name: monster_leaf
@@ -396,6 +397,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.029836655, y: 1.54}
   m_Size: {x: 2.5118065, y: 2.656725}
   m_Direction: 0
+--- !u!114 &6582669562952841395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7248532403271294005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d67ec3356490e204d8abe2aef812056f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angle: 0
 --- !u!50 &6722282723606176022
 Rigidbody2D:
   serializedVersion: 4
@@ -548,7 +562,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 157433854898209660}
   m_Bounds:
-    m_Center: {x: -0.0007650852, y: 0.0021499395, z: 0}
+    m_Center: {x: -0.00074982643, y: 0.002151847, z: 0}
     m_Extent: {x: 1.5042348, y: 1.2028499, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
