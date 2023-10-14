@@ -45,9 +45,7 @@ public class GNBCanvas : MonoBehaviour
 
     public void Resume()
     {
-        if (resume != null)
-            resume.Post(gameObject);
-
+        resume?.Post(gameObject);
         //Destroy(optionObjectInstace);
         optionPanel.GetComponent<Option>().OnClickCancelButton();
         content.SetActive(false);
@@ -58,9 +56,7 @@ public class GNBCanvas : MonoBehaviour
 
     void Pause()
     {
-        if (pause != null)
-            pause.Post(gameObject);
-
+        pause?.Post(gameObject);
         content.SetActive(true);
         optionPanel.SetActive(true);
         Time.timeScale = 0f;
