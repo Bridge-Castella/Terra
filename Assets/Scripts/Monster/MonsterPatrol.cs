@@ -61,23 +61,10 @@ public class MonsterPatrol : MonoBehaviour
 
     private void MoveInDirection(int _direction)
     {
-        float moveSpeed = speed;
         idleTimer = 0f;
         enemy.localScale = new Vector3(Mathf.Abs(initScale.x) * -_direction, initScale.y, initScale.z);
 
-        if (enemy.gameObject.GetComponent<DetectSlope>().angle >= 30)
-        {
-            moveSpeed *= 2f;
-        }
-        else
-        {
-            if(moveSpeed == speed*2f)
-                moveSpeed /= 2f;
-            else
-                moveSpeed = speed;
-        }
-
-        enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * moveSpeed,
+        enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed,
             enemy.position.y, enemy.position.z);
     }
 }
