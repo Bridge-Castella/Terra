@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5657283986571048772}
   - component: {fileID: 5747222234009999241}
   m_Layer: 10
-  m_Name: Forest_MovingFlatform_short
+  m_Name: Forest_MovingFlatform_x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   movingPlatformParent: {fileID: 0}
   wayPoints: []
   speed: 4
+  idleDuration: 0.5
 --- !u!60 &5747222234009999241
 PolygonCollider2D:
   m_ObjectHideFlags: 0
