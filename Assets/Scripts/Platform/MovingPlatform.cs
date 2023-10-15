@@ -7,11 +7,15 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private GameObject movingPlatformParent;
     [SerializeField] private List<GameObject> wayPoints;
     [SerializeField] private float speed = 2f;
-    private int currentWayPointIndex = 1;
 
+    private int currentWayPointIndex = 1;
+    
     private new Camera camera;
 
-    bool isMoving = false;
+    bool isMoving = true;
+
+    [Header("Idle Behavior")]
+    [SerializeField] private float idleDuration;
 
     public void Start()
     {
@@ -28,25 +32,34 @@ public class MovingPlatform : MonoBehaviour
 
     private void Update()
     {
-        if(!isMoving)
-            return;
-        if (Vector2.Distance(wayPoints[currentWayPointIndex].transform.position, transform.position) < .1f)
+        if (isMoving)
         {
-            currentWayPointIndex++;
-            if (currentWayPointIndex >= wayPoints.Count)
+            if (Vector2.Distance(wayPoints[currentWayPointIndex].transform.position, transform.position) < .1f)
             {
-                isMoving = false;
-                currentWayPointIndex = 0;
-            }
+                StartCoroutine(CoMoveIdle());
+                currentWayPointIndex++;
+                if (currentWayPointIndex >= wayPoints.Count)
+                {
+                    isMoving = false;
+                    currentWayPointIndex = 0;
+                }
 
-            if(currentWayPointIndex == 1)
-                isMoving = false;
+                if (currentWayPointIndex == 1)
+                    isMoving = false;
+            }
+            transform.position = Vector2.MoveTowards(transform.position,
+                        wayPoints[currentWayPointIndex].transform.position, Time.deltaTime * speed);
         }
-        transform.position = Vector2.MoveTowards(transform.position,
-                    wayPoints[currentWayPointIndex].transform.position, Time.deltaTime * speed);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private IEnumerator CoMoveIdle()
+    {
+        isMoving = false;
+        yield return new WaitForSeconds(idleDuration);
+        isMoving = true;
+    }
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
@@ -94,6 +107,6 @@ public class MovingPlatform : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().interpolation
                 = RigidbodyInterpolation2D.Interpolate;
         }
-    }
-    
+    }*/
+
 }
