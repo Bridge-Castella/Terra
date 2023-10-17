@@ -12,6 +12,7 @@ public partial class TableData : MonoBehaviour
         if (instance != null)
         {
             Destroy(gameObject);
+            return;
         }
         else
         {

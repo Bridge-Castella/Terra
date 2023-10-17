@@ -25,20 +25,21 @@ public class FadingPlatform : MonoBehaviour
         camera = Camera.main;
     }
 
-    private void Update()
-    {
-        //애니메이션 연산이 너무 많아서 프레임 드랍 현상. 카메라 뷰에 들어가면 애니메이션 시작하도록 함.
-        Vector2 viewPos = camera.WorldToViewportPoint(transform.position);
-        if(viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1)
-        {
-            animator.speed = 1f;
-        }
-        else
-        {
-                animator.speed = 0f;
-                ShowingPlatform();
-        }
-    }
+    // fix: fadeOnce is not affected since ShowingPlatform is called in update
+    // private void Update()
+    // {
+    //     //애니메이션 연산이 너무 많아서 프레임 드랍 현상. 카메라 뷰에 들어가면 애니메이션 시작하도록 함.
+    //     Vector2 viewPos = camera.WorldToViewportPoint(transform.position);
+    //     if(viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1)
+    //     {
+    //         animator.speed = 1f;
+    //     }
+    //     else
+    //     {
+    //             animator.speed = 0f;
+    //             ShowingPlatform();
+    //     }
+    // }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {

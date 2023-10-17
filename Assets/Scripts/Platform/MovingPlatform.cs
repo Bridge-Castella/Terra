@@ -59,54 +59,56 @@ public class MovingPlatform : MonoBehaviour
         isMoving = true;
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
+    // Fix: smoothing the jump animation, sticky wall
+    //  - This fixes the slower move on moveing platform
+    //  - second fix for non interactive other objects
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        GameObject playerObj = null;
+
+        if (collision.gameObject.CompareTag("Player"))
         {
-            isMoving = true;
-            collision.gameObject.transform.SetParent(transform);
-
-            // Fix: smoothing the jump animation
-            // This fixes the slower move on moveing platform
-            collision.gameObject.GetComponent<Rigidbody2D>().interpolation
-                = RigidbodyInterpolation2D.Extrapolate;
+            playerObj = collision.gameObject;
         }
-
-        // fix: sticky wall
-        // second fix for non interactive other objects
         else if (collision.gameObject.CompareTag("PlayerPlatformCollider"))
         {
-            isMoving = true;
-            collision.transform.parent.SetParent(transform);
-
-            collision.gameObject.GetComponent<Rigidbody2D>().interpolation
-                = RigidbodyInterpolation2D.Extrapolate;
+            playerObj = collision.transform.parent.gameObject;
         }
+
+        if (playerObj == null)
+        {
+            return;
+        }
+
+        playerObj.transform.SetParent(transform);
+        playerObj.GetComponent<Rigidbody2D>().interpolation
+            = RigidbodyInterpolation2D.Extrapolate;
     }
 
+    // Fix: smoothing the jump animation, sticky wall
+    //  - This fixes the slower move on moveing platform
+    //  - second fix for non interactive other objects
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        GameObject playerObj = null;
+        
+        if (collision.gameObject.CompareTag("Player"))
         {
-            isMoving = true;
-            collision.gameObject.transform.SetParent(null);
-
-            // Fix: smoothing the jump animation
-            // This prevents terra digging into the ground
-            collision.gameObject.GetComponent<Rigidbody2D>().interpolation
-                = RigidbodyInterpolation2D.Interpolate;
+            playerObj = collision.gameObject;
         }
-
-        // fix: sticky wall
-        // second fix for non interactive other objects
         else if (collision.gameObject.CompareTag("PlayerPlatformCollider"))
         {
-            isMoving = true;
-            collision.transform.parent.SetParent(null);
-
-            collision.gameObject.GetComponent<Rigidbody2D>().interpolation
-                = RigidbodyInterpolation2D.Interpolate;
+            playerObj = collision.transform.parent.gameObject;
         }
-    }*/
+
+        if (playerObj == null)
+        {
+            return;
+        }
+
+        playerObj.transform.SetParent(null);
+        playerObj.GetComponent<Rigidbody2D>().interpolation
+            = RigidbodyInterpolation2D.Interpolate;
+    }
 
 }
