@@ -11,6 +11,36 @@
 					</ReferenceList>
 					<ChildrenList>
 						<Bus Name="BGM" ID="{217CD0BD-4A6C-44E8-A52B-0A0B3F12FE01}">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{FEECE295-C41F-43F2-9F74-8518430F8D71}" ShortID="770631468">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="New_Game_Parameter" ID="{1FCB54E7-6BE2-4A75-9437-0D143052A192}" WorkUnitID="{78FC47B4-8578-4F82-8F21-5BC697B79EAC}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{EA77A236-CF80-4744-BCC1-FD468F6D2A22}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
 							<ObjectLists/>
 						</Bus>
 						<Bus Name="SFX" ID="{AFAF2AB6-8BF2-4820-9855-8F8CC1418BB5}">

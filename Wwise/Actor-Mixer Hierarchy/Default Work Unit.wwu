@@ -18,13 +18,14 @@
 								<Sound Name="BGM_Login_loop_ogg" ID="{351D21CA-E03A-4028-B499-070C18716345}" ShortID="622616757">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+											<ObjectRef Name="BGM" ID="{217CD0BD-4A6C-44E8-A52B-0A0B3F12FE01}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
