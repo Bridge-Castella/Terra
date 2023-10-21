@@ -14,7 +14,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="BGM_Terra_s_House_loop" ID="{6AC4720D-2176-4304-A6DB-BA4C19CE2ACB}"/>
+				<Event Name="BGM_Terra_s_House_loop" ID="{6AC4720D-2176-4304-A6DB-BA4C19CE2ACB}">
+					<ChildrenList>
+						<Action Name="" ID="{52E73697-D296-4902-852F-284183FD6D06}" ShortID="63722716">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BGM_Terra_s_House_loop" ID="{A0D8DB51-8C5F-4D0B-9050-73F4DC497528}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
