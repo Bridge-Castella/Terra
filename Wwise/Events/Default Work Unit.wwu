@@ -5,30 +5,6 @@
 			<ChildrenList>
 				<Event Name="BGM_Login_loop_amb" ID="{9E43601E-7B3D-491B-B45C-A6E3C88908C2}">
 					<ChildrenList>
-<<<<<<< Updated upstream
-						<Event Name="Login" ID="{4EAD6E72-6DF8-41AA-BD33-2AF847AC2CFB}">
-							<ChildrenList>
-								<Action Name="" ID="{1F074500-3797-42CE-8933-1FD0EFAC19F9}" ShortID="45943048">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="BGM_Login_loopx2" ID="{227729A1-338E-44D6-BAEE-8BB7E9F2ADC5}" WorkUnitID="{9BBD8C55-D6D5-45FD-B1ED-7A1B47A6F33B}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Map_Forest" ID="{4328320B-92E9-49B0-830E-45C2296ACFB9}">
-							<ChildrenList>
-								<Action Name="" ID="{855CA0F8-1221-4CB7-98A4-FCEDF42A3EE8}" ShortID="97761498">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Map" ID="{885E272B-5376-4F79-BC94-922BA43C29C1}" WorkUnitID="{9BBD8C55-D6D5-45FD-B1ED-7A1B47A6F33B}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-=======
 						<Action Name="" ID="{BBF67CBB-C395-4D99-B1CD-4F09930D64A3}" ShortID="167614507">
 							<ReferenceList>
 								<Reference Name="Target">
@@ -36,9 +12,9 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
->>>>>>> Stashed changes
 					</ChildrenList>
 				</Event>
+				<Event Name="BGM_Terra_s_House_loop" ID="{6AC4720D-2176-4304-A6DB-BA4C19CE2ACB}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
