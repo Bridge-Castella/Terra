@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 17354409}
   - component: {fileID: 17354408}
-  - component: {fileID: 17354411}
   - component: {fileID: 17354410}
   - component: {fileID: 17354407}
   - component: {fileID: 17354412}
@@ -219,31 +218,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TriggerTag: Player
---- !u!114 &17354411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17354406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fb174ec0ef04ccfb324804574e55aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: cf91d360
-  useOtherObject: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 6a3efb906186f411faaef06d63344e0a,
-      type: 2}
-  valueIdInternal: 0
-  groupIdInternal: 0
-  valueGuidInternal: 
-  groupGuidInternal: 
 --- !u!114 &17354412
 MonoBehaviour:
   m_ObjectHideFlags: 0
