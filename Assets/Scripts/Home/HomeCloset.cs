@@ -45,5 +45,6 @@ public class HomeCloset : MonoBehaviour
         closetImage.sprite = closedCloset;
         
         inventoryUI.gameObject.SetActive(false);
+        InGameAudio.Post(InGameAudio.Instance.House_CloseCloset);
     }
 }

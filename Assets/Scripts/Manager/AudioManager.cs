@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
+
+    public string MasterVolStr = "Master";
+    public string BGMVolStr = "BGM";
+    public string SFXVolStr = "SFX";
 
     public enum AudioChannel
     {
@@ -45,15 +50,15 @@ public class AudioManager : MonoBehaviour
         {
             case AudioChannel.Master:
                 masterVolumePercent = volumePercent;
-                AkSoundEngine.SetRTPCValue("Master", masterVolumePercent * 100.0f);
+                AkSoundEngine.SetRTPCValue(MasterVolStr, masterVolumePercent * 100.0f);
                 break;
             case AudioChannel.Bgm:
                 bgmVolumePercent = volumePercent;
-                AkSoundEngine.SetRTPCValue("BGM", bgmVolumePercent * 100.0f);
+                AkSoundEngine.SetRTPCValue(BGMVolStr, bgmVolumePercent * 100.0f);
                 break;
             case AudioChannel.Sfx:
                 sfxVolumePercent = volumePercent;
-                AkSoundEngine.SetRTPCValue("SFX", sfxVolumePercent * 100.0f);
+                AkSoundEngine.SetRTPCValue(SFXVolStr, sfxVolumePercent * 100.0f);
                 break;
         }
 
@@ -65,5 +70,41 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetFloat("master vol", masterVolumePercent);
         PlayerPrefs.SetFloat("bgm vol", bgmVolumePercent);
         PlayerPrefs.SetFloat("sfx vol", sfxVolumePercent);
+    }
+}
+
+public class AudioRef<T> : MonoBehaviour where T : MonoBehaviour
+{
+    public static T Instance { get; private set; }
+
+    [SerializeField] protected GameObject soundObject;
+
+    protected virtual void Start()
+    {
+        if (Instance == null)
+        {
+            Instance = this as T;
+        }
+        else
+        {
+            Debug.LogError("Multiple reference of Login Audio detected");
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+    protected virtual void OnDestory()
+    {
+        Instance = null;
+    }
+
+    public static void Post(AK.Wwise.Event source)
+    {
+        source?.Post((Instance as AudioRef<T>).soundObject);
+    }
+
+    public static void Post(AK.Wwise.Event source, GameObject soundObj)
+    {
+        source?.Post(soundObj);
     }
 }

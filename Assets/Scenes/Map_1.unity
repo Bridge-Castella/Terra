@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 17354409}
   - component: {fileID: 17354408}
-  - component: {fileID: 17354410}
   - component: {fileID: 17354407}
   - component: {fileID: 17354412}
   - component: {fileID: 17354413}
@@ -205,19 +204,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &17354410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17354406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f36f7fcaf04f449ee9d11d9bea78d9c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TriggerTag: Player
 --- !u!114 &17354412
 MonoBehaviour:
   m_ObjectHideFlags: 0
