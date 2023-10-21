@@ -3,8 +3,9 @@
 	<SoundBanks>
 		<WorkUnit Name="Default Work Unit" ID="{EC0FDD69-CA90-4327-A6DB-088C1745B457}" PersistMode="Standalone">
 			<ChildrenList>
-				<SoundBank Name="Player" ID="{5EF1106F-E712-4690-B00E-EE5BA889BC1A}">
+				<SoundBank Name="New_SoundBank" ID="{89C5CA50-3C39-46C9-805D-315C9BE236B1}">
 					<ObjectInclusionList>
+<<<<<<< Updated upstream
 						<ObjectRef Name="inGame_JUMP_01" ID="{7A03E8D8-72E7-402C-8453-12DA9CDC7A69}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="inGame_CH_Die" ID="{8B3CCEB9-5BB8-435E-AB26-D54213AB4D11}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="inGame_CH_Life" ID="{01AFC7F3-D990-47D8-A6E2-DBA3F44F147C}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
@@ -49,6 +50,9 @@
 				<SoundBank Name="Player_Step" ID="{ECC2118A-2A0C-4610-8E9D-4B44F27A008C}">
 					<ObjectInclusionList>
 						<ObjectRef Name="inGame_Step_container" ID="{0A0ED0F1-CC7B-448F-9F8D-14F4EABF8C0E}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+=======
+						<ObjectRef Name="BGM_Login_loop_amb" ID="{9E43601E-7B3D-491B-B45C-A6E3C88908C2}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+>>>>>>> Stashed changes
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
