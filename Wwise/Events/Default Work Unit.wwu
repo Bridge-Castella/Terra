@@ -398,6 +398,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="inGame_UI_Caution" ID="{79256C71-DBF3-4086-81C6-77B909673411}">
+							<ChildrenList>
+								<Action Name="" ID="{1AC8D91B-8DD5-4D12-981C-F9CB710533AF}" ShortID="254626887">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="inGame_UI_Caution" ID="{5F6709D4-7566-4CD9-A01F-5D66F6B2596B}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

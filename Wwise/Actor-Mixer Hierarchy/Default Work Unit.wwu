@@ -1171,6 +1171,29 @@
 										<ActiveSource Name="ITEM_Fire_01" ID="{6FAC33E7-EDAB-4D56-9C80-51EC5468BAAF}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="inGame_UI_Caution" ID="{5F6709D4-7566-4CD9-A01F-5D66F6B2596B}" ShortID="176937350">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="inGame_UI_Caution" ID="{D8411768-9494-4706-8E2C-6194EF721F32}">
+											<Language>SFX</Language>
+											<AudioFile>inGame_UI_Caution.amb</AudioFile>
+											<MediaIDList>
+												<MediaID ID="12906990"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="inGame_UI_Caution" ID="{D8411768-9494-4706-8E2C-6194EF721F32}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
