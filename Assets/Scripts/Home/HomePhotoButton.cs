@@ -28,6 +28,7 @@ public class HomePhotoButton : HomeButtonBase
 
     public override void OnMouseClick()
     {
+        InGameAudio.Post(InGameAudio.Instance.House_SelectPicture);
         controller.OnExitPhoto(photo);
         controller.OnClickPhoto(photo);
     }

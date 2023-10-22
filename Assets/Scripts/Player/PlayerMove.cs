@@ -50,15 +50,6 @@ public class PlayerMove : MonoBehaviour
     private PlayerAbilityTracker  abilities;
     private bool canDoubleJump = true;//더블 점프가 가능한지
 
-    [Tooltip("Sound generated object")]
-    [SerializeField] GameObject soundObject;
-    [Tooltip("Player jump")]
-    [SerializeField] AK.Wwise.Event jump;
-    [Tooltip("Player land")]
-    [SerializeField] AK.Wwise.Event land;
-    [Tooltip("Player damaged")]
-    [SerializeField] AK.Wwise.Event damaged;
-
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -144,8 +135,7 @@ public class PlayerMove : MonoBehaviour
 
     public void Jump()
     {
-        if (jump != null)
-            jump.Post(soundObject);
+        PlayerAudio.Post(PlayerAudio.Instance.inGame_JUMP_01);
 
         // Climbing 중에도 double jump가 가능하게끔 수정
         if (IsGrounded() || isClimbing)
@@ -250,11 +240,11 @@ public class PlayerMove : MonoBehaviour
 
             if (moveHorizontalInput != 0 && IsGrounded())
             {
-                AkSoundEngine.SetState("Player", "Grass");
+                PlayerAudio.ChangeStepSound(PlayerAudio.StepState.Grass);
             }
             else
             {
-                AkSoundEngine.SetState("Player", "None");
+                PlayerAudio.ChangeStepSound(PlayerAudio.StepState.None);
             }
 
             if (moveHorizontalInput > 0 && !facingRight)
@@ -304,8 +294,7 @@ public class PlayerMove : MonoBehaviour
     {
         if(collision.gameObject.layer == 10 && isJumping)
         {
-            if (land != null)
-                land.Post(soundObject);
+            PlayerAudio.Post(PlayerAudio.Instance.inGame_JUMP_Land);
             isJumping = false;
             CreateLandDust();  
         }
@@ -329,11 +318,10 @@ public class PlayerMove : MonoBehaviour
         rigid.AddForce(knockBack, ForceMode2D.Impulse);
         DamageFlash();
         //부딪히면 나는 소리
-        if (damaged != null)
-            damaged.Post(soundObject);
 
         isKnockback = true;
         HeartManager.instance.GetDamage();
+        PlayerAudio.Post(PlayerAudio.Instance.inGame_CH_Life);
 
         StartCoroutine(CoEnableDamage(0.5f, 1.5f));
     }

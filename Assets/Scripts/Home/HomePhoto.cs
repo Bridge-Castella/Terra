@@ -115,6 +115,8 @@ public class HomePhoto : MonoBehaviour
 
         // apply image
         image.sprite = photo.sprite;
+
+        InGameAudio.Post(InGameAudio.Instance.House_SelectPicture);
     }
 
     public void OnEnterPhoto(PhotoType photo)

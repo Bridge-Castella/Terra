@@ -36,9 +36,6 @@ public class Option : MonoBehaviour
     public TextMeshProUGUI bgmVolumeNum;
     public TextMeshProUGUI sfxVolumeNum;
 
-    [SerializeField] AK.Wwise.Event keyPause;
-    [SerializeField] AK.Wwise.Event keyExit;
-
     private void Start()
     {
         //세이브 버튼 addlistener 추가해야함.
@@ -76,8 +73,8 @@ public class Option : MonoBehaviour
     }
 
     public void OnClickSaveButton()
-    {        
-        keyExit?.Post(gameObject);
+    {
+        UIAudio.Post(UIAudio.Instance.UI_select);
         SaveManager.SaveGame();
         buttonGroup.SetActive(false);
         popUpSave.SetActive(true);
@@ -85,7 +82,7 @@ public class Option : MonoBehaviour
 
     public void OnClickQuitButton()
     {
-        keyExit?.Post(gameObject);
+        UIAudio.Post(UIAudio.Instance.UI_select);
         buttonGroup.SetActive(false);
         popUpObject.SetActive(true);
         popUpText.text = "게임을 종료하시겠습니까?";
@@ -93,7 +90,7 @@ public class Option : MonoBehaviour
 
     public void LoadLoginScene()
     {
-        keyExit?.Post(gameObject);
+        UIAudio.Post(UIAudio.Instance.UI_select);
         Time.timeScale = 1;
         MapManager.state.map = MapManager.MapIndex.Login;
         SceneManager.LoadScene("01.Login");
@@ -107,7 +104,7 @@ public class Option : MonoBehaviour
 
     public void OnClickPopupNoButton()
     {
-        keyExit?.Post(gameObject);
+        UIAudio.Post(UIAudio.Instance.UI_select);
         popUpObject.SetActive(false);
         buttonGroup.SetActive(true);
     }
@@ -122,7 +119,7 @@ public class Option : MonoBehaviour
             popUpObject.SetActive(false);
             if (MapManager.state.map == MapManager.MapIndex.Login)
             {
-                keyPause?.Post(gameObject);
+                UIAudio.Post(UIAudio.Instance.UI_out);
                 mainMenuObject.SetActive(true);
                 logoObject.SetActive(true);
                 audioGroup.SetActive(false);
@@ -140,7 +137,7 @@ public class Option : MonoBehaviour
 
     public void OnClickPopUpSaveButton() 
     {
-        keyExit?.Post(gameObject);
+        UIAudio.Post(UIAudio.Instance.UI_select);
         popUpSave.SetActive(false);
         buttonGroup.SetActive(true);
     }
@@ -155,7 +152,7 @@ public class Option : MonoBehaviour
 
     public void OnClickAudioButton()
     {
-        keyExit?.Post(gameObject);
+        UIAudio.Post(UIAudio.Instance.UI_select);
         buttonGroup.SetActive(false);
         popUpObject.SetActive(false);
         audioGroup.SetActive(true);

@@ -39,6 +39,7 @@ public class MeleeMonster : MonoBehaviour
                 cooldownTimer = 0;
                 anim.SetTrigger("meleeAttack");
                 Instantiate(projectile, shootPos.transform.position, Quaternion.identity);
+                InGameAudio.Post(InGameAudio.Instance.inGame_Monster_mush);
             }
         }
 

@@ -18,6 +18,7 @@ public class HomeInventoryButton : HomeButtonBase
 
     public override void OnMouseClick()
     {
+        InGameAudio.Post(InGameAudio.Instance.House_OpenBox);
         controller.OnClickInventory();
     }
 }

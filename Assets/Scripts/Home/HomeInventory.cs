@@ -47,5 +47,7 @@ public class HomeInventory : MonoBehaviour
         inventoryImage.sprite = closedInventory;
         
         inventoryUI.gameObject.SetActive(false);
+        
+        InGameAudio.Post(InGameAudio.Instance.House_CloseBox);
     }
 }

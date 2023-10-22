@@ -742,6 +742,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbaf6f3899d0754ea19058ea5392ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MasterVolStr: Master
+  BGMVolStr: BGM
+  SFXVolStr: SFX
 --- !u!1001 &1128416004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1194,11 +1197,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1884347589}
-  - component: {fileID: 1884347588}
   - component: {fileID: 1884347585}
   - component: {fileID: 1884347584}
   - component: {fileID: 1884347587}
-  - component: {fileID: 1884347586}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1215,22 +1216,122 @@ MonoBehaviour:
   m_GameObject: {fileID: 1884347583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e92d228e62e14b4d8584a0b54752500, type: 3}
+  m_Script: {fileID: 11500000, guid: 5424884cff5db4be581d2026e85aa396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: ae8d9d44
-  useOtherObject: 0
-  data:
+  soundObject: {fileID: 0}
+  ITEM_Get_01:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: b4dd8fb57d2e147cfba98e6ddc6c91c4,
+    WwiseObjectReference: {fileID: 11400000, guid: a87720da3315d6e48a4ebd9c2aa43833,
       type: 2}
-  decodeBank: 0
-  loadAsynchronous: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 958ca0ea
-  bankNameInternal: 
-  valueGuidInternal: 
+  ITEM_Fire_01:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  ITEM_Fire_02:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9b5fa2f51865a0c4d9b26b04d7011b49,
+      type: 2}
+  ITEM_Portion:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 625bb80f4179f0e46b3f4927f42c9166,
+      type: 2}
+  ITEM_Plant:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 095deba4dfc0ac24db1288ecc7e8b978,
+      type: 2}
+  ITEM_Wing_01:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  ITEM_Wing_02:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_Quest_get:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_Monster_grass:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_Monster_mush:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_Monster_butterfly:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_Monster_death:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_STAGE_CLEAR:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4ca8a632a699a3148806e8a6a2185b43,
+      type: 2}
+  inGame_STAGE_CheckPoint:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2a36e074e8c367341815675329a2af0f,
+      type: 2}
+  inGame_UI_01:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c2084dd6ba45a1f47ba86dbabf0fe8dc,
+      type: 2}
+  inGame_UI_02:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4cf001c8f8fe1a84fac154fc0cee1614,
+      type: 2}
+  inGame_Caution:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_NPC_Rato:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_NPC_Riche:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_NPC_Quest:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_NPC_succ:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  House_SelectPicture:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  House_OpenCloset:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  House_CloseCloset:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  House_OpenBox:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  House_CloseBox:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!114 &1884347585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,57 +1341,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 1884347583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e92d228e62e14b4d8584a0b54752500, type: 3}
+  m_Script: {fileID: 11500000, guid: 4960d5e65e45f4f2fa7b488849641726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: ae8d9d44
-  useOtherObject: 0
-  data:
+  soundObject: {fileID: 1128416006}
+  StepAKStateStr: 
+  StepStatesStr:
+  - None
+  - Grass
+  inGame_JUMP_01:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: c14b488b4167d41e48b1461d078ed5fb,
-      type: 2}
-  decodeBank: 0
-  loadAsynchronous: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 958ca0ea
-  bankNameInternal: 
-  valueGuidInternal: 
---- !u!114 &1884347586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884347583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f036d77b0d2134abc8f14b291b627de1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  data:
+    WwiseObjectReference: {fileID: 0}
+  inGame_JUMP_Land:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 87888aeba08014021b42d373303f7ed6,
+    WwiseObjectReference: {fileID: 0}
+  inGame_CH_Life:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_CH_Die:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_BLOCK_01:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_WARN_01:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d7d50537127dd03499adfe40e343b1e9,
       type: 2}
-  useCallbacks: 0
-  Callbacks: []
-  playingId: 0
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  eventIdInternal: 0
-  valueGuidInternal: 
-  m_callbackDataInternal: {fileID: 0}
-  MultiPositionType: 1
-  multiPositionTypeLabel: 0
-  attenuationSphereColor: {r: 1, g: 0, b: 0, a: 0.1}
-  LargeModePositions: []
-  multiPositionArray: []
 --- !u!114 &1884347587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,31 +1396,6 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
---- !u!114 &1884347588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884347583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e92d228e62e14b4d8584a0b54752500, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: ae8d9d44
-  useOtherObject: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 3c58cca36d92748ea8d379c47b334126,
-      type: 2}
-  decodeBank: 0
-  loadAsynchronous: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 958ca0ea
-  bankNameInternal: 
-  valueGuidInternal: 
 --- !u!4 &1884347589
 Transform:
   m_ObjectHideFlags: 0
