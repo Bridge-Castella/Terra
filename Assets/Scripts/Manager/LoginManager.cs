@@ -40,6 +40,12 @@ public class LoginManager : MonoBehaviour
 
     public void NewGame()
     {
+        if (prologuePlayer.clip == null)
+        {
+            EndReached(null);
+            return;
+        }
+
         prologueRawImage.gameObject.SetActive(true);
         prologuePlayer.Play();
         prologuePlayer.loopPointReached += EndReached;        
