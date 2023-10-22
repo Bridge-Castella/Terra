@@ -16,19 +16,37 @@
 				</SoundBank>
 				<SoundBank Name="SFX_SoundBank" ID="{AB07F7B3-3267-4DF5-A9B5-C1E7E7AE3D87}">
 					<ObjectInclusionList>
+						<ObjectRef Name="inGame_UI_Caution" ID="{79256C71-DBF3-4086-81C6-77B909673411}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="inGame_UI_01" ID="{B170E56A-A9DE-410B-801B-65BFFFBA11C0}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="inGame_STAGE_CLEAR" ID="{6353B0A4-1F3F-416A-ABC9-0EBC853CC6F8}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="inGame_CH_Life" ID="{B04BCE2F-EFD3-41D4-8815-CF83AFB9FF31}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="ITEM_Fire_02" ID="{8CCD9C26-494D-4222-925C-5B62E6CECFE5}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="inGame_BLOCK_01" ID="{4455F25B-450C-423E-A9D9-525BFE69479A}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="House_CloseBox" ID="{F6D8CF16-C49F-42AA-AA14-D5767D353C47}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="inGame_Monster_butterfly" ID="{F9F8D2FB-EE37-42FE-A685-76FFB4D1F427}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="ITEM_Plant" ID="{B40C0A74-C60B-43B7-B16F-4312E227B4F1}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UI_select" ID="{624A49C7-0881-4629-8CCB-7DE85EDF1FCF}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="House_CloseCloset" ID="{93751646-B419-46E4-9382-68C4243EE548}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="inGame_CH_Die" ID="{CF87E284-1DE7-4805-841D-7A2F0C533FA8}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="House_OpenBox" ID="{B654E804-FAC2-4891-8BDF-7EDBBC946ADD}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UI_out" ID="{6AE6F6E1-54EF-48B6-A57F-8E52A772A26A}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="inGame_STAGE_FAIL" ID="{F1062A22-B6A5-48B9-8931-C6009CD50FC5}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="House_SelectPicture" ID="{70193531-E326-4914-B522-4A9FD4BE855C}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UI_in" ID="{5D6D1178-CF21-49C0-A4A6-8245D75A1DDD}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="inGame_NPC_succ" ID="{D6A1CB0A-B373-49D3-9FF9-31798F027529}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="ITEM_Get_01" ID="{156FAEB3-A344-4AB5-AC66-0D4919166FD4}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="inGame_Quest_get" ID="{09D54390-7C4C-4ABC-9524-0A1B34D65F6E}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="inGame_UI_02" ID="{765AD173-DC1B-4AD3-A0AB-B8F542349A3B}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="inGame_Monster_mush" ID="{1B917099-B8FE-4B13-B5A0-FAEE74CACFA3}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="inGame_Monster_death" ID="{D606D433-C752-4B87-ACCB-30CC10D9F610}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="ITEM_Fire_01" ID="{A1D565A5-479C-4C9C-9231-64278F423E38}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UI_pick" ID="{D37A4791-0E76-4D5C-BCD6-FDFBEC5DDD1A}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="inGame_JUMP_01_new" ID="{ADACD548-4D0D-4D97-A335-4E7309B0FF81}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="inGame_WARN_01" ID="{78541430-C3FA-4DCD-999A-26D61A44C490}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="House_OpenCloset" ID="{0388B130-25FE-4E11-B28B-2C62F33EA61D}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="inGame_NPC_Quest" ID="{8670B3B9-B530-4E8E-859E-4310C646225D}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="ITEM_Portion" ID="{56DADE30-7AED-4EF7-91AE-1C4169DCA8C1}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="inGame_STAGE_CheckPoint" ID="{7409D79C-B72C-4F60-AE14-B4F2E81B5C8D}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
