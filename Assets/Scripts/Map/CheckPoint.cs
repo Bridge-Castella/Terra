@@ -44,5 +44,7 @@ public class CheckPoint : MonoBehaviour
         if (MapManager.state.checkPoint != MapManager.MapIndex.Login
             && MapManager.TryRemoveFromOutOfRange(previous))
                 MapManager.UnloadMap(previous);
+
+        InGameAudio.Post(InGameAudio.Instance.inGame_STAGE_CheckPoint);
     }
 }

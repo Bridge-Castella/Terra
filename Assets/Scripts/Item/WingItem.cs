@@ -18,6 +18,10 @@ public class WingItem : Item
 
     IEnumerator CoUseWingItem()
     {
+        // TODO: 사운드 재생시점 변경
+        InGameAudio.Post(InGameAudio.Instance.ITEM_Wing_01);
+        InGameAudio.Post(InGameAudio.Instance.ITEM_Wing_02);
+
         yield return new WaitForSeconds(wingTime);
         abilities.isFlying = false;
         StartCoroutine(CoShowWingItem());

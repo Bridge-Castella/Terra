@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class PlayerAudio : AudioRef<PlayerAudio>
 {
-    public string StepAKStateStr;
-    public string[] StepStatesStr = { "None", "Grass" };
-
     public enum StepState
     {
         None = 0,
         Grass,
+        STEP_02,
+        STEP_03,
     }
 
-    // [Header("Step")]
-    // public AK.Wwise.Event inGame_STEP_Grass;
-    // public AK.Wwise.Event inGame_STEP_02;
-    // public AK.Wwise.Event inGame_STEP_03;
+    [Header("Step")]
+    public AK.Wwise.Event inGame_STEP;
+    public AK.Wwise.Event inGame_STEP_Grass;
+    public AK.Wwise.Event inGame_STEP_02;
+    public AK.Wwise.Event inGame_STEP_03;
 
     [Header("Jump")]
     public AK.Wwise.Event inGame_JUMP_01;
@@ -30,7 +30,27 @@ public class PlayerAudio : AudioRef<PlayerAudio>
 
     public static void ChangeStepSound(StepState state)
     {
-        AkSoundEngine.SetState(Instance.StepAKStateStr,
-            Instance.StepStatesStr[(int)state]);
+        if (state == StepState.None)
+        {
+            PlayerAudio.Stop(Instance.inGame_STEP);
+            return;
+        }
+
+        switch (state)
+        {
+            case StepState.Grass:
+                PlayerAudio.Post(Instance.inGame_STEP_Grass, nameof(Instance.inGame_STEP_Grass));
+                break;
+
+            case StepState.STEP_02:
+                PlayerAudio.Post(Instance.inGame_STEP_02, nameof(Instance.inGame_STEP_02));
+                break;
+
+            case StepState.STEP_03:
+                PlayerAudio.Post(Instance.inGame_STEP_03, nameof(Instance.inGame_STEP_03));
+                break;
+        }
+
+        PlayerAudio.Post(Instance.inGame_STEP);
     }
 }

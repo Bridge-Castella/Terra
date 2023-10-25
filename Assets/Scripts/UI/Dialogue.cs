@@ -28,6 +28,7 @@ public class Dialogue : MonoBehaviour
     string story_id;
 
     string convType7LastDialogue;
+    string currentNpcDiffId;
 
     public NpcAction npc;
 
@@ -55,16 +56,27 @@ public class Dialogue : MonoBehaviour
                     list[string_idIdx].conv_type == 6 ||
                     list[string_idIdx].conv_type == 7)
                 {
-                    ControlManager.instance.player.GetComponent<PlayerMove>().isTalking = false;
+                    ControlManager.instance.player.GetComponent<PlayerMove>().isTalking = false;   
                     npc.GetComponent<Animator>().SetBool("isTalking", false);
                     Destroy(this.gameObject);
                 }                
 
+                // npc에게 퀘스트를 받고 난 후 대화창 종료소리
+                if (list[string_idIdx].conv_type == 4)
+                {
+                    InGameAudio.Post(InGameAudio.Instance.inGame_NPC_Quest);
+                }
+
                 //대화타입이 3일때 conv_connect_id에 값을 넣어줘서 npc_id에 종속되는 대화로 넘어가도록.
                 if (conv_connect_id != null)
+                {
                     DialogueWithNPC(story_id, conv_connect_id);
+                }
                 else
+                {
+                    currentNpcDiffId = npc.npc_diff_id;
                     DialogueWithNPC(story_id, npc_idList[dialogueIdx]); //최초에 대화할때 필요
+                }
             }
         }        
     }
@@ -82,7 +94,7 @@ public class Dialogue : MonoBehaviour
         else
             string_idIdx++;
 
-        GetComponent<TypewriterEffect>().Run(TableData.instance.GetDialogue(list[string_idIdx].string_id), dialogueText);
+        GetComponent<TypewriterEffect>().Run(currentNpcDiffId, TableData.instance.GetDialogue(list[string_idIdx].string_id), dialogueText);
         characterName.text = TableData.instance.GetPortraitName(list[string_idIdx].portrait_id);
         portraitImage.sprite = TableData.instance.GetPortrait(list[string_idIdx].portrait_id);
         //dialogueText.text = TableData.instance.GetDialogue(list[string_idIdx].string_id);

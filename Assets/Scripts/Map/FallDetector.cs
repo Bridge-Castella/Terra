@@ -10,9 +10,6 @@ public class FallDetector : MonoBehaviour
     Transform startPoint; //죽었을 경우 체크포인트 start
     PlayerMove player;
 
-    [SerializeField] AK.Wwise.Event life;
-    [SerializeField] GameObject soundObject;
-
     private void Start()
     {
         startPoint = checkPoint;
@@ -30,8 +27,6 @@ public class FallDetector : MonoBehaviour
             return;
 
         StartCoroutine(CoPlayerStop());
-
-        life.Post(soundObject == null ? gameObject : soundObject);
 
         player = collision.gameObject.GetComponent<PlayerMove>();
         player.isFalling = true;

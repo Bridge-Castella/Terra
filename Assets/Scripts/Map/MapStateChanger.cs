@@ -43,6 +43,13 @@ public class MapStateChanger : MonoBehaviour
         // Disable scrolling background
         SetActive(false);
 
+        // 아직 클리어 하지 않았다면 Clear 사운드 재생
+        if (MapManager.state.cleared < mapIndex)
+        {
+            MapManager.state.cleared = mapIndex;
+            InGameAudio.Post(InGameAudio.Instance.inGame_STAGE_CLEAR);
+        }
+
         // Save active state objects before unload
         SaveData();
     }

@@ -59,6 +59,7 @@ public class LoginManager : MonoBehaviour
 
         SaveManager.SaveData data = (SaveManager.SaveData)data_optional;
         MapManager.state.map = data.mapData.index;
+        MapManager.state.cleared = data.mapData.cleared;
         MapManager.LoadMap(data.mapData.index);
     }
 
@@ -77,6 +78,7 @@ public class LoginManager : MonoBehaviour
         GlobalContainer.clear();
         MapManager.ResetData();
         MapManager.state.map = MapManager.MapIndex.Map1;
+        MapManager.state.cleared = MapManager.MapIndex.Login;
         MapManager.LoadMap(MapManager.MapIndex.Map1);
     }
 }
