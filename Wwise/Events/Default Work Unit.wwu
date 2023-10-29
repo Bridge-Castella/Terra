@@ -299,17 +299,6 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
-						<Event Name="inGame_JUMP_01_new" ID="{ADACD548-4D0D-4D97-A335-4E7309B0FF81}">
-							<ChildrenList>
-								<Action Name="" ID="{8D291616-EEDE-4F1F-AF81-838783762FE1}" ShortID="644381260">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="inGame_JUMP_01_new" ID="{CE8F58BA-D9C6-4FB3-97F0-EB76B42011D2}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="inGame_Monster_death" ID="{D606D433-C752-4B87-ACCB-30CC10D9F610}">
 							<ChildrenList>
 								<Action Name="" ID="{E64827A9-5F83-495E-B865-E095BAA2751A}" ShortID="422173219">
@@ -404,6 +393,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="inGame_UI_Caution" ID="{5F6709D4-7566-4CD9-A01F-5D66F6B2596B}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="inGame_JUMP_01" ID="{8FF796B5-F141-40F7-B335-CAEC60578E37}">
+							<ChildrenList>
+								<Action Name="" ID="{6DD1D111-4B4E-4250-A3FE-86386597CB46}" ShortID="156993598">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="inGame_JUMP_01" ID="{CB13CDEF-26C0-4AE1-B6A2-4D2791A3FBCA}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
