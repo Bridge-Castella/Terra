@@ -21,6 +21,7 @@ public class MapManager
     public struct State
     {
         public MapIndex map;
+        public MapIndex cleared;
         public MapIndex checkPoint;
         public MapStateChanger current;
 
@@ -29,6 +30,7 @@ public class MapManager
             return new State
             {
                 map = MapIndex.Login,
+                cleared = MapIndex.Login,
                 checkPoint = MapIndex.Login
             };
         }
@@ -38,6 +40,7 @@ public class MapManager
     public struct Save
     {
         public MapIndex index;
+        public MapIndex cleared;
         public bool[][] active;
     }
 

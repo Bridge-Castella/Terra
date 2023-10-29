@@ -30,16 +30,22 @@ public class HeartManager : MonoBehaviour
 
     public void GetDamage()
     {
-        if(heartNum <= 0)
+        if (heartNum <= 0)
+        {
             PlayerIsDead();
+            return;
+        }
+
         heartNum --;
         heartNumText.text = heartNum.ToString();
+        PlayerAudio.Post(PlayerAudio.Instance.inGame_CH_Life);
     }
 
     public void PlayerIsDead()
     {
         heartNum = 5;
         heartNumText.text = heartNum.ToString();
+        PlayerAudio.Post(PlayerAudio.Instance.inGame_CH_Die);
     }
 
     public bool IsPlayerDead()

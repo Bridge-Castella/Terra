@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5424884cff5db4be581d2026e85aa396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundObject: {fileID: 0}
+  soundObject: {fileID: 1884347583}
   ITEM_Get_01:
     idInternal: 0
     valueGuidInternal: 
@@ -1360,10 +1360,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundObject: {fileID: 1128416006}
-  StepAKStateStr: 
-  StepStatesStr:
-  - None
-  - Grass
+  inGame_STEP:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_STEP_Grass:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_STEP_02:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_STEP_03:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   inGame_JUMP_01:
     idInternal: 0
     valueGuidInternal: 

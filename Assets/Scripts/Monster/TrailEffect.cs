@@ -23,6 +23,7 @@ public class TrailEffect : MonoBehaviour
             GameObject instance = (GameObject)Instantiate(trail, transform.position, Quaternion.identity);
             Destroy(instance, 2f);
             timeBtwSpawns = startTimeBtwSpawns;
+            InGameAudio.Post(InGameAudio.Instance.inGame_Monster_grass);
         }
         else
         {

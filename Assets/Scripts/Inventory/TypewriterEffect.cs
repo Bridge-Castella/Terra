@@ -7,15 +7,26 @@ public class TypewriterEffect : MonoBehaviour
 {
     [SerializeField] private float typewriterSpeed = 10f;
     public bool isTyping;
-    public void Run(string textToType, TextMeshProUGUI textLabel)
+    public void Run(string npcDiffID, string textToType, TextMeshProUGUI textLabel)
     {
-        StartCoroutine(TypeText(textToType, textLabel));
+        StartCoroutine(TypeText(npcDiffID, textToType, textLabel));
     }
 
-    private IEnumerator TypeText(string textToType, TextMeshProUGUI textLabel)
+    private IEnumerator TypeText(string npcDiffID, string textToType, TextMeshProUGUI textLabel)
     {
         float t = 0;
         int charIndex = 0;
+
+        switch (npcDiffID)
+        {
+            case "rato":
+                InGameAudio.Post(InGameAudio.Instance.inGame_NPC_Rato);
+                break;
+
+            case "riche":
+                InGameAudio.Post(InGameAudio.Instance.inGame_NPC_Riche);
+                break;
+        }
 
         while(charIndex < textToType.Length)
         {
@@ -32,6 +43,18 @@ public class TypewriterEffect : MonoBehaviour
 
             yield return null;
         }
+
+        switch (npcDiffID)
+        {
+            case "rato":
+                InGameAudio.Stop(InGameAudio.Instance.inGame_NPC_Rato);
+                break;
+
+            case "riche":
+                InGameAudio.Stop(InGameAudio.Instance.inGame_NPC_Riche);
+                break;
+        }
+
         isTyping = false;
         textLabel.text = textToType;
         GetComponent<Dialogue>().ShowAnswerButton();

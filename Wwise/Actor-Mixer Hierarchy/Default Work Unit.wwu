@@ -1057,6 +1057,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_JUMP_01_new" ID="{CE8F58BA-D9C6-4FB3-97F0-EB76B42011D2}" ShortID="652668444">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>37</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>

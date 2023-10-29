@@ -172,6 +172,8 @@ public class QuestManager : MonoBehaviour
 
         // 다음 quest로 넘기기
 		index[npcId] += 1;
+
+        InGameAudio.Post(InGameAudio.Instance.inGame_NPC_succ);
 	}
 
     // Get active quests
