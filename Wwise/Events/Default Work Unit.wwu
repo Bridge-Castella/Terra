@@ -409,8 +409,133 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+<<<<<<< Updated upstream
+=======
+						<Event Name="inGame_JUMP_01" ID="{8FF796B5-F141-40F7-B335-CAEC60578E37}">
+							<ChildrenList>
+								<Action Name="" ID="{6DD1D111-4B4E-4250-A3FE-86386597CB46}" ShortID="156993598">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="inGame_JUMP_01" ID="{CB13CDEF-26C0-4AE1-B6A2-4D2791A3FBCA}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="inGame_Land" ID="{B20281C1-18C8-4A0B-8718-6548CB4B3BC8}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Action Name="" ID="{F4A832FF-1936-488B-9E37-581F3B2898B5}" ShortID="154020630">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="inGame_Land" ID="{624CD244-677A-4525-A8C7-5D758408B306}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="inGame_Monster_grass" ID="{2F696C3B-DA8F-4631-90DE-69BC8D212651}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Action Name="" ID="{CA9D37FB-1D61-4246-AF54-0001BD828B85}" ShortID="148557804">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="inGame_Monster_grass" ID="{5441DF05-ED99-408E-8F5A-25DEA9CB1596}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="inGame_STEP_Grass" ID="{C23F1023-0B32-4608-ACBB-014105A22C20}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Action Name="" ID="{18888FD0-C8F9-43E1-97BF-8E14EFAA0EFD}" ShortID="288656585">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="inGame_STEP_Grass" ID="{7E201C0F-5308-4BE5-8DBE-B92301F11751}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="inGame_STEP_Rock" ID="{3B76E38A-A567-4084-A291-348627AE7678}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Action Name="" ID="{45C113DA-6016-40EE-BE56-1BB8DC583D1B}" ShortID="313474873">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="inGame_STEP_Rock" ID="{C5167B56-8C50-4A92-B823-2BB26E263F9A}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="step_event" ID="{76956308-8ADA-4961-9C99-D0579089DA9E}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="13"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Action Name="" ID="{75FAF25D-A1C4-4C39-9B50-3E555E1C84A7}" ShortID="776057230">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ingame_step" ID="{7822585B-60AF-4F55-A28C-CFE1E9C2D7C4}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+>>>>>>> Stashed changes
 					</ChildrenList>
 				</Folder>
+				<Event Name="Set_Switch_Grass" ID="{D3887D9D-FE08-4F6A-9603-1ECF1656F8A7}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{D6FB0125-3580-48E5-8FB5-81D7EFFD7CD7}" ShortID="1067110633">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="23"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Grass" ID="{0D6A769F-F537-4533-A624-D4720034B2EA}" WorkUnitID="{E85E265A-6622-4714-967A-1A61DF064808}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Set_Switch_Rock" ID="{BB0CC3A6-0EC8-426D-8CF2-D95E5DCB8E54}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{F099CE48-1AF4-461F-800C-060CB119F2D1}" ShortID="783788687">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="23"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Rock" ID="{D860C221-C74D-4763-BFB1-47E4E10A2BB4}" WorkUnitID="{E85E265A-6622-4714-967A-1A61DF064808}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -313,6 +313,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_STAGE_FAIL" ID="{58F23C7D-6704-44B5-B500-5A250FDE0FF4}" ShortID="1029325977">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -497,6 +504,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_Monster_mush" ID="{AF23F880-EAAA-44DC-A605-A7AB7D2FE933}" ShortID="896350828">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -567,7 +581,7 @@
 								</Sound>
 								<Folder Name="Random" ID="{B720E2BF-120B-4C8B-A3C6-FE33EF86C1D3}" ShortID="967186225">
 									<PropertyList>
-										<Property Name="Color" Type="int16" Value="27"/>
+										<Property Name="Color" Type="int16" Value="10"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
 									<ChildrenList>
@@ -870,6 +884,96 @@
 												<ActiveSource Name="inGame_Land_02" ID="{18C69854-B850-4125-BFCA-7BBD2053E343}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+										<Sound Name="inGame_STEP_Rock_01" ID="{E34F20CC-F2FD-466A-9595-50E3C142A72A}" ShortID="905256548">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-8</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="rock01" ID="{41BA637E-A8B0-44CC-BB0A-7CE4838E3839}">
+													<Language>SFX</Language>
+													<AudioFile>rock01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="464149486"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="rock01" ID="{41BA637E-A8B0-44CC-BB0A-7CE4838E3839}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="inGame_STEP_Rock_02" ID="{24171328-2BF7-467E-8617-602726A126B1}" ShortID="750907993">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="rock02" ID="{483950D6-EED5-4F73-8B7E-67F9488D0A16}">
+													<Language>SFX</Language>
+													<AudioFile>rock02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="524249049"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="rock02" ID="{483950D6-EED5-4F73-8B7E-67F9488D0A16}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="inGame_STEP_Rock_03" ID="{501904D1-DF94-431F-8F49-96224830CA27}" ShortID="316766702">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="rock03" ID="{6EDAF69D-EC90-457E-B540-A6B3B4A6D739}">
+													<Language>SFX</Language>
+													<AudioFile>rock03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1059463565"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="rock03" ID="{6EDAF69D-EC90-457E-B540-A6B3B4A6D739}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
 								</Folder>
 								<Sound Name="House_CloseCloset" ID="{7A31D090-6DD0-4E0F-AAE8-0EFCD3045D4C}" ShortID="638064556">
@@ -988,6 +1092,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_CH_Die" ID="{CB2ABDF6-AC3B-4C06-817A-3BFEF339DF2C}" ShortID="512752835">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1034,6 +1145,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_JUMP_01" ID="{CB13CDEF-26C0-4AE1-B6A2-4D2791A3FBCA}" ShortID="982787156">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1199,6 +1317,521 @@
 					</ChildrenList>
 					<ObjectLists/>
 				</ActorMixer>
+				<RandomSequenceContainer Name="inGame_Land" ID="{624CD244-677A-4525-A8C7-5D758408B306}" ShortID="638347854">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="inGame_Land_01" ID="{ACCAACB7-B7A5-4E9F-B0A1-4828A2B70CE2}" ShortID="670050786">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-22</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_Land_01" ID="{D27FC1B3-D7AA-4589-A7BA-AD12F5C90E3A}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_Land_01.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="442623875"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_Land_01" ID="{D27FC1B3-D7AA-4589-A7BA-AD12F5C90E3A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_Land_02" ID="{FCD6EBBD-8EE1-4911-AF50-68C9D595B93C}" ShortID="305086171">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-22</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_Land_02" ID="{BFE866F2-7233-4113-8A7D-1F0B55AE6280}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_Land_02.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="75985236"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_Land_02" ID="{BFE866F2-7233-4113-8A7D-1F0B55AE6280}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists/>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="inGame_Monster_grass" ID="{5441DF05-ED99-408E-8F5A-25DEA9CB1596}" ShortID="90925455">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="inGame_Monster_grass04" ID="{C302BE5B-FE11-4E02-BF07-30F9381564B2}" ShortID="853859397">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_Monster_grass04" ID="{195CD81B-3821-4991-BAC3-E0B29194C0B5}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_Monster_grass04.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="791145686"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_Monster_grass04" ID="{195CD81B-3821-4991-BAC3-E0B29194C0B5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_Monster_grass05" ID="{8D4B0918-B02C-4251-9286-5B97E3064A04}" ShortID="376680460">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_Monster_grass05" ID="{638F196C-DF9A-43D8-8ABE-552390F15586}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_Monster_grass05.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="273092303"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_Monster_grass05" ID="{638F196C-DF9A-43D8-8ABE-552390F15586}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_Monster_grass03" ID="{BC56B204-8AA8-465B-9A02-97C59CD8520E}" ShortID="828210707">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_Monster_grass03" ID="{13063112-DCE1-441F-8D1A-D89C94351DF1}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_Monster_grass03.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="191359424"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_Monster_grass03" ID="{13063112-DCE1-441F-8D1A-D89C94351DF1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_Monster_grass01" ID="{4CD3D007-93AB-44CE-8DA1-7F3E6CDC3BA4}" ShortID="319856220">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_Monster_grass01" ID="{DE50A032-2385-4620-B8E3-4B6CDC8EAE59}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_Monster_grass01.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="595932298"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_Monster_grass01" ID="{DE50A032-2385-4620-B8E3-4B6CDC8EAE59}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_Monster_grass02" ID="{36817A07-DA67-48C1-BE23-11AD9EE1AB73}" ShortID="801176497">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_Monster_grass02" ID="{F579C6C2-273C-4CB4-B653-5EB5DA81C02F}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_Monster_grass02.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="799813182"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_Monster_grass02" ID="{F579C6C2-273C-4CB4-B653-5EB5DA81C02F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists/>
+				</RandomSequenceContainer>
+				<SwitchContainer Name="ingame_step" ID="{7822585B-60AF-4F55-A28C-CFE1E9C2D7C4}" ShortID="189137829">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="12"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="New_Switch_Group" ID="{00373D90-BAE4-4E16-89B7-933FF692EBB1}" WorkUnitID="{E85E265A-6622-4714-967A-1A61DF064808}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="inGame_STEP_Rock" ID="{C5167B56-8C50-4A92-B823-2BB26E263F9A}" ShortID="938513793">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="inGame_STEP_Rock_02" ID="{C3248BFC-B538-45E2-B7D0-5381A42BB764}" ShortID="661441394">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="rock02" ID="{CC84B8B6-24E6-4CD1-9AFC-A0D33BFC7D6B}">
+											<Language>SFX</Language>
+											<AudioFile>rock02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="524249049"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="rock02" ID="{CC84B8B6-24E6-4CD1-9AFC-A0D33BFC7D6B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="inGame_STEP_Rock_01" ID="{4326DD0D-F060-4B7D-8D40-00DA5115E746}" ShortID="365582058">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="rock01" ID="{05E43E37-70ED-4A2E-9EB8-858703250101}">
+											<Language>SFX</Language>
+											<AudioFile>rock01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="464149486"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="rock01" ID="{05E43E37-70ED-4A2E-9EB8-858703250101}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="inGame_STEP_Rock_03" ID="{EDFA2A81-54F0-41EC-92EF-66CD0AB6C855}" ShortID="736878324">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="rock03" ID="{050A9F58-26CA-4328-BCAE-D381F6ADC6FB}">
+											<Language>SFX</Language>
+											<AudioFile>rock03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1059463565"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="rock03" ID="{050A9F58-26CA-4328-BCAE-D381F6ADC6FB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="inGame_STEP_Grass" ID="{7E201C0F-5308-4BE5-8DBE-B92301F11751}" ShortID="198587351">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="inGame_STEP_Grass_03" ID="{39CF17D7-6CE8-4040-ADDA-11D3F8943962}" ShortID="913336811">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="inGame_STEP_Grass_03" ID="{AEEA288E-F5D3-41EA-BB8F-58346D808B70}">
+											<Language>SFX</Language>
+											<AudioFile>inGame_STEP_Grass_03.amb</AudioFile>
+											<MediaIDList>
+												<MediaID ID="138691275"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="inGame_STEP_Grass_03" ID="{AEEA288E-F5D3-41EA-BB8F-58346D808B70}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="inGame_STEP_Grass_02" ID="{393E9DCF-14BC-4889-A8DA-457FF33A2018}" ShortID="71225753">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="inGame_STEP_Grass_02" ID="{488981BC-9B32-40ED-B9A3-894037D6A2DF}">
+											<Language>SFX</Language>
+											<AudioFile>inGame_STEP_Grass_02.amb</AudioFile>
+											<MediaIDList>
+												<MediaID ID="748900145"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="inGame_STEP_Grass_02" ID="{488981BC-9B32-40ED-B9A3-894037D6A2DF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="inGame_STEP_Grass_05" ID="{CFF27D38-B4A7-404E-B765-29A6E420E31D}" ShortID="195488162">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="inGame_STEP_Grass_05" ID="{F8AC8169-0EF5-4FE8-AC56-0DD65430A4CB}">
+											<Language>SFX</Language>
+											<AudioFile>inGame_STEP_Grass_05.amb</AudioFile>
+											<MediaIDList>
+												<MediaID ID="383828309"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="inGame_STEP_Grass_05" ID="{F8AC8169-0EF5-4FE8-AC56-0DD65430A4CB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="inGame_STEP_Grass_01" ID="{99117D35-D1D8-403A-83F3-AEA14DD0D431}" ShortID="306671282">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="inGame_STEP_Grass_01" ID="{F965DFD3-DBE2-4BF3-ADE7-287F7F9E488D}">
+											<Language>SFX</Language>
+											<AudioFile>inGame_STEP_Grass_01.amb</AudioFile>
+											<MediaIDList>
+												<MediaID ID="413873060"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="inGame_STEP_Grass_01" ID="{F965DFD3-DBE2-4BF3-ADE7-287F7F9E488D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="inGame_STEP_Grass_06" ID="{90E6F719-E42D-4C82-8B00-8C2D3958BDDA}" ShortID="949349008">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="inGame_STEP_Grass_06" ID="{87C05F1A-A15B-465F-BB36-37B1C0E38583}">
+											<Language>SFX</Language>
+											<AudioFile>inGame_STEP_Grass_06.amb</AudioFile>
+											<MediaIDList>
+												<MediaID ID="360358268"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="inGame_STEP_Grass_06" ID="{87C05F1A-A15B-465F-BB36-37B1C0E38583}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="inGame_STEP_Grass_04" ID="{379FEC7B-05D9-4793-903E-E76D1AA277C3}" ShortID="318036321">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="inGame_STEP_Grass_04" ID="{7225D2E8-65CF-4FAF-99AF-1241EFB5471E}">
+											<Language>SFX</Language>
+											<AudioFile>inGame_STEP_Grass_04.amb</AudioFile>
+											<MediaIDList>
+												<MediaID ID="89216690"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="inGame_STEP_Grass_04" ID="{7225D2E8-65CF-4FAF-99AF-1241EFB5471E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
+					</ChildrenList>
+					<ObjectLists/>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="inGame_STEP_Grass" ID="{7E201C0F-5308-4BE5-8DBE-B92301F11751}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="inGame_STEP_Rock" ID="{C5167B56-8C50-4A92-B823-2BB26E263F9A}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="Rock" ID="{D860C221-C74D-4763-BFB1-47E4E10A2BB4}"/>
+								<ItemList>
+									<ItemRef Name="inGame_STEP_Rock" ID="{C5167B56-8C50-4A92-B823-2BB26E263F9A}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="Grass" ID="{0D6A769F-F537-4533-A624-D4720034B2EA}"/>
+								<ItemList>
+									<ItemRef Name="inGame_STEP_Grass" ID="{7E201C0F-5308-4BE5-8DBE-B92301F11751}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
