@@ -12,7 +12,7 @@ public class GNBCanvas : MonoBehaviour
 
     [SerializeField] private GameObject content;
     [SerializeField] private GameObject questPanel;
-    [SerializeField] private GameObject inventoryPanel;
+    [SerializeField] private InventoryUI inventoryPanel;
     [SerializeField] private GameObject homePanel;
     [SerializeField] private GameObject optionPanel;
 
@@ -80,7 +80,7 @@ public class GNBCanvas : MonoBehaviour
     private void OnClickInventoryButton()
     {
         content.SetActive(true);
-        inventoryPanel.SetActive(true);
+        inventoryPanel.gameObject.SetActive(true);
     }
 
     private void OnClickHomeButton()

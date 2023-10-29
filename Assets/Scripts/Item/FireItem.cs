@@ -10,6 +10,7 @@ public class FireItem : Item
     //TODO: 인벤토리에 넣기
     public override void GetFireItem()
     {
+        Inventory.instance.Add(this, 1);
         abilities.isHoldingFire = true;
         itemSprite.SetActive(false);
         gameObject.GetComponent<CircleCollider2D>().enabled = false;

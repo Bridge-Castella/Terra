@@ -7,22 +7,25 @@ public class InventoryUI : MonoBehaviour
 {
     public Transform itemSlotGroup;
     public Transform skinSlotGroup;
-    public GameObject panel;
-    public GameObject detailPanel;
-
-    public Button inventoryButton;
+    [SerializeField] private DetailPanel detailPanel;
+    [SerializeField] private Button exitButton;
 
     Inventory inventory;
 
-    public ItemSlot[] itemSlotArr;
+    [SerializeField] public ItemSlot[] itemSlotArr;
 
     private void Start()
+    {
+        
+    }
+
+    private void OnEnable()
     {
         inventory = Inventory.instance;
         inventory.OnItemChangedCallBack += UpdateUI;
         itemSlotArr = itemSlotGroup.GetComponentsInChildren<ItemSlot>();
 
-        for(int i = 0; i < itemSlotArr.Length; i++)
+        for (int i = 0; i < itemSlotArr.Length; i++)
         {
             itemSlotArr[i].gameObject.SetActive(false);
         }
@@ -32,13 +35,8 @@ public class InventoryUI : MonoBehaviour
             itemSlotArr[i].gameObject.SetActive(true);
         }
 
-        inventoryButton.onClick.AddListener(OnClickInventoryButton);
-    }
+        exitButton.onClick.AddListener(OnClickExitButton);
 
-    private void OnClickInventoryButton()
-    {
-        panel.SetActive(true);
-        inventoryButton.gameObject.SetActive(false);
         UpdateUI();
     }
 
@@ -58,5 +56,12 @@ public class InventoryUI : MonoBehaviour
                 itemSlotArr[i].ClearSlot();
             }*/
         }
+    }
+
+    public void OnClickExitButton()
+    {
+        detailPanel.itemDescriptionText.text = "";
+        detailPanel.itemNameText.text = "";
+        detailPanel.icon.gameObject.SetActive(false);
     }
 }

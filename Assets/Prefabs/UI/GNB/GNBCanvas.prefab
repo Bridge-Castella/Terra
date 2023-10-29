@@ -5988,16 +5988,6 @@ MonoBehaviour:
   masterVolumeNum: {fileID: 5470935724889946393}
   bgmVolumeNum: {fileID: 1036482697145699051}
   sfxVolumeNum: {fileID: 6342369190605209501}
-  keyPause:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 44c25127d7cfd4919a75b0c8a012b713,
-      type: 2}
-  keyExit:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 20488face8ee34c3bac1ea7d4fcc294e,
-      type: 2}
 --- !u!1 &1105221165834945249
 GameObject:
   m_ObjectHideFlags: 0
@@ -10670,20 +10660,18 @@ MonoBehaviour:
   homeButton: {fileID: 7578334380827091357}
   content: {fileID: 2803971913797814777}
   questPanel: {fileID: 984201305204851868}
-  inventoryPanel: {fileID: 7359128896999945082}
+  inventoryPanel: {fileID: 0}
   homePanel: {fileID: 7578334381217022499}
   optionPanel: {fileID: 1105221165747048949}
   gameIsPaused: 0
   pause:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 44c25127d7cfd4919a75b0c8a012b713,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   resume:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 20488face8ee34c3bac1ea7d4fcc294e,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
 --- !u!1 &2803971912934284644
 GameObject:
   m_ObjectHideFlags: 0
@@ -13130,9 +13118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSlotGroup: {fileID: 6171842687357922223}
   skinSlotGroup: {fileID: 8676612068319768479}
-  panel: {fileID: 3811104923226828410}
-  detailPanel: {fileID: 209779951543333222}
-  inventoryButton: {fileID: 7359128895754035917}
+  detailPanel: {fileID: 0}
+  exitButton: {fileID: 0}
   itemSlotArr: []
 --- !u!1 &3841254472260592939
 GameObject:
@@ -21037,7 +21024,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7359128895754035922}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7359128896999945076}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: UpdateUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7359128895846886704
 GameObject:
   m_ObjectHideFlags: 0
@@ -21858,7 +21857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7359128896922208109
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21926,7 +21925,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7359128896999945083}
   - component: {fileID: 7359128896999945081}
-  - component: {fileID: 7359128896999945080}
   - component: {fileID: 7359128896999945076}
   m_Layer: 5
   m_Name: InventoryPanel
@@ -21934,7 +21932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7359128896999945083
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21967,37 +21965,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7359128896999945082}
   m_CullTransparentMesh: 1
---- !u!114 &7359128896999945080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7359128896999945082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8156863}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: -7055764202340228682, guid: f8a9c0452dda35243989718fd8a32c4c,
-    type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &7359128896999945076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22012,9 +21979,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSlotGroup: {fileID: 7359128896868868215}
   skinSlotGroup: {fileID: 5271504329879384139}
-  panel: {fileID: 7359128896999945082}
-  detailPanel: {fileID: 7359128895846886704}
-  inventoryButton: {fileID: 7359128895754035917}
+  detailPanel: {fileID: 1441504769975096716}
+  exitButton: {fileID: 3392433502616857683}
   itemSlotArr: []
 --- !u!1 &7359128897574319324
 GameObject:
@@ -22362,7 +22328,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7359128896999945082}
+      - m_Target: {fileID: 2803971913797814777}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -22374,7 +22340,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2803971913797814777}
+      - m_Target: {fileID: 7359128896922208108}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
