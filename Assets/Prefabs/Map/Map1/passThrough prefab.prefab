@@ -3115,8 +3115,6 @@ GameObject:
   - component: {fileID: 4445919746411278850}
   - component: {fileID: 4445919746411278853}
   - component: {fileID: 4445919746411278852}
-  - component: {fileID: 4445919746411278848}
-  - component: {fileID: 4445919746411278851}
   m_Layer: 0
   m_Name: MapController
   m_TagString: Untagged
@@ -3181,44 +3179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 4445919747008058423}
---- !u!114 &4445919746411278848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4445919746411278855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fb174ec0ef04ccfb324804574e55aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: cf91d360
-  useOtherObject: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: c42d5d2ac39fa4971b8cebad7ef255d9,
-      type: 2}
-  valueIdInternal: 0
-  groupIdInternal: 0
-  valueGuidInternal: 
-  groupGuidInternal: 
---- !u!114 &4445919746411278851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4445919746411278855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f36f7fcaf04f449ee9d11d9bea78d9c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TriggerTag: Player
 --- !u!1 &4445919747008058423
 GameObject:
   m_ObjectHideFlags: 0
@@ -4144,7 +4104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4872172627279371581
 Transform:
   m_ObjectHideFlags: 0

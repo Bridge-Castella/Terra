@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 17354407}
   - component: {fileID: 17354412}
   - component: {fileID: 17354413}
+  - component: {fileID: 17354410}
   m_Layer: 0
   m_Name: MapController
   m_TagString: Untagged
@@ -204,6 +205,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &17354410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17354406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e92d228e62e14b4d8584a0b54752500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0e590065a62104e5694c908d13140706,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!114 &17354412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4683,11 +4709,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPoint: {fileID: 0}
   damageAmount: 4
-  life:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
-  soundObject: {fileID: 0}
 --- !u!61 &1880778661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5226,11 +5247,6 @@ PrefabInstance:
     - target: {fileID: 683811482461219192, guid: dbd1ef79f3d5895429be7e50e80ed1b4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4872172627279371583, guid: dbd1ef79f3d5895429be7e50e80ed1b4,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5530744546966073956, guid: dbd1ef79f3d5895429be7e50e80ed1b4,

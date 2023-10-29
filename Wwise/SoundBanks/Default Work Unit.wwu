@@ -3,13 +3,9 @@
 	<SoundBanks>
 		<WorkUnit Name="Default Work Unit" ID="{EC0FDD69-CA90-4327-A6DB-088C1745B457}" PersistMode="Standalone">
 			<ChildrenList>
-				<SoundBank Name="BGM_SoundBank" ID="{89C5CA50-3C39-46C9-805D-315C9BE236B1}">
+				<SoundBank Name="BGM_Login_loop" ID="{89C5CA50-3C39-46C9-805D-315C9BE236B1}">
 					<ObjectInclusionList>
-						<ObjectRef Name="BGM_Terra_s_House" ID="{6AC4720D-2176-4304-A6DB-BA4C19CE2ACB}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="BGM_Map3_loop" ID="{CCB429FC-DC82-4643-BF7B-732B9BA5674D}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="BGM_Map1_loop" ID="{FDFB12A0-DA96-4752-8CC0-44E4D63320C0}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="BGM_Login_loop" ID="{9E43601E-7B3D-491B-B45C-A6E3C88908C2}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="BGM_Map2_loop" ID="{FB61A833-8083-49BB-A62D-93780A8BDC20}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
@@ -18,8 +14,10 @@
 					<ObjectInclusionList>
 						<ObjectRef Name="inGame_STEP_Rock" ID="{3B76E38A-A567-4084-A291-348627AE7678}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="inGame_UI_Caution" ID="{79256C71-DBF3-4086-81C6-77B909673411}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="inGame_JUMP_01" ID="{8FF796B5-F141-40F7-B335-CAEC60578E37}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="inGame_UI_01" ID="{B170E56A-A9DE-410B-801B-65BFFFBA11C0}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="inGame_STAGE_CLEAR" ID="{6353B0A4-1F3F-416A-ABC9-0EBC853CC6F8}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UI" ID="{13805AA5-7DC5-4184-B5AB-ABDE55724265}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="inGame_CH_Life" ID="{B04BCE2F-EFD3-41D4-8815-CF83AFB9FF31}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="ITEM_Fire_02" ID="{8CCD9C26-494D-4222-925C-5B62E6CECFE5}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="inGame_BLOCK_01" ID="{4455F25B-450C-423E-A9D9-525BFE69479A}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
@@ -54,6 +52,34 @@
 						<ObjectRef Name="ITEM_Portion" ID="{56DADE30-7AED-4EF7-91AE-1C4169DCA8C1}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="inGame_STAGE_CheckPoint" ID="{7409D79C-B72C-4F60-AE14-B4F2E81B5C8D}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Set_Switch_Grass" ID="{D3887D9D-FE08-4F6A-9603-1ECF1656F8A7}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="BGM_Map1_loop" ID="{5BA701EC-418B-4714-A31E-ECCAE8449F43}">
+					<ObjectInclusionList>
+						<ObjectRef Name="BGM_Map1_loop" ID="{FDFB12A0-DA96-4752-8CC0-44E4D63320C0}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="BGM_Map2_loop" ID="{9E79DC64-CD26-474C-83E9-340156774C73}">
+					<ObjectInclusionList>
+						<ObjectRef Name="BGM_Map2_loop" ID="{FB61A833-8083-49BB-A62D-93780A8BDC20}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="BGM_Map3_loop" ID="{454C5F28-0552-4C86-BFA3-5BF96AF770BB}">
+					<ObjectInclusionList>
+						<ObjectRef Name="BGM_Map3_loop" ID="{CCB429FC-DC82-4643-BF7B-732B9BA5674D}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="BGM_Terra_s_House" ID="{BC79E611-D4A0-4C39-A102-E9A81529B567}">
+					<ObjectInclusionList>
+						<ObjectRef Name="BGM_Terra_s_House" ID="{6AC4720D-2176-4304-A6DB-BA4C19CE2ACB}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

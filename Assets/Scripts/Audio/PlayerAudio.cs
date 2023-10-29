@@ -28,8 +28,17 @@ public class PlayerAudio : AudioRef<PlayerAudio>
     public AK.Wwise.Event inGame_BLOCK_01;
     public AK.Wwise.Event inGame_WARN_01;
 
+    private StepState state = StepState.None;
+
     public static void ChangeStepSound(StepState state)
     {
+        if (state == Instance.state)
+        {
+            return;
+        }
+
+        Instance.state = state;
+
         if (state == StepState.None)
         {
             PlayerAudio.Stop(Instance.inGame_STEP);
