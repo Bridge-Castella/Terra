@@ -18,9 +18,6 @@ public class GNBCanvas : MonoBehaviour
 
     public bool gameIsPaused = false;
 
-    [SerializeField] AK.Wwise.Event pause;
-    [SerializeField] AK.Wwise.Event resume;
-
     #region Option
 
     private void Update()
@@ -45,7 +42,8 @@ public class GNBCanvas : MonoBehaviour
 
     public void Resume()
     {
-        resume?.Post(gameObject);
+        // TODO: resume audio
+
         //Destroy(optionObjectInstace);
         optionPanel.GetComponent<Option>().OnClickCancelButton();
         content.SetActive(false);
@@ -56,7 +54,8 @@ public class GNBCanvas : MonoBehaviour
 
     void Pause()
     {
-        pause?.Post(gameObject);
+        // TODO: pause audio
+
         content.SetActive(true);
         optionPanel.SetActive(true);
         Time.timeScale = 0f;

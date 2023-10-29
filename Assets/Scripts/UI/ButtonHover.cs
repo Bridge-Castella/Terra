@@ -6,18 +6,13 @@ using TMPro;
 
 public class ButtonHover : MonoBehaviour
 {
-    [SerializeField] AK.Wwise.Event mouseHover;
-    [SerializeField] AK.Wwise.Event mouseClick;
-
     public void MouseHoverOn()
     {
-        //AudioManager.instance.PlaySound("ui_03");                             // Outdated audio engine
-        mouseHover.Post(gameObject);
+        UIAudio.Post(UIAudio.Instance.UI_in);
     }
 
     public void OnClickButton()
     {
-        //AudioManaver.instance.PlaySound("ui_04");                             // Outdated audio engine
-        mouseClick.Post(gameObject);
+        UIAudio.Post(UIAudio.Instance.UI_select);
     }
 }

@@ -307,7 +307,7 @@ public class PlayerMove : MonoBehaviour
         {
             spriteRenderer[i].color = materialTintColor;
         }
-        isHurting = true;
+        isHurting = true;        
     }
 
     public void DamageKnockBack(Vector3 targetPos, float knockBackPower = 30f)
@@ -321,7 +321,6 @@ public class PlayerMove : MonoBehaviour
 
         isKnockback = true;
         HeartManager.instance.GetDamage();
-        PlayerAudio.Post(PlayerAudio.Instance.inGame_CH_Life);
 
         StartCoroutine(CoEnableDamage(0.5f, 1.5f));
     }

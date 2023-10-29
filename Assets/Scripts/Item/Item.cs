@@ -17,8 +17,6 @@ public class Item : MonoBehaviour
 
     [SerializeField] private ItemType itemType;
 
-    [SerializeField] AK.Wwise.Event itemCollect;
-
     public bool isStackable;
     public int amount;
     public int uid;
@@ -32,14 +30,12 @@ public class Item : MonoBehaviour
     //플레이어가 아이템에 부딪히면 아이템 얻음
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //TODO yeseul:아이템 얻을시 나는 소리: 종류마다 다르게 해야함
-        if (itemCollect != null) 
-            itemCollect.Post(gameObject);
-
         if (collision.tag == "Player")
         {
             player = collision.gameObject.GetComponent<PlayerMove>();
             abilities = collision.gameObject.GetComponent<PlayerAbilityTracker>();
+
+            InGameAudio.Post(InGameAudio.Instance.ITEM_Get_01);
 
             //날개, 스프링, 불 아이템 상속
             switch (itemType)

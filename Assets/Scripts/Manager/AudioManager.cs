@@ -22,6 +22,11 @@ public class AudioManager : MonoBehaviour
     public float bgmVolumePercent { get; private set; }
     public float masterVolumePercent { get; private set; }
 
+    public static PlayerAudio Player => PlayerAudio.Instance;
+    public static UIAudio UI => UIAudio.Instance;
+    public static LoginAudio Login => LoginAudio.Instance;
+    public static InGameAudio Game => InGameAudio.Instance;
+
     private void Awake()
     {
         if (instance != null)
@@ -98,13 +103,37 @@ public class AudioRef<T> : MonoBehaviour where T : MonoBehaviour
         Instance = null;
     }
 
-    public static void Post(AK.Wwise.Event source)
+    public static void Post(AK.Wwise.Event source, string sourceName = null)
     {
-        source?.Post((Instance as AudioRef<T>).soundObject);
+        Post(source, (Instance as AudioRef<T>).soundObject, sourceName);
     }
 
-    public static void Post(AK.Wwise.Event source, GameObject soundObj)
+    public static void Post(AK.Wwise.Event source, GameObject soundObj, string sourceName = null)
     {
-        source?.Post(soundObj);
+        if (source.ObjectReference == null)
+        {
+            Debug.LogWarning("WARNING: audio source is null. " +
+                (sourceName ?? "Audio") + " will not be played");
+            return;
+        }
+
+        source.Post(soundObj);
+    }
+
+    public static void Stop(AK.Wwise.Event source, string sourceName = null)
+    {
+        Stop(source, (Instance as AudioRef<T>).soundObject, sourceName);
+    }
+
+    public static void Stop(AK.Wwise.Event source, GameObject soundObj, string sourceName = null)
+    {
+        if (source.ObjectReference == null)
+        {
+            Debug.LogWarning("WARNING: audio source is null. " +
+                (sourceName ?? "Audio") + " will not be stoped");
+            return;
+        }
+
+        source.Stop(soundObj);
     }
 }

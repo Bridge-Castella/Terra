@@ -28,6 +28,8 @@ public class ButterProjectile : MonoBehaviour
 
         float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot);
+
+        InGameAudio.Post(InGameAudio.Instance.inGame_Monster_butterfly);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

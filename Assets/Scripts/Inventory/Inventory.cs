@@ -25,10 +25,6 @@ public class Inventory : MonoBehaviour
 
     private bool isUsingItem = false;
 
-    [SerializeField] AK.Wwise.Event itemLight;
-    [SerializeField] AK.Wwise.Event itemFire;
-    [SerializeField] AK.Wwise.Event itemWater;
-
     private void Start()
     {
         if (!GlobalContainer.contains("inventory"))
