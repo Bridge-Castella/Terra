@@ -10,6 +10,7 @@ public class FireItem : Item
     //TODO: 인벤토리에 넣기
     public override void GetFireItem()
     {
+        Inventory.instance.Add(this, 1);
         InGameAudio.Post(InGameAudio.Instance.ITEM_Fire_02);
         abilities.isHoldingFire = true;
         itemSprite.SetActive(false);

@@ -36,6 +36,7 @@ public class ItemSlot : MonoBehaviour
     {
         if(item != null)
         {
+            detailPanel.icon.gameObject.SetActive(true);
             detailPanel.gameObject.SetActive(true);
             detailPanel.icon.sprite = icon.sprite;
             detailPanel.itemNameText.text = item.itemName;
