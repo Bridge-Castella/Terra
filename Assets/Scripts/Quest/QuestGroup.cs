@@ -22,6 +22,14 @@ public class QuestGroup : MonoBehaviour
         questList = new List<Quest>();
 		foreach (GameObject questEle in questObject)
 		{
+			if (questEle == null)
+			{
+				Debug.LogError("ERROR: Quest list contains null object. " +
+					"Index of " + questObject.IndexOf(questEle) + " in " +
+					gameObject.name + "/QuestGroup/QuestObject");
+				continue;
+			}
+
 			// Get quest
 			Quest quest = questEle.GetComponent<Quest>();
 

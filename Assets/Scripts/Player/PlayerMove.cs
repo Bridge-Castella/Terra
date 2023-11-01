@@ -360,7 +360,11 @@ public class PlayerMove : MonoBehaviour
             isTalking = true;
             Debug.Log("NPC감지");
             npc.dialogueUIObject.GetComponent<Dialogue>().npc = npc;
-            npc.ShowDialogueUIObject();
+            
+            if (!npc.ShowDialogueUIObject())
+            {
+                isTalking = false;
+            }
 
         }
         Debug.DrawRay(capsuleCollider2D.bounds.center, new Vector2(x, 0) * (capsuleCollider2D.bounds.extents.y) * 2f, rayColor);

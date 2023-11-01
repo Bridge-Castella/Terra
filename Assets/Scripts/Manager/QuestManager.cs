@@ -101,6 +101,12 @@ public class QuestManager : MonoBehaviour
     // Quest 시작: quest 객체, 초기화 유무
     public static void StartQuest(Quest quest, bool initialize)
     {
+        if (quest == null)
+        {
+            Debug.LogError("ERROR: Quest is not assigned");
+            return;
+        }
+
         // Quest 상태 update
         state[quest.questId] = QuestState.Doing;
 

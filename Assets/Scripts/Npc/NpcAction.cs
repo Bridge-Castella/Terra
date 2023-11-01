@@ -55,16 +55,16 @@ public class NpcAction : MonoBehaviour
         if (questState == QuestState.Doing) Stroy_idIdx = 1;
 	}
 
-    public void ShowDialogueUIObject()
+    public bool ShowDialogueUIObject()
     {
         string questId = QuestManager.getNextQuestId(npc_diff_id);
         QuestState? state = QuestManager.getState(questId);
 
-        if (state == null) return;
+        if (state == null) return false;
         QuestState questState = (QuestState)state;
 
         if(isDialogueEnd || questState == QuestState.Completed)
-            return;
+            return false;
         //ui가 만들어져 있다면 생성안함.
         if (null == dialogueUiObjectInstance)
         {
@@ -103,5 +103,7 @@ public class NpcAction : MonoBehaviour
                     story_idIdx++;
             }
         }
+
+        return true;
     }
 }
