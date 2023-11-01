@@ -1,0 +1,284 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8557587733901402294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8557587733901402316}
+  - component: {fileID: 8557587733901402312}
+  - component: {fileID: 8557587733901402313}
+  - component: {fileID: 8557587733901402314}
+  - component: {fileID: 8557587733901402315}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &8557587733901402316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557587733901402294}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 969.227, y: 710.388, z: -6.687525}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8557587733901402312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557587733901402294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4960d5e65e45f4f2fa7b488849641726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundObject: {fileID: 0}
+  inGame_STEP:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 25f772257aee93a458542ec796963b78,
+      type: 2}
+  inGame_STEP_Grass:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 39228f937ea99dc4ea79592c07c739f9,
+      type: 2}
+  inGame_STEP_02:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 3bdee9997dfae4828aad62eb9b380526,
+      type: 2}
+  inGame_STEP_03:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_JUMP_01:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 002f38a1e6784834fa9fefdb8ec93ca1,
+      type: 2}
+  inGame_JUMP_Land:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0fe062fec84a74747a7cbc17c630c6c6,
+      type: 2}
+  inGame_CH_Life:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0ff752e6937c7e647a9992e787605cb1,
+      type: 2}
+  inGame_CH_Die:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9ff1ccdc5658049429f32eab5d9b6427,
+      type: 2}
+  inGame_BLOCK_01:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1983b9fa178d7f746975eefee2abd2ca,
+      type: 2}
+  inGame_WARN_01:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d7d50537127dd03499adfe40e343b1e9,
+      type: 2}
+--- !u!114 &8557587733901402313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557587733901402294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5424884cff5db4be581d2026e85aa396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundObject: {fileID: 8557587733901402294}
+  ITEM_Get_01:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a87720da3315d6e48a4ebd9c2aa43833,
+      type: 2}
+  ITEM_Fire_01:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e5cd4b34e0de2a44ab9cb44f969b9132,
+      type: 2}
+  ITEM_Fire_02:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9b5fa2f51865a0c4d9b26b04d7011b49,
+      type: 2}
+  ITEM_Portion:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 625bb80f4179f0e46b3f4927f42c9166,
+      type: 2}
+  ITEM_Plant:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 095deba4dfc0ac24db1288ecc7e8b978,
+      type: 2}
+  ITEM_Wing_01:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  ITEM_Wing_02:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_Quest_get:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: deb9d51f11516ff408b4a39b7f448b0c,
+      type: 2}
+  inGame_Monster_grass:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 309a9a3fecfdde04894f79635fcf4eb7,
+      type: 2}
+  inGame_Monster_mush:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1e1a814b013e73c4db25595bb274dbb2,
+      type: 2}
+  inGame_Monster_butterfly:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 15075256f6afd7546827e8fbdf6bb9f3,
+      type: 2}
+  inGame_Monster_death:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d253e738d6cbaca429f6fb459e9a78eb,
+      type: 2}
+  inGame_STAGE_CLEAR:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4ca8a632a699a3148806e8a6a2185b43,
+      type: 2}
+  inGame_STAGE_CheckPoint:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ceaf64661e2bd1b43a9c1dcf445aaad7,
+      type: 2}
+  inGame_UI_01:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c2084dd6ba45a1f47ba86dbabf0fe8dc,
+      type: 2}
+  inGame_UI_02:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4cf001c8f8fe1a84fac154fc0cee1614,
+      type: 2}
+  inGame_Caution:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 537fdfcd9a89cad4294b1329bd37df0a,
+      type: 2}
+  inGame_NPC_Rato:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_NPC_Riche:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_NPC_Quest:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b7dc138f55d186e4b811602965d34653,
+      type: 2}
+  inGame_NPC_succ:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b70877a3856fb8d499e996cb5ef3be83,
+      type: 2}
+  House_SelectPicture:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5f973a40f15b63546bf154396c43ccd7,
+      type: 2}
+  House_OpenCloset:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 18bfb0da379bf5140a17e0ac712777fc,
+      type: 2}
+  House_CloseCloset:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a8071de05ccabf34d9f8a9225d8f654a,
+      type: 2}
+  House_OpenBox:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 37a72f54838c93a4788bd12f5260c9cf,
+      type: 2}
+  House_CloseBox:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5ac9ef36b8aa26b429a62e9d6982499d,
+      type: 2}
+--- !u!114 &8557587733901402314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557587733901402294}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5010e364ab2494e9486b4b932cfeb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 1
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &8557587733901402315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557587733901402294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e92d228e62e14b4d8584a0b54752500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 44852607949214223b041a293cb196db,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
