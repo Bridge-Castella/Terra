@@ -51,6 +51,9 @@ public class FallDetector : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         player.isFalling = false;
-        player.gameObject.transform.position = checkPoint.position;
+        
+        // fix: checkpoint is not submitted to FallDetector
+        player.gameObject.transform.position = 
+            ControlManager.instance.startPoint;
     }
 }

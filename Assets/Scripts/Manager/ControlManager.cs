@@ -20,10 +20,8 @@ public class ControlManager : MonoBehaviour
     
     private void Start()
     {
-        if (GlobalContainer.contains("StartPos"))
-            startPoint = GlobalContainer.load<Vector3>("StartPos");
-        else
-            startPoint = GameObject.Find("StartPoint").transform.position;
+        startPoint = GlobalContainer.tryLoadOrStore("StartPos",
+            GameObject.Find("StartPoint").transform.position);
     }
 
     public void RetryGame()

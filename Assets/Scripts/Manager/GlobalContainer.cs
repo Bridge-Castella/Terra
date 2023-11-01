@@ -69,6 +69,19 @@ public class GlobalContainer
 		return true;
 	}
 
+	public static T tryLoadOrStore<T>(string key, T defaultValue)
+	{
+		if (!tryLoad<T>(key, out var result))
+		{
+			store(key, defaultValue);
+			return defaultValue;
+		}
+		else
+		{
+			return result;
+		}
+	}
+
 	public static void clear()
 	{
 		instance.container.Clear();
