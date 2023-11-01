@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>/Users/naburang/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Desktop/Terra.nosync/Wwise/</ProjectRoot>
+		<SourceFilesRoot>/Users/naburang/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Desktop/Terra.nosync/Wwise/.cache/Windows/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/naburang/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Desktop/Terra.nosync/Wwise/GeneratedSoundBanks/Windows/</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>/Users/naburang/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Desktop/Terra.nosync/Wwise/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="3868411383">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<GameParameters>
+				<GameParameter Id="3671138082" Name="New_Game_Parameter" ObjectPath="\Game Parameters\Default Work Unit\New_Game_Parameter"/>
+			</GameParameters>
+		</SoundBank>
+		<SoundBank Id="1638474828" Language="SFX" Hash="1251044959">
+			<ObjectPath>\SoundBanks\Default Work Unit\BGM_Login_loop</ObjectPath>
+			<ShortName>BGM_Login_loop</ShortName>
+			<Path>BGM_Login_loop.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1638474828" Name="BGM_Login_loop" ObjectPath="\Events\Default Work Unit\BGM\BGM_Login_loop">
+					<IncludedMemoryFiles>
+						<File Id="951148804" Language="SFX">
+							<ShortName>amb\BGM_Login_loop_ogg.amb</ShortName>
+							<Path>SFX/amb/BGM_Login_loop_ogg_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="1773848370" Language="SFX" Hash="1530140054">
+			<ObjectPath>\SoundBanks\Default Work Unit\BGM_Map3_loop</ObjectPath>
+			<ShortName>BGM_Map3_loop</ShortName>
+			<Path>BGM_Map3_loop.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1773848370" Name="BGM_Map3_loop" ObjectPath="\Events\Default Work Unit\BGM\BGM_Map3_loop">
+					<IncludedMemoryFiles>
+						<File Id="61980699" Language="SFX">
+							<ShortName>amb\BGM_MAP3_loop_ogg.amb</ShortName>
+							<Path>SFX/amb/BGM_MAP3_loop_ogg_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2209235428" Language="SFX" Hash="2478500349">
+			<ObjectPath>\SoundBanks\Default Work Unit\BGM_Map1_loop</ObjectPath>
+			<ShortName>BGM_Map1_loop</ShortName>
+			<Path>BGM_Map1_loop.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2209235428" Name="BGM_Map1_loop" ObjectPath="\Events\Default Work Unit\BGM\BGM_Map1_loop">
+					<IncludedMemoryFiles>
+						<File Id="965240098" Language="SFX">
+							<ShortName>amb\BGM_Map1_loop_ogg.amb</ShortName>
+							<Path>SFX/amb/BGM_Map1_loop_ogg_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2569804009" Language="SFX" Hash="2243477021">
+			<ObjectPath>\SoundBanks\Default Work Unit\BGM_Terra_s_House</ObjectPath>
+			<ShortName>BGM_Terra_s_House</ShortName>
+			<Path>BGM_Terra_s_House.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2569804009" Name="BGM_Terra_s_House" ObjectPath="\Events\Default Work Unit\BGM\BGM_Terra_s_House">
+					<IncludedMemoryFiles>
+						<File Id="25293220" Language="SFX">
+							<ShortName>amb\BGM_Terra_s_House_loop.amb</ShortName>
+							<Path>SFX/amb/BGM_Terra_s_House_loop_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2641024368" Language="SFX" Hash="68598961">
+			<ObjectPath>\SoundBanks\Default Work Unit\SFX_SoundBank</ObjectPath>
+			<ShortName>SFX_SoundBank</ShortName>
+			<Path>SFX_SoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1076206585" Name="House_CloseBox" ObjectPath="\Events\Default Work Unit\SFX\House_CloseBox">
+					<IncludedMemoryFiles>
+						<File Id="90424035" Language="SFX">
+							<ShortName>House_CloseBox.amb</ShortName>
+							<Path>SFX/House_CloseBox_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4199551486" Name="House_CloseCloset" ObjectPath="\Events\Default Work Unit\SFX\House_CloseCloset">
+					<IncludedMemoryFiles>
+						<File Id="341197597" Language="SFX">
+							<ShortName>House_CloseCloset.amb</ShortName>
+							<Path>SFX/House_CloseCloset_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1498937997" Name="House_OpenBox" ObjectPath="\Events\Default Work Unit\SFX\House_OpenBox">
+					<IncludedMemoryFiles>
+						<File Id="634678965" Language="SFX">
+							<ShortName>House_OpenBox.amb</ShortName>
+							<Path>SFX/House_OpenBox_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3281270370" Name="House_OpenCloset" ObjectPath="\Events\Default Work Unit\SFX\House_OpenCloset">
+					<IncludedMemoryFiles>
+						<File Id="1055606759" Language="SFX">
+							<ShortName>House_OpenCloset.amb</ShortName>
+							<Path>SFX/House_OpenCloset_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1510957952" Name="House_SelectPicture" ObjectPath="\Events\Default Work Unit\SFX\House_SelectPicture">
+					<IncludedMemoryFiles>
+						<File Id="486601644" Language="SFX">
+							<ShortName>House_SelectPicture.amb</ShortName>
+							<Path>SFX/House_SelectPicture_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2493066170" Name="inGame_BLOCK_01" ObjectPath="\Events\Default Work Unit\SFX\inGame_BLOCK_01">
+					<IncludedMemoryFiles>
+						<File Id="698934912" Language="SFX">
+							<ShortName>inGame_BLOCK_01.amb</ShortName>
+							<Path>SFX/inGame_BLOCK_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2978423563" Name="inGame_CH_Die" ObjectPath="\Events\Default Work Unit\SFX\inGame_CH_Die">
+					<IncludedMemoryFiles>
+						<File Id="670591994" Language="SFX">
+							<ShortName>inGame_CH_Die.amb</ShortName>
+							<Path>SFX/inGame_CH_Die_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3634777221" Name="inGame_CH_Life" ObjectPath="\Events\Default Work Unit\SFX\inGame_CH_Life">
+					<IncludedMemoryFiles>
+						<File Id="1060972770" Language="SFX">
+							<ShortName>inGame_CH_Life.amb</ShortName>
+							<Path>SFX/inGame_CH_Life_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2847307841" Name="inGame_JUMP_01" ObjectPath="\Events\Default Work Unit\SFX\inGame_JUMP_01">
+					<IncludedMemoryFiles>
+						<File Id="982792250" Language="SFX">
+							<ShortName>inGame_JUMP_01.amb</ShortName>
+							<Path>SFX/inGame_JUMP_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1980196406" Name="inGame_JUMP_01_new" ObjectPath="\Events\Default Work Unit\SFX\inGame_JUMP_01_new">
+					<IncludedMemoryFiles>
+						<File Id="156882854" Language="SFX">
+							<ShortName>inGame_JUMP_01_new.amb</ShortName>
+							<Path>SFX/inGame_JUMP_01_new_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1864905450" Name="inGame_Land" ObjectPath="\Events\Default Work Unit\SFX\inGame_Land">
+					<IncludedMemoryFiles>
+						<File Id="75985236" Language="SFX">
+							<ShortName>inGame_Land_02.amb</ShortName>
+							<Path>SFX/inGame_Land_02_10C4C929.wem</Path>
+						</File>
+						<File Id="442623875" Language="SFX">
+							<ShortName>inGame_Land_01.amb</ShortName>
+							<Path>SFX/inGame_Land_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3792871237" Name="inGame_Monster_butterfly" ObjectPath="\Events\Default Work Unit\SFX\inGame_Monster_butterfly">
+					<IncludedMemoryFiles>
+						<File Id="658368868" Language="SFX">
+							<ShortName>inGame_Monster_butterfly.amb</ShortName>
+							<Path>SFX/inGame_Monster_butterfly_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3670493562" Name="inGame_Monster_death" ObjectPath="\Events\Default Work Unit\SFX\inGame_Monster_death">
+					<IncludedMemoryFiles>
+						<File Id="283648053" Language="SFX">
+							<ShortName>inGame_Monster_death.amb</ShortName>
+							<Path>SFX/inGame_Monster_death_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1900606642" Name="inGame_Monster_grass" ObjectPath="\Events\Default Work Unit\SFX\inGame_Monster_grass">
+					<IncludedMemoryFiles>
+						<File Id="191359424" Language="SFX">
+							<ShortName>inGame_Monster_grass03.amb</ShortName>
+							<Path>SFX/inGame_Monster_grass03_10C4C929.wem</Path>
+						</File>
+						<File Id="273092303" Language="SFX">
+							<ShortName>inGame_Monster_grass05.amb</ShortName>
+							<Path>SFX/inGame_Monster_grass05_10C4C929.wem</Path>
+						</File>
+						<File Id="595932298" Language="SFX">
+							<ShortName>inGame_Monster_grass01.amb</ShortName>
+							<Path>SFX/inGame_Monster_grass01_10C4C929.wem</Path>
+						</File>
+						<File Id="791145686" Language="SFX">
+							<ShortName>inGame_Monster_grass04.amb</ShortName>
+							<Path>SFX/inGame_Monster_grass04_10C4C929.wem</Path>
+						</File>
+						<File Id="799813182" Language="SFX">
+							<ShortName>inGame_Monster_grass02.amb</ShortName>
+							<Path>SFX/inGame_Monster_grass02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2995626011" Name="inGame_Monster_mush" ObjectPath="\Events\Default Work Unit\SFX\inGame_Monster_mush">
+					<IncludedMemoryFiles>
+						<File Id="306639135" Language="SFX">
+							<ShortName>inGame_Monster_mush.amb</ShortName>
+							<Path>SFX/inGame_Monster_mush_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="996803069" Name="inGame_NPC_Quest" ObjectPath="\Events\Default Work Unit\SFX\inGame_NPC_Quest">
+					<IncludedMemoryFiles>
+						<File Id="413289653" Language="SFX">
+							<ShortName>inGame_NPC_Quest.amb</ShortName>
+							<Path>SFX/inGame_NPC_Quest_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3273732107" Name="inGame_NPC_succ" ObjectPath="\Events\Default Work Unit\SFX\inGame_NPC_succ">
+					<IncludedMemoryFiles>
+						<File Id="541283499" Language="SFX">
+							<ShortName>inGame_NPC_succ.amb</ShortName>
+							<Path>SFX/inGame_NPC_succ_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2320862640" Name="inGame_Quest_get" ObjectPath="\Events\Default Work Unit\SFX\inGame_Quest_get">
+					<IncludedMemoryFiles>
+						<File Id="531645874" Language="SFX">
+							<ShortName>inGame_Quest_get.amb</ShortName>
+							<Path>SFX/inGame_Quest_get_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2749440426" Name="inGame_STAGE_CheckPoint" ObjectPath="\Events\Default Work Unit\SFX\inGame_STAGE_CheckPoint">
+					<IncludedMemoryFiles>
+						<File Id="606239346" Language="SFX">
+							<ShortName>inGame_STAGE_CheckPoint.amb</ShortName>
+							<Path>SFX/inGame_STAGE_CheckPoint_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3604523983" Name="inGame_STAGE_CLEAR" ObjectPath="\Events\Default Work Unit\SFX\inGame_STAGE_CLEAR">
+					<IncludedMemoryFiles>
+						<File Id="645064769" Language="SFX">
+							<ShortName>inGame_STAGE_CLEAR.amb</ShortName>
+							<Path>SFX/inGame_STAGE_CLEAR_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2692549916" Name="inGame_STAGE_FAIL" ObjectPath="\Events\Default Work Unit\SFX\inGame_STAGE_FAIL">
+					<IncludedMemoryFiles>
+						<File Id="394525351" Language="SFX">
+							<ShortName>inGame_STAGE_FAIL.amb</ShortName>
+							<Path>SFX/inGame_STAGE_FAIL_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1232324584" Name="inGame_STEP_Grass" ObjectPath="\Events\Default Work Unit\SFX\inGame_STEP_Grass">
+					<IncludedMemoryFiles>
+						<File Id="89216690" Language="SFX">
+							<ShortName>inGame_STEP_Grass_04.amb</ShortName>
+							<Path>SFX/inGame_STEP_Grass_04_10C4C929.wem</Path>
+						</File>
+						<File Id="138691275" Language="SFX">
+							<ShortName>inGame_STEP_Grass_03.amb</ShortName>
+							<Path>SFX/inGame_STEP_Grass_03_10C4C929.wem</Path>
+						</File>
+						<File Id="360358268" Language="SFX">
+							<ShortName>inGame_STEP_Grass_06.amb</ShortName>
+							<Path>SFX/inGame_STEP_Grass_06_10C4C929.wem</Path>
+						</File>
+						<File Id="383828309" Language="SFX">
+							<ShortName>inGame_STEP_Grass_05.amb</ShortName>
+							<Path>SFX/inGame_STEP_Grass_05_10C4C929.wem</Path>
+						</File>
+						<File Id="413873060" Language="SFX">
+							<ShortName>inGame_STEP_Grass_01.amb</ShortName>
+							<Path>SFX/inGame_STEP_Grass_01_10C4C929.wem</Path>
+						</File>
+						<File Id="748900145" Language="SFX">
+							<ShortName>inGame_STEP_Grass_02.amb</ShortName>
+							<Path>SFX/inGame_STEP_Grass_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="320848553" Name="inGame_STEP_Rock" ObjectPath="\Events\Default Work Unit\SFX\inGame_STEP_Rock">
+					<IncludedMemoryFiles>
+						<File Id="464149486" Language="SFX">
+							<ShortName>rock01.wav</ShortName>
+							<Path>SFX/rock01_10C4C929.wem</Path>
+						</File>
+						<File Id="524249049" Language="SFX">
+							<ShortName>rock02.wav</ShortName>
+							<Path>SFX/rock02_10C4C929.wem</Path>
+						</File>
+						<File Id="1059463565" Language="SFX">
+							<ShortName>rock03.wav</ShortName>
+							<Path>SFX/rock03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="904126367" Name="inGame_UI_01" ObjectPath="\Events\Default Work Unit\SFX\UI\inGame_UI_01">
+					<IncludedMemoryFiles>
+						<File Id="810352738" Language="SFX">
+							<ShortName>inGame_UI_01.amb</ShortName>
+							<Path>SFX/inGame_UI_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="904126364" Name="inGame_UI_02" ObjectPath="\Events\Default Work Unit\SFX\UI\inGame_UI_02">
+					<IncludedMemoryFiles>
+						<File Id="493979378" Language="SFX">
+							<ShortName>inGame_UI_02.amb</ShortName>
+							<Path>SFX/inGame_UI_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3068015129" Name="inGame_UI_Caution" ObjectPath="\Events\Default Work Unit\SFX\inGame_UI_Caution">
+					<IncludedMemoryFiles>
+						<File Id="12906990" Language="SFX">
+							<ShortName>inGame_UI_Caution.amb</ShortName>
+							<Path>SFX/inGame_UI_Caution_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4084005133" Name="inGame_WARN_01" ObjectPath="\Events\Default Work Unit\SFX\inGame_WARN_01">
+					<IncludedMemoryFiles>
+						<File Id="677609712" Language="SFX">
+							<ShortName>inGame_WARN_01.amb</ShortName>
+							<Path>SFX/inGame_WARN_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1658504087" Name="ITEM_Fire_01" ObjectPath="\Events\Default Work Unit\SFX\ITEM_Fire_01">
+					<IncludedMemoryFiles>
+						<File Id="744407604" Language="SFX">
+							<ShortName>ITEM_Fire_01.amb</ShortName>
+							<Path>SFX/ITEM_Fire_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1658504084" Name="ITEM_Fire_02" ObjectPath="\Events\Default Work Unit\SFX\ITEM_Fire_02">
+					<IncludedMemoryFiles>
+						<File Id="346092054" Language="SFX">
+							<ShortName>ITEM_Fire_02.amb</ShortName>
+							<Path>SFX/ITEM_Fire_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="26485641" Name="ITEM_Get_01" ObjectPath="\Events\Default Work Unit\SFX\ITEM_Get_01">
+					<IncludedMemoryFiles>
+						<File Id="597951245" Language="SFX">
+							<ShortName>ITEM_Get_01.amb</ShortName>
+							<Path>SFX/ITEM_Get_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1852220582" Name="ITEM_Plant" ObjectPath="\Events\Default Work Unit\SFX\ITEM_Plant">
+					<IncludedMemoryFiles>
+						<File Id="366399669" Language="SFX">
+							<ShortName>ITEM_Plant.amb</ShortName>
+							<Path>SFX/ITEM_Plant_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2320067736" Name="ITEM_Portion" ObjectPath="\Events\Default Work Unit\SFX\ITEM_Portion">
+					<IncludedMemoryFiles>
+						<File Id="517518069" Language="SFX">
+							<ShortName>ITEM_Portion.amb</ShortName>
+							<Path>SFX/ITEM_Portion_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="221641293" Name="Set_Switch_Grass" ObjectPath="\Events\Default Work Unit\Set_Switch_Grass">
+					<ActionSetSwitch>
+						<ActionSetSwitchEntry Id="4248645337" Name="Grass" ObjectPath="\Switches\Default Work Unit\New_Switch_Group\Grass"/>
+					</ActionSetSwitch>
+				</Event>
+				<Event Id="1745247046" Name="Set_Switch_Rock" ObjectPath="\Events\Default Work Unit\Set_Switch_Rock">
+					<ActionSetSwitch>
+						<ActionSetSwitchEntry Id="2144363834" Name="Rock" ObjectPath="\Switches\Default Work Unit\New_Switch_Group\Rock"/>
+					</ActionSetSwitch>
+				</Event>
+				<Event Id="1963527414" Name="step_event" ObjectPath="\Events\Default Work Unit\SFX\step_event">
+					<IncludedMemoryFiles>
+						<File Id="89216690" Language="SFX">
+							<ShortName>inGame_STEP_Grass_04.amb</ShortName>
+							<Path>SFX/inGame_STEP_Grass_04_10C4C929.wem</Path>
+						</File>
+						<File Id="138691275" Language="SFX">
+							<ShortName>inGame_STEP_Grass_03.amb</ShortName>
+							<Path>SFX/inGame_STEP_Grass_03_10C4C929.wem</Path>
+						</File>
+						<File Id="360358268" Language="SFX">
+							<ShortName>inGame_STEP_Grass_06.amb</ShortName>
+							<Path>SFX/inGame_STEP_Grass_06_10C4C929.wem</Path>
+						</File>
+						<File Id="383828309" Language="SFX">
+							<ShortName>inGame_STEP_Grass_05.amb</ShortName>
+							<Path>SFX/inGame_STEP_Grass_05_10C4C929.wem</Path>
+						</File>
+						<File Id="413873060" Language="SFX">
+							<ShortName>inGame_STEP_Grass_01.amb</ShortName>
+							<Path>SFX/inGame_STEP_Grass_01_10C4C929.wem</Path>
+						</File>
+						<File Id="464149486" Language="SFX">
+							<ShortName>rock01.wav</ShortName>
+							<Path>SFX/rock01_10C4C929.wem</Path>
+						</File>
+						<File Id="524249049" Language="SFX">
+							<ShortName>rock02.wav</ShortName>
+							<Path>SFX/rock02_10C4C929.wem</Path>
+						</File>
+						<File Id="748900145" Language="SFX">
+							<ShortName>inGame_STEP_Grass_02.amb</ShortName>
+							<Path>SFX/inGame_STEP_Grass_02_10C4C929.wem</Path>
+						</File>
+						<File Id="1059463565" Language="SFX">
+							<ShortName>rock03.wav</ShortName>
+							<Path>SFX/rock03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1902423899" Name="UI_in" ObjectPath="\Events\Default Work Unit\SFX\UI\UI_in">
+					<IncludedMemoryFiles>
+						<File Id="566116736" Language="SFX">
+							<ShortName>UI_in.amb</ShortName>
+							<Path>SFX/UI_in_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3312508406" Name="UI_out" ObjectPath="\Events\Default Work Unit\SFX\UI\UI_out">
+					<IncludedMemoryFiles>
+						<File Id="68331284" Language="SFX">
+							<ShortName>UI_out.amb</ShortName>
+							<Path>SFX/UI_out_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2616536741" Name="UI_pick" ObjectPath="\Events\Default Work Unit\SFX\UI\UI_pick">
+					<IncludedMemoryFiles>
+						<File Id="1074379" Language="SFX">
+							<ShortName>UI_pick.amb</ShortName>
+							<Path>SFX/UI_pick_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2774129122" Name="UI_select" ObjectPath="\Events\Default Work Unit\SFX\UI\UI_select">
+					<IncludedMemoryFiles>
+						<File Id="586284190" Language="SFX">
+							<ShortName>UI_select.amb</ShortName>
+							<Path>SFX/UI_select_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+			<SwitchGroups>
+				<SwitchGroup Id="2144363834" Name="Rock" ObjectPath="\Switches\Default Work Unit\New_Switch_Group\Rock" GUID="{D860C221-C74D-4763-BFB1-47E4E10A2BB4}">
+					<Switches/>
+				</SwitchGroup>
+				<SwitchGroup Id="2250165792" Name="New_Switch_Group" ObjectPath="\Switches\Default Work Unit\New_Switch_Group" GUID="{00373D90-BAE4-4E16-89B7-933FF692EBB1}">
+					<Switches>
+						<Switch Id="4248645337" Name="Grass" ObjectPath="\Switches\Default Work Unit\New_Switch_Group\Grass" GUID="{0D6A769F-F537-4533-A624-D4720034B2EA}"/>
+						<Switch Id="2144363834" Name="Rock" ObjectPath="\Switches\Default Work Unit\New_Switch_Group\Rock" GUID="{D860C221-C74D-4763-BFB1-47E4E10A2BB4}"/>
+					</Switches>
+				</SwitchGroup>
+				<SwitchGroup Id="4248645337" Name="Grass" ObjectPath="\Switches\Default Work Unit\New_Switch_Group\Grass" GUID="{0D6A769F-F537-4533-A624-D4720034B2EA}">
+					<Switches/>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="3625869765" Language="SFX" Hash="293610352">
+			<ObjectPath>\SoundBanks\Default Work Unit\BGM_Map2_loop</ObjectPath>
+			<ShortName>BGM_Map2_loop</ShortName>
+			<Path>BGM_Map2_loop.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3625869765" Name="BGM_Map2_loop" ObjectPath="\Events\Default Work Unit\BGM\BGM_Map2_loop">
+					<IncludedMemoryFiles>
+						<File Id="1016648946" Language="SFX">
+							<ShortName>amb\BGM_Map2_loop_ogg.amb</ShortName>
+							<Path>SFX/amb/BGM_Map2_loop_ogg_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
