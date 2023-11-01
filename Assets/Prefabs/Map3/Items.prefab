@@ -47,10 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 1
-  itemCollect:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
   isStackable: 0
   amount: 0
   uid: 0
@@ -229,10 +225,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 1
-  itemCollect:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
   isStackable: 0
   amount: 0
   uid: 0
@@ -392,7 +384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459269197663150049}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 222.8687, y: 42.90825, z: 7.610436}
+  m_LocalPosition: {x: 222.8687, y: 42.99, z: 7.610436}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4589817627048339720}
@@ -454,8 +446,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 3.374499, y: 2.5963936, z: -0.00005}
-    m_Extent: {x: 3.374499, y: 10.69467, z: 0.00005}
+    m_Center: {x: 3.374499, y: 3.0753841, z: -0.00005}
+    m_Extent: {x: 3.374499, y: 11.17366, z: 0.00005}
 --- !u!114 &1459269197663150048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,9 +473,9 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 5.259613, y: 13.244598, z: 0}
-      leftTangent: {x: 0.011260986, y: -0.32661438, z: 0}
-      rightTangent: {x: -0.06387329, y: 1.8555756, z: 0}
+    - position: {x: 5.2595825, y: 14.202454, z: 0}
+      leftTangent: {x: 0.011291504, y: -0.32662964, z: 0}
+      rightTangent: {x: -0.06384277, y: 1.8555603, z: 0}
       mode: 1
       height: 1
       bevelCutoff: 0
@@ -524,13 +516,14 @@ EdgeCollider2D:
   m_EdgeRadius: 1.2
   m_Points:
   - {x: 5.4675593, y: -8.047666}
-  - {x: 5.4561567, y: -7.5329375}
-  - {x: 5.4324718, y: -5.3209224}
-  - {x: 5.4084816, y: -1.9702036}
-  - {x: 5.374577, y: 4.025574}
-  - {x: 5.333384, y: 12.177732}
-  - {x: 5.3287606, y: 12.934589}
-  - {x: 5.325649, y: 13.246874}
+  - {x: 5.4561567, y: -7.520734}
+  - {x: 5.4444423, y: -6.556567}
+  - {x: 5.4204364, y: -3.5864909}
+  - {x: 5.3967557, y: 0.3026435}
+  - {x: 5.364409, y: 6.637813}
+  - {x: 5.3333645, y: 13.089021}
+  - {x: 5.328736, y: 13.880217}
+  - {x: 5.325618, y: 14.204738}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -576,7 +569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459269199126890740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.708694, y: -2.0517426, z: 7.610436}
+  m_LocalPosition: {x: 20.31, y: -2.0517426, z: 7.610436}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4589817627048339720}
@@ -638,8 +631,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 3.374499, y: 2.5963936, z: -0.00005}
-    m_Extent: {x: 3.374499, y: 10.69467, z: 0.00005}
+    m_Center: {x: 3.374499, y: 3.857257, z: -0.00005}
+    m_Extent: {x: 3.374499, y: 11.955533, z: 0.00005}
 --- !u!114 &1459269199126890741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,9 +658,9 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 5.259613, y: 13.244598, z: 0}
-      leftTangent: {x: 0.011260986, y: -0.32661438, z: 0}
-      rightTangent: {x: -0.06387329, y: 1.8555756, z: 0}
+    - position: {x: 5.2236023, y: 15.766327, z: 0}
+      leftTangent: {x: 0.011260986, y: -0.32662964, z: 0}
+      rightTangent: {x: -0.06387329, y: 1.8555603, z: 0}
       mode: 1
       height: 1
       bevelCutoff: 0
@@ -708,13 +701,14 @@ EdgeCollider2D:
   m_EdgeRadius: 1.2
   m_Points:
   - {x: 5.4675593, y: -8.047666}
-  - {x: 5.4561567, y: -7.5329375}
-  - {x: 5.4324718, y: -5.3209224}
-  - {x: 5.4084816, y: -1.9702036}
-  - {x: 5.374577, y: 4.025574}
-  - {x: 5.333384, y: 12.177732}
-  - {x: 5.3287606, y: 12.934589}
-  - {x: 5.325649, y: 13.246874}
+  - {x: 5.455698, y: -7.5008087}
+  - {x: 5.4426923, y: -6.480527}
+  - {x: 5.4141197, y: -3.3121066}
+  - {x: 5.3840814, y: 0.853204}
+  - {x: 5.3410807, y: 7.651285}
+  - {x: 5.299123, y: 14.57698}
+  - {x: 5.2932086, y: 15.424229}
+  - {x: 5.289638, y: 15.768602}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -962,10 +956,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 0
-  itemCollect:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
   isStackable: 0
   amount: 0
   uid: 0
@@ -1227,10 +1217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 0
-  itemCollect:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
   isStackable: 0
   amount: 0
   uid: 0
@@ -11326,7 +11312,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4589817627048339723}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -191.3087, y: -209.34825, z: -7.610436}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
