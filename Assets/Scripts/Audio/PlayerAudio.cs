@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerAudio : AudioRef<PlayerAudio>
@@ -6,15 +7,14 @@ public class PlayerAudio : AudioRef<PlayerAudio>
     {
         None = 0,
         Grass,
-        STEP_02,
-        STEP_03,
+        Rock
     }
 
     [Header("Step")]
     public AK.Wwise.Event inGame_STEP;
     public AK.Wwise.Event inGame_STEP_Grass;
-    public AK.Wwise.Event inGame_STEP_02;
-    public AK.Wwise.Event inGame_STEP_03;
+    public AK.Wwise.Event inGame_STEP_Rock;
+    // public AK.Wwise.Event inGame_STEP_03;
 
     [Header("Jump")]
     public AK.Wwise.Event inGame_JUMP_01;
@@ -29,6 +29,8 @@ public class PlayerAudio : AudioRef<PlayerAudio>
     public AK.Wwise.Event inGame_WARN_01;
 
     private StepState state = StepState.None;
+    private bool shouldStopStepSound = false;
+    private bool isStepSoundPlaying = false;
 
     public static void ChangeStepSound(StepState state)
     {
@@ -37,29 +39,55 @@ public class PlayerAudio : AudioRef<PlayerAudio>
             return;
         }
 
-        Instance.state = state;
-
         if (state == StepState.None)
         {
-            PlayerAudio.Stop(Instance.inGame_STEP);
+            Instance.state = state;
+            Instance.shouldStopStepSound = true;
             return;
         }
 
         switch (state)
         {
             case StepState.Grass:
-                PlayerAudio.Post(Instance.inGame_STEP_Grass, nameof(Instance.inGame_STEP_Grass));
+                PlayerAudio.Post(Instance.inGame_STEP_Grass);
                 break;
 
-            case StepState.STEP_02:
-                PlayerAudio.Post(Instance.inGame_STEP_02, nameof(Instance.inGame_STEP_02));
+            case StepState.Rock:
+                PlayerAudio.Post(Instance.inGame_STEP_Rock);
                 break;
 
-            case StepState.STEP_03:
-                PlayerAudio.Post(Instance.inGame_STEP_03, nameof(Instance.inGame_STEP_03));
-                break;
+            // case StepState.STEP_03:
+            //     PlayerAudio.Post(Instance.inGame_STEP_03, nameof(Instance.inGame_STEP_03));
+            //     break;
         }
 
-        PlayerAudio.Post(Instance.inGame_STEP);
+        if (Instance.state == StepState.None && !Instance.isStepSoundPlaying)
+        {
+            Instance.shouldStopStepSound = false;
+            Instance.PostStepSound();
+        }
+
+        Instance.state = state;
+    }
+
+    private void StepSoundCallback(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
+    {
+        Instance.isStepSoundPlaying = false;
+        if (!shouldStopStepSound)
+        {
+            Instance.PostStepSound();
+        }
+    }
+
+    private void PostStepSound()
+    {
+        Instance.isStepSoundPlaying = true;
+        Instance.inGame_STEP.Post(
+            Instance.soundObject,
+            new AK.Wwise.CallbackFlags
+            {
+                value = (uint)AkCallbackType.AK_EndOfEvent
+            },
+            Instance.StepSoundCallback);
     }
 }

@@ -240,7 +240,24 @@ public class PlayerMove : MonoBehaviour
 
             if (moveHorizontalInput != 0 && IsGrounded())
             {
-                PlayerAudio.ChangeStepSound(PlayerAudio.StepState.Grass);
+                switch (MapManager.state.map)
+                {
+                    case MapManager.MapIndex.Map1:
+                        PlayerAudio.ChangeStepSound(PlayerAudio.StepState.Grass);
+                        break;
+
+                    case MapManager.MapIndex.Map2:
+                        PlayerAudio.ChangeStepSound(PlayerAudio.StepState.Rock);
+                        break;
+
+                    case MapManager.MapIndex.Map3:
+                        PlayerAudio.ChangeStepSound(PlayerAudio.StepState.Grass);
+                        break;
+
+                    default:
+                        PlayerAudio.ChangeStepSound(PlayerAudio.StepState.Grass);
+                        break;
+                }
             }
             else
             {

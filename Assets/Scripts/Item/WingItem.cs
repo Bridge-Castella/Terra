@@ -47,7 +47,7 @@ public class WingItem : Item
 
             if (remaining > 1.0f)
             {
-                indicatorText.text = Mathf.CeilToInt(remaining).ToString();
+                indicatorText.text = Mathf.FloorToInt(remaining).ToString();
             }
             else
             {

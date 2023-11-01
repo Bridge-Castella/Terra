@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8557587733901402316}
   - component: {fileID: 8557587733901402312}
   - component: {fileID: 8557587733901402313}
+  - component: {fileID: 7440924619349735189}
   - component: {fileID: 8557587733901402314}
   - component: {fileID: 8557587733901402315}
   m_Layer: 0
@@ -57,15 +58,11 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 39228f937ea99dc4ea79592c07c739f9,
       type: 2}
-  inGame_STEP_02:
+  inGame_STEP_Rock:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 3bdee9997dfae4828aad62eb9b380526,
       type: 2}
-  inGame_STEP_03:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
   inGame_JUMP_01:
     idInternal: 0
     valueGuidInternal: 
@@ -234,6 +231,39 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 5ac9ef36b8aa26b429a62e9d6982499d,
+      type: 2}
+--- !u!114 &7440924619349735189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557587733901402294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21fc1d535e4ce47fa9ea9625f6c23890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundObject: {fileID: 0}
+  UI_in:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 670d433f54a81e0489064f5fbbaab6ba,
+      type: 2}
+  UI_out:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 144659abffb60fe479c15a297bf220f3,
+      type: 2}
+  UI_select:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 40fa21edbdf53f04f86dd4cf1a72d071,
+      type: 2}
+  UI_pick:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 6735438d71de1374b94f096197c656e5,
       type: 2}
 --- !u!114 &8557587733901402314
 MonoBehaviour:

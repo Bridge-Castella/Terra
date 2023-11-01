@@ -103,34 +103,34 @@ public class AudioRef<T> : MonoBehaviour where T : MonoBehaviour
         Instance = null;
     }
 
-    public static void Post(AK.Wwise.Event source, string sourceName = null)
+    public static void Post(AK.Wwise.Event source)
     {
-        Post(source, (Instance as AudioRef<T>).soundObject, sourceName);
+        Post(source, (Instance as AudioRef<T>).soundObject);
     }
 
-    public static void Post(AK.Wwise.Event source, GameObject soundObj, string sourceName = null)
+    public static void Post(AK.Wwise.Event source, GameObject soundObj)
     {
         if (source.ObjectReference == null)
         {
             Debug.LogWarning("WARNING: audio source is null. " +
-                (sourceName ?? "Audio") + " will not be played");
+                (nameof(source) ?? "Audio") + " will not be played");
             return;
         }
 
         source.Post(soundObj);
     }
 
-    public static void Stop(AK.Wwise.Event source, string sourceName = null)
+    public static void Stop(AK.Wwise.Event source)
     {
-        Stop(source, (Instance as AudioRef<T>).soundObject, sourceName);
+        Stop(source, (Instance as AudioRef<T>).soundObject);
     }
 
-    public static void Stop(AK.Wwise.Event source, GameObject soundObj, string sourceName = null)
+    public static void Stop(AK.Wwise.Event source, GameObject soundObj)
     {
         if (source.ObjectReference == null)
         {
             Debug.LogWarning("WARNING: audio source is null. " +
-                (sourceName ?? "Audio") + " will not be stoped");
+                (nameof(source) ?? "Audio") + " will not be stoped");
             return;
         }
 
