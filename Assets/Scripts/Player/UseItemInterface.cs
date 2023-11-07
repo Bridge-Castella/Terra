@@ -7,10 +7,11 @@ public class UseItemInterface : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject prefab_obj;
-
+    private PlayerMove playerFace;
     void Start()
     {
-      //prefab_obj = Resources.Load("../Prefabs/Item/Potion_Vine.prefab") as GameObject;
+        playerFace = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
+        //prefab_obj = Resources.Load("../Prefabs/Item/Potion_Vine.prefab") as GameObject;
     }
 
     // Update is called once per frame
@@ -21,17 +22,16 @@ public class UseItemInterface : MonoBehaviour
         {
             GameObject obj = MonoBehaviour.Instantiate(prefab_obj);
 
-            //PlayerMove a = GameObject.Find("terra").GetComponent<PlayerMove>();
-            
-            //if (a.facingRight)
-            //{
-                obj.transform.position = gameObject.transform.position + new Vector3(3, 1, 0);
-            //}
-            //else
-            //{
-                //obj.GetComponent<Rigidbody2D>().AddForce(Vector2.left);
-             //   obj.transform.position = gameObject.transform.position + new Vector3(-3, 0, 0);
-            //}
+            if (playerFace.facingRight)
+            {
+                obj.GetComponent<Rigidbody2D>().AddForce(Vector2.right);
+                obj.transform.position = transform.position + new Vector3(3, 1, 0);
+            }
+            else
+            {
+                obj.GetComponent<Rigidbody2D>().AddForce(Vector2.left);
+                obj.transform.position = transform.position + new Vector3(-3, 0, 0);
+            }
 
            
 

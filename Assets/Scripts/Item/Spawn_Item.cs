@@ -15,16 +15,21 @@ public class Spawn_Item : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground"))
+        if (collision.CompareTag("Ladder"))
         {
             if (isOnce)
             {
-                GameObject obj = MonoBehaviour.Instantiate(prefab_obj);
-                obj.transform.position = gameObject.transform.position;
+                LadderOpacity Ladder = collision.gameObject.GetComponent<LadderOpacity>();
+                Ladder.bIsLadderUpdate =true;
                 isOnce = false;
                 particleObject.Play();
                 Destroy(gameObject, 1.0f);
             }
+        }
+        else
+        {
+            particleObject.Play();
+            Destroy(gameObject, 1.0f);
         }
     }
 

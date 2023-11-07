@@ -5,11 +5,16 @@ using UnityEngine;
 public class Potion_Vine : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public float speed =2.0f;
+    public float force =2.0f;
+    private Transform player;
+    Rigidbody2D rigidbody2D;
+
     void Start()
     {
-        //destory 2초 후 예약 
-        //스프라이트 색 바꾸려면 바꿔도 되고
-        
+        //projectile처럼 날아가도 좋을듯 
+
     }
 
     // Update is called once per frame
