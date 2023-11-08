@@ -7,8 +7,6 @@ public class TrailEffect : MonoBehaviour
     private float timeBtwSpawns;
     public float startTimeBtwSpawns;
 
-    public float audioPlayThreshold;
-
     public GameObject trail;
 
     private GameObject parentObject;
@@ -30,7 +28,7 @@ public class TrailEffect : MonoBehaviour
 
             // TODO: 거리에 따른 볼륨 조절
             // 거리 안에 들어가면 100%의 소리로 나오는것도 이상하고, 보이지도 않는 몬스터의 소리가 게임 내내 나는것도 이상함
-            if (Vector3.Distance(player.position, transform.position) < audioPlayThreshold)
+            if (isInCamera())
             {
                 InGameAudio.Post(InGameAudio.Instance.inGame_Monster_grass);
             }
@@ -39,5 +37,16 @@ public class TrailEffect : MonoBehaviour
         {
             timeBtwSpawns -= Time.deltaTime;
         }
+    }
+
+    private bool isInCamera()
+    {
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
