@@ -16,4 +16,9 @@ public class FireItem : Item
         itemSprite.SetActive(false);
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
     }
+
+    public void UseFireItem()
+    {
+        Inventory.instance.Remove(this);
+    }
 }
