@@ -73,6 +73,19 @@ public class Inventory : MonoBehaviour
             OnItemChangedCallBack.Invoke();
     }
 
+    public Item SelectItem(int id)
+    {
+        int idx = 0;
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].uid == id)
+            {
+                idx = i; break;
+            }
+        }
+        return items[idx];
+    }
+
     [System.Serializable]
     public struct Save
     {

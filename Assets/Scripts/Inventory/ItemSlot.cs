@@ -30,6 +30,7 @@ public class ItemSlot : MonoBehaviour
         item = null;
         icon.sprite = null;
         icon.enabled = false;
+        amounText.text = "";
     }
 
     public void OnClickItemSlot()

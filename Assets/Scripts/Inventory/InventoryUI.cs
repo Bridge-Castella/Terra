@@ -51,10 +51,10 @@ public class InventoryUI : MonoBehaviour
                 
             }
             //획득한 아이템 외의 다른 칸 클리어
-            /*else
+            else
             {
                 itemSlotArr[i].ClearSlot();
-            }*/
+            }
         }
     }
 
