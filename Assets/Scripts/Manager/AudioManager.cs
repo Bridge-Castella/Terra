@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public string MasterVolStr = "Master";
     public string BGMVolStr = "BGM";
     public string SFXVolStr = "SFX";
+    public string MonsterGrassVolStr = "Monster_Grass";
 
     public enum AudioChannel
     {
@@ -51,6 +52,15 @@ public class AudioManager : MonoBehaviour
     //???? ????
     public void SetVolume(float volumePercent, AudioChannel channel)
     {
+        if (volumePercent < 0)
+        {
+            volumePercent = 0f;
+        }
+        else if (volumePercent > 1)
+        {
+            volumePercent = 1f;
+        }
+
         switch(channel)
         {
             case AudioChannel.Master:
@@ -68,6 +78,20 @@ public class AudioManager : MonoBehaviour
         }
 
         SaveVolume();
+    }
+
+    public void SetMonsterGrassVolume(float volumePercent)
+    {
+        if (volumePercent < 0)
+        {
+            volumePercent = 0f;
+        }
+        else if (volumePercent > 1)
+        {
+            volumePercent = 1f;
+        }
+
+        AkSoundEngine.SetRTPCValue(MonsterGrassVolStr, volumePercent * 100.0f);
     }
 
     public void SaveVolume()

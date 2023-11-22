@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2130359785">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3074417858">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -79,7 +79,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="2641024368" Language="SFX" Hash="1572490027">
+		<SoundBank Id="2641024368" Language="SFX" Hash="2499685458">
 			<ObjectPath>\SoundBanks\Default Work Unit\SFX_SoundBank</ObjectPath>
 			<ShortName>SFX_SoundBank</ShortName>
 			<Path>SFX_SoundBank.bnk</Path>
@@ -463,6 +463,9 @@
 					</IncludedMemoryFiles>
 				</Event>
 			</IncludedEvents>
+			<GameParameters>
+				<GameParameter Id="1739658918" Name="Monster_Grass" ObjectPath="\Game Parameters\Default Work Unit\Monster_Grass"/>
+			</GameParameters>
 			<SwitchGroups>
 				<SwitchGroup Id="2144363834" Name="Rock" ObjectPath="\Switches\Default Work Unit\New_Switch_Group\Rock" GUID="{D860C221-C74D-4763-BFB1-47E4E10A2BB4}">
 					<Switches/>
