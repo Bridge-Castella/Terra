@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 3166614700574826585}
   - component: {fileID: -7311234452448971915}
   - component: {fileID: 123429264312450770}
-  - component: {fileID: 4733174598250967839}
-  - component: {fileID: 5917865285033701533}
   m_Layer: 0
   m_Name: Ladder
   m_TagString: Ladder
@@ -33,6 +31,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 8445442524648337523}
   - {fileID: 3911511035779840699}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -222,13 +221,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
---- !u!114 &4733174598250967839
+--- !u!1 &7024136821890136386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8445442524648337523}
+  - component: {fileID: 8692420205511308640}
+  - component: {fileID: 8703516758699375972}
+  m_Layer: 0
+  m_Name: Opacity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8445442524648337523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7024136821890136386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3166614700574826587}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8692420205511308640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3166614700574826584}
+  m_GameObject: {fileID: 7024136821890136386}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 037831da78945184db8aa40a0e3e4572, type: 3}
@@ -238,20 +269,20 @@ MonoBehaviour:
   duration: 30000
   bIsLadderUpdate: 1
   bFirstVisible: 1
---- !u!61 &5917865285033701533
+--- !u!61 &8703516758699375972
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3166614700574826584}
+  m_GameObject: {fileID: 7024136821890136386}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.4107213, y: -0.024313927}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -262,7 +293,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.512702, y: 10.684624}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1001 &5830008716615202454
 PrefabInstance:
@@ -284,7 +315,7 @@ PrefabInstance:
     - target: {fileID: 7394946433434700845, guid: 485ab7f6bc30e6a43bf706c64869498a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7394946433434700845, guid: 485ab7f6bc30e6a43bf706c64869498a,
         type: 3}

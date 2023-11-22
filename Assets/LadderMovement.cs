@@ -6,6 +6,7 @@ using UnityEngine.U2D;
 public class LadderMovement : MonoBehaviour
 {
     private Vector2[] points;
+    private SplineMove moveCtrl;
     
     public float Speed = 1.0f;
 
@@ -22,20 +23,37 @@ public class LadderMovement : MonoBehaviour
 		}
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void ActivateLadder()
     {
-        if (collision.CompareTag("PlayerLadderCollider"))
-        {
-            collision.GetComponent<SplineMove>()
-                .Activate(points, Speed);
-        }
+        moveCtrl?.Activate(points, Speed);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.CompareTag("PlayerLadderCollider"))
+        if (!collider.CompareTag("PlayerLadderCollider"))
         {
-            collision.GetComponent<SplineMove>().Deactivate();
+            return;
         }
+
+        moveCtrl = collider.GetComponent<SplineMove>();
+
+        // TODO: activate ladder on full load
+        ActivateLadder();
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (!collider.CompareTag("PlayerLadderCollider"))
+        {
+            return;
+        }
+
+        if (collider.GetComponent<SplineMove>() != moveCtrl)
+        {
+            return;
+        }
+
+        moveCtrl?.Deactivate();
+        moveCtrl = null;
     }
 }
