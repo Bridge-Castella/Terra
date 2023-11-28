@@ -20,7 +20,8 @@ public class Spawn_Item : MonoBehaviour
             if (isOnce)
             {
                 LadderOpacity Ladder = collision.gameObject.GetComponent<LadderOpacity>();
-                Ladder.bIsLadderUpdate =true;
+                //Ladder.bIsLadderUpdate =true;
+                Ladder.ShowLadderOpacity();
                 isOnce = false;
                 particleObject.Play();
                 Destroy(gameObject, 1.0f);

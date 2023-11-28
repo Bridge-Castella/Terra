@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class LadderOpacity : MonoBehaviour
     public float duration =300000.0f;
     public bool bIsLadderUpdate = false;
     public bool bFirstVisible =true;
+    public GameObject particleSystemAlert;
     // Start is called before the first frame update
 
     private UnityEngine.U2D.SpriteShapeRenderer r;
@@ -24,6 +26,9 @@ public class LadderOpacity : MonoBehaviour
             c = Color.white;
             c.a = 0;
             r.color = c;
+
+            particleSystemAlert = transform.Find("PortalEffect").gameObject;
+
             //StartCoroutine(LerpFunction(speed));
         }
 
@@ -42,14 +47,20 @@ public class LadderOpacity : MonoBehaviour
                 if(time/duration >= 1)
                 {
                     bIsLadderUpdate =false;
+                    
                 }
             }
         }
     }
 
-    void ShowLadderOpacity()
+    public void ShowLadderOpacity()
     {
         if(!bIsLadderUpdate)
-            bIsLadderUpdate = true;   
+        {   bIsLadderUpdate = true;
+            particleSystemAlert.active = false;
+            //
+            UnityEngine.Debug.Log("player is dead");
+            //particleSystemAlert.SetActive(false);
+        }
     }
 }
