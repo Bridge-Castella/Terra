@@ -19,15 +19,15 @@ public class LadderOpacity : MonoBehaviour
     
     void Start()
     {
-        if (GetComponent<UnityEngine.U2D.SpriteShapeRenderer>())
+        if (GetComponentInParent<UnityEngine.U2D.SpriteShapeRenderer>())
         {
-            r = GetComponent<UnityEngine.U2D.SpriteShapeRenderer>();
+            r = GetComponentInParent<UnityEngine.U2D.SpriteShapeRenderer>();
             c = new Color();
             c = Color.white;
             c.a = 0;
             r.color = c;
 
-            particleSystemAlert = transform.Find("PortalEffect").gameObject;
+            // particleSystemAlert = transform.Find("PortalEffect").gameObject;
 
             //StartCoroutine(LerpFunction(speed));
         }
