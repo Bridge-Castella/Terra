@@ -10,6 +10,7 @@ public class CollectibleQuest : Quest
 
     protected override bool didSuccess()
     {
+        //GNBCanvas.instance.ShowToastPopup(imagePath, message);
         return itemTotalNum == currentItemNum;
     }
 

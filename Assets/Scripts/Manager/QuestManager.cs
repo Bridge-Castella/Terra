@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 
 public class QuestManager : MonoBehaviour
 {
@@ -177,8 +175,10 @@ public class QuestManager : MonoBehaviour
         Destroy(quest.gameObject);
 
         // 다음 quest로 넘기기
-		index[npcId] += 1;
+        index[npcId] += 1;
 
+
+        GNBCanvas.instance.ShowToastPopup(quest.imagePath, quest.message);
         InGameAudio.Post(InGameAudio.Instance.inGame_NPC_succ);
 	}
 

@@ -6,19 +6,30 @@ using static UnityEngine.Networking.UnityWebRequest;
 
 public class GNBCanvas : MonoBehaviour
 {
+    public static GNBCanvas instance;
+
+    [Header("----Menu----")]
     [SerializeField] private Button questButton;
     [SerializeField] private Button inventoryButton;
     [SerializeField] private Button homeButton;
 
+    [Header("----Popup----")]
     [SerializeField] private GameObject content;
     [SerializeField] private GameObject questPanel;
     [SerializeField] private InventoryUI inventoryPanel;
     [SerializeField] private GameObject homePanel;
     [SerializeField] private GameObject optionPanel;
 
+    [Header("----Toast----")]
+    [SerializeField] private Notice toastPopup;
+
     public bool gameIsPaused = false;
 
     #region Option
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Update()
     {
@@ -86,5 +97,10 @@ public class GNBCanvas : MonoBehaviour
     {
         content.SetActive(true);
         homePanel.SetActive(true);
+    }
+
+    public void ShowToastPopup(string path, string message)
+    {
+        toastPopup.Show(path, message);
     }
 }

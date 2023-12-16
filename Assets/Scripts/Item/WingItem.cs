@@ -10,13 +10,6 @@ public class WingItem : Item
     [SerializeField] GameObject itemSprite;
     [SerializeField] GameObject timeIndicator;
 
-    private PlayerMove player;
-
-    private void Start()
-    {
-        player = FindObjectOfType<PlayerMove>();
-    }
-
     public override void GetWingItem()
     {
         abilities.isFlying = true;
