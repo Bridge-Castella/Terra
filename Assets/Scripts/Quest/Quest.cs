@@ -28,6 +28,10 @@ public class Quest : MonoBehaviour
     [HideInInspector] public Save data;
 	[HideInInspector] public Sprite portrait;               // display npc portrait
 	[HideInInspector] public Sprite itemIcon;               // display item icon
+    [HideInInspector] public QuestGroup questGroup;
+
+    public string imagePath;
+    public string message;
 
     protected virtual bool didSuccess() { return false; }   // check if quest has been succeeded, abstract function
     protected virtual void onStart() { }                    // called on starting of the quest, abstract function
@@ -62,6 +66,7 @@ public class Quest : MonoBehaviour
 
     public void onSuccess()
     {
+        questGroup.OnReward();
 		QuestManager.changeState(questId, QuestState.Succeeded);
 	}
 

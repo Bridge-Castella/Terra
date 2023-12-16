@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class QuestGroup : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class QuestGroup : MonoBehaviour
 
 	// List of quests
 	private List<Quest> questList;
+
+	public UnityAction RewardAction;
+
+	private string questId;
 
 	private void Start()
 	{
@@ -32,6 +37,8 @@ public class QuestGroup : MonoBehaviour
 
 			// Get quest
 			Quest quest = questEle.GetComponent<Quest>();
+			quest.questGroup = this;
+			this.questId = quest.questId;
 
 			QuestState? state = QuestManager.getState(quest.questId);
 
@@ -56,6 +63,18 @@ public class QuestGroup : MonoBehaviour
 	{
 		string npcId = gameObject.GetComponent<NpcAction>().npc_diff_id;
 		QuestManager.delete(npcId);
+	}
+
+	public void OnReward()
+	{
+		switch (questId)
+		{
+			case "quest_1":
+                ControlManager.instance.player.GetComponent<PlayerAbilityTracker>().canDoubleJump = true;
+				break;
+			case "quest_2":
+				break;
+        }
 	}
 
 	// Find quest on quest list
