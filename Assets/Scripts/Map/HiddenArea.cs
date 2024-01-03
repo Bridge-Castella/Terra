@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HiddenArea : MonoBehaviour
 {
-    public float disappearRate = 1f;
+    private float disappearRate = 1f;
 
     private bool playerEntered;
     private SpriteRenderer wallSprite;
