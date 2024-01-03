@@ -37,15 +37,13 @@ public class HiddenArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
-        {
+         if (collision.CompareTag("PlayerPlatformCollider") || collision.CompareTag("PlayerLadderCollider") || collision.CompareTag("Player"))
             playerEntered = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("PlayerPlatformCollider") || collision.CompareTag("PlayerLadderCollider") || collision.CompareTag("Player"))
         {
             playerEntered = false;
         }
