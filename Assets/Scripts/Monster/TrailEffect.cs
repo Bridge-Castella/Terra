@@ -41,7 +41,9 @@ public class TrailEffect : MonoBehaviour
 
         if (isInCamera())
         {
-            var distance = Vector2.Distance(player.transform.position, transform.parent.position);
+            var cameraPos = Camera.main.transform.position;
+            var distance = Vector2.Distance(cameraPos, transform.parent.position);
+            
             if (distance < grassSoundMaxThreshold)
             {
                 AudioManager.instance.SetMonsterGrassVolume(1.0f);
