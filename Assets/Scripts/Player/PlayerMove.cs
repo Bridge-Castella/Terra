@@ -125,7 +125,7 @@ public class PlayerMove : MonoBehaviour
             }
 
             //e버튼 누르면
-            if (Input.GetButtonDown("TalktoNpc"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (!isTalking)
                     NPCDialogue();

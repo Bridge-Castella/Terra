@@ -44,7 +44,7 @@ public class Dialogue : MonoBehaviour
     {
         if(gameObject != null && gameObject.activeSelf)
         {
-            if (Input.GetButtonDown("TalktoNpc") && !GetComponent<TypewriterEffect>().isTyping)
+            if (Input.GetKeyDown(KeyCode.E) && !GetComponent<TypewriterEffect>().isTyping)
             {
                 //선택지가 켜져 있다면 키를 눌러도 대화가 넘어가지 않음. 선택해야 넘어감.
                 if (dialogueAnswer1Button.gameObject.activeSelf || dialogueAnswer2Button.gameObject.activeSelf)

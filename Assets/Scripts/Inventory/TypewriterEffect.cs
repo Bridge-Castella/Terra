@@ -30,7 +30,7 @@ public class TypewriterEffect : MonoBehaviour
 
         while(charIndex < textToType.Length)
         {
-            if (Input.GetButtonDown("TalktoNpc") && charIndex > 3)
+            if (Input.GetKeyDown(KeyCode.E) && charIndex > 3)
             {
                 break;
             }
