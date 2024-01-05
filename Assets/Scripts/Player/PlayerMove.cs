@@ -125,7 +125,7 @@ public class PlayerMove : MonoBehaviour
             }
 
             //e버튼 누르면
-            if (Input.GetButtonDown("TalktoNpc"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (!isTalking)
                     NPCDialogue();
@@ -387,12 +387,12 @@ public class PlayerMove : MonoBehaviour
         Debug.DrawRay(capsuleCollider2D.bounds.center, new Vector2(x, 0) * (capsuleCollider2D.bounds.extents.y) * 2f, rayColor);
     }
 
-    void CreateDust()
+    private void CreateDust()
     {
         dust.Play();
     }
 
-    void CreateLandDust()
+    private void CreateLandDust()
     {
         // TODO: temporary fix for null landDustPrefab
         if (landDustPrefab == null)

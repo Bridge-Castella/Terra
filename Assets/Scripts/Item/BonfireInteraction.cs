@@ -1,5 +1,5 @@
+using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
@@ -12,9 +12,19 @@ public class BonfireInteraction : Interaction
     {
         if(!abilities.isHoldingFire)
             return;
-        light.intensity = 1f;
+        light.gameObject.transform.DOScale(1f, 1f);
+        StartCoroutine(CoIncreaseIntensity());
         abilities.isHoldingFire = false;
         FireItem fire = (FireItem)Inventory.instance.SelectItem(300);
         fire.UseFireItem();
+    }
+
+    private IEnumerator CoIncreaseIntensity()
+    {
+        while (light.intensity < 1f)
+        {
+            light.intensity += Time.deltaTime * 1f;
+            yield return null;
+        }
     }
 }

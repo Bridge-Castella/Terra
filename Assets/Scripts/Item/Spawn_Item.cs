@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class Spawn_Item : MonoBehaviour
 {
@@ -17,26 +18,11 @@ public class Spawn_Item : MonoBehaviour
     {
         if (collision.CompareTag("Ladder"))
         {
-            if (isOnce)
-            {
-                LadderOpacity Ladder = collision.gameObject.GetComponent<LadderOpacity>();
-                //Ladder.bIsLadderUpdate =true;
-                Ladder.ShowLadderOpacity();
-                isOnce = false;
-                particleObject.Play();
-                Destroy(gameObject, 1.0f);
-            }
+            LadderOpacity Ladder = collision.gameObject.GetComponent<LadderOpacity>();
+            StartCoroutine(Ladder.CoShowLadderOpacity());
         }
-        else
-        {
-            particleObject.Play();
-            Destroy(gameObject, 1.0f);
-        }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        particleObject.Play();
+        Destroy(gameObject, 1.0f);
     }
 }
