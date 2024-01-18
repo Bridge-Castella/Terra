@@ -13,6 +13,7 @@ public class WingItem : Item
     public override void GetWingItem()
     {
         abilities.isFlying = true;
+        abilities.wing.SetActive(true);
         itemSprite.SetActive(false);
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         StartCoroutine(CoUseWingItem());
@@ -55,6 +56,7 @@ public class WingItem : Item
         }
 
         abilities.isFlying = false;
+        abilities.wing.SetActive(false);
         indicator.gameObject.SetActive(false);
         Destroy(indicator);
         StartCoroutine(CoShowWingItem());

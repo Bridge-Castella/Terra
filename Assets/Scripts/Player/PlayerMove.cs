@@ -223,6 +223,7 @@ public class PlayerMove : MonoBehaviour
         else if (abilities.isFlying)
         {
             rigid.velocity = new Vector2(moveHorizontalInput * maxSpeed, moveVerticalInput * maxSpeed);
+            animator.SetBool("isFlying", abilities.isFlying);
 
             if (moveHorizontalInput > 0 && !facingRight)
             {
