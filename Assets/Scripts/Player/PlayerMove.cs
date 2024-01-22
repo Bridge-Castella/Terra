@@ -223,6 +223,9 @@ public class PlayerMove : MonoBehaviour
         else if (abilities.isFlying)
         {
             rigid.velocity = new Vector2(moveHorizontalInput * maxSpeed, moveVerticalInput * maxSpeed);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isFlying", abilities.isFlying);
 
             if (moveHorizontalInput > 0 && !facingRight)
             {
@@ -235,6 +238,7 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
+            animator.SetBool("isFlying", abilities.isFlying);
             rigid.velocity = new Vector2(moveHorizontalInput * maxSpeed, rigid.velocity.y);
             rigid.velocity = effector.CheckWall();
 

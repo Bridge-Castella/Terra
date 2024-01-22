@@ -20,6 +20,7 @@ public class Option : MonoBehaviour
 
     public GameObject mainMenuObject;
     public GameObject logoObject;
+    [SerializeField] private GameObject background;
 
     public GameObject buttonGroup;
     public GameObject audioGroup;
@@ -117,6 +118,7 @@ public class Option : MonoBehaviour
             audioGroup.SetActive(false);
             buttonGroup.SetActive(true);
             popUpObject.SetActive(false);
+            background.SetActive(false);
             if (MapManager.state.map == MapManager.MapIndex.Login)
             {
                 UIAudio.Post(UIAudio.Instance.UI_out);
