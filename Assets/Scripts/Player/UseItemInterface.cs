@@ -8,6 +8,8 @@ public class UseItemInterface : MonoBehaviour
 
     public GameObject prefab_obj;
     private PlayerMove playerFace;
+    private bool itemUsableArea = false;
+
     void Start()
     {
         playerFace = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
@@ -17,6 +19,11 @@ public class UseItemInterface : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!itemUsableArea)
+        {
+            return;
+        }
+
         //e버튼 누르면 keymapping 예슬님 문의 
         if (Input.GetButtonDown("TalktoNpc"))
         {
@@ -46,6 +53,26 @@ public class UseItemInterface : MonoBehaviour
             //    obj.GetComponent<Rigidbody2D>().AddForce(Vector2.left);
             //RemovePotion(obj);
             //Invoke("RemovePotion", 2); // 2초뒤 LaunchProjectile함수 호출
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        // 사다리인 경우에만 동작
+        if (collider.CompareTag("Ladder"))
+        {
+            itemUsableArea = true;
+            return;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        // 사다리인 경우에만 동작
+        if (collider.CompareTag("Ladder"))
+        {
+            itemUsableArea = false;
+            return;
         }
     }
 

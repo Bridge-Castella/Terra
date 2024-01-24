@@ -23,6 +23,8 @@ public class LadderOpacity : MonoBehaviour
     public IEnumerator CoShowLadderOpacity()
     {
         particleSystem.gameObject.SetActive(false);
+        GetComponent<Collider2D>().enabled = false;
+        
         while (color.a < 1f)
         {
             color.a += Time.deltaTime;
