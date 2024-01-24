@@ -1,17 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.U2D;
 
 public class LadderMovement : MonoBehaviour
 {
     private Vector2[] points;
     private SplineMove moveCtrl;
+    private LadderOpacity opacity;
+    private IEnumerator coActive;
     
     public float Speed = 1.0f;
 
 	void Start()
     {
+        opacity = GetComponentInChildren<LadderOpacity>();
+
         //Spline points 위치 초기화
         var edgeCollider = GetComponent<EdgeCollider2D>();
         var rawPoints = edgeCollider.points;
@@ -26,6 +28,7 @@ public class LadderMovement : MonoBehaviour
     public void ActivateLadder()
     {
         moveCtrl?.Activate(points, Speed);
+        coActive = null;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -36,9 +39,8 @@ public class LadderMovement : MonoBehaviour
         }
 
         moveCtrl = collider.GetComponent<SplineMove>();
-
-        // TODO: activate ladder on full load
-        ActivateLadder();
+        coActive = WaitForLadderOpacity();
+        StartCoroutine(coActive);
     }
 
     private void OnTriggerExit2D(Collider2D collider)
@@ -53,7 +55,19 @@ public class LadderMovement : MonoBehaviour
             return;
         }
 
+        if (coActive != null)
+        {
+            StopCoroutine(coActive);
+            return;
+        }
+
         moveCtrl?.Deactivate();
         moveCtrl = null;
+    }
+
+    IEnumerator WaitForLadderOpacity()
+    {
+        yield return new WaitUntil(() => opacity.IsEnabled);
+        ActivateLadder();
     }
 }
