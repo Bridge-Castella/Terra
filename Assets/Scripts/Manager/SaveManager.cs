@@ -61,8 +61,13 @@ public class SaveManager
         };
     }
 
-    private static void LoadGameData(SaveData data)
+    private static bool LoadGameData(SaveData data)
     {
+        if (data.mapData.index == MapManager.MapIndex.Login)
+        {
+            return false;
+        }
+
         MapManager.LoadData(data.mapData);
         QuestManager.loadData(data.questData);
         GlobalContainer.store("inventory", data.inventoryData);
@@ -70,6 +75,8 @@ public class SaveManager
         GlobalContainer.store("Heart", data.playerHeart);
         GlobalContainer.store("HomePhoto", data.homePhotoInitialized);
         GlobalContainer.store("Ladder", data.LadderInitialized);
+
+        return true;
     }
 
     public static void SaveGame()
@@ -123,7 +130,11 @@ public class SaveManager
             return null;
         }
 
-        LoadGameData(data);
+        if (!LoadGameData(data))
+        {
+            return null;
+        }
+        
         return data;
     }
 }
