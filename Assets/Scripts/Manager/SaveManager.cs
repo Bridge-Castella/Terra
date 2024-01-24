@@ -30,28 +30,51 @@ public class SaveManager
         public SerializableVec checkPoint;
         public int playerHeart;
         public bool[] homePhotoInitialized;
+        public bool[] LadderInitialized;
 
         public MapManager.Save mapData;
         public QuestManager.Save questData;
         public Inventory.Save inventoryData;
     }
 
-    public static void SaveGame()
+    private static SaveData SaveGameData()
     {
-        SaveData data = new SaveData
+        if (!GlobalContainer.tryLoad<bool[]>("HomePhoto", out var homePhotoInit)) 
+        {
+            homePhotoInit = null;
+        }
+
+        if (!GlobalContainer.tryLoad<bool[]>("Ladder", out var ladderInit))
+        {
+            ladderInit = null;
+        }
+
+        return new SaveData
         {
             checkPoint = SerializableVec.Convert(ControlManager.instance.startPoint),
             playerHeart = HeartManager.instance.heartNum,
             mapData = MapManager.SaveData(),
             questData = QuestManager.saveData(),
             inventoryData = Inventory.instance.SaveData(),
-            homePhotoInitialized = null
+            homePhotoInitialized = homePhotoInit,
+            LadderInitialized = ladderInit
         };
+    }
 
-        if (GlobalContainer.tryLoad<bool[]>("HomePhoto", out var homePhotoInit)) 
-        {
-            data.homePhotoInitialized = homePhotoInit;
-        }
+    private static void LoadGameData(SaveData data)
+    {
+        MapManager.LoadData(data.mapData);
+        QuestManager.loadData(data.questData);
+        GlobalContainer.store("inventory", data.inventoryData);
+        GlobalContainer.store("StartPos", SerializableVec.ToVec3(data.checkPoint));
+        GlobalContainer.store("Heart", data.playerHeart);
+        GlobalContainer.store("HomePhoto", data.homePhotoInitialized);
+        GlobalContainer.store("Ladder", data.LadderInitialized);
+    }
+
+    public static void SaveGame()
+    {
+        var data = SaveGameData();
 
         try
         {
@@ -100,13 +123,7 @@ public class SaveManager
             return null;
         }
 
-        MapManager.LoadData(data.mapData);
-        QuestManager.loadData(data.questData);
-        GlobalContainer.store("inventory", data.inventoryData);
-        GlobalContainer.store("StartPos", SerializableVec.ToVec3(data.checkPoint));
-        GlobalContainer.store("Heart", data.playerHeart);
-        GlobalContainer.store("HomePhoto", data.homePhotoInitialized);
-
+        LoadGameData(data);
         return data;
     }
 }
