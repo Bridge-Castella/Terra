@@ -11562,7 +11562,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2929251613999601151}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -13113,9 +13113,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSlotGroup: {fileID: 6171842687357922223}
   skinSlotGroup: {fileID: 8676612068319768479}
-  detailPanel: {fileID: 0}
-  exitButton: {fileID: 0}
-  itemSlotArr: []
+  detailPanel: {fileID: 6517673322242680364}
+  exitButton: {fileID: 2046086240199780744}
+  itemSlotArr:
+  - {fileID: 2595645540235434711}
+  - {fileID: 6508434430362168901}
+  - {fileID: 822544662512375499}
+  - {fileID: 4941503652588008513}
+  - {fileID: 4604101709061060472}
+  - {fileID: 5169394234137809602}
+  - {fileID: 3494446200385871671}
+  - {fileID: 6873047256286260866}
+  - {fileID: 1904224254008369367}
 --- !u!1 &3841254472260592939
 GameObject:
   m_ObjectHideFlags: 0
@@ -15674,7 +15683,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC544\uC774\uD15C"
+  m_text: "\uC637\uC7A5"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97cef21703320f244b742bfdc92f4ce0, type: 2}
   m_sharedMaterial: {fileID: -3715131112767969691, guid: 97cef21703320f244b742bfdc92f4ce0,

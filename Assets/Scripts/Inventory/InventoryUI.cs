@@ -63,5 +63,6 @@ public class InventoryUI : MonoBehaviour
         detailPanel.itemDescriptionText.text = "";
         detailPanel.itemNameText.text = "";
         detailPanel.icon.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
