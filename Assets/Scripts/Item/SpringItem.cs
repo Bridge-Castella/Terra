@@ -10,6 +10,7 @@ public class SpringItem : Item
 
     public override void GetSpringItem()
     {
+        Inventory.instance.Add(this, 1);
         itemSprite.SetActive(false);
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         if(player.jumpPower != abilities.springJumpPower)

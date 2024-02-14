@@ -36,33 +36,39 @@ public class Inventory : MonoBehaviour
 
     public bool Add(Item item, int amount)
     {
-        if(item.isStackable)
+        if (items.Count > space)
         {
-            if(items.Count > space)
-            {
-                Debug.Log("Not enough room.");
-                return false;
-            }
+            Debug.Log("Not enough room.");
+            return false;
+        }
 
-            bool itemAlreadyInInven = false;
+        bool itemAlreadyInInven = false;
 
-            foreach(Item itemInven in items)
+        foreach (Item itemInven in items)
+        {
+            if (itemInven.uid == item.uid)
             {
-                if(itemInven.uid == item.uid)
+                if (item.isStackable)
                 {
                     itemInven.amount += amount;
-                    itemAlreadyInInven = true;
                 }
+                itemAlreadyInInven = true;
             }
-            if(!itemAlreadyInInven)
-            {
-                items.Add(item);
-            }
-
-            if (OnItemChangedCallBack != null)
-                OnItemChangedCallBack.Invoke();
-            
         }
+        if (!itemAlreadyInInven)
+        {
+            items.Add(item);
+        }
+        else
+        {
+            if (!item.isStackable)
+            {
+                return true;
+            }
+        }
+
+        if (OnItemChangedCallBack != null)
+            OnItemChangedCallBack.Invoke();
         return true;
     }
 
