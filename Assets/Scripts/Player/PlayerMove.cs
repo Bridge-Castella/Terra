@@ -148,6 +148,11 @@ public class PlayerMove : MonoBehaviour
             animator.SetTrigger("DougleJump");
         }
 
+        if (abilities.isSpringJump)
+        {
+            Inventory.instance.Remove(Inventory.instance.SelectItem(400));
+        }
+
         isJumping = true;
         rigid.velocity = Vector2.up * jumpPower;
         CreateDust();
