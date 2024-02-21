@@ -10700,7 +10700,6 @@ MonoBehaviour:
   questButton: {fileID: 6528080891758575274}
   inventoryButton: {fileID: 7359128895754035917}
   homeButton: {fileID: 7578334380827091357}
-  groupButtonBackground: {fileID: 4994991221016768747}
   groupButtonContent: {fileID: 940317693266638418}
   content: {fileID: 2803971913797814777}
   questPanel: {fileID: 984201305204851868}
@@ -13155,6 +13154,7 @@ MonoBehaviour:
   skinSlotGroup: {fileID: 8676612068319768479}
   detailPanel: {fileID: 6517673322242680364}
   exitButton: {fileID: 2046086240199780744}
+  slotTitle: {fileID: 6735283627351063128}
   itemSlotArr:
   - {fileID: 2595645540235434711}
   - {fileID: 6508434430362168901}
@@ -21747,7 +21747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tabGroup: {fileID: 3178531561276626430}
-  slotTitle: "\uC2A4\uD0A8"
+  slotTitle: "\uC637"
   backGround: {fileID: 7359128896375977817}
   icon: {fileID: 5854215246126609995}
   selectedIcon: {fileID: 21300000, guid: 578ea036eaf5ad046bd2cc3134414014, type: 3}
@@ -22460,6 +22460,7 @@ MonoBehaviour:
   skinSlotGroup: {fileID: 5271504329879384139}
   detailPanel: {fileID: 1441504769975096716}
   exitButton: {fileID: 3392433502616857683}
+  slotTitle: {fileID: 0}
   itemSlotArr: []
 --- !u!1 &7359128897574319324
 GameObject:
@@ -23626,11 +23627,11 @@ RectTransform:
   m_Father: {fileID: 7578334381217022496}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -140, y: -140}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65, y: -100}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &7578334380121294339
 CanvasRenderer:
   m_ObjectHideFlags: 0

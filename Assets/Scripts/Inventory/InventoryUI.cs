@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class InventoryUI : MonoBehaviour
     public Transform skinSlotGroup;
     [SerializeField] private DetailPanel detailPanel;
     [SerializeField] private Button exitButton;
+    [SerializeField] private TextMeshProUGUI slotTitle;
 
     Inventory inventory;
 
@@ -64,5 +66,10 @@ public class InventoryUI : MonoBehaviour
         detailPanel.itemNameText.text = "";
         detailPanel.icon.gameObject.SetActive(false);
         gameObject.SetActive(false);
+    }
+
+    public void SetInventorySlotTitle(string title)
+    {
+        slotTitle.text = title;
     }
 }

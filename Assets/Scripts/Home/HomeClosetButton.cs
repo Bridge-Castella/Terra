@@ -18,6 +18,6 @@ public class HomeClosetButton : HomeButtonBase
     public override void OnMouseClick()
     {
         InGameAudio.Post(InGameAudio.Instance.House_OpenCloset);
-        controller.OnClickCloset();
+        controller.OnClickCloset("ø ¿Â");
     }
 }
