@@ -24,7 +24,7 @@ public class HomeInventory : MonoBehaviour
             inventoryImage.sprite = closedInventory;
     }
 
-    public void OnClickInventory()
+    public void OnClickInventory(string title)
     {
         homeController.DisableButtons();
         homeController.ActivatePanelBackground(true);
@@ -35,6 +35,7 @@ public class HomeInventory : MonoBehaviour
         inventoryUI.gameObject.SetActive(true);
         inventoryUI.skinSlotGroup.gameObject.SetActive(false);
         inventoryUI.itemSlotGroup.gameObject.SetActive(true);
+        inventoryUI.SetInventorySlotTitle(title);
         inventoryUI.UpdateUI();
     }
 

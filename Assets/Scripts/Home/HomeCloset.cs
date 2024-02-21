@@ -24,7 +24,7 @@ public class HomeCloset : MonoBehaviour
             closetImage.sprite = closedCloset;
     }
 
-    public void OnClickCloset()
+    public void OnClickCloset(string title)
     {
         homeController.DisableButtons();
         homeController.ActivatePanelBackground(true);
@@ -34,6 +34,7 @@ public class HomeCloset : MonoBehaviour
         inventoryUI.gameObject.SetActive(true);
         inventoryUI.skinSlotGroup.gameObject.SetActive(true);
         inventoryUI.itemSlotGroup.gameObject.SetActive(false);
+        inventoryUI.SetInventorySlotTitle(title);
         inventoryUI.UpdateUI();
     }
 
