@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
+using DG.Tweening;
 
 public class LoginManager : MonoBehaviour
 {
@@ -23,8 +24,11 @@ public class LoginManager : MonoBehaviour
     [SerializeField] private Button SettingButton;
     [SerializeField] private Button NewGameButton;
 
+    [Header("--------------- Prologue -----------------")]
     [SerializeField] private RawImage prologueRawImage;
+    [SerializeField] private RenderTexture prologueTexture;
     [SerializeField] private VideoPlayer prologuePlayer;
+    [SerializeField] private CanvasGroup skipBtn;
 
     [SerializeField] private GameObject optionObject;
 
@@ -32,10 +36,26 @@ public class LoginManager : MonoBehaviour
     public void Start()
     {
         //ÀúÀåÆÄÀÏÀÌ ÀÖ´Ù¸é continuebutton setactive true
+
+        prologuePlayer.frame = 0;
+        prologueTexture.Release();
         NewGameButton.onClick.AddListener(NewGame);
         ContinueButton.onClick.AddListener(ContinueGame);
         SettingButton.onClick.AddListener(OnClickSettingButton);
         ExitGameButton.onClick.AddListener(OnClickExitGame);
+        prologueRawImage.GetComponent<Button>().onClick.AddListener(delegate
+        {
+            if (skipBtn.alpha == 0f)
+            {
+                skipBtn.DOFade(1f, 0.5f);
+            }
+            else
+            {
+                skipBtn.DOFade(0f, 0.5f);
+            }
+            
+        });
+        skipBtn.GetComponent<Button>().onClick.AddListener(() => EndReached(null));
     }
 
     public void NewGame()
@@ -47,8 +67,12 @@ public class LoginManager : MonoBehaviour
         }
 
         prologueRawImage.gameObject.SetActive(true);
-        prologuePlayer.Play();
-        prologuePlayer.loopPointReached += EndReached;        
+        prologueRawImage.DOColor(Color.white, 0.8f).OnComplete(() =>
+        {
+            prologuePlayer.Play();
+            prologuePlayer.loopPointReached += EndReached;
+        });
+        
     }
 
     public void ContinueGame()
@@ -75,10 +99,13 @@ public class LoginManager : MonoBehaviour
 
     void EndReached(VideoPlayer vp)
     {
-        GlobalContainer.clear();
-        MapManager.ResetData();
-        MapManager.state.map = MapManager.MapIndex.Map1;
-        MapManager.state.cleared = MapManager.MapIndex.Login;
-        MapManager.LoadMap(MapManager.MapIndex.Map1);
+        prologueRawImage.DOColor(Color.black, 0.8f).OnComplete(() =>
+        {
+            GlobalContainer.clear();
+            MapManager.ResetData();
+            MapManager.state.map = MapManager.MapIndex.Map1;
+            MapManager.state.cleared = MapManager.MapIndex.Login;
+            MapManager.LoadMap(MapManager.MapIndex.Map1);
+        });
     }
 }
