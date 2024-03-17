@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class InGameAudio : AudioRef<InGameAudio>
 {
-    // [Header("BGM")]
-    // public AK.Wwise.Event BGM_MAP1_loop;
-    // public AK.Wwise.Event BGM_MAP2_loop;
-    // public AK.Wwise.Event BGM_MAP3_loop;
-    // public AK.Wwise.Event BGM_Terra_House_loop;
+    [Header("BGM")]
+    public AK.Wwise.Event BGM_MAP1_loop;
+    public AK.Wwise.Event BGM_MAP2_loop;
+    public AK.Wwise.Event BGM_MAP3_loop;
+    public AK.Wwise.Event BGM_Terra_House_loop;
 
     [Header("Item")]
     public AK.Wwise.Event ITEM_Get_01;

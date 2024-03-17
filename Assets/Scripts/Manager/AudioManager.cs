@@ -134,7 +134,7 @@ public class AudioRef<T> : MonoBehaviour where T : MonoBehaviour
 
     public static void Post(AK.Wwise.Event source, GameObject soundObj)
     {
-        if (source.ObjectReference == null)
+        if (source == null || source.ObjectReference == null)
         {
             Debug.LogWarning("WARNING: audio source is null. " +
                 (nameof(source) ?? "Audio") + " will not be played");
@@ -151,7 +151,7 @@ public class AudioRef<T> : MonoBehaviour where T : MonoBehaviour
 
     public static void Stop(AK.Wwise.Event source, GameObject soundObj)
     {
-        if (source.ObjectReference == null)
+        if (source == null || source.ObjectReference == null)
         {
             Debug.LogWarning("WARNING: audio source is null. " +
                 (nameof(source) ?? "Audio") + " will not be stoped");

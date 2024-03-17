@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7440924619349735189}
   - component: {fileID: 8557587733901402314}
   - component: {fileID: 8557587733901402315}
+  - component: {fileID: 5435924718590867029}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -106,6 +107,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundObject: {fileID: 8557587733901402294}
+  BGM_MAP1_loop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9c0726e5d2d774ea882d6a050aeacdd4,
+      type: 2}
+  BGM_MAP2_loop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4bf4a2c239cc54fd5b54e16a9b8179f4,
+      type: 2}
+  BGM_MAP3_loop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 029ad52826ffc459eb37191490246c17,
+      type: 2}
+  BGM_Terra_House_loop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 625b7a4e96492c549935fc549bcd857f,
+      type: 2}
   ITEM_Get_01:
     idInternal: 0
     valueGuidInternal: 
@@ -305,6 +326,31 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 44852607949214223b041a293cb196db,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
+--- !u!114 &5435924718590867029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557587733901402294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e92d228e62e14b4d8584a0b54752500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0b501d5439f82460c9375b8aeb4c9bfa,
       type: 2}
   decodeBank: 0
   loadAsynchronous: 0
