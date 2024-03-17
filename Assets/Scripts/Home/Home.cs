@@ -6,6 +6,18 @@ public class Home : MonoBehaviour
     [SerializeField] GameObject exitButton;
     [SerializeField] GameObject PanelBackgroud;
 
+    private void OnEnable()
+    {
+        InGameAudio.Stop(MapStateChanger.CurrentMapBGM);
+        InGameAudio.Post(InGameAudio.Instance.BGM_Terra_House_loop);
+    }
+
+    private void OnDisable()
+    {
+        InGameAudio.Stop(InGameAudio.Instance.BGM_Terra_House_loop);
+        InGameAudio.Post(MapStateChanger.CurrentMapBGM);
+    }
+
     public void EnableButtons()
     {
         foreach (var button in buttons)

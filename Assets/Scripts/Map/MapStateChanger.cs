@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MapStateChanger : MonoBehaviour
 {
+    public static AK.Wwise.Event CurrentMapBGM;
+
     [Header("움직이는 배경 Groups")]
     [SerializeField] private GameObject[] scrollingGrounds;
 
@@ -31,6 +33,15 @@ public class MapStateChanger : MonoBehaviour
         MapManager.state.map = mapIndex;
         MapManager.state.current = this;
 
+        CurrentMapBGM = mapIndex switch
+        {
+            MapManager.MapIndex.Map1 => InGameAudio.Instance.BGM_MAP1_loop,
+            MapManager.MapIndex.Map2 => InGameAudio.Instance.BGM_MAP2_loop,
+            MapManager.MapIndex.Map3 => InGameAudio.Instance.BGM_MAP3_loop,
+            _ => null,
+        };
+        InGameAudio.Post(CurrentMapBGM);
+
         // Scrolling Ground 활성화
         SetActive(true);
     }
@@ -49,6 +60,15 @@ public class MapStateChanger : MonoBehaviour
             MapManager.state.cleared = mapIndex;
             InGameAudio.Post(InGameAudio.Instance.inGame_STAGE_CLEAR);
         }
+
+        var bgmToStop = mapIndex switch
+        {
+            MapManager.MapIndex.Map1 => InGameAudio.Instance.BGM_MAP1_loop,
+            MapManager.MapIndex.Map2 => InGameAudio.Instance.BGM_MAP2_loop,
+            MapManager.MapIndex.Map3 => InGameAudio.Instance.BGM_MAP3_loop,
+            _ => null,
+        };
+        InGameAudio.Stop(bgmToStop);
 
         // Save active state objects before unload
         SaveData();
