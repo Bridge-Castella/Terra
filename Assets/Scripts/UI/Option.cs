@@ -44,7 +44,10 @@ public class Option : MonoBehaviour
         saveButton.onClick.AddListener(OnClickSaveButton);
         quitButton.onClick.AddListener(OnClickQuitButton);
         initialButton.onClick.AddListener(InitailizeVolume);
-        cancelButton.onClick.AddListener(OnClickCancelButton);
+        cancelButton.onClick.AddListener(() => 
+        {
+            GetComponentInParent<GNBCanvas>().Resume();
+        });
 
         popUpYesButton.onClick.AddListener(LoadLoginScene);
         popUpNoButton.onClick.AddListener(OnClickPopupNoButton);
