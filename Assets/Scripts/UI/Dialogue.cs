@@ -151,13 +151,13 @@ public class Dialogue : MonoBehaviour
             return;
         //대화타입이 2이면 버튼 두개 아니면 한개가 생성되고 각각 누르면 answer1_string_id에 종속되는 대화로 넘어갈 수 있음.
         dialogueAnswer1Button.gameObject.SetActive(true);
-        dialogueAnswer1Text.text = TableData.instance.GetDialogue(list[string_idIdx].answer1_string_id);
+        dialogueAnswer1Text.text = "- " + TableData.instance.GetDialogue(list[string_idIdx].answer1_string_id);
 
         //선택지가 두개일때
         if (answer2_connect_id != "-1")
         {
             dialogueAnswer2Button.gameObject.SetActive(true);
-            dialogueAnswer2Text.text = TableData.instance.GetDialogue(list[string_idIdx].answer2_string_id);
+            dialogueAnswer2Text.text = "- " + TableData.instance.GetDialogue(list[string_idIdx].answer2_string_id);
         }
     }
 }
