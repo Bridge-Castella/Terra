@@ -11,7 +11,6 @@ public class FireItem : Item
     public override void GetFireItem()
     {
         Inventory.instance.Add(this, 1);
-        InGameAudio.Post(InGameAudio.Instance.ITEM_Fire_02);
         abilities.isHoldingFire = true;
         itemSprite.SetActive(false);
         gameObject.GetComponent<CircleCollider2D>().enabled = false;

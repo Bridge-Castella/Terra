@@ -43,7 +43,7 @@ public class NpcAction : MonoBehaviour
     private void Start()
     {
         dialogueUIRectTranform = dialogueUIObject.GetComponent<RectTransform>();
-        canvas = FindObjectOfType<Canvas>();
+        canvas = GNBCanvas.instance.GetComponent<Canvas>();
         story_idList = new List<string>(TableData.instance.GetMainDataDic(npc_diff_id).Keys);
         player = FindObjectOfType<PlayerMove>();
         animator = gameObject.GetComponent<Animator>();

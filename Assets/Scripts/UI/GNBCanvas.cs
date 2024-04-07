@@ -109,9 +109,9 @@ public class GNBCanvas : MonoBehaviour
         homePanel.SetActive(true);
     }
 
-    public void ShowToastPopup(string path, string message)
+    public void ShowToastPopup(string message)
     {
-        toastPopup.Show(path, message);
+        toastPopup.Show(message);
     }
 
     IEnumerator CoWaitForAutoDisappear(float delay)

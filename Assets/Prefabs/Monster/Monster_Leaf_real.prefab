@@ -132,7 +132,7 @@ MonoBehaviour:
   - {fileID: 4600588489204589565}
   - {fileID: 7263338721678823411}
   m_Bounds:
-    m_Center: {x: -0.008517802, y: 0.04569435, z: 0}
+    m_Center: {x: -0.008517921, y: 0.045692325, z: 0}
     m_Extent: {x: 0.57301784, y: 0.16384003, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -245,8 +245,8 @@ MonoBehaviour:
   - {fileID: 2055474139811350185}
   - {fileID: 4600588489204589565}
   m_Bounds:
-    m_Center: {x: -0.010000944, y: -0.0000009536743, z: 0}
-    m_Extent: {x: 1.9050012, y: 1.7199993, z: 0}
+    m_Center: {x: -0.009999871, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 1.9050003, y: 1.7200001, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 5944524354395383091}
   - component: {fileID: 6966149148293088194}
   - component: {fileID: 4539940251029896347}
+  - component: {fileID: 4017442033644369743}
   m_Layer: 18
   m_Name: Monster_Leaf_real
   m_TagString: Untagged
@@ -408,7 +409,20 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
+--- !u!114 &4017442033644369743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113877939685301231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd393e04b1f13540b39393e4748cf65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockBackPower: 30
 --- !u!1 &2792966082347656057
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +619,7 @@ MonoBehaviour:
   - {fileID: 4078388695765862546}
   - {fileID: 5948021610666286478}
   m_Bounds:
-    m_Center: {x: 0.00012999773, y: 0, z: 0}
+    m_Center: {x: 0.00012987852, y: 0.00000011920929, z: 0}
     m_Extent: {x: 0.5213401, y: 0.32000002, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -803,8 +817,8 @@ MonoBehaviour:
   - {fileID: 6867118056473761701}
   - {fileID: 2055474139811350185}
   m_Bounds:
-    m_Center: {x: -0.00000023841858, y: 0.0022699833, z: 0}
-    m_Extent: {x: 1.0150001, y: 0.84273016, z: 0}
+    m_Center: {x: 0, y: 0.002270162, z: 0}
+    m_Extent: {x: 1.015, y: 0.8427301, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0

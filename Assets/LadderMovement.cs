@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class LadderMovement : MonoBehaviour
     private SplineMove moveCtrl;
     private LadderOpacity opacity;
     private IEnumerator coActive;
+    [SerializeField]
+    private CanvasGroup btnCanvas;
     
     public float Speed = 1.0f;
 
@@ -38,6 +41,8 @@ public class LadderMovement : MonoBehaviour
             return;
         }
 
+        btnCanvas.DOFade(1f, 0.3f);
+
         moveCtrl = collider.GetComponent<SplineMove>();
         coActive = WaitForLadderOpacity();
         StartCoroutine(coActive);
@@ -57,10 +62,11 @@ public class LadderMovement : MonoBehaviour
 
         if (coActive != null)
         {
+            btnCanvas.DOFade(0f, 0.3f);
             StopCoroutine(coActive);
             return;
         }
-
+       
         moveCtrl?.Deactivate();
         moveCtrl = null;
     }

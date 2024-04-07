@@ -5,13 +5,20 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     #region Singleton
-    private static QuestManager instance;
+    private static QuestManager instance {get; set; }
 
     private void Awake()
     {
         if (instance != null)
+        {
+            Destroy(gameObject);
             return;
-        instance = this;
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
     #endregion
 
@@ -178,7 +185,7 @@ public class QuestManager : MonoBehaviour
         index[npcId] += 1;
 
 
-        GNBCanvas.instance.ShowToastPopup(quest.imagePath, quest.message);
+        GNBCanvas.instance.ShowToastPopup(quest.message);
         InGameAudio.Post(InGameAudio.Instance.inGame_NPC_succ);
 	}
 
