@@ -185,7 +185,7 @@ public class QuestManager : MonoBehaviour
         index[npcId] += 1;
 
 
-        GNBCanvas.instance.ShowToastPopup(quest.imagePath, quest.message);
+        GNBCanvas.instance.ShowToastPopup(quest.message);
         InGameAudio.Post(InGameAudio.Instance.inGame_NPC_succ);
 	}
 

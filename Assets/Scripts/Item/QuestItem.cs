@@ -11,6 +11,7 @@ public class QuestItem : Item
         quest.updateStatus();
         
         bool wasPickedUp = Inventory.instance.Add(this, 1);
+        GNBCanvas.instance.ShowToastPopup(quest.data.status);
 
         if (wasPickedUp)
         {

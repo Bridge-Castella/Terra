@@ -43,11 +43,6 @@ public class Notice : MonoBehaviour
         initialPos = transform.position;
     }
 
-    public void Show(string path, string text)
-    {
-        Show(text);
-    }
-
     public void Show(string text)
     {
         noticeQueue.Enqueue(new Data() { 
