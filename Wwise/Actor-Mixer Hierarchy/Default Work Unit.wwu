@@ -152,6 +152,13 @@
 						<Folder Name="SFX_amb" ID="{BE391B83-656D-4A4B-80E3-4D4F693145BB}" ShortID="770407933">
 							<ChildrenList>
 								<Sound Name="ITEM_Plant" ID="{7D0D285D-D9AB-45CF-B75F-DEBAAF679CEE}" ShortID="486565605">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -175,6 +182,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="ITEM_Portion" ID="{AC49969F-491D-494E-B73A-FE81C4C47E61}" ShortID="966344034">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -198,6 +212,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="UI_in" ID="{711FEE23-5F19-4A5E-8707-ADA5555B15D2}" ShortID="573401967">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -221,6 +242,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="UI_out" ID="{E8D74022-6AD3-4DE9-908C-CDC910F68DF8}" ShortID="55409336">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-18</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -244,6 +272,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="UI_pick" ID="{E2E04926-942C-427C-8FBC-681D8415E506}" ShortID="391533991">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -267,6 +302,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="UI_select" ID="{4867891F-6380-4A08-8CA7-53DD8877994C}" ShortID="329522730">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -343,6 +385,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_UI_01" ID="{D5CAF761-EDF5-4D9A-9E34-3B2FE262861B}" ShortID="7464925">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-20</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -366,6 +415,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_UI_02" ID="{63C434F0-62CF-4C79-84C1-CC47D23EC2FD}" ShortID="557852539">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -389,6 +445,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_WARN_01" ID="{F7AE4B3F-ECFD-4494-85C0-729D98E44073}" ShortID="614509627">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-18</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -412,6 +475,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="ITEM_Fire_02" ID="{EB6E8BF9-3BBD-4133-A598-A7DD3BAF791D}" ShortID="464180897">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -435,6 +505,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="ITEM_Get_01" ID="{6EC5B6AE-BE81-4725-A91F-057B9960A867}" ShortID="947105208">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -458,6 +535,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_Quest_get" ID="{22378359-2EBF-456D-AF4B-C9D2E1A9AEFE}" ShortID="320034756">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-11</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -507,7 +591,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-5</Value>
+												<Value>-18</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -977,6 +1061,13 @@
 									</ChildrenList>
 								</Folder>
 								<Sound Name="House_CloseCloset" ID="{7A31D090-6DD0-4E0F-AAE8-0EFCD3045D4C}" ShortID="638064556">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1000,6 +1091,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="House_OpenBox" ID="{6F9C7E25-EA35-4D33-9F63-01738F109887}" ShortID="587170148">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1023,6 +1121,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="House_OpenCloset" ID="{02ED43B6-5686-4B12-82B4-74B5EA0A07BF}" ShortID="665643371">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1046,6 +1151,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="House_SelectPicture" ID="{485CB4F0-2B88-4976-95C8-EA69EFF11DB6}" ShortID="248370995">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1069,6 +1181,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_BLOCK_01" ID="{3D30CA7F-BBBD-40F1-9BB0-4D539FD58C5F}" ShortID="795193232">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1095,7 +1214,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-8</Value>
+												<Value>-20</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1122,6 +1241,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_CH_Life" ID="{2FB1815C-F893-4270-B785-C68D63A53C86}" ShortID="645631526">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1181,6 +1307,11 @@
 												<Value>37</Value>
 											</ValueList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-23</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1205,6 +1336,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_Monster_butterfly" ID="{482DBCC7-39D5-4295-8DF6-F5E58B843046}" ShortID="711027462">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-13</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1228,6 +1366,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_Monster_death" ID="{2F5B6377-8D0D-47E6-AE4C-30B43EBB9B83}" ShortID="82670276">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1251,6 +1396,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="House_CloseBox" ID="{335E84DB-0F38-4DA4-96A1-CFDA308C23F3}" ShortID="1029390501">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1274,6 +1426,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="ITEM_Fire_01" ID="{CF4A09DC-233D-4DA3-AF5D-75CE16A165C1}" ShortID="479901292">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1447,6 +1606,13 @@
 					</ReferenceList>
 					<ChildrenList>
 						<Sound Name="inGame_Monster_grass04" ID="{C302BE5B-FE11-4E02-BF07-30F9381564B2}" ShortID="853859397">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1470,6 +1636,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="inGame_Monster_grass05" ID="{8D4B0918-B02C-4251-9286-5B97E3064A04}" ShortID="376680460">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1493,6 +1666,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="inGame_Monster_grass03" ID="{BC56B204-8AA8-465B-9A02-97C59CD8520E}" ShortID="828210707">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1516,6 +1696,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="inGame_Monster_grass01" ID="{4CD3D007-93AB-44CE-8DA1-7F3E6CDC3BA4}" ShortID="319856220">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1539,6 +1726,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="inGame_Monster_grass02" ID="{36817A07-DA67-48C1-BE23-11AD9EE1AB73}" ShortID="801176497">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-11</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1600,7 +1794,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-6</Value>
+												<Value>-15</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1630,7 +1824,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-8</Value>
+												<Value>-15</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1660,7 +1854,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-6</Value>
+												<Value>-18</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1706,6 +1900,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="inGame_STEP_Grass_03" ID="{39CF17D7-6CE8-4040-ADDA-11D3F8943962}" ShortID="913336811">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1752,6 +1953,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_STEP_Grass_05" ID="{CFF27D38-B4A7-404E-B765-29A6E420E31D}" ShortID="195488162">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1798,6 +2006,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_STEP_Grass_06" ID="{90E6F719-E42D-4C82-8B00-8C2D3958BDDA}" ShortID="949349008">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-14</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -1821,6 +2036,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="inGame_STEP_Grass_04" ID="{379FEC7B-05D9-4793-903E-E76D1AA277C3}" ShortID="318036321">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
