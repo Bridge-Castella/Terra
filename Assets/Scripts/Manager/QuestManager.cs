@@ -5,13 +5,20 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     #region Singleton
-    private static QuestManager instance;
+    private static QuestManager instance {get; set; }
 
     private void Awake()
     {
         if (instance != null)
+        {
+            Destroy(gameObject);
             return;
-        instance = this;
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
     #endregion
 
