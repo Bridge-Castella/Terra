@@ -10,7 +10,6 @@ public class Notice : MonoBehaviour
 {
     public static Notice instance;
 
-    [SerializeField] Image image;
     [SerializeField] TextMeshProUGUI textMesh;
 
     [Header("Settings")]
@@ -41,18 +40,17 @@ public class Notice : MonoBehaviour
         }
 
         noticeQueue = new Queue<Data>();
-        initialPos = image.transform.position;
+        initialPos = transform.position;
     }
 
     public void Show(string path, string text)
     {
-        Show(Resources.Load<Sprite>(path), text);
+        Show(text);
     }
 
-    public void Show(Sprite sprite, string text)
+    public void Show(string text)
     {
         noticeQueue.Enqueue(new Data() { 
-            sprite = sprite,
             text = text
         });
 
@@ -64,13 +62,12 @@ public class Notice : MonoBehaviour
 
     public void Test()
     {
-        Show(null as Sprite, "아이템을 획득하였습니다.");
+        Show("아이템을 획득하였습니다.");
     }
 
     private IEnumerator Activate()
     {
         isActive = true;
-        image.gameObject.SetActive(true);
         textMesh.gameObject.SetActive(true);
 
         var data = noticeQueue.Dequeue();
@@ -78,9 +75,7 @@ public class Notice : MonoBehaviour
         var scale = 0f;
 
         transform.position = initialPos - (Vector3)moveDirection;
-        image.color = new Color(1f, 1f, 1f, 0f);
         textMesh.color = new Color(1f, 1f, 1f, 0f);
-        image.sprite = data.sprite;
         textMesh.text = data.text;
 
         while (timeElapsed < duration)
@@ -92,7 +87,6 @@ public class Notice : MonoBehaviour
             color.a = scale;
             Vector3 dir = (1 - scale) * moveDirection;
 
-            image.color = color;
             textMesh.color = color;
             transform.position = initialPos - dir;
 
@@ -109,7 +103,6 @@ public class Notice : MonoBehaviour
         var timeElapsed = 0f;
         var scale = 0f;
 
-        image.color = Color.white;
         textMesh.color = Color.white;
 
         while (timeElapsed < duration)
@@ -121,7 +114,6 @@ public class Notice : MonoBehaviour
             color.a = 1f - scale;
             Vector3 dir = scale * moveDirection;
 
-            image.color = color;
             textMesh.color = color;
             transform.position = initialPos + dir;
 
@@ -136,7 +128,6 @@ public class Notice : MonoBehaviour
         {
             isActive = false;
             transform.position = initialPos;
-            image.gameObject.SetActive(false);
             textMesh.gameObject.SetActive(false);
         }
     }
