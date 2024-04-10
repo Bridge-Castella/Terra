@@ -70,6 +70,8 @@ public class QuestGroup : MonoBehaviour
 		switch (questId)
 		{
 			case "quest_1":
+				// TODO: implement double jump enabled sound
+				Inventory.instance.RemoveAll(item => item.itemId.Equals("quest_1"));
                 ControlManager.instance.player.GetComponent<PlayerAbilityTracker>().canDoubleJump = true;
 				break;
 			case "quest_2":

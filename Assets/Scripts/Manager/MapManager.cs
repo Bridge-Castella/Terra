@@ -85,6 +85,11 @@ public class MapManager
     //  - When unloading should not happen or failed to unload such index, it will return null
     public static AsyncOperation UnloadMap(MapIndex index)
     {
+        if (SceneManager.sceneCount < 3)
+        {
+            return null;
+        }
+
         int scene_index = ToSceneIndex(index);
 
         // if index is not a map or it is not loaded, do nothing

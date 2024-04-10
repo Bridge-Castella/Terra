@@ -13,12 +13,12 @@ public class SaveManager
         public float y;
         public float z;
 
-        public static SerializableVec Convert(Vector3 vec)
+        public static implicit operator SerializableVec(Vector3 vec)
         {
             return new SerializableVec { x = vec.x, y = vec.y, z = vec.z };
         }
 
-        public static Vector3 ToVec3(SerializableVec vec)
+        public static implicit operator Vector3(SerializableVec vec)
         {
             return new Vector3 { x = vec.x, y = vec.y, z = vec.z };
         }
@@ -35,6 +35,7 @@ public class SaveManager
         public MapManager.Save mapData;
         public QuestManager.Save questData;
         public Inventory.Save inventoryData;
+        public PlayerAbilityTracker.Save abilityData;
     }
 
     private static SaveData SaveGameData()
@@ -51,11 +52,12 @@ public class SaveManager
 
         return new SaveData
         {
-            checkPoint = SerializableVec.Convert(ControlManager.instance.startPoint),
+            checkPoint = ControlManager.instance.startPoint,
             playerHeart = HeartManager.instance.heartNum,
             mapData = MapManager.SaveData(),
             questData = QuestManager.saveData(),
             inventoryData = Inventory.instance.SaveData(),
+            abilityData = ControlManager.instance.player.GetComponent<PlayerAbilityTracker>().SaveData(),
             homePhotoInitialized = homePhotoInit,
             LadderInitialized = ladderInit
         };
@@ -71,10 +73,11 @@ public class SaveManager
         MapManager.LoadData(data.mapData);
         QuestManager.loadData(data.questData);
         GlobalContainer.store("inventory", data.inventoryData);
-        GlobalContainer.store("StartPos", SerializableVec.ToVec3(data.checkPoint));
+        GlobalContainer.store("StartPos", (Vector3)data.checkPoint);
         GlobalContainer.store("Heart", data.playerHeart);
         GlobalContainer.store("HomePhoto", data.homePhotoInitialized);
         GlobalContainer.store("Ladder", data.LadderInitialized);
+        GlobalContainer.store("Ability", data.abilityData);
 
         return true;
     }
