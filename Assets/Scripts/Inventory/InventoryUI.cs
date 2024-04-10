@@ -50,7 +50,6 @@ public class InventoryUI : MonoBehaviour
             {
                 itemSlotArr[i].AddItem(inventory.items[i]);
                 itemSlotArr[i].amounText.text = inventory.items[i].amount.ToString();
-                
             }
             //획득한 아이템 외의 다른 칸 클리어
             else

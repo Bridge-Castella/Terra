@@ -115,7 +115,10 @@ public class QuestManager : MonoBehaviour
         // Quest 상태 update
         state[quest.questId] = QuestState.Doing;
 
-        if (initialize)
+        // load saved data
+        Quest saved = getActiveQuest(quest.questId);
+
+        if (initialize || saved == null)
         {
             // Quest 초기화
             quest.startQuest();
@@ -128,8 +131,6 @@ public class QuestManager : MonoBehaviour
         }
         else
         {
-            // load saved data
-            Quest saved = getActiveQuest(quest.questId);
             quest.loadData(saved.data);
 
             // Quest 상태 업데이트만

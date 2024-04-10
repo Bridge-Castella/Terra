@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -77,6 +78,13 @@ public class Inventory : MonoBehaviour
         items.Remove(item);
         if (OnItemChangedCallBack != null)
             OnItemChangedCallBack.Invoke();
+    }
+    
+    // TODO: item does not disappear
+    public void RemoveAll(Predicate<Item> predicate)
+    {
+        items.RemoveAll(predicate);
+        OnItemChangedCallBack?.Invoke();
     }
 
     public Item SelectItem(int id)
