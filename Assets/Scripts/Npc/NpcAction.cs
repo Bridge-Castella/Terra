@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class NpcAction : MonoBehaviour
 
     private Canvas canvas;
     private RectTransform dialogueUIRectTranform;
+    [SerializeField] private CanvasGroup btnCanvas;
 
     private List<string> story_idList;
     int story_idIdx = 0;
@@ -105,5 +107,21 @@ public class NpcAction : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            btnCanvas.DOFade(1f, 0.3f);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            btnCanvas.DOFade(0f, 0.3f);
+        }
     }
 }
