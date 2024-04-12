@@ -46,7 +46,14 @@ public class Option : MonoBehaviour
         initialButton.onClick.AddListener(InitailizeVolume);
         cancelButton.onClick.AddListener(() => 
         {
-            GetComponentInParent<GNBCanvas>().Resume();
+            if(MapManager.state.map != MapManager.MapIndex.Login)
+            {
+                GetComponentInParent<GNBCanvas>().Resume();
+            }
+            else
+            {
+                OnClickCancelButton();
+            }
         });
 
         popUpYesButton.onClick.AddListener(LoadLoginScene);
