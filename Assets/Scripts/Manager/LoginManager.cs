@@ -32,6 +32,7 @@ public class LoginManager : MonoBehaviour
 
     [SerializeField] private GameObject optionObject;
 
+    public static bool IsGameLoaded = false;
 
     public void Start()
     {
@@ -80,6 +81,8 @@ public class LoginManager : MonoBehaviour
 
     public void ContinueGame()
     {
+        IsGameLoaded = true;
+
         SaveManager.SaveData? data_optional = SaveManager.LoadGame();
         if (data_optional == null)
             return;

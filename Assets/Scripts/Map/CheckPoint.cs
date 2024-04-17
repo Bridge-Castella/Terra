@@ -18,6 +18,12 @@ public class CheckPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (LoginManager.IsGameLoaded)
+        {
+            LoginManager.IsGameLoaded = false;
+            return;
+        }
+
         if (collision.gameObject.CompareTag("Player"))
         {
             fallDetector.CheckPoint = gameObject.transform;
