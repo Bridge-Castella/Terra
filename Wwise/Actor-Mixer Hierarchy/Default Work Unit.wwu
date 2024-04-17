@@ -3,1552 +3,946 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}" PersistMode="Standalone">
 			<ChildrenList>
-				<ActorMixer Name="New Actor-Mixer" ID="{CC884117-8597-4C9F-95F5-24A448429587}" ShortID="1003157021">
+				<ActorMixer Name="SFX" ID="{CC884117-8597-4C9F-95F5-24A448429587}" ShortID="1003157021">
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+							<ObjectRef Name="SFX" ID="{AFAF2AB6-8BF2-4820-9855-8F8CC1418BB5}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Folder Name="BMG_amb" ID="{8BAEEAF9-1243-4C54-87FA-6C3264088DDA}" ShortID="788783118">
+						<Sound Name="ITEM_Plant" ID="{7D0D285D-D9AB-45CF-B75F-DEBAAF679CEE}" ShortID="486565605">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="BGM_Login_loop_ogg" ID="{351D21CA-E03A-4028-B499-070C18716345}" ShortID="622616757">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="OverrideOutput" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="BGM" ID="{217CD0BD-4A6C-44E8-A52B-0A0B3F12FE01}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="BGM_Login_loop_ogg" ID="{009FE7AC-BBE8-451C-A696-76DB38FCCADE}">
-											<Language>SFX</Language>
-											<AudioFile>amb\BGM_Login_loop_ogg.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="951148804"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="BGM_Login_loop_ogg" ID="{009FE7AC-BBE8-451C-A696-76DB38FCCADE}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="BGM_Map1_loop_ogg" ID="{41FADC86-6FE3-4485-B307-ECC188C0DB65}" ShortID="641292526">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="BGM_Map1_loop_ogg" ID="{ABF8905B-6424-424A-8F1E-174F4CE6941E}">
-											<Language>SFX</Language>
-											<AudioFile>amb\BGM_Map1_loop_ogg.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="965240098"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="BGM_Map1_loop_ogg" ID="{ABF8905B-6424-424A-8F1E-174F4CE6941E}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="BGM_Map2_loop_ogg" ID="{3F370320-6F86-4B1B-BB6D-2D1F814349A3}" ShortID="956584365">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="BGM_Map2_loop_ogg" ID="{237B776C-FA47-401B-AA4A-5C547F5A1E38}">
-											<Language>SFX</Language>
-											<AudioFile>amb\BGM_Map2_loop_ogg.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="1016648946"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="BGM_Map2_loop_ogg" ID="{237B776C-FA47-401B-AA4A-5C547F5A1E38}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="BGM_MAP3_loop_ogg" ID="{D13C1596-6D49-4C21-B5D2-C41C8D7034E8}" ShortID="551814349">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="BGM_MAP3_loop_ogg" ID="{8F1C5F64-3C06-4FE3-AD9F-0A9999CCEA9B}">
-											<Language>SFX</Language>
-											<AudioFile>amb\BGM_MAP3_loop_ogg.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="61980699"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="BGM_MAP3_loop_ogg" ID="{8F1C5F64-3C06-4FE3-AD9F-0A9999CCEA9B}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="BGM_Terra_s_House_loop" ID="{A0D8DB51-8C5F-4D0B-9050-73F4DC497528}" ShortID="297954763">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="OverrideOutput" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="BGM" ID="{217CD0BD-4A6C-44E8-A52B-0A0B3F12FE01}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="BGM_Terra_s_House_loop" ID="{C9BB3690-9E1C-4725-AABC-47835B6282C5}">
-											<Language>SFX</Language>
-											<AudioFile>amb\BGM_Terra_s_House_loop.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="25293220"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="BGM_Terra_s_House_loop" ID="{C9BB3690-9E1C-4725-AABC-47835B6282C5}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="BGM_Prologue01" ID="{136EC757-77D8-4EAD-8747-645B71882E51}" ShortID="502183435">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="BGM_Prologue01" ID="{AEBFD4DA-CFBB-4B10-8625-50940906B9F9}">
-											<Language>SFX</Language>
-											<AudioFile>BGM_Prologue01.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="231103204"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="BGM_Prologue01" ID="{AEBFD4DA-CFBB-4B10-8625-50940906B9F9}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="BGM_Prologue02" ID="{FF8279A8-6B7E-4A4F-94FB-E87C6A5D0539}" ShortID="593670090">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="BGM_Prologue02" ID="{531AB014-E33C-4B89-9B46-3FAEF41C7BEE}">
-											<Language>SFX</Language>
-											<AudioFile>BGM_Prologue02.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="94770710"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="BGM_Prologue02" ID="{531AB014-E33C-4B89-9B46-3FAEF41C7BEE}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="BGM_Prologue03" ID="{D9218831-F419-4F9B-840F-5AC9446E474E}" ShortID="536855018">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="BGM_Prologue03" ID="{DF5A86A4-6459-455A-ADF3-F6F67C11075C}">
-											<Language>SFX</Language>
-											<AudioFile>BGM_Prologue03.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="620590112"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="BGM_Prologue03" ID="{DF5A86A4-6459-455A-ADF3-F6F67C11075C}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
+								<AudioFileSource Name="ITEM_Plant" ID="{933F862A-D28C-4DF2-B575-994AF54402DC}">
+									<Language>SFX</Language>
+									<AudioFile>ITEM_Plant.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="366399669"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
-						</Folder>
-						<Folder Name="SFX_amb" ID="{BE391B83-656D-4A4B-80E3-4D4F693145BB}" ShortID="770407933">
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ITEM_Plant" ID="{933F862A-D28C-4DF2-B575-994AF54402DC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ITEM_Portion" ID="{AC49969F-491D-494E-B73A-FE81C4C47E61}" ShortID="966344034">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="ITEM_Plant" ID="{7D0D285D-D9AB-45CF-B75F-DEBAAF679CEE}" ShortID="486565605">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-5</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="ITEM_Plant" ID="{933F862A-D28C-4DF2-B575-994AF54402DC}">
-											<Language>SFX</Language>
-											<AudioFile>ITEM_Plant.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="366399669"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="ITEM_Plant" ID="{933F862A-D28C-4DF2-B575-994AF54402DC}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="ITEM_Portion" ID="{AC49969F-491D-494E-B73A-FE81C4C47E61}" ShortID="966344034">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-8</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="ITEM_Portion" ID="{4F42AD2B-1AA4-4BBB-BB06-C913E6FC1D4E}">
-											<Language>SFX</Language>
-											<AudioFile>ITEM_Portion.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="517518069"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="ITEM_Portion" ID="{4F42AD2B-1AA4-4BBB-BB06-C913E6FC1D4E}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="UI_in" ID="{711FEE23-5F19-4A5E-8707-ADA5555B15D2}" ShortID="573401967">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-15</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="UI_in" ID="{1D15F359-3D10-4E5C-AFFE-0B62D1313825}">
-											<Language>SFX</Language>
-											<AudioFile>UI_in.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="566116736"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="UI_in" ID="{1D15F359-3D10-4E5C-AFFE-0B62D1313825}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="UI_out" ID="{E8D74022-6AD3-4DE9-908C-CDC910F68DF8}" ShortID="55409336">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-18</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="UI_out" ID="{F2E599EC-2D47-4484-98FB-29ABCD91ECBA}">
-											<Language>SFX</Language>
-											<AudioFile>UI_out.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="68331284"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="UI_out" ID="{F2E599EC-2D47-4484-98FB-29ABCD91ECBA}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="UI_pick" ID="{E2E04926-942C-427C-8FBC-681D8415E506}" ShortID="391533991">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-15</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="UI_pick" ID="{B5B942CB-B2E5-4F3C-AF4E-2504C2BA79D1}">
-											<Language>SFX</Language>
-											<AudioFile>UI_pick.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="1074379"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="UI_pick" ID="{B5B942CB-B2E5-4F3C-AF4E-2504C2BA79D1}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="UI_select" ID="{4867891F-6380-4A08-8CA7-53DD8877994C}" ShortID="329522730">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-15</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="UI_select" ID="{D3143767-3B18-4C4A-84D0-155CE525006F}">
-											<Language>SFX</Language>
-											<AudioFile>UI_select.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="586284190"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="UI_select" ID="{D3143767-3B18-4C4A-84D0-155CE525006F}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_STAGE_CLEAR" ID="{2ECBF190-7500-4024-A94C-012087A6D1A9}" ShortID="1060352366">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_STAGE_CLEAR" ID="{F56D9325-8E2C-45EA-BB6D-A02263E50E11}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_STAGE_CLEAR.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="645064769"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_STAGE_CLEAR" ID="{F56D9325-8E2C-45EA-BB6D-A02263E50E11}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_STAGE_FAIL" ID="{58F23C7D-6704-44B5-B500-5A250FDE0FF4}" ShortID="1029325977">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-7</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_STAGE_FAIL" ID="{334E5DE9-FF0D-4DE6-BE79-09C6206FFCFB}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_STAGE_FAIL.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="394525351"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_STAGE_FAIL" ID="{334E5DE9-FF0D-4DE6-BE79-09C6206FFCFB}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_UI_01" ID="{D5CAF761-EDF5-4D9A-9E34-3B2FE262861B}" ShortID="7464925">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-20</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_UI_01" ID="{322E0BB0-20D1-4845-9ECB-EC5EFAA38330}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_UI_01.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="810352738"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_UI_01" ID="{322E0BB0-20D1-4845-9ECB-EC5EFAA38330}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_UI_02" ID="{63C434F0-62CF-4C79-84C1-CC47D23EC2FD}" ShortID="557852539">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-5</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_UI_02" ID="{6006F98F-46E6-4F8C-B74F-E7B2400A021F}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_UI_02.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="493979378"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_UI_02" ID="{6006F98F-46E6-4F8C-B74F-E7B2400A021F}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_WARN_01" ID="{F7AE4B3F-ECFD-4494-85C0-729D98E44073}" ShortID="614509627">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-18</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_WARN_01" ID="{367B7CD1-1925-464C-AD75-903B33913813}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_WARN_01.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="677609712"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_WARN_01" ID="{367B7CD1-1925-464C-AD75-903B33913813}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="ITEM_Fire_02" ID="{EB6E8BF9-3BBD-4133-A598-A7DD3BAF791D}" ShortID="464180897">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-3</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="ITEM_Fire_02" ID="{79A84FBF-04DE-4C40-BB87-DBBAC532009A}">
-											<Language>SFX</Language>
-											<AudioFile>ITEM_Fire_02.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="346092054"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="ITEM_Fire_02" ID="{79A84FBF-04DE-4C40-BB87-DBBAC532009A}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="ITEM_Get_01" ID="{6EC5B6AE-BE81-4725-A91F-057B9960A867}" ShortID="947105208">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-5</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="ITEM_Get_01" ID="{75620DF8-3BB6-496C-A91B-D351CF0F3E31}">
-											<Language>SFX</Language>
-											<AudioFile>ITEM_Get_01.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="597951245"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="ITEM_Get_01" ID="{75620DF8-3BB6-496C-A91B-D351CF0F3E31}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_Quest_get" ID="{22378359-2EBF-456D-AF4B-C9D2E1A9AEFE}" ShortID="320034756">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-11</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_Quest_get" ID="{4A2F3530-00B4-4418-A07B-733CD4DC4D58}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_Quest_get.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="531645874"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_Quest_get" ID="{4A2F3530-00B4-4418-A07B-733CD4DC4D58}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_STAGE_CheckPoint" ID="{276ECD0E-366B-4E30-A561-6109CA65C939}" ShortID="507432474">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_STAGE_CheckPoint" ID="{569E0CC6-8DDF-4B4C-855B-519E8ED318B3}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_STAGE_CheckPoint.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="606239346"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_STAGE_CheckPoint" ID="{569E0CC6-8DDF-4B4C-855B-519E8ED318B3}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_Monster_mush" ID="{AF23F880-EAAA-44DC-A605-A7AB7D2FE933}" ShortID="896350828">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-18</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_Monster_mush" ID="{9317D81A-D07F-4975-8BAB-0571C09DB539}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_Monster_mush.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="306639135"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_Monster_mush" ID="{9317D81A-D07F-4975-8BAB-0571C09DB539}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_NPC_Quest" ID="{11B6DB11-A06A-435C-8BAB-F0C38CA39327}" ShortID="713427809">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_NPC_Quest" ID="{B0BBC1FF-78EA-462C-9C7D-E34536A8386B}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_NPC_Quest.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="413289653"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_NPC_Quest" ID="{B0BBC1FF-78EA-462C-9C7D-E34536A8386B}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_NPC_succ" ID="{A441E8EE-BDF0-420A-878B-D123F3B350B8}" ShortID="357243658">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_NPC_succ" ID="{AD973193-6DFD-4F11-B1EC-1EADF50A09D6}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_NPC_succ.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="541283499"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_NPC_succ" ID="{AD973193-6DFD-4F11-B1EC-1EADF50A09D6}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Folder Name="Random" ID="{B720E2BF-120B-4C8B-A3C6-FE33EF86C1D3}" ShortID="967186225">
-									<PropertyList>
-										<Property Name="Color" Type="int16" Value="10"/>
-										<Property Name="OverrideColor" Type="bool" Value="True"/>
-									</PropertyList>
-									<ChildrenList>
-										<Sound Name="inGame_Monster_grass03" ID="{958C9448-8FC9-4CD5-BC26-668E0A777CCE}" ShortID="628839746">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="inGame_Monster_grass03" ID="{E380180A-489E-4D06-B6A8-E0B19F1ABAED}">
-													<Language>SFX</Language>
-													<AudioFile>inGame_Monster_grass03.amb</AudioFile>
-													<MediaIDList>
-														<MediaID ID="191359424"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="inGame_Monster_grass03" ID="{E380180A-489E-4D06-B6A8-E0B19F1ABAED}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_Monster_grass01" ID="{E934D622-A322-4A51-8C64-CB32DC745C55}" ShortID="652704959">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="inGame_Monster_grass01" ID="{F46EEAF0-8F77-4A21-906E-81AB015E09E3}">
-													<Language>SFX</Language>
-													<AudioFile>inGame_Monster_grass01.amb</AudioFile>
-													<MediaIDList>
-														<MediaID ID="595932298"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="inGame_Monster_grass01" ID="{F46EEAF0-8F77-4A21-906E-81AB015E09E3}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_Monster_grass02" ID="{F3F713FD-1703-4191-937F-59AA8E2489E1}" ShortID="277914363">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="inGame_Monster_grass02" ID="{36F7329D-9F8B-4612-A332-947E6680E775}">
-													<Language>SFX</Language>
-													<AudioFile>inGame_Monster_grass02.amb</AudioFile>
-													<MediaIDList>
-														<MediaID ID="799813182"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="inGame_Monster_grass02" ID="{36F7329D-9F8B-4612-A332-947E6680E775}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_Monster_grass04" ID="{E5717C74-6495-4298-9147-9005DA63978F}" ShortID="602181828">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="inGame_Monster_grass04" ID="{0B893C1A-CCAE-4166-A6C8-C5356FA06D5C}">
-													<Language>SFX</Language>
-													<AudioFile>inGame_Monster_grass04.amb</AudioFile>
-													<MediaIDList>
-														<MediaID ID="791145686"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="inGame_Monster_grass04" ID="{0B893C1A-CCAE-4166-A6C8-C5356FA06D5C}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_Monster_grass05" ID="{B652BDCC-69BB-4C45-BDEF-B58E15B3CED4}" ShortID="52365994">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="inGame_Monster_grass05" ID="{EB0C9318-6887-422D-AED6-C1E6D8681C78}">
-													<Language>SFX</Language>
-													<AudioFile>inGame_Monster_grass05.amb</AudioFile>
-													<MediaIDList>
-														<MediaID ID="273092303"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="inGame_Monster_grass05" ID="{EB0C9318-6887-422D-AED6-C1E6D8681C78}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_STEP_Grass_03" ID="{25CB0DAB-E725-4936-AE7F-9FC403D9C4D8}" ShortID="186317982">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="inGame_STEP_Grass_03" ID="{8065E80C-9AA2-47BC-8BBB-7624D9D3151B}">
-													<Language>SFX</Language>
-													<AudioFile>inGame_STEP_Grass_03.amb</AudioFile>
-													<MediaIDList>
-														<MediaID ID="138691275"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="inGame_STEP_Grass_03" ID="{8065E80C-9AA2-47BC-8BBB-7624D9D3151B}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_STEP_Grass_02" ID="{609E01A8-9CA5-41B5-92D2-3A8CDC58714F}" ShortID="37626849">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="inGame_STEP_Grass_02" ID="{AAEE6F00-6856-4777-9A66-35B610666904}">
-													<Language>SFX</Language>
-													<AudioFile>inGame_STEP_Grass_02.amb</AudioFile>
-													<MediaIDList>
-														<MediaID ID="748900145"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="inGame_STEP_Grass_02" ID="{AAEE6F00-6856-4777-9A66-35B610666904}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_STEP_Grass_05" ID="{59668BB8-92C4-4354-8D4A-C7F7336D6661}" ShortID="615307270">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="inGame_STEP_Grass_05" ID="{FBD7A0E0-FB16-469F-9146-FE6EE12FA80C}">
-													<Language>SFX</Language>
-													<AudioFile>inGame_STEP_Grass_05.amb</AudioFile>
-													<MediaIDList>
-														<MediaID ID="383828309"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="inGame_STEP_Grass_05" ID="{FBD7A0E0-FB16-469F-9146-FE6EE12FA80C}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_STEP_Grass_01" ID="{1F55A296-EC9B-46B0-88B0-82E3483DB3EE}" ShortID="701292814">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="inGame_STEP_Grass_01" ID="{AD70F166-1287-486E-A777-C97A5ACDCC5D}">
-													<Language>SFX</Language>
-													<AudioFile>inGame_STEP_Grass_01.amb</AudioFile>
-													<MediaIDList>
-														<MediaID ID="413873060"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="inGame_STEP_Grass_01" ID="{AD70F166-1287-486E-A777-C97A5ACDCC5D}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_STEP_Grass_04" ID="{CE135B3E-2DA5-483D-B5F9-31E1197C8348}" ShortID="99326743">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="inGame_STEP_Grass_04" ID="{B3642256-AF0D-4329-AAC6-F04CBD7F02EA}">
-													<Language>SFX</Language>
-													<AudioFile>inGame_STEP_Grass_04.amb</AudioFile>
-													<MediaIDList>
-														<MediaID ID="89216690"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="inGame_STEP_Grass_04" ID="{B3642256-AF0D-4329-AAC6-F04CBD7F02EA}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_STEP_Grass_06" ID="{75053AA7-3C3C-4DEE-9C79-50FE66911253}" ShortID="457359890">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="inGame_STEP_Grass_06" ID="{558051E9-D659-4091-B9E8-5E8CFE5A2D17}">
-													<Language>SFX</Language>
-													<AudioFile>inGame_STEP_Grass_06.amb</AudioFile>
-													<MediaIDList>
-														<MediaID ID="360358268"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="inGame_STEP_Grass_06" ID="{558051E9-D659-4091-B9E8-5E8CFE5A2D17}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_Land_01" ID="{14281BC8-70CD-47FB-980E-A25FF06E6EDF}" ShortID="321621110">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="inGame_Land_01" ID="{40DAA24A-7E43-4E29-97D6-92D68AB021DE}">
-													<Language>SFX</Language>
-													<AudioFile>inGame_Land_01.amb</AudioFile>
-													<MediaIDList>
-														<MediaID ID="442623875"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="inGame_Land_01" ID="{40DAA24A-7E43-4E29-97D6-92D68AB021DE}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_Land_02" ID="{EB87B826-4FCD-4743-9760-C9B6344EABE6}" ShortID="1062497029">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="inGame_Land_02" ID="{18C69854-B850-4125-BFCA-7BBD2053E343}">
-													<Language>SFX</Language>
-													<AudioFile>inGame_Land_02.amb</AudioFile>
-													<MediaIDList>
-														<MediaID ID="75985236"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="inGame_Land_02" ID="{18C69854-B850-4125-BFCA-7BBD2053E343}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_STEP_Rock_01" ID="{E34F20CC-F2FD-466A-9595-50E3C142A72A}" ShortID="905256548">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-8</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="rock01" ID="{41BA637E-A8B0-44CC-BB0A-7CE4838E3839}">
-													<Language>SFX</Language>
-													<AudioFile>rock01.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="464149486"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="rock01" ID="{41BA637E-A8B0-44CC-BB0A-7CE4838E3839}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_STEP_Rock_02" ID="{24171328-2BF7-467E-8617-602726A126B1}" ShortID="750907993">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-6</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="rock02" ID="{483950D6-EED5-4F73-8B7E-67F9488D0A16}">
-													<Language>SFX</Language>
-													<AudioFile>rock02.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="524249049"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="rock02" ID="{483950D6-EED5-4F73-8B7E-67F9488D0A16}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="inGame_STEP_Rock_03" ID="{501904D1-DF94-431F-8F49-96224830CA27}" ShortID="316766702">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-6</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="rock03" ID="{6EDAF69D-EC90-457E-B540-A6B3B4A6D739}">
-													<Language>SFX</Language>
-													<AudioFile>rock03.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="1059463565"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="rock03" ID="{6EDAF69D-EC90-457E-B540-A6B3B4A6D739}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</Folder>
-								<Sound Name="House_CloseCloset" ID="{7A31D090-6DD0-4E0F-AAE8-0EFCD3045D4C}" ShortID="638064556">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-8</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="House_CloseCloset" ID="{5A080DBD-30F2-4BE9-B290-1A82D55FC5DA}">
-											<Language>SFX</Language>
-											<AudioFile>House_CloseCloset.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="341197597"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="House_CloseCloset" ID="{5A080DBD-30F2-4BE9-B290-1A82D55FC5DA}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="House_OpenBox" ID="{6F9C7E25-EA35-4D33-9F63-01738F109887}" ShortID="587170148">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-10</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="House_OpenBox" ID="{00112D2C-1190-4134-97B0-32BC7A16B5B3}">
-											<Language>SFX</Language>
-											<AudioFile>House_OpenBox.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="634678965"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="House_OpenBox" ID="{00112D2C-1190-4134-97B0-32BC7A16B5B3}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="House_OpenCloset" ID="{02ED43B6-5686-4B12-82B4-74B5EA0A07BF}" ShortID="665643371">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="House_OpenCloset" ID="{33D75588-C077-4C09-9DF3-01700D487499}">
-											<Language>SFX</Language>
-											<AudioFile>House_OpenCloset.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="1055606759"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="House_OpenCloset" ID="{33D75588-C077-4C09-9DF3-01700D487499}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="House_SelectPicture" ID="{485CB4F0-2B88-4976-95C8-EA69EFF11DB6}" ShortID="248370995">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-8</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="House_SelectPicture" ID="{33B4E292-DAFC-4DB3-8E04-136ED57CB14A}">
-											<Language>SFX</Language>
-											<AudioFile>House_SelectPicture.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="486601644"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="House_SelectPicture" ID="{33B4E292-DAFC-4DB3-8E04-136ED57CB14A}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_BLOCK_01" ID="{3D30CA7F-BBBD-40F1-9BB0-4D539FD58C5F}" ShortID="795193232">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-15</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_BLOCK_01" ID="{99380FC7-E14E-4E76-A149-0FDE78E9F158}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_BLOCK_01.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="698934912"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_BLOCK_01" ID="{99380FC7-E14E-4E76-A149-0FDE78E9F158}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_CH_Die" ID="{CB2ABDF6-AC3B-4C06-817A-3BFEF339DF2C}" ShortID="512752835">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-20</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_CH_Die" ID="{BAC493EC-7364-4F37-A53D-1E9FF84A8B6A}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_CH_Die.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="670591994"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_CH_Die" ID="{BAC493EC-7364-4F37-A53D-1E9FF84A8B6A}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_CH_Life" ID="{2FB1815C-F893-4270-B785-C68D63A53C86}" ShortID="645631526">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-8</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_CH_Life" ID="{B38EEA8A-B562-40C9-9551-D56CEB2328FA}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_CH_Life.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="1060972770"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_CH_Life" ID="{B38EEA8A-B562-40C9-9551-D56CEB2328FA}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_JUMP_01" ID="{CB13CDEF-26C0-4AE1-B6A2-4D2791A3FBCA}" ShortID="982787156">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-7</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_JUMP_01" ID="{0DD9CB69-49C3-426D-B185-014E14FC12DC}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_JUMP_01.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="982792250"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_JUMP_01" ID="{0DD9CB69-49C3-426D-B185-014E14FC12DC}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_JUMP_01_new" ID="{CE8F58BA-D9C6-4FB3-97F0-EB76B42011D2}" ShortID="652668444">
-									<PropertyList>
-										<Property Name="Highpass" Type="int16">
-											<ValueList>
-												<Value>37</Value>
-											</ValueList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-23</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_JUMP_01_new" ID="{70888D3C-DDC9-4D25-A151-B41D3A805B63}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_JUMP_01_new.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="156882854"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_JUMP_01_new" ID="{70888D3C-DDC9-4D25-A151-B41D3A805B63}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_Monster_butterfly" ID="{482DBCC7-39D5-4295-8DF6-F5E58B843046}" ShortID="711027462">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-13</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_Monster_butterfly" ID="{C35622BC-EBA3-4439-9CF5-95611A664B48}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_Monster_butterfly.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="658368868"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_Monster_butterfly" ID="{C35622BC-EBA3-4439-9CF5-95611A664B48}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_Monster_death" ID="{2F5B6377-8D0D-47E6-AE4C-30B43EBB9B83}" ShortID="82670276">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-15</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_Monster_death" ID="{41DC2BED-FF4A-42B1-8068-2A2D1083C585}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_Monster_death.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="283648053"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_Monster_death" ID="{41DC2BED-FF4A-42B1-8068-2A2D1083C585}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="House_CloseBox" ID="{335E84DB-0F38-4DA4-96A1-CFDA308C23F3}" ShortID="1029390501">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-10</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="House_CloseBox" ID="{2395C7BE-5315-4032-860A-3F0EC5CBD1CA}">
-											<Language>SFX</Language>
-											<AudioFile>House_CloseBox.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="90424035"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="House_CloseBox" ID="{2395C7BE-5315-4032-860A-3F0EC5CBD1CA}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="ITEM_Fire_01" ID="{CF4A09DC-233D-4DA3-AF5D-75CE16A165C1}" ShortID="479901292">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-7</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="ITEM_Fire_01" ID="{6FAC33E7-EDAB-4D56-9C80-51EC5468BAAF}">
-											<Language>SFX</Language>
-											<AudioFile>ITEM_Fire_01.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="744407604"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="ITEM_Fire_01" ID="{6FAC33E7-EDAB-4D56-9C80-51EC5468BAAF}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="inGame_UI_Caution" ID="{5F6709D4-7566-4CD9-A01F-5D66F6B2596B}" ShortID="176937350">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="inGame_UI_Caution" ID="{D8411768-9494-4706-8E2C-6194EF721F32}">
-											<Language>SFX</Language>
-											<AudioFile>inGame_UI_Caution.amb</AudioFile>
-											<MediaIDList>
-												<MediaID ID="12906990"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="inGame_UI_Caution" ID="{D8411768-9494-4706-8E2C-6194EF721F32}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
+								<AudioFileSource Name="ITEM_Portion" ID="{4F42AD2B-1AA4-4BBB-BB06-C913E6FC1D4E}">
+									<Language>SFX</Language>
+									<AudioFile>ITEM_Portion.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="517518069"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
-						</Folder>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ITEM_Portion" ID="{4F42AD2B-1AA4-4BBB-BB06-C913E6FC1D4E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="UI_in" ID="{711FEE23-5F19-4A5E-8707-ADA5555B15D2}" ShortID="573401967">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="UI_in" ID="{1D15F359-3D10-4E5C-AFFE-0B62D1313825}">
+									<Language>SFX</Language>
+									<AudioFile>UI_in.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="566116736"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="UI_in" ID="{1D15F359-3D10-4E5C-AFFE-0B62D1313825}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="UI_out" ID="{E8D74022-6AD3-4DE9-908C-CDC910F68DF8}" ShortID="55409336">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-18</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="UI_out" ID="{F2E599EC-2D47-4484-98FB-29ABCD91ECBA}">
+									<Language>SFX</Language>
+									<AudioFile>UI_out.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="68331284"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="UI_out" ID="{F2E599EC-2D47-4484-98FB-29ABCD91ECBA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="UI_pick" ID="{E2E04926-942C-427C-8FBC-681D8415E506}" ShortID="391533991">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="UI_pick" ID="{B5B942CB-B2E5-4F3C-AF4E-2504C2BA79D1}">
+									<Language>SFX</Language>
+									<AudioFile>UI_pick.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1074379"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="UI_pick" ID="{B5B942CB-B2E5-4F3C-AF4E-2504C2BA79D1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="UI_select" ID="{4867891F-6380-4A08-8CA7-53DD8877994C}" ShortID="329522730">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="UI_select" ID="{D3143767-3B18-4C4A-84D0-155CE525006F}">
+									<Language>SFX</Language>
+									<AudioFile>UI_select.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="586284190"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="UI_select" ID="{D3143767-3B18-4C4A-84D0-155CE525006F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_STAGE_CLEAR" ID="{2ECBF190-7500-4024-A94C-012087A6D1A9}" ShortID="1060352366">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_STAGE_CLEAR" ID="{F56D9325-8E2C-45EA-BB6D-A02263E50E11}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_STAGE_CLEAR.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="645064769"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_STAGE_CLEAR" ID="{F56D9325-8E2C-45EA-BB6D-A02263E50E11}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_STAGE_FAIL" ID="{58F23C7D-6704-44B5-B500-5A250FDE0FF4}" ShortID="1029325977">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_STAGE_FAIL" ID="{334E5DE9-FF0D-4DE6-BE79-09C6206FFCFB}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_STAGE_FAIL.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="394525351"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_STAGE_FAIL" ID="{334E5DE9-FF0D-4DE6-BE79-09C6206FFCFB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_UI_01" ID="{D5CAF761-EDF5-4D9A-9E34-3B2FE262861B}" ShortID="7464925">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_UI_01" ID="{322E0BB0-20D1-4845-9ECB-EC5EFAA38330}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_UI_01.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="810352738"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_UI_01" ID="{322E0BB0-20D1-4845-9ECB-EC5EFAA38330}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_UI_02" ID="{63C434F0-62CF-4C79-84C1-CC47D23EC2FD}" ShortID="557852539">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_UI_02" ID="{6006F98F-46E6-4F8C-B74F-E7B2400A021F}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_UI_02.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="493979378"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_UI_02" ID="{6006F98F-46E6-4F8C-B74F-E7B2400A021F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_WARN_01" ID="{F7AE4B3F-ECFD-4494-85C0-729D98E44073}" ShortID="614509627">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-18</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_WARN_01" ID="{367B7CD1-1925-464C-AD75-903B33913813}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_WARN_01.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="677609712"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_WARN_01" ID="{367B7CD1-1925-464C-AD75-903B33913813}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ITEM_Fire_02" ID="{EB6E8BF9-3BBD-4133-A598-A7DD3BAF791D}" ShortID="464180897">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ITEM_Fire_02" ID="{79A84FBF-04DE-4C40-BB87-DBBAC532009A}">
+									<Language>SFX</Language>
+									<AudioFile>ITEM_Fire_02.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="346092054"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ITEM_Fire_02" ID="{79A84FBF-04DE-4C40-BB87-DBBAC532009A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ITEM_Get_01" ID="{6EC5B6AE-BE81-4725-A91F-057B9960A867}" ShortID="947105208">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ITEM_Get_01" ID="{75620DF8-3BB6-496C-A91B-D351CF0F3E31}">
+									<Language>SFX</Language>
+									<AudioFile>ITEM_Get_01.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="597951245"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ITEM_Get_01" ID="{75620DF8-3BB6-496C-A91B-D351CF0F3E31}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_Quest_get" ID="{22378359-2EBF-456D-AF4B-C9D2E1A9AEFE}" ShortID="320034756">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-11</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_Quest_get" ID="{4A2F3530-00B4-4418-A07B-733CD4DC4D58}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_Quest_get.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="531645874"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_Quest_get" ID="{4A2F3530-00B4-4418-A07B-733CD4DC4D58}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_STAGE_CheckPoint" ID="{276ECD0E-366B-4E30-A561-6109CA65C939}" ShortID="507432474">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_STAGE_CheckPoint" ID="{569E0CC6-8DDF-4B4C-855B-519E8ED318B3}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_STAGE_CheckPoint.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="606239346"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_STAGE_CheckPoint" ID="{569E0CC6-8DDF-4B4C-855B-519E8ED318B3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_Monster_mush" ID="{AF23F880-EAAA-44DC-A605-A7AB7D2FE933}" ShortID="896350828">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-18</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_Monster_mush" ID="{9317D81A-D07F-4975-8BAB-0571C09DB539}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_Monster_mush.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="306639135"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_Monster_mush" ID="{9317D81A-D07F-4975-8BAB-0571C09DB539}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_NPC_Quest" ID="{11B6DB11-A06A-435C-8BAB-F0C38CA39327}" ShortID="713427809">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_NPC_Quest" ID="{B0BBC1FF-78EA-462C-9C7D-E34536A8386B}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_NPC_Quest.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="413289653"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_NPC_Quest" ID="{B0BBC1FF-78EA-462C-9C7D-E34536A8386B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_NPC_succ" ID="{A441E8EE-BDF0-420A-878B-D123F3B350B8}" ShortID="357243658">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_NPC_succ" ID="{AD973193-6DFD-4F11-B1EC-1EADF50A09D6}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_NPC_succ.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="541283499"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_NPC_succ" ID="{AD973193-6DFD-4F11-B1EC-1EADF50A09D6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="House_CloseCloset" ID="{7A31D090-6DD0-4E0F-AAE8-0EFCD3045D4C}" ShortID="638064556">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="House_CloseCloset" ID="{5A080DBD-30F2-4BE9-B290-1A82D55FC5DA}">
+									<Language>SFX</Language>
+									<AudioFile>House_CloseCloset.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="341197597"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="House_CloseCloset" ID="{5A080DBD-30F2-4BE9-B290-1A82D55FC5DA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="House_OpenBox" ID="{6F9C7E25-EA35-4D33-9F63-01738F109887}" ShortID="587170148">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="House_OpenBox" ID="{00112D2C-1190-4134-97B0-32BC7A16B5B3}">
+									<Language>SFX</Language>
+									<AudioFile>House_OpenBox.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="634678965"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="House_OpenBox" ID="{00112D2C-1190-4134-97B0-32BC7A16B5B3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="House_OpenCloset" ID="{02ED43B6-5686-4B12-82B4-74B5EA0A07BF}" ShortID="665643371">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="House_OpenCloset" ID="{33D75588-C077-4C09-9DF3-01700D487499}">
+									<Language>SFX</Language>
+									<AudioFile>House_OpenCloset.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1055606759"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="House_OpenCloset" ID="{33D75588-C077-4C09-9DF3-01700D487499}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="House_SelectPicture" ID="{485CB4F0-2B88-4976-95C8-EA69EFF11DB6}" ShortID="248370995">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="House_SelectPicture" ID="{33B4E292-DAFC-4DB3-8E04-136ED57CB14A}">
+									<Language>SFX</Language>
+									<AudioFile>House_SelectPicture.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="486601644"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="House_SelectPicture" ID="{33B4E292-DAFC-4DB3-8E04-136ED57CB14A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_BLOCK_01" ID="{3D30CA7F-BBBD-40F1-9BB0-4D539FD58C5F}" ShortID="795193232">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_BLOCK_01" ID="{99380FC7-E14E-4E76-A149-0FDE78E9F158}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_BLOCK_01.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="698934912"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_BLOCK_01" ID="{99380FC7-E14E-4E76-A149-0FDE78E9F158}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_CH_Die" ID="{CB2ABDF6-AC3B-4C06-817A-3BFEF339DF2C}" ShortID="512752835">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_CH_Die" ID="{BAC493EC-7364-4F37-A53D-1E9FF84A8B6A}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_CH_Die.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="670591994"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_CH_Die" ID="{BAC493EC-7364-4F37-A53D-1E9FF84A8B6A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_CH_Life" ID="{2FB1815C-F893-4270-B785-C68D63A53C86}" ShortID="645631526">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_CH_Life" ID="{B38EEA8A-B562-40C9-9551-D56CEB2328FA}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_CH_Life.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1060972770"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_CH_Life" ID="{B38EEA8A-B562-40C9-9551-D56CEB2328FA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_JUMP_01" ID="{CB13CDEF-26C0-4AE1-B6A2-4D2791A3FBCA}" ShortID="982787156">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_JUMP_01" ID="{0DD9CB69-49C3-426D-B185-014E14FC12DC}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_JUMP_01.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="982792250"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_JUMP_01" ID="{0DD9CB69-49C3-426D-B185-014E14FC12DC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_JUMP_01_new" ID="{CE8F58BA-D9C6-4FB3-97F0-EB76B42011D2}" ShortID="652668444">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>37</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-23</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_JUMP_01_new" ID="{70888D3C-DDC9-4D25-A151-B41D3A805B63}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_JUMP_01_new.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="156882854"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_JUMP_01_new" ID="{70888D3C-DDC9-4D25-A151-B41D3A805B63}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_Monster_butterfly" ID="{482DBCC7-39D5-4295-8DF6-F5E58B843046}" ShortID="711027462">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-13</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_Monster_butterfly" ID="{C35622BC-EBA3-4439-9CF5-95611A664B48}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_Monster_butterfly.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="658368868"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_Monster_butterfly" ID="{C35622BC-EBA3-4439-9CF5-95611A664B48}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_Monster_death" ID="{2F5B6377-8D0D-47E6-AE4C-30B43EBB9B83}" ShortID="82670276">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_Monster_death" ID="{41DC2BED-FF4A-42B1-8068-2A2D1083C585}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_Monster_death.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="283648053"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_Monster_death" ID="{41DC2BED-FF4A-42B1-8068-2A2D1083C585}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="House_CloseBox" ID="{335E84DB-0F38-4DA4-96A1-CFDA308C23F3}" ShortID="1029390501">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="House_CloseBox" ID="{2395C7BE-5315-4032-860A-3F0EC5CBD1CA}">
+									<Language>SFX</Language>
+									<AudioFile>House_CloseBox.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="90424035"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="House_CloseBox" ID="{2395C7BE-5315-4032-860A-3F0EC5CBD1CA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ITEM_Fire_01" ID="{CF4A09DC-233D-4DA3-AF5D-75CE16A165C1}" ShortID="479901292">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ITEM_Fire_01" ID="{6FAC33E7-EDAB-4D56-9C80-51EC5468BAAF}">
+									<Language>SFX</Language>
+									<AudioFile>ITEM_Fire_01.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="744407604"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ITEM_Fire_01" ID="{6FAC33E7-EDAB-4D56-9C80-51EC5468BAAF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_UI_Caution" ID="{5F6709D4-7566-4CD9-A01F-5D66F6B2596B}" ShortID="176937350">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_UI_Caution" ID="{D8411768-9494-4706-8E2C-6194EF721F32}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_UI_Caution.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="12906990"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_UI_Caution" ID="{D8411768-9494-4706-8E2C-6194EF721F32}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 					<ObjectLists/>
 				</ActorMixer>
@@ -1562,7 +956,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+							<ObjectRef Name="SFX" ID="{AFAF2AB6-8BF2-4820-9855-8F8CC1418BB5}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -1837,7 +1231,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+							<ObjectRef Name="SFX" ID="{AFAF2AB6-8BF2-4820-9855-8F8CC1418BB5}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
 						</Reference>
 						<Reference Name="SwitchGroupOrStateGroup">
 							<ObjectRef Name="New_Switch_Group" ID="{00373D90-BAE4-4E16-89B7-933FF692EBB1}" WorkUnitID="{E85E265A-6622-4714-967A-1A61DF064808}"/>
@@ -2164,6 +1558,223 @@
 						</GroupingList>
 					</GroupingInfo>
 				</SwitchContainer>
+				<ActorMixer Name="BGM" ID="{854FC098-6B44-458A-A3BE-7FB48EDA9550}" ShortID="905141131">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="BGM" ID="{217CD0BD-4A6C-44E8-A52B-0A0B3F12FE01}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="BGM_Login_loop_ogg" ID="{351D21CA-E03A-4028-B499-070C18716345}" ShortID="622616757">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="BGM" ID="{217CD0BD-4A6C-44E8-A52B-0A0B3F12FE01}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BGM_Login_loop_ogg" ID="{009FE7AC-BBE8-451C-A696-76DB38FCCADE}">
+									<Language>SFX</Language>
+									<AudioFile>amb\BGM_Login_loop_ogg.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="951148804"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="BGM_Login_loop_ogg" ID="{009FE7AC-BBE8-451C-A696-76DB38FCCADE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BGM_Map1_loop_ogg" ID="{41FADC86-6FE3-4485-B307-ECC188C0DB65}" ShortID="641292526">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BGM_Map1_loop_ogg" ID="{ABF8905B-6424-424A-8F1E-174F4CE6941E}">
+									<Language>SFX</Language>
+									<AudioFile>amb\BGM_Map1_loop_ogg.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="965240098"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="BGM_Map1_loop_ogg" ID="{ABF8905B-6424-424A-8F1E-174F4CE6941E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BGM_Map2_loop_ogg" ID="{3F370320-6F86-4B1B-BB6D-2D1F814349A3}" ShortID="956584365">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BGM_Map2_loop_ogg" ID="{237B776C-FA47-401B-AA4A-5C547F5A1E38}">
+									<Language>SFX</Language>
+									<AudioFile>amb\BGM_Map2_loop_ogg.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1016648946"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="BGM_Map2_loop_ogg" ID="{237B776C-FA47-401B-AA4A-5C547F5A1E38}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BGM_MAP3_loop_ogg" ID="{D13C1596-6D49-4C21-B5D2-C41C8D7034E8}" ShortID="551814349">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BGM_MAP3_loop_ogg" ID="{8F1C5F64-3C06-4FE3-AD9F-0A9999CCEA9B}">
+									<Language>SFX</Language>
+									<AudioFile>amb\BGM_MAP3_loop_ogg.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="61980699"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="BGM_MAP3_loop_ogg" ID="{8F1C5F64-3C06-4FE3-AD9F-0A9999CCEA9B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BGM_Terra_s_House_loop" ID="{A0D8DB51-8C5F-4D0B-9050-73F4DC497528}" ShortID="297954763">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="BGM" ID="{217CD0BD-4A6C-44E8-A52B-0A0B3F12FE01}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BGM_Terra_s_House_loop" ID="{C9BB3690-9E1C-4725-AABC-47835B6282C5}">
+									<Language>SFX</Language>
+									<AudioFile>amb\BGM_Terra_s_House_loop.amb</AudioFile>
+									<MediaIDList>
+										<MediaID ID="25293220"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="BGM_Terra_s_House_loop" ID="{C9BB3690-9E1C-4725-AABC-47835B6282C5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BGM_Prologue01" ID="{136EC757-77D8-4EAD-8747-645B71882E51}" ShortID="502183435">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BGM_Prologue01" ID="{AEBFD4DA-CFBB-4B10-8625-50940906B9F9}">
+									<Language>SFX</Language>
+									<AudioFile>BGM_Prologue01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="231103204"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="BGM_Prologue01" ID="{AEBFD4DA-CFBB-4B10-8625-50940906B9F9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BGM_Prologue02" ID="{FF8279A8-6B7E-4A4F-94FB-E87C6A5D0539}" ShortID="593670090">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BGM_Prologue02" ID="{531AB014-E33C-4B89-9B46-3FAEF41C7BEE}">
+									<Language>SFX</Language>
+									<AudioFile>BGM_Prologue02.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="94770710"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="BGM_Prologue02" ID="{531AB014-E33C-4B89-9B46-3FAEF41C7BEE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BGM_Prologue03" ID="{D9218831-F419-4F9B-840F-5AC9446E474E}" ShortID="536855018">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="BGM" ID="{217CD0BD-4A6C-44E8-A52B-0A0B3F12FE01}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BGM_Prologue03" ID="{DF5A86A4-6459-455A-ADF3-F6F67C11075C}">
+									<Language>SFX</Language>
+									<AudioFile>BGM_Prologue03.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="620590112"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="BGM_Prologue03" ID="{DF5A86A4-6459-455A-ADF3-F6F67C11075C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists/>
+				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
