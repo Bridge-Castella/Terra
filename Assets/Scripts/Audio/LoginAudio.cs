@@ -6,6 +6,7 @@ public class LoginAudio : AudioRef<LoginAudio>
 {
     [Header("BGM")]
     public AK.Wwise.Event LoginBGM;
+    public AK.Wwise.Event PrologueBGM;
     
     protected override void Start()
     {

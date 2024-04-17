@@ -147,6 +147,75 @@
 										<ActiveSource Name="BGM_Terra_s_House_loop" ID="{C9BB3690-9E1C-4725-AABC-47835B6282C5}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="BGM_Prologue01" ID="{136EC757-77D8-4EAD-8747-645B71882E51}" ShortID="502183435">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BGM_Prologue01" ID="{AEBFD4DA-CFBB-4B10-8625-50940906B9F9}">
+											<Language>SFX</Language>
+											<AudioFile>BGM_Prologue01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="231103204"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="BGM_Prologue01" ID="{AEBFD4DA-CFBB-4B10-8625-50940906B9F9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="BGM_Prologue02" ID="{FF8279A8-6B7E-4A4F-94FB-E87C6A5D0539}" ShortID="593670090">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BGM_Prologue02" ID="{531AB014-E33C-4B89-9B46-3FAEF41C7BEE}">
+											<Language>SFX</Language>
+											<AudioFile>BGM_Prologue02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="94770710"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="BGM_Prologue02" ID="{531AB014-E33C-4B89-9B46-3FAEF41C7BEE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="BGM_Prologue03" ID="{D9218831-F419-4F9B-840F-5AC9446E474E}" ShortID="536855018">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BGM_Prologue03" ID="{DF5A86A4-6459-455A-ADF3-F6F67C11075C}">
+											<Language>SFX</Language>
+											<AudioFile>BGM_Prologue03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="620590112"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="BGM_Prologue03" ID="{DF5A86A4-6459-455A-ADF3-F6F67C11075C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="SFX_amb" ID="{BE391B83-656D-4A4B-80E3-4D4F693145BB}" ShortID="770407933">

@@ -69,6 +69,9 @@ public class LoginManager : MonoBehaviour
         prologueRawImage.gameObject.SetActive(true);
         prologueRawImage.DOColor(Color.white, 0.8f).OnComplete(() =>
         {
+            LoginAudio.Stop(LoginAudio.Instance.LoginBGM);
+            LoginAudio.Post(LoginAudio.Instance.PrologueBGM);
+
             prologuePlayer.Play();
             prologuePlayer.loopPointReached += EndReached;
         });
@@ -81,6 +84,7 @@ public class LoginManager : MonoBehaviour
         if (data_optional == null)
             return;
 
+        LoginAudio.Stop(LoginAudio.Instance.LoginBGM);
         SaveManager.SaveData data = (SaveManager.SaveData)data_optional;
         MapManager.state.map = data.mapData.index;
         MapManager.state.cleared = data.mapData.cleared;
@@ -101,6 +105,7 @@ public class LoginManager : MonoBehaviour
     {
         prologueRawImage.DOColor(Color.black, 0.8f).OnComplete(() =>
         {
+            LoginAudio.Stop(LoginAudio.Instance.PrologueBGM);
             GlobalContainer.clear();
             MapManager.ResetData();
             MapManager.state.map = MapManager.MapIndex.Map1;

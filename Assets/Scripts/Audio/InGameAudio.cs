@@ -7,6 +7,8 @@ public class InGameAudio : AudioRef<InGameAudio>
     public AK.Wwise.Event BGM_MAP2_loop;
     public AK.Wwise.Event BGM_MAP3_loop;
     public AK.Wwise.Event BGM_Terra_House_loop;
+    public AK.Wwise.Event BGM_Prologue2;
+    public AK.Wwise.Event BGM_Prologue3;
 
     [Header("Item")]
     public AK.Wwise.Event ITEM_Get_01;

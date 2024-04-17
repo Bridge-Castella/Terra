@@ -83,6 +83,15 @@
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
+				<SoundBank Name="BGM_Prologue" ID="{495AE490-E8EA-4015-B874-9A0B92630648}">
+					<ObjectInclusionList>
+						<ObjectRef Name="BGM_Prologue01" ID="{958B58D8-5A68-40BC-959F-0B4E340A4953}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="BGM_Prologue03" ID="{4120929D-5013-40C3-BC62-DDC93804CBF3}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="BGM_Prologue02" ID="{4AA3344A-F580-4703-8019-8D0B65E18F37}" WorkUnitID="{512E893C-87E7-460E-8103-6CE8208CC5B9}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundBanks>
