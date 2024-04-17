@@ -174,6 +174,13 @@ public class HomePhoto : MonoBehaviour
             return;
         }
 
+        var prologueBgm = photoType switch
+        {
+            PhotoType.Town => InGameAudio.Instance.BGM_Prologue2,
+            PhotoType.Family => InGameAudio.Instance.BGM_Prologue3,
+            _ => null,
+        };
+
 #if UNITY_EDITOR
         if (DEBUG_DONT_PLAY_PROLOGUE_VIDEO)
         {
@@ -195,10 +202,11 @@ public class HomePhoto : MonoBehaviour
         videoPlayer.gameObject.SetActive(true);
         videoPlayer.Play();
         videoPlayer.frame = 0;
-        StartCoroutine(PlayPrologue(videoPlayer, photoType));
+        StartCoroutine(PlayPrologue(videoPlayer, prologueBgm, photoType));
     }
 
-    private IEnumerator PlayPrologue(VideoPlayer prologuePlayer, PhotoType photoType)
+    private IEnumerator PlayPrologue(VideoPlayer prologuePlayer, 
+        AK.Wwise.Event prologueAudio, PhotoType photoType)
     {
         // disable all the buttons
         homeController.DisableButtons();
@@ -242,11 +250,18 @@ public class HomePhoto : MonoBehaviour
         while (SceneFader.instance.Active)
             yield return null;
 
+        if (prologueAudio != null)
+        {
+            InGameAudio.Stop(InGameAudio.Instance.BGM_Terra_House_loop);
+            InGameAudio.Post(prologueAudio);
+        }
+
         // finally play the video
         prologuePlayer.Play();
         while (prologuePlayer.isPlaying)
             yield return null;
 
+        InGameAudio.Post(InGameAudio.Instance.BGM_Terra_House_loop);
         StoreShownHistory(photoType);
         prologuePlayer.gameObject.SetActive(false);
 

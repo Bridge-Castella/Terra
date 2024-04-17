@@ -15,6 +15,8 @@ public class TrailEffect : MonoBehaviour
     private GameObject parentObject;
     private Transform player;
 
+    private bool isAudioPlaying = false;
+
     private void Start()
     {
         player = FindObjectOfType<PlayerMove>().transform;
@@ -23,6 +25,11 @@ public class TrailEffect : MonoBehaviour
 
     private void Update()
     {
+        if (isAudioPlaying && Home.IsHomeActive)
+        {
+            InGameAudio.Stop(InGameAudio.Instance.inGame_Monster_grass);
+        }
+
         if (timeBtwSpawns <= 0)
         {
             GameObject instance = (GameObject)Instantiate(trail, transform.position, Quaternion.identity);
@@ -31,6 +38,7 @@ public class TrailEffect : MonoBehaviour
 
             if (isInCamera())
             {
+                isAudioPlaying = true;
                 InGameAudio.Post(InGameAudio.Instance.inGame_Monster_grass);
             }
         }

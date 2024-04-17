@@ -6,14 +6,20 @@ public class Home : MonoBehaviour
     [SerializeField] GameObject exitButton;
     [SerializeField] GameObject PanelBackgroud;
 
+    public static bool IsHomeActive { get; private set; } = false;
+
     private void OnEnable()
     {
+        IsHomeActive = true;
+
         InGameAudio.Stop(MapStateChanger.CurrentMapBGM);
         InGameAudio.Post(InGameAudio.Instance.BGM_Terra_House_loop);
     }
 
     private void OnDisable()
     {
+        IsHomeActive = false;
+
         InGameAudio.Stop(InGameAudio.Instance.BGM_Terra_House_loop);
         InGameAudio.Post(MapStateChanger.CurrentMapBGM);
     }

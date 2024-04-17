@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8557587733901402314}
   - component: {fileID: 8557587733901402315}
   - component: {fileID: 5435924718590867029}
+  - component: {fileID: 7892151660082028908}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -126,6 +127,16 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 625b7a4e96492c549935fc549bcd857f,
+      type: 2}
+  BGM_Prologue2:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ef2f2a05d011a46b5b702a92af8cbda6,
+      type: 2}
+  BGM_Prologue3:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 36ecf428ac32c4afd812260b8de688a9,
       type: 2}
   ITEM_Get_01:
     idInternal: 0
@@ -350,7 +361,33 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: c515cc98a1ab2413f8f1da2b4045887a,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
+--- !u!114 &7892151660082028908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557587733901402294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e92d228e62e14b4d8584a0b54752500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e57598863043949539aeffc849418426,
+      type: 2}
   decodeBank: 0
   loadAsynchronous: 0
   saveDecodedBank: 0

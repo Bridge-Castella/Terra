@@ -45,6 +45,10 @@ public class PlayerAudio : AudioRef<PlayerAudio>
             Instance.shouldStopStepSound = true;
             return;
         }
+        else
+        {
+            Instance.shouldStopStepSound = false;
+        }
 
         switch (state)
         {
