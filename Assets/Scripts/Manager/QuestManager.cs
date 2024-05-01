@@ -17,7 +17,6 @@ public class QuestManager : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
     }
     #endregion
@@ -158,8 +157,9 @@ public class QuestManager : MonoBehaviour
         // Quest 상태 update
         state[quest.questId] = QuestState.Failed;
 
-        // Quest 객체 destroy
-        Destroy(quest.gameObject);
+        // Deactivate quest object
+        // quest object is used on game save, so it should not be destroyed
+        quest.gameObject.SetActive(false);
 
         // 다음 quest로 넘기기
         index[npcId] += 1;
@@ -179,8 +179,9 @@ public class QuestManager : MonoBehaviour
         // Update quest state
 		state[quest.questId] = QuestState.Completed;
 
-        // Destroy quest object
-        Destroy(quest.gameObject);
+        // Deactivate quest object
+        // quest object is used on game save, so it should not be destroyed
+        quest.gameObject.SetActive(false);
 
         // 다음 quest로 넘기기
         index[npcId] += 1;

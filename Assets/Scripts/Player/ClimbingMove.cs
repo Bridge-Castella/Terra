@@ -43,6 +43,7 @@ public abstract class ClimbingMove : MonoBehaviour
     protected virtual void OnExit() { }
     protected virtual void OnStart() { }
     protected abstract State UpdateState(Vector2 input);
+    protected abstract EClimbState GetClimbState();
     protected abstract Vector2 UpdateDirection(Vector2 input);
 
     public void StartTracking() { state = State.Tracking; }
@@ -160,7 +161,7 @@ public abstract class ClimbingMove : MonoBehaviour
         OnStart();
 
         // start climbing
-        move.isClimbing = true;
+        move.climbState = GetClimbState();
         move.isJumping = false;
         animator.SetBool(settings.animParam, true);
         waitForReEntry = true;
@@ -185,7 +186,7 @@ public abstract class ClimbingMove : MonoBehaviour
     private void _ReleaseControll()
     {
         // exit climbing
-        move.isClimbing = false;
+        move.climbState = EClimbState.None;
         animator.SetBool(settings.animParam, false);
         rigid.gravityScale = originalGravity;
 

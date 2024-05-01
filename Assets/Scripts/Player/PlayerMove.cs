@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EClimbState
+{
+    None,
+    Ladder,
+    Wall,
+}
+
 public class PlayerMove : MonoBehaviour
 {
     [Header ("플랫폼 인식하는 레이어")]
@@ -31,11 +38,12 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector] public bool isJumping = false; //점프하는 상태인 경우
     [HideInInspector] public bool isTalking = false;
     [HideInInspector] public bool isFalling = false;
-    [HideInInspector] public bool isClimbing = false; //사다리관련 bool 변수
     [HideInInspector] public bool isAutoMove = false; //Scene 변경관련 bool 변수
 
 	//Scene 변경시 목표지점
 	[HideInInspector] public Vector3 prefferedDirection;
+
+    [HideInInspector] public EClimbState climbState = EClimbState.None;
 
 	private CapsuleCollider2D capsuleCollider2D;
     private SpriteRenderer[] spriteRenderer = new SpriteRenderer[5];
@@ -78,7 +86,7 @@ public class PlayerMove : MonoBehaviour
         else if (isAutoMove)
         {
             //yesman: 바닥에 있는 동안은 점프 애니메이션을 출력하지 않음.
-            animator.SetBool("isJumping", (!IsGrounded() && !isClimbing));
+            animator.SetBool("isJumping", !IsGrounded() && climbState == EClimbState.None);
         }
         else
         {
@@ -102,12 +110,14 @@ public class PlayerMove : MonoBehaviour
             }
 
             //yesman: 바닥에 있는 동안은 점프 애니메이션을 출력하지 않음.
-            animator.SetBool("isJumping", (!IsGrounded() && !isClimbing));
+            animator.SetBool("isJumping", !IsGrounded() && climbState == EClimbState.None);
 
             //Coyote Time
             //Jump and Double Jump
-            if ((Input.GetButtonDown("Jump") && (IsGrounded() || (canDoubleJump && abilities.canDoubleJump) || isClimbing))
-                || (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump")))
+            if ((Input.GetButtonDown("Jump") && 
+                (IsGrounded() || climbState != EClimbState.None || 
+                (canDoubleJump && abilities.canDoubleJump))) || 
+                (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump")))
             {
                 Jump();
             }
@@ -138,7 +148,7 @@ public class PlayerMove : MonoBehaviour
         PlayerAudio.Post(PlayerAudio.Instance.inGame_JUMP_01);
 
         // Climbing 중에도 double jump가 가능하게끔 수정
-        if (IsGrounded() || isClimbing)
+        if (IsGrounded() || climbState == EClimbState.None)
         {
             canDoubleJump = true;
         }
@@ -190,7 +200,7 @@ public class PlayerMove : MonoBehaviour
             rigid.velocity = new Vector2(0, 0);
             moveHorizontalInput = 0;
         }
-        else if (isClimbing) return;
+        else if (climbState != EClimbState.None) return;
         else if (isAutoMove)
         {
             float multiplier;
@@ -258,32 +268,6 @@ public class PlayerMove : MonoBehaviour
         }
 
         animator.SetFloat("xVelocity", Mathf.Abs(rigid.velocity.x));
-
-        if (moveHorizontalInput != 0 && IsGrounded())
-        {
-            switch (MapManager.state.map)
-            {
-                case MapManager.MapIndex.Map1:
-                    PlayerAudio.ChangeStepSound(PlayerAudio.StepState.Grass);
-                    break;
-
-                case MapManager.MapIndex.Map2:
-                    PlayerAudio.ChangeStepSound(PlayerAudio.StepState.Rock);
-                    break;
-
-                case MapManager.MapIndex.Map3:
-                    PlayerAudio.ChangeStepSound(PlayerAudio.StepState.Grass);
-                    break;
-
-                default:
-                    PlayerAudio.ChangeStepSound(PlayerAudio.StepState.Grass);
-                    break;
-            }
-        }
-        else
-        {
-            PlayerAudio.ChangeStepSound(PlayerAudio.StepState.None);
-        }
     }
 
     public void Flip()
@@ -413,4 +397,37 @@ public class PlayerMove : MonoBehaviour
         landDust.Play();
         Destroy(obj, 1f);
     }
+
+    public void OnFootStep()
+    {
+        switch (MapManager.state.map)
+        {
+            case MapManager.MapIndex.Map1:
+            case MapManager.MapIndex.Map3:
+                PlayerAudio.Post(PlayerAudio.Instance.inGame_STEP_Grass);
+                break;
+
+            case MapManager.MapIndex.Map2:
+                PlayerAudio.Post(PlayerAudio.Instance.inGame_STEP_Rock);
+                break;
+
+            default:
+                PlayerAudio.Post(PlayerAudio.Instance.inGame_STEP_Grass);
+                break;
+        }
+    }
+
+    public void OnClimbStep()
+	{
+        switch (climbState)
+        {
+            case EClimbState.Ladder:
+                PlayerAudio.Post(PlayerAudio.Instance.inGame_CLIMB_Ladder);
+                break;
+            
+            case EClimbState.Wall:
+                PlayerAudio.Post(PlayerAudio.Instance.inGame_CLIMB_Wall);
+                break;
+        }
+	}
 }

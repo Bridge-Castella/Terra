@@ -42,19 +42,30 @@ public class QuestGroup : MonoBehaviour
 
 			QuestState? state = QuestManager.getState(quest.questId);
 
-			if (state != null)
+			questList.Add(quest);
+
+			if (state == null || state == QuestState.Null)
 			{
-				QuestManager.StartQuest(quest, false);
+				// initialize quest
+				quest.init(npcId);
+
+				// submit quest to manager
+				QuestManager.add(quest.questId, QuestState.Null);
+
 				return;
 			}
 
-            // initialize quest
-			quest.init(npcId);
-			questList.Add(quest);
+			switch (state.Value)
+			{
+				case QuestState.Doing:
+					QuestManager.StartQuest(quest, false);
+					break;
 
-			// submit quest to manager
-			QuestManager.add(quest.questId, QuestState.Null);
-            
+				case QuestState.Failed:
+				case QuestState.Succeeded:
+					quest.gameObject.SetActive(false);
+					break;
+			}
 		}
 	}
 
