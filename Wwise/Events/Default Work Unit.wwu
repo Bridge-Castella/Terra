@@ -502,59 +502,8 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="step_event" ID="{76956308-8ADA-4961-9C99-D0579089DA9E}">
-							<PropertyList>
-								<Property Name="Color" Type="int16" Value="13"/>
-								<Property Name="OverrideColor" Type="bool" Value="True"/>
-							</PropertyList>
-							<ChildrenList>
-								<Action Name="" ID="{75FAF25D-A1C4-4C39-9B50-3E555E1C84A7}" ShortID="776057230">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="ingame_step" ID="{7822585B-60AF-4F55-A28C-CFE1E9C2D7C4}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 					</ChildrenList>
 				</Folder>
-				<Event Name="Set_Switch_Grass" ID="{D3887D9D-FE08-4F6A-9603-1ECF1656F8A7}">
-					<PropertyList>
-						<Property Name="Color" Type="int16" Value="4"/>
-						<Property Name="OverrideColor" Type="bool" Value="True"/>
-					</PropertyList>
-					<ChildrenList>
-						<Action Name="" ID="{D6FB0125-3580-48E5-8FB5-81D7EFFD7CD7}" ShortID="1067110633">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="23"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Grass" ID="{0D6A769F-F537-4533-A624-D4720034B2EA}" WorkUnitID="{E85E265A-6622-4714-967A-1A61DF064808}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Set_Switch_Rock" ID="{BB0CC3A6-0EC8-426D-8CF2-D95E5DCB8E54}">
-					<PropertyList>
-						<Property Name="Color" Type="int16" Value="4"/>
-						<Property Name="OverrideColor" Type="bool" Value="True"/>
-					</PropertyList>
-					<ChildrenList>
-						<Action Name="" ID="{F099CE48-1AF4-461F-800C-060CB119F2D1}" ShortID="783788687">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="23"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Rock" ID="{D860C221-C74D-4763-BFB1-47E4E10A2BB4}" WorkUnitID="{E85E265A-6622-4714-967A-1A61DF064808}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
