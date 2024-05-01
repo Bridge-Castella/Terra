@@ -85,6 +85,8 @@ public class SaveManager
     public static void SaveGame()
     {
         var data = SaveGameData();
+        if (data.mapData.index == MapManager.MapIndex.Login)
+            return;
 
         try
         {
