@@ -254,6 +254,11 @@ public class WallEffector : ClimbingMove
             sprite.sortingLayerName = "Player";
     }
 
+    protected override EClimbState GetClimbState()
+    {
+        return EClimbState.Wall;
+    }
+
     private bool CheckCollisionMask(Collision2D collision)
     {
         if ((1 << collision.gameObject.layer & layer.value) > 0)

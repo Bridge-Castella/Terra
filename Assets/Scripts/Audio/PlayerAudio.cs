@@ -19,6 +19,10 @@ public class PlayerAudio : AudioRef<PlayerAudio>
     public AK.Wwise.Event inGame_JUMP_01;
     public AK.Wwise.Event inGame_JUMP_Land;
 
+    [Header("Climb")]
+    public AK.Wwise.Event inGame_CLIMB_Ladder;
+    public AK.Wwise.Event inGame_CLIMB_Wall;
+
     [Header("Life")]
     public AK.Wwise.Event inGame_CH_Life;
     public AK.Wwise.Event inGame_CH_Die;
