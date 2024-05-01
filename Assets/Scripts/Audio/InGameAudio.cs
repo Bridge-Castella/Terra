@@ -43,6 +43,11 @@ public class InGameAudio : AudioRef<InGameAudio>
     public AK.Wwise.Event inGame_NPC_Quest;
     public AK.Wwise.Event inGame_NPC_succ;
 
+    [Header("Ladder")]
+    public AK.Wwise.Event inGame_LadderKey_Appear;
+    public AK.Wwise.Event inGame_LadderKey_Disappear;
+    public AK.Wwise.Event inGame_Ladder_Appear;
+
     [Header("Home")]
     public AK.Wwise.Event House_SelectPicture;
     public AK.Wwise.Event House_OpenCloset;

@@ -7,19 +7,19 @@ using UnityEngine.U2D;
 public class LadderOpacity : MonoBehaviour
 {
     [SerializeField] int ladderIndex;
-    [SerializeField] private ParticleSystem particleSystem;
-    private SpriteShapeRenderer renderer;
+    [SerializeField] private ParticleSystem particle;
+    private SpriteShapeRenderer spriteRenderer;
 
     private Color color;
     public bool IsEnabled { get; private set; }
     
     void Start()
     {
-        renderer = GetComponentInParent<SpriteShapeRenderer>();
+        spriteRenderer = GetComponentInParent<SpriteShapeRenderer>();
         color = new Color();
         color = Color.white;
         color.a = 0;
-        renderer.color = color;
+        spriteRenderer.color = color;
         IsEnabled = false;
 
         if (!GlobalContainer.contains("Ladder") ||
@@ -46,29 +46,31 @@ public class LadderOpacity : MonoBehaviour
 
         if (saveData[ladderIndex])
         {
-            particleSystem.gameObject.SetActive(false);
+            particle.gameObject.SetActive(false);
             GetComponent<Collider2D>().enabled = false;
             color.a = 1f;
-            renderer.color = color;
+            spriteRenderer.color = color;
             IsEnabled = true;
         }
     }
 
     public IEnumerator CoShowLadderOpacity()
     {
-        particleSystem.gameObject.SetActive(false);
+        particle.gameObject.SetActive(false);
         GetComponent<Collider2D>().enabled = false;
         
         while (color.a < 1f)
         {
             color.a += Time.deltaTime;
-            renderer.color = color;
+            spriteRenderer.color = color;
             yield return null;
         }
 
         color.a = 1f;
-        renderer.color = color;
+        spriteRenderer.color = color;
         IsEnabled = true;
+
+        InGameAudio.Post(InGameAudio.Instance.inGame_Ladder_Appear);
 
         var saveData = GlobalContainer.load<bool[]>("Ladder");
         saveData[ladderIndex] = true;
