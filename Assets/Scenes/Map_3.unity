@@ -8587,11 +8587,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3611525625548839303, guid: ea69a19e5b763344f878974130131b18,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611525625548839303, guid: ea69a19e5b763344f878974130131b18,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4006028751528298607, guid: ea69a19e5b763344f878974130131b18,
         type: 3}
       propertyPath: m_Name
       value: Riche
       objectReference: {fileID: 0}
+    - target: {fileID: 5693980715175997696, guid: ea69a19e5b763344f878974130131b18,
+        type: 3}
+      propertyPath: rewardObject
+      value: 
+      objectReference: {fileID: 4589817626560166515}
     - target: {fileID: 5693980715175997696, guid: ea69a19e5b763344f878974130131b18,
         type: 3}
       propertyPath: questObject.Array.data[0]
@@ -8610,7 +8625,7 @@ PrefabInstance:
     - target: {fileID: 7651969522230912773, guid: ea69a19e5b763344f878974130131b18,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 244.29
+      value: 243.793
       objectReference: {fileID: 0}
     - target: {fileID: 7651969522230912773, guid: ea69a19e5b763344f878974130131b18,
         type: 3}
@@ -10714,6 +10729,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eeded1340b136c4598dd4a640236e7f, type: 3}
+--- !u!1 &4589817626560166515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 101030099328174594, guid: 9eeded1340b136c4598dd4a640236e7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4589817626560166514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8387596726449224279
 PrefabInstance:
   m_ObjectHideFlags: 0

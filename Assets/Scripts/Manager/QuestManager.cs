@@ -187,6 +187,7 @@ public class QuestManager : MonoBehaviour
 
 
         GNBCanvas.instance.ShowToastPopup(quest.message);
+        quest.questGroup.OnReward();
         InGameAudio.Post(InGameAudio.Instance.inGame_NPC_succ);
 	}
 

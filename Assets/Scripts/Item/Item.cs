@@ -73,17 +73,19 @@ public class Item : MonoBehaviour
     {
         if(pickupParticlePrefab)
         {
-            GameObject obj = MonoBehaviour.Instantiate(pickupParticlePrefab);
+            GameObject obj = Instantiate(pickupParticlePrefab);
             obj.transform.position = gameObject.transform.position;
             ParticleSystem particle = obj.GetComponent<ParticleSystem>();
             particle.Play();
+            Destroy(obj, 2f);
         }
         if(pickupSubParticlePrefab)
         {
-            GameObject obj = MonoBehaviour.Instantiate(pickupSubParticlePrefab);
+            GameObject obj = Instantiate(pickupSubParticlePrefab);
             obj.transform.position = gameObject.transform.position;
             ParticleSystem particle = obj.GetComponent<ParticleSystem>();
             particle.Play();
+            Destroy(obj, 2f);
         }
     }
     public virtual void GetQuestItem(Collider2D collision)

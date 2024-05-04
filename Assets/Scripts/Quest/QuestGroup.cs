@@ -7,6 +7,8 @@ public class QuestGroup : MonoBehaviour
 {
 	[Header("Quest Objects")]
 	[SerializeField] List<GameObject> questObject;
+	[SerializeField]
+	private GameObject rewardObject;
 
 	// List of quests
 	private List<Quest> questList;
@@ -75,7 +77,9 @@ public class QuestGroup : MonoBehaviour
                 ControlManager.instance.player.GetComponent<PlayerAbilityTracker>().canDoubleJump = true;
 				break;
 			case "quest_2":
-				break;
+                //날개 아이템 활성화
+                rewardObject.SetActive(true);
+                break;
         }
 	}
 

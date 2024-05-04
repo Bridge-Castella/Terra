@@ -66,7 +66,6 @@ public class Quest : MonoBehaviour
 
     public void onSuccess()
     {
-        questGroup.OnReward();
 		QuestManager.changeState(questId, QuestState.Succeeded);
 	}
 
