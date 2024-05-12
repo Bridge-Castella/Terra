@@ -20,6 +20,9 @@ public class InGameAudio : AudioRef<InGameAudio>
     public AK.Wwise.Event ITEM_Wing_02;
     public AK.Wwise.Event ITEM_Destroy;
 
+    [Header("Platform")]
+    public AK.Wwise.Event PLATFORM_Fade;
+
     [Header("Quest")]
     public AK.Wwise.Event inGame_Quest_get;
 
