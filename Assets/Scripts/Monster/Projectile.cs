@@ -38,6 +38,7 @@ public class Projectile : MonoBehaviour
 
     private void OnDestroy()
     {
+        InGameAudio.Post(InGameAudio.Instance.ITEM_Destroy);
         Instantiate(popEffect, gameObject.transform.position, Quaternion.identity);
     }
 }

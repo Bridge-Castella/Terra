@@ -40,6 +40,7 @@ public class MapStateChanger : MonoBehaviour
             MapManager.MapIndex.Map3 => InGameAudio.Instance.BGM_MAP3_loop,
             _ => null,
         };
+
         InGameAudio.Post(CurrentMapBGM);
 
         // Scrolling Ground 활성화
@@ -58,7 +59,11 @@ public class MapStateChanger : MonoBehaviour
         if (MapManager.state.cleared < mapIndex)
         {
             MapManager.state.cleared = mapIndex;
-            InGameAudio.Post(InGameAudio.Instance.inGame_STAGE_CLEAR);
+
+            if (!HeartManager.instance.IsRespawning)
+            {
+                InGameAudio.Post(InGameAudio.Instance.inGame_STAGE_CLEAR);
+            }
         }
 
         var bgmToStop = mapIndex switch
@@ -68,6 +73,7 @@ public class MapStateChanger : MonoBehaviour
             MapManager.MapIndex.Map3 => InGameAudio.Instance.BGM_MAP3_loop,
             _ => null,
         };
+        
         InGameAudio.Stop(bgmToStop);
 
         // Save active state objects before unload
