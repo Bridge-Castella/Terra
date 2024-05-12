@@ -17,6 +17,8 @@ public class HeartManager : MonoBehaviour
     }
     #endregion
 
+    public bool IsRespawning { get; private set; }
+
     public int heartNum = 5;
     public TextMeshProUGUI heartNumText;
 
@@ -43,9 +45,12 @@ public class HeartManager : MonoBehaviour
 
     public void PlayerIsDead()
     {
+        IsRespawning = true;
         heartNum = 5;
         heartNumText.text = heartNum.ToString();
         PlayerAudio.Post(PlayerAudio.Instance.inGame_CH_Die);
+
+        StartCoroutine(CoWaitForRespawn());
     }
 
     public bool IsPlayerDead()
@@ -55,5 +60,12 @@ public class HeartManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private IEnumerator CoWaitForRespawn()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        IsRespawning = false;
     }
 }

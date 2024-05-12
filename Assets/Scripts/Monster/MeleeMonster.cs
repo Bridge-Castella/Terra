@@ -51,6 +51,11 @@ public class MeleeMonster : MonoBehaviour
 
     private bool PlayerInSight()
     {
+        if (player == null || player.gameObject == null)
+        {
+            return false;
+        }
+
         if(Vector2.Distance(rangeCenter.transform.position, player.position) <= range)
         {
             return true;

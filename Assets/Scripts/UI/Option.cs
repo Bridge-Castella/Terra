@@ -48,12 +48,18 @@ public class Option : MonoBehaviour
         {
             if(MapManager.state.map != MapManager.MapIndex.Login)
             {
+                UIAudio.Post(UIAudio.Instance.UI_pick);
                 GetComponentInParent<GNBCanvas>().Resume();
             }
             else
             {
                 OnClickCancelButton();
             }
+        });
+
+        audioCancelButton.onClick.AddListener(() =>
+        {
+            UIAudio.Post(UIAudio.Instance.UI_pick);
         });
 
         popUpYesButton.onClick.AddListener(LoadLoginScene);
@@ -83,9 +89,14 @@ public class Option : MonoBehaviour
         sfxVolumeNum.text = Mathf.CeilToInt(sfxSlider.value * 10).ToString();
     }
 
-    public void OnClickSaveButton()
+    public void OnMouseEnter()
     {
         UIAudio.Post(UIAudio.Instance.UI_select);
+    }
+
+    public void OnClickSaveButton()
+    {
+        UIAudio.Post(UIAudio.Instance.UI_pick);
         SaveManager.SaveGame();
         buttonGroup.SetActive(false);
         popUpSave.SetActive(true);
@@ -93,7 +104,7 @@ public class Option : MonoBehaviour
 
     public void OnClickQuitButton()
     {
-        UIAudio.Post(UIAudio.Instance.UI_select);
+        UIAudio.Post(UIAudio.Instance.UI_pick);
         buttonGroup.SetActive(false);
         popUpObject.SetActive(true);
         popUpText.text = "게임을 종료하시겠습니까?";
@@ -101,7 +112,7 @@ public class Option : MonoBehaviour
 
     public void LoadLoginScene()
     {
-        UIAudio.Post(UIAudio.Instance.UI_select);
+        UIAudio.Post(UIAudio.Instance.UI_pick);
         Time.timeScale = 1;
         MapManager.state.map = MapManager.MapIndex.Login;
         SceneManager.LoadScene("01.Login");
@@ -113,9 +124,17 @@ public class Option : MonoBehaviour
         }
     }
 
+    public void OnClickAudioButton()
+    {
+        UIAudio.Post(UIAudio.Instance.UI_pick);
+        buttonGroup.SetActive(false);
+        popUpObject.SetActive(false);
+        audioGroup.SetActive(true);
+    }
+
     public void OnClickPopupNoButton()
     {
-        UIAudio.Post(UIAudio.Instance.UI_select);
+        UIAudio.Post(UIAudio.Instance.UI_pick);
         popUpObject.SetActive(false);
         buttonGroup.SetActive(true);
     }
@@ -149,7 +168,7 @@ public class Option : MonoBehaviour
 
     public void OnClickPopUpSaveButton() 
     {
-        UIAudio.Post(UIAudio.Instance.UI_select);
+        UIAudio.Post(UIAudio.Instance.UI_pick);
         popUpSave.SetActive(false);
         buttonGroup.SetActive(true);
     }
@@ -157,18 +176,12 @@ public class Option : MonoBehaviour
     #region Volume Control
     public void InitailizeVolume()
     {
+        UIAudio.Post(UIAudio.Instance.UI_pick);
         masterSlider.value = 0.5f;
         bgmSlider.value = 0.5f;
         sfxSlider.value = 0.5f;
     }
 
-    public void OnClickAudioButton()
-    {
-        UIAudio.Post(UIAudio.Instance.UI_select);
-        buttonGroup.SetActive(false);
-        popUpObject.SetActive(false);
-        audioGroup.SetActive(true);
-    }
     public void SetBgmVolume(float value)
     {
         AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Bgm);
