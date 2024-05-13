@@ -81,7 +81,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="2641024368" Language="SFX" Hash="4002151273">
+		<SoundBank Id="2641024368" Language="SFX" Hash="2581478699">
 			<ObjectPath>\SoundBanks\Default Work Unit\SFX_SoundBank</ObjectPath>
 			<ShortName>SFX_SoundBank</ShortName>
 			<Path>SFX_SoundBank.bnk</Path>
@@ -382,56 +382,6 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="221641293" Name="Set_Switch_Grass" ObjectPath="\Events\Default Work Unit\Set_Switch_Grass">
-					<ActionSetSwitch>
-						<ActionSetSwitchEntry Id="4248645337" Name="Grass" ObjectPath="\Switches\Default Work Unit\New_Switch_Group\Grass"/>
-					</ActionSetSwitch>
-				</Event>
-				<Event Id="1745247046" Name="Set_Switch_Rock" ObjectPath="\Events\Default Work Unit\Set_Switch_Rock">
-					<ActionSetSwitch>
-						<ActionSetSwitchEntry Id="2144363834" Name="Rock" ObjectPath="\Switches\Default Work Unit\New_Switch_Group\Rock"/>
-					</ActionSetSwitch>
-				</Event>
-				<Event Id="1963527414" Name="step_event" ObjectPath="\Events\Default Work Unit\SFX\step_event">
-					<IncludedMemoryFiles>
-						<File Id="89216690" Language="SFX">
-							<ShortName>inGame_STEP_Grass_04.amb</ShortName>
-							<Path>SFX/inGame_STEP_Grass_04_10C4C929.wem</Path>
-						</File>
-						<File Id="138691275" Language="SFX">
-							<ShortName>inGame_STEP_Grass_03.amb</ShortName>
-							<Path>SFX/inGame_STEP_Grass_03_10C4C929.wem</Path>
-						</File>
-						<File Id="360358268" Language="SFX">
-							<ShortName>inGame_STEP_Grass_06.amb</ShortName>
-							<Path>SFX/inGame_STEP_Grass_06_10C4C929.wem</Path>
-						</File>
-						<File Id="383828309" Language="SFX">
-							<ShortName>inGame_STEP_Grass_05.amb</ShortName>
-							<Path>SFX/inGame_STEP_Grass_05_10C4C929.wem</Path>
-						</File>
-						<File Id="413873060" Language="SFX">
-							<ShortName>inGame_STEP_Grass_01.amb</ShortName>
-							<Path>SFX/inGame_STEP_Grass_01_10C4C929.wem</Path>
-						</File>
-						<File Id="464149486" Language="SFX">
-							<ShortName>rock01.wav</ShortName>
-							<Path>SFX/rock01_10C4C929.wem</Path>
-						</File>
-						<File Id="524249049" Language="SFX">
-							<ShortName>rock02.wav</ShortName>
-							<Path>SFX/rock02_10C4C929.wem</Path>
-						</File>
-						<File Id="748900145" Language="SFX">
-							<ShortName>inGame_STEP_Grass_02.amb</ShortName>
-							<Path>SFX/inGame_STEP_Grass_02_10C4C929.wem</Path>
-						</File>
-						<File Id="1059463565" Language="SFX">
-							<ShortName>rock03.wav</ShortName>
-							<Path>SFX/rock03_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
 				<Event Id="1902423899" Name="UI_in" ObjectPath="\Events\Default Work Unit\SFX\UI\UI_in">
 					<IncludedMemoryFiles>
 						<File Id="566116736" Language="SFX">
@@ -469,17 +419,11 @@
 				<GameParameter Id="1739658918" Name="Monster_Grass" ObjectPath="\Game Parameters\Default Work Unit\Monster_Grass"/>
 			</GameParameters>
 			<SwitchGroups>
-				<SwitchGroup Id="2144363834" Name="Rock" ObjectPath="\Switches\Default Work Unit\New_Switch_Group\Rock" GUID="{D860C221-C74D-4763-BFB1-47E4E10A2BB4}">
-					<Switches/>
-				</SwitchGroup>
 				<SwitchGroup Id="2250165792" Name="New_Switch_Group" ObjectPath="\Switches\Default Work Unit\New_Switch_Group" GUID="{00373D90-BAE4-4E16-89B7-933FF692EBB1}">
 					<Switches>
 						<Switch Id="4248645337" Name="Grass" ObjectPath="\Switches\Default Work Unit\New_Switch_Group\Grass" GUID="{0D6A769F-F537-4533-A624-D4720034B2EA}"/>
 						<Switch Id="2144363834" Name="Rock" ObjectPath="\Switches\Default Work Unit\New_Switch_Group\Rock" GUID="{D860C221-C74D-4763-BFB1-47E4E10A2BB4}"/>
 					</Switches>
-				</SwitchGroup>
-				<SwitchGroup Id="4248645337" Name="Grass" ObjectPath="\Switches\Default Work Unit\New_Switch_Group\Grass" GUID="{0D6A769F-F537-4533-A624-D4720034B2EA}">
-					<Switches/>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>

@@ -58,6 +58,11 @@ public class SplineMove : ClimbingMove
             move.Flip();
     }
 
+    protected override EClimbState GetClimbState()
+    {
+		return EClimbState.Ladder;
+    }
+
     protected override State UpdateState(Vector2 input)
 	{
 		//양끝에 도달했는지 검사
@@ -71,7 +76,7 @@ public class SplineMove : ClimbingMove
 				return State.Tracking;
 
 			//가만히 멈춰있는 경우
-			if (move.isClimbing)
+			if (move.climbState == EClimbState.Ladder)
 				return State.Grabbing;
 
 			// 상태변화X

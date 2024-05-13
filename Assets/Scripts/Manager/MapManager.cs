@@ -185,6 +185,9 @@ public class MapManager
 
     public static Save SaveData()
     {
+        if (state.current == null)
+            return new Save() { index = MapIndex.Login };
+
         // 현재 맵 상태 최신화
         state.current.SaveData();
 

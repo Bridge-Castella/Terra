@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControlManager : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class ControlManager : MonoBehaviour
 
     public void RetryGame()
     {
+        player.transform.SetParent(null);
+        var primitiveMapIndex = MapManager.ToSceneIndex(MapManager.MapIndex.Login);
+        var primitiveMap = SceneManager.GetSceneByBuildIndex(primitiveMapIndex);
+        SceneManager.MoveGameObjectToScene(player, primitiveMap);
+        
         player.transform.position = startPoint;
         HeartManager.instance.PlayerIsDead();
     }
