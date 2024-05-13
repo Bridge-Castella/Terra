@@ -13,6 +13,7 @@ public abstract class HomeButtonBase : MonoBehaviour, IPointerEnterHandler, IPoi
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        UIAudio.Post(UIAudio.Instance.inGame_UI_Hover);
         if (!interactable)
             return;
 

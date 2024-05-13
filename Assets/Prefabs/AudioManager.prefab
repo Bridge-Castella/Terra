@@ -70,6 +70,14 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 0fe062fec84a74747a7cbc17c630c6c6,
       type: 2}
+  inGame_CLIMB_Ladder:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_CLIMB_Wall:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   inGame_CH_Life:
     idInternal: 0
     valueGuidInternal: 
@@ -133,6 +141,16 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 36ecf428ac32c4afd812260b8de688a9,
       type: 2}
+  BGM_Transition_loop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 09402c9e7d7a7c548ba944be230e1999,
+      type: 2}
+  inGame_Fkey:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0bdad88da17a88547ab7d6f3a78aec96,
+      type: 2}
   ITEM_Get_01:
     idInternal: 0
     valueGuidInternal: 
@@ -166,6 +184,19 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
+  ITEM_Destroy:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  PLATFORM_Fade:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_Block_02:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: bb62f11bdad8aed49be2bb52e7fb13cf,
+      type: 2}
   inGame_Quest_get:
     idInternal: 0
     valueGuidInternal: 
@@ -201,6 +232,11 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: ceaf64661e2bd1b43a9c1dcf445aaad7,
       type: 2}
+  inGame_SavePoint:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 341c518285ae09d4eb7ce7f2077ade6f,
+      type: 2}
   inGame_UI_01:
     idInternal: 0
     valueGuidInternal: 
@@ -234,6 +270,18 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: b70877a3856fb8d499e996cb5ef3be83,
       type: 2}
+  inGame_LadderKey_Appear:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_LadderKey_Disappear:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_Ladder_Appear:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   House_SelectPicture:
     idInternal: 0
     valueGuidInternal: 
@@ -272,6 +320,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundObject: {fileID: 8557587733901402294}
+  inGame_UI_Hover:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e119b7e4287a3384c81a9dae23a4fb1b,
+      type: 2}
+  inGame_UI_Open:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1451b04cfa80d4049849effeb7e3a4cc,
+      type: 2}
+  inGame_UI_Inventory_Open:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 3982c69654182ab4f83d169636b87521,
+      type: 2}
+  inGame_UI_Inventory_Hover:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b699ac6c3534fb442812b809ed8c72f4,
+      type: 2}
+  inGame_UI_Inventory_Click:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 379938d359c9c7546b2c656b5469cc11,
+      type: 2}
+  inGame_UI_Quest_Open:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2a8b6a200d5398d498adbc5d96146d04,
+      type: 2}
+  inGame_UI_House_Open:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8c44ce1046a020e46b21cac21af6e956,
+      type: 2}
+  inGame_UI_House_Close:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 61840a5bc6626b8458f4083d384132d8,
+      type: 2}
+  UI_GameStart:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d19d15ea5e194a24aaf3ae58f9138192,
+      type: 2}
+  UI_Soundbar:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5281cc5ba2a8b8b4f8b745c13673c6bd,
+      type: 2}
+  UI_optionOut:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0760d768d55b7da47ab151109051ba3b,
+      type: 2}
+  UI_optionClick:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: beb4320b1e62d5f4ebd9f67baf395256,
+      type: 2}
   UI_in:
     idInternal: 0
     valueGuidInternal: 

@@ -113,6 +113,7 @@ public class NpcAction : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            InGameAudio.Post(InGameAudio.Instance.inGame_Fkey);
             btnCanvas.DOFade(1f, 0.3f);
         }
     }

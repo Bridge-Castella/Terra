@@ -35,7 +35,8 @@ public class ItemSlot : MonoBehaviour
 
     public void OnClickItemSlot()
     {
-        if(item != null)
+        UIAudio.Post(UIAudio.Instance.inGame_UI_Inventory_Click);
+        if (item != null)
         {
             detailPanel.icon.gameObject.SetActive(true);
             detailPanel.gameObject.SetActive(true);

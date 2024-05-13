@@ -39,6 +39,7 @@ public class QuestPanel : MonoBehaviour
 
 	private void OnEnable()
 	{
+        UIAudio.Post(UIAudio.Instance.inGame_UI_Quest_Open);
         backButton.gameObject.SetActive(true);
         mapButton.gameObject.SetActive(true);
 	}

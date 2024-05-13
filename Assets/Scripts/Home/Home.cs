@@ -10,6 +10,7 @@ public class Home : MonoBehaviour
 
     private void OnEnable()
     {
+        UIAudio.Post(UIAudio.Instance.inGame_UI_House_Open);
         IsHomeActive = true;
 
         InGameAudio.Stop(MapStateChanger.CurrentMapBGM);
@@ -18,6 +19,7 @@ public class Home : MonoBehaviour
 
     private void OnDisable()
     {
+        UIAudio.Post(UIAudio.Instance.inGame_UI_House_Close);
         IsHomeActive = false;
 
         InGameAudio.Stop(InGameAudio.Instance.BGM_Terra_House_loop);

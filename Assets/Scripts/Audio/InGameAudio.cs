@@ -9,8 +9,10 @@ public class InGameAudio : AudioRef<InGameAudio>
     public AK.Wwise.Event BGM_Terra_House_loop;
     public AK.Wwise.Event BGM_Prologue2;
     public AK.Wwise.Event BGM_Prologue3;
+    public AK.Wwise.Event BGM_Transition_loop;
 
     [Header("Item")]
+    public AK.Wwise.Event inGame_Fkey;
     public AK.Wwise.Event ITEM_Get_01;
     public AK.Wwise.Event ITEM_Fire_01;
     public AK.Wwise.Event ITEM_Fire_02;
@@ -22,6 +24,7 @@ public class InGameAudio : AudioRef<InGameAudio>
 
     [Header("Platform")]
     public AK.Wwise.Event PLATFORM_Fade;
+    public AK.Wwise.Event inGame_Block_02;
 
     [Header("Quest")]
     public AK.Wwise.Event inGame_Quest_get;
@@ -35,6 +38,7 @@ public class InGameAudio : AudioRef<InGameAudio>
     [Header("Stage")]
     public AK.Wwise.Event inGame_STAGE_CLEAR;
     public AK.Wwise.Event inGame_STAGE_CheckPoint;
+    public AK.Wwise.Event inGame_SavePoint;
 
     [Header("UI")]
     public AK.Wwise.Event inGame_UI_01;
