@@ -46,9 +46,10 @@ public class Option : MonoBehaviour
         initialButton.onClick.AddListener(InitailizeVolume);
         cancelButton.onClick.AddListener(() => 
         {
-            if(MapManager.state.map != MapManager.MapIndex.Login)
+            UIAudio.Post(UIAudio.Instance.UI_optionOut);
+            if (MapManager.state.map != MapManager.MapIndex.Login)
             {
-                UIAudio.Post(UIAudio.Instance.UI_pick);
+                
                 GetComponentInParent<GNBCanvas>().Resume();
             }
             else
@@ -59,7 +60,7 @@ public class Option : MonoBehaviour
 
         audioCancelButton.onClick.AddListener(() =>
         {
-            UIAudio.Post(UIAudio.Instance.UI_pick);
+            UIAudio.Post(UIAudio.Instance.UI_optionClick);
         });
 
         popUpYesButton.onClick.AddListener(LoadLoginScene);
@@ -89,14 +90,19 @@ public class Option : MonoBehaviour
         sfxVolumeNum.text = Mathf.CeilToInt(sfxSlider.value * 10).ToString();
     }
 
-    public void OnMouseEnter()
+    public void OnEnable()
     {
-        UIAudio.Post(UIAudio.Instance.UI_select);
+        UIAudio.Post(UIAudio.Instance.UI_in);
+    }
+
+    public void OnDisable()
+    {
+        UIAudio.Post(UIAudio.Instance.UI_out);
     }
 
     public void OnClickSaveButton()
     {
-        UIAudio.Post(UIAudio.Instance.UI_pick);
+        UIAudio.Post(UIAudio.Instance.UI_optionClick);
         SaveManager.SaveGame();
         buttonGroup.SetActive(false);
         popUpSave.SetActive(true);
@@ -104,7 +110,7 @@ public class Option : MonoBehaviour
 
     public void OnClickQuitButton()
     {
-        UIAudio.Post(UIAudio.Instance.UI_pick);
+        UIAudio.Post(UIAudio.Instance.UI_optionClick);
         buttonGroup.SetActive(false);
         popUpObject.SetActive(true);
         popUpText.text = "게임을 종료하시겠습니까?";
@@ -126,7 +132,7 @@ public class Option : MonoBehaviour
 
     public void OnClickAudioButton()
     {
-        UIAudio.Post(UIAudio.Instance.UI_pick);
+        UIAudio.Post(UIAudio.Instance.UI_optionClick);
         buttonGroup.SetActive(false);
         popUpObject.SetActive(false);
         audioGroup.SetActive(true);
@@ -134,7 +140,7 @@ public class Option : MonoBehaviour
 
     public void OnClickPopupNoButton()
     {
-        UIAudio.Post(UIAudio.Instance.UI_pick);
+        UIAudio.Post(UIAudio.Instance.UI_optionClick);
         popUpObject.SetActive(false);
         buttonGroup.SetActive(true);
     }
@@ -150,7 +156,6 @@ public class Option : MonoBehaviour
             background.SetActive(false);
             if (MapManager.state.map == MapManager.MapIndex.Login)
             {
-                UIAudio.Post(UIAudio.Instance.UI_out);
                 mainMenuObject.SetActive(true);
                 logoObject.SetActive(true);
                 audioGroup.SetActive(false);
@@ -168,7 +173,7 @@ public class Option : MonoBehaviour
 
     public void OnClickPopUpSaveButton() 
     {
-        UIAudio.Post(UIAudio.Instance.UI_pick);
+        UIAudio.Post(UIAudio.Instance.UI_optionClick);
         popUpSave.SetActive(false);
         buttonGroup.SetActive(true);
     }
@@ -176,7 +181,7 @@ public class Option : MonoBehaviour
     #region Volume Control
     public void InitailizeVolume()
     {
-        UIAudio.Post(UIAudio.Instance.UI_pick);
+        UIAudio.Post(UIAudio.Instance.UI_optionClick);
         masterSlider.value = 0.5f;
         bgmSlider.value = 0.5f;
         sfxSlider.value = 0.5f;
@@ -200,16 +205,19 @@ public class Option : MonoBehaviour
     public void ChangeMasterVolumeNum(float value)
     {
         masterVolumeNum.text =  Mathf.CeilToInt(value*10).ToString();
+        UIAudio.Post(UIAudio.Instance.UI_Soundbar);
     }
 
     public void ChangeBgmVolumeNum(float value)
     {
         bgmVolumeNum.text = Mathf.CeilToInt(value * 10).ToString();
+        UIAudio.Post(UIAudio.Instance.UI_Soundbar);
     }
 
     public void ChangeSfxVolumeNum(float value)
     {
         sfxVolumeNum.text = Mathf.CeilToInt(value * 10).ToString();
+        UIAudio.Post(UIAudio.Instance.UI_Soundbar);
     }
     #endregion
 }

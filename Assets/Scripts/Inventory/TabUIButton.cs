@@ -16,6 +16,7 @@ public class TabUIButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        UIAudio.Post(UIAudio.Instance.inGame_UI_Inventory_Click);
         tabGroup.OnTabSelected(this);
     }
 

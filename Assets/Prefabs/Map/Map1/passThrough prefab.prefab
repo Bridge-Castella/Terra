@@ -3178,6 +3178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46f2b965fcf5fa4983555597d3e24c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPassThrough: 1
   virtualCam: {fileID: 4445919747008058423}
 --- !u!1 &4445919747008058423
 GameObject:
@@ -4104,7 +4105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4872172627279371581
 Transform:
   m_ObjectHideFlags: 0
@@ -4209,7 +4210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73dbb1e0fc79f704cb874ab3afff80df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disappearRate: 1
 --- !u!1 &4872172627909289474
 GameObject:
   m_ObjectHideFlags: 0

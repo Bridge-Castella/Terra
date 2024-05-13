@@ -56,7 +56,11 @@ public class LoginManager : MonoBehaviour
             }
             
         });
-        skipBtn.GetComponent<Button>().onClick.AddListener(() => EndReached(null));
+        skipBtn.GetComponent<Button>().onClick.AddListener(() => 
+        {
+            UIAudio.Post(UIAudio.Instance.UI_pick);
+            EndReached(null);
+        });
     }
 
     public void NewGame()
@@ -66,6 +70,7 @@ public class LoginManager : MonoBehaviour
             EndReached(null);
             return;
         }
+        UIAudio.Post(UIAudio.Instance.UI_GameStart);
 
         prologueRawImage.gameObject.SetActive(true);
         prologueRawImage.DOColor(Color.white, 0.8f).OnComplete(() =>
@@ -87,6 +92,7 @@ public class LoginManager : MonoBehaviour
         if (data_optional == null)
             return;
 
+        UIAudio.Post(UIAudio.Instance.UI_GameStart);
         LoginAudio.Stop(LoginAudio.Instance.LoginBGM);
         SaveManager.SaveData data = (SaveManager.SaveData)data_optional;
         MapManager.state.map = data.mapData.index;
@@ -96,11 +102,13 @@ public class LoginManager : MonoBehaviour
 
     public void OnClickExitGame()
     {
+        UIAudio.Post(UIAudio.Instance.UI_pick);
         Application.Quit();
     }
 
     public void OnClickSettingButton()
     {
+        UIAudio.Post(UIAudio.Instance.UI_pick);
         optionObject.SetActive(true);
     }
 

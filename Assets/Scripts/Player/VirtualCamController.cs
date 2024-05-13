@@ -5,6 +5,9 @@ using Cinemachine;
 
 public class VirtualCamController : MonoBehaviour
 {
+    [SerializeField]
+    private bool isPassThrough = false;
+
     public static VirtualCamController Current;
     public GameObject virtualCam;
 
@@ -22,6 +25,11 @@ public class VirtualCamController : MonoBehaviour
     {
         if(collision.CompareTag("Player") && !collision.isTrigger)
         {
+            if (isPassThrough)
+            {
+                InGameAudio.Stop(MapStateChanger.CurrentMapBGM);
+                InGameAudio.Post(InGameAudio.Instance.BGM_Transition_loop);
+            }
             virtualCam.SetActive(true);
             Current = this;
         }
@@ -31,6 +39,11 @@ public class VirtualCamController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
+            if (isPassThrough)
+            {
+                InGameAudio.Stop(InGameAudio.Instance.BGM_Transition_loop);
+                InGameAudio.Post(MapStateChanger.CurrentMapBGM);
+            }
             virtualCam.SetActive(false);
             Current = null;
         }

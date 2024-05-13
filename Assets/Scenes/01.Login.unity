@@ -1995,6 +1995,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5d35bb6e3d54b879d79380c73b2b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI_hover:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 670d433f54a81e0489064f5fbbaab6ba,
+      type: 2}
 --- !u!1 &1098122139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,6 +2237,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5d35bb6e3d54b879d79380c73b2b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI_hover:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 670d433f54a81e0489064f5fbbaab6ba,
+      type: 2}
 --- !u!1 &1211721272
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,6 +2294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5d35bb6e3d54b879d79380c73b2b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI_hover:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 670d433f54a81e0489064f5fbbaab6ba,
+      type: 2}
 --- !u!114 &1211721277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2618,6 +2633,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundObject: {fileID: 1675974845}
+  inGame_UI_Hover:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_UI_Open:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_UI_Inventory_Open:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_UI_Inventory_Hover:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_UI_Inventory_Click:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_UI_Quest_Open:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_UI_House_Open:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  inGame_UI_House_Close:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  UI_GameStart:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d19d15ea5e194a24aaf3ae58f9138192,
+      type: 2}
+  UI_Soundbar:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5281cc5ba2a8b8b4f8b745c13673c6bd,
+      type: 2}
+  UI_optionOut:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0760d768d55b7da47ab151109051ba3b,
+      type: 2}
+  UI_optionClick:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: beb4320b1e62d5f4ebd9f67baf395256,
+      type: 2}
   UI_in:
     idInternal: 0
     valueGuidInternal: 
@@ -3290,6 +3357,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5d35bb6e3d54b879d79380c73b2b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI_hover:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 670d433f54a81e0489064f5fbbaab6ba,
+      type: 2}
 --- !u!1001 &3046793898499172071
 PrefabInstance:
   m_ObjectHideFlags: 0

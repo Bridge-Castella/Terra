@@ -86,6 +86,7 @@ public class GNBCanvas : MonoBehaviour
 
     private void OnClickGroupButton()
     {
+        UIAudio.Post(UIAudio.Instance.inGame_UI_Open);
         StopAllCoroutines();
         StartCoroutine(CoWaitForAutoDisappear(3));
         groupButtonContent.SetActive(true);
@@ -93,6 +94,7 @@ public class GNBCanvas : MonoBehaviour
 
     private void OnClickQuestButton()
     {
+        UIAudio.Post(UIAudio.Instance.inGame_UI_Quest_Open);
         content.SetActive(true);
         questPanel.SetActive(true);
     }

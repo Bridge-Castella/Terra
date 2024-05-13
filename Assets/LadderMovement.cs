@@ -41,8 +41,11 @@ public class LadderMovement : MonoBehaviour
             return;
         }
 
-        btnCanvas.DOFade(1f, 0.3f);
-        InGameAudio.Post(InGameAudio.Instance.inGame_LadderKey_Appear);
+        if (coActive != null)
+        {
+            btnCanvas.DOFade(1f, 0.3f);
+            InGameAudio.Post(InGameAudio.Instance.inGame_Fkey);
+        }
 
         moveCtrl = collider.GetComponent<SplineMove>();
         coActive = WaitForLadderOpacity();
@@ -64,7 +67,6 @@ public class LadderMovement : MonoBehaviour
         if (coActive != null)
         {
             btnCanvas.DOFade(0f, 0.3f);
-            InGameAudio.Post(InGameAudio.Instance.inGame_LadderKey_Disappear);
             StopCoroutine(coActive);
             return;
         }

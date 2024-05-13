@@ -31,7 +31,8 @@ public class QuestSlot : MonoBehaviour
 
 	public void OnClick()
 	{
-		questPanel.init(quest);
+        UIAudio.Post(UIAudio.Instance.UI_pick);
+        questPanel.init(quest);
 		questPanel.gameObject.SetActive(true);
 		questList.SetActive(false);
 	}

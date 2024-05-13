@@ -46,7 +46,7 @@ public class FadingPlatform : MonoBehaviour
         // fix: fading platform is not triggered by new platform collider
         if(collider.gameObject.tag == "PlayerPlatformCollider")
         {
-            InGameAudio.Post(InGameAudio.Instance.PLATFORM_Fade);
+            InGameAudio.Post(InGameAudio.Instance.inGame_Block_02);
 
             animator.SetBool("isShowing", false);
             animator.SetBool("isQuaking", true);

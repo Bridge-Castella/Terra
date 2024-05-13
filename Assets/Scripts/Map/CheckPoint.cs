@@ -54,6 +54,6 @@ public class CheckPoint : MonoBehaviour
             && MapManager.TryRemoveFromOutOfRange(previous))
                 MapManager.UnloadMap(previous);
 
-        InGameAudio.Post(InGameAudio.Instance.inGame_STAGE_CheckPoint);
+        InGameAudio.Post(InGameAudio.Instance.inGame_SavePoint);
     }
 }

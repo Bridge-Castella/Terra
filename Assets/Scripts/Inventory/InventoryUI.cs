@@ -18,11 +18,13 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
-        
+        exitButton.onClick.AddListener(OnClickExitButton);
     }
 
     private void OnEnable()
     {
+        UIAudio.Post(UIAudio.Instance.inGame_UI_Inventory_Open);
+
         inventory = Inventory.instance;
         inventory.OnItemChangedCallBack += UpdateUI;
         itemSlotArr = itemSlotGroup.GetComponentsInChildren<ItemSlot>();
@@ -36,8 +38,6 @@ public class InventoryUI : MonoBehaviour
         {
             itemSlotArr[i].gameObject.SetActive(true);
         }
-
-        exitButton.onClick.AddListener(OnClickExitButton);
 
         UpdateUI();
     }
@@ -61,6 +61,7 @@ public class InventoryUI : MonoBehaviour
 
     public void OnClickExitButton()
     {
+        UIAudio.Post(UIAudio.Instance.inGame_UI_Inventory_Click);
         detailPanel.itemDescriptionText.text = "";
         detailPanel.itemNameText.text = "";
         detailPanel.icon.gameObject.SetActive(false);
