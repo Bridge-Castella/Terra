@@ -103,8 +103,8 @@ MonoBehaviour:
   - {fileID: 9062160958798377284}
   - {fileID: 2423096068892950675}
   m_Bounds:
-    m_Center: {x: -0.0032031536, y: -0.0011794567, z: 0}
-    m_Extent: {x: 2.869821, y: 2.3342113, z: 0}
+    m_Center: {x: -0.0031878948, y: -0.0011794567, z: 0}
+    m_Extent: {x: 2.8698058, y: 2.3342113, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -723,6 +723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questObject:
   - {fileID: 0}
+  rewardObject: {fileID: 0}
 --- !u!95 &2650353541068663209
 Animator:
   serializedVersion: 3
@@ -755,8 +756,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.8227463, y: 4.1927414}
-  m_Size: {x: 2.8534088, y: 7.693039}
+  m_Offset: {x: -0.93551636, y: 4.1927414}
+  m_Size: {x: 11.57196, y: 11.57196}
   m_Direction: 0
 --- !u!1 &4176149251123646332
 GameObject:
@@ -1143,7 +1144,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5548569164325986954}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1495,8 +1496,8 @@ MonoBehaviour:
   - {fileID: 6932189380098630232}
   - {fileID: 8530413861049483340}
   m_Bounds:
-    m_Center: {x: 0.000015377998, y: 0.0012900531, z: 0}
-    m_Extent: {x: 0.7099848, y: 0.41668987, z: 0}
+    m_Center: {x: 0.000030636787, y: 0.0012900531, z: 0}
+    m_Extent: {x: 0.7099695, y: 0.41668987, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1602,8 +1603,8 @@ MonoBehaviour:
   - {fileID: 102309416210376837}
   - {fileID: 3859328022578896549}
   m_Bounds:
-    m_Center: {x: -0.000000059604645, y: 0.0021796227, z: 0}
-    m_Extent: {x: 0.91500014, y: 1.1778204, z: 0}
+    m_Center: {x: -0.000000059604645, y: 0.0022101402, z: 0}
+    m_Extent: {x: 0.91500014, y: 1.177851, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
