@@ -943,6 +943,438 @@
 								<ActiveSource Name="inGame_UI_Caution" ID="{D8411768-9494-4706-8E2C-6194EF721F32}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="inGame_UI_Open" ID="{42C3541D-56D5-43D8-8B23-68FF6D34C437}" ShortID="421321524">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_UI_Open" ID="{84AEC30D-8F17-421C-BD5B-7E9CF8FCDA5E}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_UI_Open.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="949049731"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_UI_Open" ID="{84AEC30D-8F17-421C-BD5B-7E9CF8FCDA5E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_UI_Quest_Open" ID="{F94EA78B-87A8-47AE-B04D-E947A74A60AD}" ShortID="281205918">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_UI_Quest_Open" ID="{C34BDDB4-E2DD-4B79-BAF9-860AD8C2D0B9}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_UI_Quest_Open.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1026586543"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_UI_Quest_Open" ID="{C34BDDB4-E2DD-4B79-BAF9-860AD8C2D0B9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="UI_Gamestart" ID="{03F5A9A3-7EFF-4A44-BA75-B5CBF8BB2D85}" ShortID="103362031">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="UI_Gamestart" ID="{0E3638C4-29A8-4672-AC92-389D4B16E4D7}">
+									<Language>SFX</Language>
+									<AudioFile>UI_Gamestart.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="892723738"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="UI_Gamestart" ID="{0E3638C4-29A8-4672-AC92-389D4B16E4D7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="UI_optionClick" ID="{F08A11CB-2D5F-4DDB-9E9B-DC05B8491753}" ShortID="936429517">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="UI_optionClick" ID="{D3933783-10E7-4214-B388-F3522DDA1C60}">
+									<Language>SFX</Language>
+									<AudioFile>UI_optionClick.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="670223020"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="UI_optionClick" ID="{D3933783-10E7-4214-B388-F3522DDA1C60}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="UI_optionOut" ID="{14FFCB6E-075D-4DA3-8142-689322048C62}" ShortID="584386404">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="UI_optionOut" ID="{55B8CD3D-5023-459E-9F36-693AA25C7261}">
+									<Language>SFX</Language>
+									<AudioFile>UI_optionOut.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="825510334"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="UI_optionOut" ID="{55B8CD3D-5023-459E-9F36-693AA25C7261}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="UI_Soundbar" ID="{8231E988-DD70-48C7-8BBC-4E6F4E2343C4}" ShortID="488705662">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="UI_Soundbar" ID="{9228CE76-7C1F-44FA-86EE-293500F16538}">
+									<Language>SFX</Language>
+									<AudioFile>UI_Soundbar.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="984043262"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="UI_Soundbar" ID="{9228CE76-7C1F-44FA-86EE-293500F16538}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="세이브1" ID="{B2BCC81E-00E2-49AF-A5B3-DDE982F704A3}" ShortID="150418252">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="세이브1" ID="{60264E8E-9BD3-4FF8-98CA-6377D2F2FFE4}">
+									<Language>SFX</Language>
+									<AudioFile>세이브1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="289959343"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="세이브1" ID="{60264E8E-9BD3-4FF8-98CA-6377D2F2FFE4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_Block_02" ID="{48D0A534-07A2-4ECD-9093-E3FB657CF47E}" ShortID="255237026">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_Block_02" ID="{FF560CA1-2805-4FB7-9FD7-6F86B29038FD}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_Block_02.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="519692662"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_Block_02" ID="{FF560CA1-2805-4FB7-9FD7-6F86B29038FD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_Fkey" ID="{4E335657-0C0E-41B6-A486-49F6F8AF0AD3}" ShortID="967755592">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_Fkey" ID="{211E868C-8DA6-4CFF-8B75-49E8C1CD398A}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_Fkey.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="774763422"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_Fkey" ID="{211E868C-8DA6-4CFF-8B75-49E8C1CD398A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_SavePoint" ID="{26029DCA-83AE-440A-A1DB-EDC0761BA28D}" ShortID="642816966">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_SavePoint" ID="{14FBF1F5-3618-4FC6-B72B-321AB57B0A74}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_SavePoint.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="99250616"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_SavePoint" ID="{14FBF1F5-3618-4FC6-B72B-321AB57B0A74}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_UI_House_Close" ID="{37514838-D3A4-4E04-9A8A-6EC2128D8527}" ShortID="657543628">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_UI_House_Close" ID="{896F7F0A-BD12-4E74-BC4A-1D9B7B812A9C}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_UI_House_Close.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="491698343"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_UI_House_Close" ID="{896F7F0A-BD12-4E74-BC4A-1D9B7B812A9C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_UI_House_Open" ID="{66BA7A31-DEAE-4A9D-B69C-45BCD06F10AE}" ShortID="710653666">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_UI_House_Open" ID="{19C9A6AB-AAA3-49C7-B1D5-E89F4A9C6035}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_UI_House_Open.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="335506451"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_UI_House_Open" ID="{19C9A6AB-AAA3-49C7-B1D5-E89F4A9C6035}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_UI_Hover" ID="{6F087E4F-6E9A-46FA-A4C9-8601AE3F7784}" ShortID="253286465">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_UI_Hover" ID="{B6AF2A5F-555F-45CD-8816-FFBB5BF43FA8}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_UI_Hover.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="380947371"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_UI_Hover" ID="{B6AF2A5F-555F-45CD-8816-FFBB5BF43FA8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_UI_Inventory_Click" ID="{60145BF5-E4C2-4971-B9E8-843DC92E5743}" ShortID="760709364">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_UI_Inventory_Click" ID="{1C97623C-CCB5-43CC-8EB2-C4F66CF52C57}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_UI_Inventory_Click.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="436119365"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_UI_Inventory_Click" ID="{1C97623C-CCB5-43CC-8EB2-C4F66CF52C57}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_UI_Inventory_Hover" ID="{A5D877CB-F009-442B-BCE9-08D8C4E17686}" ShortID="1028149673">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_UI_Inventory_Hover" ID="{A32BDFFA-BD42-42FA-B128-C7028DC62940}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_UI_Inventory_Hover.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="315387040"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_UI_Inventory_Hover" ID="{A32BDFFA-BD42-42FA-B128-C7028DC62940}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="inGame_UI_Inventory_Open" ID="{F6565B36-722B-4EF6-B6C8-E46F59DC9B70}" ShortID="579270323">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="inGame_UI_Inventory_Open" ID="{AABA6F21-BDB2-4664-856D-E6800B9EFC25}">
+									<Language>SFX</Language>
+									<AudioFile>inGame_UI_Inventory_Open.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="200457484"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="inGame_UI_Inventory_Open" ID="{AABA6F21-BDB2-4664-856D-E6800B9EFC25}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 					<ObjectLists/>
 				</ActorMixer>
@@ -1770,6 +2202,33 @@
 							<ObjectLists/>
 							<ActiveSourceList>
 								<ActiveSource Name="BGM_Prologue03" ID="{DF5A86A4-6459-455A-ADF3-F6F67C11075C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BGM_Transition_loop" ID="{7DF060A0-0330-481E-A04A-7D34BD94514C}" ShortID="520947883">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="7"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BGM_Transition_loop" ID="{ECD86E62-549D-4CDA-A3D3-CDEBF241470D}">
+									<Language>SFX</Language>
+									<AudioFile>BGM_Transition_loop.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="694727140"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="BGM_Transition_loop" ID="{ECD86E62-549D-4CDA-A3D3-CDEBF241470D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
