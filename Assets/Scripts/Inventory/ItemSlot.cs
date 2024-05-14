@@ -7,6 +7,9 @@ using TMPro;
 
 public class ItemSlot : MonoBehaviour
 {
+    [SerializeField]
+    private bool isHome;
+
     public TextMeshProUGUI amounText;
     public Image icon;
     public DetailPanel detailPanel;
@@ -35,7 +38,15 @@ public class ItemSlot : MonoBehaviour
 
     public void OnClickItemSlot()
     {
-        UIAudio.Post(UIAudio.Instance.inGame_UI_Inventory_Click);
+        if (isHome)
+        {
+            UIAudio.Post(UIAudio.Instance.inGame_UI_House_Inventory_Click);
+        }
+        else
+        {
+            UIAudio.Post(UIAudio.Instance.inGame_UI_Inventory_Click);
+        }
+        
         if (item != null)
         {
             detailPanel.icon.gameObject.SetActive(true);

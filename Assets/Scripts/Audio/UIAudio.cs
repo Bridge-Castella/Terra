@@ -9,8 +9,11 @@ public class UIAudio : AudioRef<UIAudio>
     public AK.Wwise.Event inGame_UI_Inventory_Hover;
     public AK.Wwise.Event inGame_UI_Inventory_Click;
     public AK.Wwise.Event inGame_UI_Quest_Open;
+    public AK.Wwise.Event inGame_UI_Quest_Close;
     public AK.Wwise.Event inGame_UI_House_Open;
     public AK.Wwise.Event inGame_UI_House_Close;
+    public AK.Wwise.Event inGame_UI_House_Inventory_Hover;
+    public AK.Wwise.Event inGame_UI_House_Inventory_Click;
     [Header("Out Game UI SFX")]
     public AK.Wwise.Event UI_GameStart;
     public AK.Wwise.Event UI_Soundbar;
