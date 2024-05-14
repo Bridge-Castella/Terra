@@ -81,7 +81,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="2641024368" Language="SFX" Hash="1906068341">
+		<SoundBank Id="2641024368" Language="SFX" Hash="1170577727">
 			<ObjectPath>\SoundBanks\Default Work Unit\SFX_SoundBank</ObjectPath>
 			<ShortName>SFX_SoundBank</ShortName>
 			<Path>SFX_SoundBank.bnk</Path>
@@ -318,6 +318,26 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="198813990" Name="inGame_STEP_ladder" ObjectPath="\Events\Default Work Unit\SFX\inGame_STEP_ladder">
+					<IncludedMemoryFiles>
+						<File Id="109546817" Language="SFX">
+							<ShortName>사다리올라감04.wav</ShortName>
+							<Path>SFX\사다리올라감04_10C4C929.wem</Path>
+						</File>
+						<File Id="383302815" Language="SFX">
+							<ShortName>사다리올라감02.wav</ShortName>
+							<Path>SFX\사다리올라감02_10C4C929.wem</Path>
+						</File>
+						<File Id="683728364" Language="SFX">
+							<ShortName>사다리올라감03.wav</ShortName>
+							<Path>SFX\사다리올라감03_10C4C929.wem</Path>
+						</File>
+						<File Id="1054559401" Language="SFX">
+							<ShortName>사다리올라감01.wav</ShortName>
+							<Path>SFX\사다리올라감01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="320848553" Name="inGame_STEP_Rock" ObjectPath="\Events\Default Work Unit\SFX\inGame_STEP_Rock">
 					<IncludedMemoryFiles>
 						<File Id="464149486" Language="SFX">
@@ -467,6 +487,38 @@
 						<File Id="517518069" Language="SFX">
 							<ShortName>ITEM_Portion.amb</ShortName>
 							<Path>SFX\ITEM_Portion_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3869969892" Name="ITEM_Wing_flip" ObjectPath="\Events\Default Work Unit\SFX\ITEM_Wing_flip">
+					<IncludedMemoryFiles>
+						<File Id="92879369" Language="SFX">
+							<ShortName>ITEM_Wing_flip_05.wav</ShortName>
+							<Path>SFX\ITEM_Wing_flip_05_10C4C929.wem</Path>
+						</File>
+						<File Id="214794399" Language="SFX">
+							<ShortName>ITEM_Wing_flip_04.wav</ShortName>
+							<Path>SFX\ITEM_Wing_flip_04_10C4C929.wem</Path>
+						</File>
+						<File Id="491926106" Language="SFX">
+							<ShortName>ITEM_Wing_flip_02.wav</ShortName>
+							<Path>SFX\ITEM_Wing_flip_02_10C4C929.wem</Path>
+						</File>
+						<File Id="698029536" Language="SFX">
+							<ShortName>ITEM_Wing_flip_01.wav</ShortName>
+							<Path>SFX\ITEM_Wing_flip_01_10C4C929.wem</Path>
+						</File>
+						<File Id="1009133222" Language="SFX">
+							<ShortName>ITEM_Wing_flip_06.wav</ShortName>
+							<Path>SFX\ITEM_Wing_flip_06_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4231507314" Name="ITEM_Wing_use" ObjectPath="\Events\Default Work Unit\SFX\ITEM_Wing_use">
+					<IncludedMemoryFiles>
+						<File Id="334590467" Language="SFX">
+							<ShortName>ITEM_Wing_use.wav</ShortName>
+							<Path>SFX\ITEM_Wing_use_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
