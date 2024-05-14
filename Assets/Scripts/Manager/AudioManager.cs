@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     public string BGMVolStr = "BGM";
     public string SFXVolStr = "SFX";
     public string MonsterGrassVolStr = "Monster_Grass";
+    public string FireVolStr = "Fire";
 
     public enum AudioChannel
     {
@@ -92,6 +93,20 @@ public class AudioManager : MonoBehaviour
         }
 
         AkSoundEngine.SetRTPCValue(MonsterGrassVolStr, volumePercent * 100.0f);
+    }
+
+    public void SetFireVolume(float volumePercent)
+    {
+        if (volumePercent < 0)
+        {
+            volumePercent = 0f;
+        }
+        else if (volumePercent > 1)
+        {
+            volumePercent = 1f;
+        }
+
+        AkSoundEngine.SetRTPCValue(FireVolStr, volumePercent * 100.0f);
     }
 
     public void SaveVolume()

@@ -250,7 +250,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-20</Value>
+										<Value>-27</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -338,10 +338,41 @@
 						</Sound>
 						<Sound Name="ITEM_Fire_02" ID="{EB6E8BF9-3BBD-4133-A598-A7DD3BAF791D}" ShortID="464180897">
 							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
 									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{3A3920FF-E13B-4127-BA44-AA97BC6C5C6E}" ShortID="101451541">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="Fire" ID="{D88CB1CF-FFCC-4055-AA8A-E4A03F487144}" WorkUnitID="{78FC47B4-8578-4F82-8F21-5BC697B79EAC}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{23D1125D-A752-4B38-91BD-C582EECE12DA}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -480,6 +511,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="inGame_NPC_Quest" ID="{11B6DB11-A06A-435C-8BAB-F0C38CA39327}" ShortID="713427809">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -503,6 +541,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="inGame_NPC_succ" ID="{A441E8EE-BDF0-420A-878B-D123F3B350B8}" ShortID="357243658">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -890,12 +935,38 @@
 								<ActiveSource Name="House_CloseBox" ID="{2395C7BE-5315-4032-860A-3F0EC5CBD1CA}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="ITEM_Fire_01" ID="{CF4A09DC-233D-4DA3-AF5D-75CE16A165C1}" ShortID="479901292">
+						<Sound Name="ITEM_Fire_01(loop)" ID="{CF4A09DC-233D-4DA3-AF5D-75CE16A165C1}" ShortID="479901292">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-7</Value>
 									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{DC45763C-1141-4D6D-91E0-A97573FD1F7C}" ShortID="280348705">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="Fire" ID="{D88CB1CF-FFCC-4055-AA8A-E4A03F487144}" WorkUnitID="{78FC47B4-8578-4F82-8F21-5BC697B79EAC}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{AEEFEAF6-2D1E-4BF7-942C-1E9CA143B32B}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -1109,6 +1180,11 @@
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="7"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1190,6 +1266,11 @@
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="7"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1325,6 +1406,11 @@
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="7"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1508,7 +1594,22 @@
 						<RandomSequenceContainer Name="ITEM_Wing_flip" ID="{9ACD9DFE-D6D5-4DF1-8557-EA3467546C41}" ShortID="963368550">
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="2"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>34</Value>
+									</ValueList>
+								</Property>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-30</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1713,7 +1814,7 @@
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1737,6 +1838,29 @@
 							<ObjectLists/>
 							<ActiveSourceList>
 								<ActiveSource Name="ITEM_Wing_use" ID="{9528E06A-EE05-4263-AA57-7D47D1094F4B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ITEM_Fire_03" ID="{97F1C35E-F250-4269-912E-574A8A0AC103}" ShortID="405909626">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B3B4C2D-BD08-4F55-B640-28574F42362B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ITEM_Fire_03" ID="{4527CF9B-DCDE-4C89-A373-33D8B0A0BCB0}">
+									<Language>SFX</Language>
+									<AudioFile>ITEM_Fire_03.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="595429646"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ITEM_Fire_03" ID="{4527CF9B-DCDE-4C89-A373-33D8B0A0BCB0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -2368,6 +2492,11 @@
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2394,6 +2523,11 @@
 						<Sound Name="BGM_Map1_loop_ogg" ID="{41FADC86-6FE3-4485-B307-ECC188C0DB65}" ShortID="641292526">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2420,6 +2554,11 @@
 						<Sound Name="BGM_Map2_loop_ogg" ID="{3F370320-6F86-4B1B-BB6D-2D1F814349A3}" ShortID="956584365">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2446,6 +2585,11 @@
 						<Sound Name="BGM_MAP3_loop_ogg" ID="{D13C1596-6D49-4C21-B5D2-C41C8D7034E8}" ShortID="551814349">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2473,6 +2617,11 @@
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2572,6 +2721,11 @@
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="7"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">

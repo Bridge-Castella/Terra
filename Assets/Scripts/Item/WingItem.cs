@@ -23,7 +23,6 @@ public class WingItem : Item
     {
         // TODO: 사운드 재생시점 변경
         InGameAudio.Post(InGameAudio.Instance.ITEM_Wing_01);
-        InGameAudio.Post(InGameAudio.Instance.ITEM_Wing_02);
 
         var indicator = Instantiate(timeIndicator, player.transform);
         var indicatorText = indicator.GetComponentInChildren<TextMeshProUGUI>();

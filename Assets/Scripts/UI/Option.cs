@@ -46,7 +46,15 @@ public class Option : MonoBehaviour
         initialButton.onClick.AddListener(InitailizeVolume);
         cancelButton.onClick.AddListener(() => 
         {
-            UIAudio.Post(UIAudio.Instance.UI_optionOut);
+            if (LoginManager.instance == null)
+            {
+                UIAudio.Post(UIAudio.Instance.inGame_UI_House_Close);
+            }
+            else
+            {
+                UIAudio.Post(UIAudio.Instance.UI_optionOut);
+            }
+
             if (MapManager.state.map != MapManager.MapIndex.Login)
             {
                 
@@ -60,7 +68,14 @@ public class Option : MonoBehaviour
 
         audioCancelButton.onClick.AddListener(() =>
         {
-            UIAudio.Post(UIAudio.Instance.UI_optionClick);
+            if (LoginManager.instance == null)
+            {
+                UIAudio.Post(UIAudio.Instance.inGame_UI_House_Close);
+            }
+            else
+            {
+                UIAudio.Post(UIAudio.Instance.UI_optionOut);
+            }
         });
 
         popUpYesButton.onClick.AddListener(LoadLoginScene);
@@ -90,6 +105,11 @@ public class Option : MonoBehaviour
         sfxVolumeNum.text = Mathf.CeilToInt(sfxSlider.value * 10).ToString();
     }
 
+    public void OnMouseEnter()
+    {
+        UIAudio.Post(UIAudio.Instance.inGame_UI_Hover);
+    }
+
     public void OnEnable()
     {
         UIAudio.Post(UIAudio.Instance.UI_in);
@@ -97,7 +117,7 @@ public class Option : MonoBehaviour
 
     public void OnDisable()
     {
-        UIAudio.Post(UIAudio.Instance.UI_out);
+        // UIAudio.Post(UIAudio.Instance.UI_out);
     }
 
     public void OnClickSaveButton()
@@ -205,19 +225,19 @@ public class Option : MonoBehaviour
     public void ChangeMasterVolumeNum(float value)
     {
         masterVolumeNum.text =  Mathf.CeilToInt(value*10).ToString();
-        UIAudio.Post(UIAudio.Instance.UI_Soundbar);
+        // UIAudio.Post(UIAudio.Instance.UI_Soundbar);
     }
 
     public void ChangeBgmVolumeNum(float value)
     {
         bgmVolumeNum.text = Mathf.CeilToInt(value * 10).ToString();
-        UIAudio.Post(UIAudio.Instance.UI_Soundbar);
+        // UIAudio.Post(UIAudio.Instance.UI_Soundbar);
     }
 
     public void ChangeSfxVolumeNum(float value)
     {
         sfxVolumeNum.text = Mathf.CeilToInt(value * 10).ToString();
-        UIAudio.Post(UIAudio.Instance.UI_Soundbar);
+        // UIAudio.Post(UIAudio.Instance.UI_Soundbar);
     }
     #endregion
 }

@@ -17,6 +17,11 @@ public class LoginManager : MonoBehaviour
             return;
         instance = this;
     }
+
+    private void OnDestroy()
+    {
+        instance = null;
+    }
     #endregion
 
     [SerializeField] private Button ContinueButton;
