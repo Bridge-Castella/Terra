@@ -511,6 +511,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="inGame_NPC_Quest" ID="{11B6DB11-A06A-435C-8BAB-F0C38CA39327}" ShortID="713427809">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -534,6 +541,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="inGame_NPC_succ" ID="{A441E8EE-BDF0-420A-878B-D123F3B350B8}" ShortID="357243658">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{06527AFD-0C46-42FC-B110-79BD04261738}"/>
@@ -2590,7 +2604,7 @@
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-8</Value>
+										<Value>-5</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
