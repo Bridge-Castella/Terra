@@ -105,6 +105,11 @@ public class Option : MonoBehaviour
         sfxVolumeNum.text = Mathf.CeilToInt(sfxSlider.value * 10).ToString();
     }
 
+    public void OnMouseEnter()
+    {
+        UIAudio.Post(UIAudio.Instance.inGame_UI_Hover);
+    }
+
     public void OnEnable()
     {
         UIAudio.Post(UIAudio.Instance.UI_in);

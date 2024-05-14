@@ -319,6 +319,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &460445131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8484974155579732478, guid: 3e4c3e109529a90498e025194dcfc44b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1128416004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &460445132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460445131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e8077b838d64b25bc03b6b440bdc16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!850595691 &576497290
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -746,6 +764,7 @@ MonoBehaviour:
   BGMVolStr: BGM
   SFXVolStr: SFX
   MonsterGrassVolStr: Monster_Grass
+  FireVolStr: Fire
 --- !u!1001 &1128416004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -817,6 +836,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Terra
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484974155579732478, guid: 3e4c3e109529a90498e025194dcfc44b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e4c3e109529a90498e025194dcfc44b, type: 3}
@@ -1782,23 +1806,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7440924619349735189, guid: 314a2baadd4ac4dbe9405377f9151005,
-        type: 3}
-      propertyPath: UI_in.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: beb4320b1e62d5f4ebd9f67baf395256,
-        type: 2}
-    - target: {fileID: 7440924619349735189, guid: 314a2baadd4ac4dbe9405377f9151005,
-        type: 3}
-      propertyPath: UI_pick.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 013f4162b13e0476594f95a81d3a1b24,
-        type: 2}
-    - target: {fileID: 7440924619349735189, guid: 314a2baadd4ac4dbe9405377f9151005,
-        type: 3}
-      propertyPath: UI_select.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8557587733901402294, guid: 314a2baadd4ac4dbe9405377f9151005,
         type: 3}
       propertyPath: m_Name
