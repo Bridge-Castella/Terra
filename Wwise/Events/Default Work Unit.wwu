@@ -598,7 +598,7 @@
 								<Action Name="" ID="{EEBA2970-284E-4FA2-A7DF-667A5B94F82E}" ShortID="984918284">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="ITEM_Fire_01" ID="{CF4A09DC-233D-4DA3-AF5D-75CE16A165C1}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+											<ObjectRef Name="ITEM_Fire_01(loop)" ID="{CF4A09DC-233D-4DA3-AF5D-75CE16A165C1}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -797,6 +797,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="ITEM_Wing_use" ID="{81D9FDF3-CCE3-4E21-9147-96331374A31A}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="ITEM_Fire_03" ID="{081FBB6D-86E6-4AF1-A35A-3CB6E1B64545}">
+							<ChildrenList>
+								<Action Name="" ID="{488E1E2C-4814-47F0-884E-2E12590A1282}" ShortID="398803372">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ITEM_Fire_03" ID="{97F1C35E-F250-4269-912E-574A8A0AC103}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
