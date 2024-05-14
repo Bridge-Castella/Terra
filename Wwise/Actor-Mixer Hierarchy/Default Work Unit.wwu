@@ -342,6 +342,32 @@
 									<ValueList>
 										<Value>-3</Value>
 									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{3A3920FF-E13B-4127-BA44-AA97BC6C5C6E}" ShortID="101451541">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="Fire" ID="{D88CB1CF-FFCC-4055-AA8A-E4A03F487144}" WorkUnitID="{78FC47B4-8578-4F82-8F21-5BC697B79EAC}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{23D1125D-A752-4B38-91BD-C582EECE12DA}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -2447,7 +2473,7 @@
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-7</Value>
+										<Value>-4</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
