@@ -61,7 +61,11 @@ public class InventoryUI : MonoBehaviour
 
     public void OnClickExitButton()
     {
-        UIAudio.Post(UIAudio.Instance.inGame_UI_Inventory_Click);
+        if (!Home.IsHomeActive)
+        {
+            UIAudio.Post(UIAudio.Instance.inGame_UI_House_Close);
+        }
+        
         detailPanel.itemDescriptionText.text = "";
         detailPanel.itemNameText.text = "";
         detailPanel.icon.gameObject.SetActive(false);
