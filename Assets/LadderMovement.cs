@@ -41,15 +41,15 @@ public class LadderMovement : MonoBehaviour
             return;
         }
 
+        moveCtrl = collider.GetComponent<SplineMove>();
+        coActive = WaitForLadderOpacity();
+        StartCoroutine(coActive);
+
         if (coActive != null)
         {
             btnCanvas.DOFade(1f, 0.3f);
             InGameAudio.Post(InGameAudio.Instance.inGame_Fkey);
         }
-
-        moveCtrl = collider.GetComponent<SplineMove>();
-        coActive = WaitForLadderOpacity();
-        StartCoroutine(coActive);
     }
 
     private void OnTriggerExit2D(Collider2D collider)
