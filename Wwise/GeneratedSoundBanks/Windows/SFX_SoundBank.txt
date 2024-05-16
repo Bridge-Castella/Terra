@@ -1,5 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
 	26485641	ITEM_Get_01			\Default Work Unit\SFX\ITEM_Get_01	
+	198813990	inGame_STEP_ladder			\Default Work Unit\SFX\inGame_STEP_ladder	
 	320848553	inGame_STEP_Rock			\Default Work Unit\SFX\inGame_STEP_Rock	
 	621169329	inGame_UI_Inventory_Hover			\Default Work Unit\SFX\UI\inGame_UI_Inventory_Hover	
 	904126364	inGame_UI_02			\Default Work Unit\SFX\UI\inGame_UI_02	
@@ -15,6 +16,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1644829729	inGame_UI_House_Open			\Default Work Unit\SFX\UI\inGame_UI_House_Open	
 	1653659967	inGame_UI_Quest_Open			\Default Work Unit\SFX\UI\inGame_UI_Quest_Open	
 	1658504084	ITEM_Fire_02			\Default Work Unit\SFX\ITEM_Fire_02	
+	1658504085	ITEM_Fire_03			\Default Work Unit\SFX\ITEM_Fire_03	
 	1658504087	ITEM_Fire_01			\Default Work Unit\SFX\ITEM_Fire_01	
 	1675096295	inGame_UI_Inventory_Click			\Default Work Unit\SFX\UI\inGame_UI_Inventory_Click	
 	1852220582	ITEM_Plant			\Default Work Unit\SFX\ITEM_Plant	
@@ -48,8 +50,10 @@ Event	ID	Name			Wwise Object Path	Notes
 	3670493562	inGame_Monster_death			\Default Work Unit\SFX\inGame_Monster_death	
 	3730476966	inGame_UI_Open			\Default Work Unit\SFX\UI\inGame_UI_Open	
 	3792871237	inGame_Monster_butterfly			\Default Work Unit\SFX\inGame_Monster_butterfly	
+	3869969892	ITEM_Wing_flip			\Default Work Unit\SFX\ITEM_Wing_flip	
 	4084005133	inGame_WARN_01			\Default Work Unit\SFX\inGame_WARN_01	
 	4199551486	House_CloseCloset			\Default Work Unit\SFX\House_CloseCloset	
+	4231507314	ITEM_Wing_use			\Default Work Unit\SFX\ITEM_Wing_use	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	2250165792	New_Switch_Group			\Default Work Unit\New_Switch_Group	
@@ -60,6 +64,7 @@ Switch	ID	Name	Switch Group			Notes
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	1739658918	Monster_Grass			\Default Work Unit\Monster_Grass	
+	2678880713	Fire			\Default Work Unit\Fire	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1074379	UI_pick	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\UI_pick_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI_pick		705664
@@ -68,22 +73,26 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	75985236	inGame_Land_02	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_Land_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\inGame_Land\inGame_Land_02		91968
 	89216690	inGame_STEP_Grass_04	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_STEP_Grass_04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ingame_step\inGame_STEP_Grass\inGame_STEP_Grass_04		88384
 	90424035	House_CloseBox	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\House_CloseBox_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\House_CloseBox		355136
+	92879369	ITEM_Wing_flip_05	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\ITEM_Wing_flip_05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\ITEM_Wing_flip\ITEM_Wing_flip_05		88648
 	99250616	inGame_SavePoint	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_SavePoint_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_SavePoint		621376
+	109546817	inGame_STEP_ladder_04	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\사다리올라감04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_STEP_ladder\inGame_STEP_ladder_04		36308
 	138691275	inGame_STEP_Grass_03	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_STEP_Grass_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ingame_step\inGame_STEP_Grass\inGame_STEP_Grass_03		90432
 	156882854	inGame_JUMP_01_new	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_JUMP_01_new_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_JUMP_01_new		88384
 	191359424	inGame_Monster_grass03	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_Monster_grass03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\inGame_Monster_grass\inGame_Monster_grass03		180544
 	200457484	inGame_UI_Inventory_Open	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_UI_Inventory_Open_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_UI_Inventory_Open		106304
+	214794399	ITEM_Wing_flip_04	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\ITEM_Wing_flip_04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\ITEM_Wing_flip\ITEM_Wing_flip_04		89536
 	273092303	inGame_Monster_grass05	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_Monster_grass05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\inGame_Monster_grass\inGame_Monster_grass05		177984
 	283648053	inGame_Monster_death	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_Monster_death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_Monster_death		140608
 	289959343	세이브1	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\세이브1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\세이브1		477308
 	306639135	inGame_Monster_mush	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_Monster_mush_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_Monster_mush		89920
 	315387040	inGame_UI_Inventory_Hover	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_UI_Inventory_Hover_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_UI_Inventory_Hover		20800
+	334590467	ITEM_Wing_use	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\ITEM_Wing_use_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\ITEM_Wing_use		210368
 	335506451	inGame_UI_House_Open	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_UI_House_Open_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_UI_House_Open		116032
 	341197597	House_CloseCloset	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\House_CloseCloset_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\House_CloseCloset		355648
-	346092054	ITEM_Fire_02	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\ITEM_Fire_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\ITEM_Fire_02		3175264
 	360358268	inGame_STEP_Grass_06	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_STEP_Grass_06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ingame_step\inGame_STEP_Grass\inGame_STEP_Grass_06		90432
 	366399669	ITEM_Plant	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\ITEM_Plant_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\ITEM_Plant		705664
 	380947371	inGame_UI_Hover	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_UI_Hover_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_UI_Hover		13120
+	383302815	inGame_STEP_ladder_02	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\사다리올라감02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_STEP_ladder\inGame_STEP_ladder_02		44920
 	383828309	inGame_STEP_Grass_05	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_STEP_Grass_05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ingame_step\inGame_STEP_Grass\inGame_STEP_Grass_05		89920
 	394525351	inGame_STAGE_FAIL	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_STAGE_FAIL_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_STAGE_FAIL		373616
 	413289653	inGame_NPC_Quest	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_NPC_Quest_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_NPC_Quest		579392
@@ -93,6 +102,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	464149486	inGame_STEP_Rock_01	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\rock01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ingame_step\inGame_STEP_Rock\inGame_STEP_Rock_01		96432
 	486601644	House_SelectPicture	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\House_SelectPicture_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\House_SelectPicture		353088
 	491698343	inGame_UI_House_Close	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_UI_House_Close_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_UI_House_Close		69440
+	491926106	ITEM_Wing_flip_02	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\ITEM_Wing_flip_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\ITEM_Wing_flip\ITEM_Wing_flip_02		90296
 	493979378	inGame_UI_02	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_UI_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_UI_02		530672
 	517518069	ITEM_Portion	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\ITEM_Portion_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\ITEM_Portion		352864
 	519692662	inGame_Block_02	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_Block_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_Block_02		564812
@@ -101,6 +111,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	541283499	inGame_NPC_succ	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_NPC_succ_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_NPC_succ		663872
 	566116736	UI_in	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\UI_in_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI_in		373616
 	586284190	UI_select	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\UI_select_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI_select		199564
+	595429646	ITEM_Fire_03	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\ITEM_Fire_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\ITEM_Fire_03		479388
 	595932298	inGame_Monster_grass01	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_Monster_grass01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\inGame_Monster_grass\inGame_Monster_grass01		176960
 	597951245	ITEM_Get_01	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\ITEM_Get_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\ITEM_Get_01		373616
 	606239346	inGame_STAGE_CheckPoint	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_STAGE_CheckPoint_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_STAGE_CheckPoint		375616
@@ -110,8 +121,10 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	670223020	UI_optionClick	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\UI_optionClick_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI_optionClick		207960
 	670591994	inGame_CH_Die	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_CH_Die_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_CH_Die		837872
 	677609712	inGame_WARN_01	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_WARN_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_WARN_01		237620
+	683728364	inGame_STEP_ladder_03	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\사다리올라감03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_STEP_ladder\inGame_STEP_ladder_03		41648
+	698029536	ITEM_Wing_flip_01	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\ITEM_Wing_flip_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\ITEM_Wing_flip\ITEM_Wing_flip_01		89900
 	698934912	inGame_BLOCK_01	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_BLOCK_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_BLOCK_01		353600
-	744407604	ITEM_Fire_01	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\ITEM_Fire_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\ITEM_Fire_01		2962496
+	744407604	ITEM_Fire_01(loop)	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\ITEM_Fire_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\ITEM_Fire_01(loop)		2962496
 	748900145	inGame_STEP_Grass_02	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_STEP_Grass_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ingame_step\inGame_STEP_Grass\inGame_STEP_Grass_02		49380
 	774763422	inGame_Fkey	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_Fkey_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_Fkey		512400
 	791145686	inGame_Monster_grass04	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_Monster_grass04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\inGame_Monster_grass\inGame_Monster_grass04		177472
@@ -121,7 +134,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	892723738	UI_Gamestart	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\UI_Gamestart_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI_Gamestart		351120
 	949049731	inGame_UI_Open	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_UI_Open_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_UI_Open		66368
 	984043262	UI_Soundbar	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\UI_Soundbar_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI_Soundbar		9656
+	1009133222	ITEM_Wing_flip_06	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\ITEM_Wing_flip_06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\ITEM_Wing_flip\ITEM_Wing_flip_06		88312
 	1026586543	inGame_UI_Quest_Open	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_UI_Quest_Open_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_UI_Quest_Open		206104
+	1054559401	inGame_STEP_ladder_01	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\사다리올라감01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_STEP_ladder\inGame_STEP_ladder_01		42304
 	1055606759	House_OpenCloset	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\House_OpenCloset_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\House_OpenCloset		356160
 	1059463565	inGame_STEP_Rock_03	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\rock03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ingame_step\inGame_STEP_Rock\inGame_STEP_Rock_03		96432
 	1060972770	inGame_CH_Life	D:\TERRA\Terra\Wwise\.cache\Windows\SFX\inGame_CH_Life_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\inGame_CH_Life		353088

@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1490308573">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1042107070">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +21,7 @@
 				<GameParameter Id="4056684167" Name="Master" ObjectPath="\Game Parameters\Default Work Unit\Master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1638474828" Language="SFX" Hash="3322579549">
+		<SoundBank Id="1638474828" Language="SFX" Hash="1519145109">
 			<ObjectPath>\SoundBanks\Default Work Unit\BGM_Login_loop</ObjectPath>
 			<ShortName>BGM_Login_loop</ShortName>
 			<Path>BGM_Login_loop.bnk</Path>
@@ -36,7 +36,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="1773848370" Language="SFX" Hash="3295151855">
+		<SoundBank Id="1773848370" Language="SFX" Hash="888547679">
 			<ObjectPath>\SoundBanks\Default Work Unit\BGM_Map3_loop</ObjectPath>
 			<ShortName>BGM_Map3_loop</ShortName>
 			<Path>BGM_Map3_loop.bnk</Path>
@@ -51,7 +51,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="2209235428" Language="SFX" Hash="998017618">
+		<SoundBank Id="2209235428" Language="SFX" Hash="2559344046">
 			<ObjectPath>\SoundBanks\Default Work Unit\BGM_Map1_loop</ObjectPath>
 			<ShortName>BGM_Map1_loop</ShortName>
 			<Path>BGM_Map1_loop.bnk</Path>
@@ -66,7 +66,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="2569804009" Language="SFX" Hash="1496486959">
+		<SoundBank Id="2569804009" Language="SFX" Hash="90697497">
 			<ObjectPath>\SoundBanks\Default Work Unit\BGM_Terra_s_House</ObjectPath>
 			<ShortName>BGM_Terra_s_House</ShortName>
 			<Path>BGM_Terra_s_House.bnk</Path>
@@ -81,7 +81,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="2641024368" Language="SFX" Hash="1906068341">
+		<SoundBank Id="2641024368" Language="SFX" Hash="3172329988">
 			<ObjectPath>\SoundBanks\Default Work Unit\SFX_SoundBank</ObjectPath>
 			<ShortName>SFX_SoundBank</ShortName>
 			<Path>SFX_SoundBank.bnk</Path>
@@ -318,6 +318,26 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="198813990" Name="inGame_STEP_ladder" ObjectPath="\Events\Default Work Unit\SFX\inGame_STEP_ladder">
+					<IncludedMemoryFiles>
+						<File Id="109546817" Language="SFX">
+							<ShortName>사다리올라감04.wav</ShortName>
+							<Path>SFX\사다리올라감04_10C4C929.wem</Path>
+						</File>
+						<File Id="383302815" Language="SFX">
+							<ShortName>사다리올라감02.wav</ShortName>
+							<Path>SFX\사다리올라감02_10C4C929.wem</Path>
+						</File>
+						<File Id="683728364" Language="SFX">
+							<ShortName>사다리올라감03.wav</ShortName>
+							<Path>SFX\사다리올라감03_10C4C929.wem</Path>
+						</File>
+						<File Id="1054559401" Language="SFX">
+							<ShortName>사다리올라감01.wav</ShortName>
+							<Path>SFX\사다리올라감01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="320848553" Name="inGame_STEP_Rock" ObjectPath="\Events\Default Work Unit\SFX\inGame_STEP_Rock">
 					<IncludedMemoryFiles>
 						<File Id="464149486" Language="SFX">
@@ -438,11 +458,12 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1658504084" Name="ITEM_Fire_02" ObjectPath="\Events\Default Work Unit\SFX\ITEM_Fire_02">
+				<Event Id="1658504084" Name="ITEM_Fire_02" ObjectPath="\Events\Default Work Unit\SFX\ITEM_Fire_02"/>
+				<Event Id="1658504085" Name="ITEM_Fire_03" ObjectPath="\Events\Default Work Unit\SFX\ITEM_Fire_03">
 					<IncludedMemoryFiles>
-						<File Id="346092054" Language="SFX">
-							<ShortName>ITEM_Fire_02.amb</ShortName>
-							<Path>SFX\ITEM_Fire_02_10C4C929.wem</Path>
+						<File Id="595429646" Language="SFX">
+							<ShortName>ITEM_Fire_03.wav</ShortName>
+							<Path>SFX\ITEM_Fire_03_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -467,6 +488,38 @@
 						<File Id="517518069" Language="SFX">
 							<ShortName>ITEM_Portion.amb</ShortName>
 							<Path>SFX\ITEM_Portion_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3869969892" Name="ITEM_Wing_flip" ObjectPath="\Events\Default Work Unit\SFX\ITEM_Wing_flip">
+					<IncludedMemoryFiles>
+						<File Id="92879369" Language="SFX">
+							<ShortName>ITEM_Wing_flip_05.wav</ShortName>
+							<Path>SFX\ITEM_Wing_flip_05_10C4C929.wem</Path>
+						</File>
+						<File Id="214794399" Language="SFX">
+							<ShortName>ITEM_Wing_flip_04.wav</ShortName>
+							<Path>SFX\ITEM_Wing_flip_04_10C4C929.wem</Path>
+						</File>
+						<File Id="491926106" Language="SFX">
+							<ShortName>ITEM_Wing_flip_02.wav</ShortName>
+							<Path>SFX\ITEM_Wing_flip_02_10C4C929.wem</Path>
+						</File>
+						<File Id="698029536" Language="SFX">
+							<ShortName>ITEM_Wing_flip_01.wav</ShortName>
+							<Path>SFX\ITEM_Wing_flip_01_10C4C929.wem</Path>
+						</File>
+						<File Id="1009133222" Language="SFX">
+							<ShortName>ITEM_Wing_flip_06.wav</ShortName>
+							<Path>SFX\ITEM_Wing_flip_06_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4231507314" Name="ITEM_Wing_use" ObjectPath="\Events\Default Work Unit\SFX\ITEM_Wing_use">
+					<IncludedMemoryFiles>
+						<File Id="334590467" Language="SFX">
+							<ShortName>ITEM_Wing_use.wav</ShortName>
+							<Path>SFX\ITEM_Wing_use_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -545,6 +598,7 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="1739658918" Name="Monster_Grass" ObjectPath="\Game Parameters\Default Work Unit\Monster_Grass"/>
+				<GameParameter Id="2678880713" Name="Fire" ObjectPath="\Game Parameters\Default Work Unit\Fire"/>
 			</GameParameters>
 			<SwitchGroups>
 				<SwitchGroup Id="2250165792" Name="New_Switch_Group" ObjectPath="\Switches\Default Work Unit\New_Switch_Group" GUID="{00373D90-BAE4-4E16-89B7-933FF692EBB1}">
@@ -586,7 +640,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="3625869765" Language="SFX" Hash="2507308013">
+		<SoundBank Id="3625869765" Language="SFX" Hash="197903189">
 			<ObjectPath>\SoundBanks\Default Work Unit\BGM_Map2_loop</ObjectPath>
 			<ShortName>BGM_Map2_loop</ShortName>
 			<Path>BGM_Map2_loop.bnk</Path>
@@ -601,7 +655,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="3814568918" Language="SFX" Hash="4112115511">
+		<SoundBank Id="3814568918" Language="SFX" Hash="924986927">
 			<ObjectPath>\SoundBanks\Default Work Unit\BGM_Transition_loop</ObjectPath>
 			<ShortName>BGM_Transition_loop</ShortName>
 			<Path>BGM_Transition_loop.bnk</Path>

@@ -598,7 +598,7 @@
 								<Action Name="" ID="{EEBA2970-284E-4FA2-A7DF-667A5B94F82E}" ShortID="984918284">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="ITEM_Fire_01" ID="{CF4A09DC-233D-4DA3-AF5D-75CE16A165C1}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+											<ObjectRef Name="ITEM_Fire_01(loop)" ID="{CF4A09DC-233D-4DA3-AF5D-75CE16A165C1}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -752,6 +752,62 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="세이브1" ID="{B2BCC81E-00E2-49AF-A5B3-DDE982F704A3}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="inGame_STEP_ladder" ID="{93DEA875-569D-413A-935C-6C1CD0690420}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="23"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Action Name="" ID="{CC984DAD-5C23-49A9-B1D4-7421C5FB142D}" ShortID="42353641">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="inGame_STEP_ladder" ID="{76FBD77D-029B-4C0D-B120-385BC5628E29}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="ITEM_Wing_flip" ID="{B7CD45A9-C897-47F6-A922-A2C463FB5116}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="2"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Action Name="" ID="{B6335B09-9466-4DFA-AA08-D18DD11A11C1}" ShortID="59874494">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ITEM_Wing_flip" ID="{9ACD9DFE-D6D5-4DF1-8557-EA3467546C41}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="ITEM_Wing_use" ID="{D3E81A76-27C2-478C-BB14-7146EAFDD5A8}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="2"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Action Name="" ID="{670BA36C-A2A5-4AB7-A359-5B123698BCE6}" ShortID="706004293">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ITEM_Wing_use" ID="{81D9FDF3-CCE3-4E21-9147-96331374A31A}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="ITEM_Fire_03" ID="{081FBB6D-86E6-4AF1-A35A-3CB6E1B64545}">
+							<ChildrenList>
+								<Action Name="" ID="{488E1E2C-4814-47F0-884E-2E12590A1282}" ShortID="398803372">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ITEM_Fire_03" ID="{97F1C35E-F250-4269-912E-574A8A0AC103}" WorkUnitID="{B5DC2480-C1C3-41E8-B4E3-4085EBBC7616}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

@@ -29,5 +29,6 @@ public class HomePhotoPanel : MonoBehaviour
     {
         gameObject.SetActive(false);
         homePanelBackground.SetActive(false);
+        UIAudio.Post(UIAudio.Instance.inGame_UI_House_Close);
     }
 }

@@ -15,7 +15,7 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] private InteractionType type;
 
-    private void Update()
+    protected virtual void Update()
     {
         if(enableInteraction)
         {

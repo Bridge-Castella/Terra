@@ -15,7 +15,7 @@ public class InGameAudio : AudioRef<InGameAudio>
     public AK.Wwise.Event inGame_Fkey;
     public AK.Wwise.Event ITEM_Get_01;
     public AK.Wwise.Event ITEM_Fire_01;
-    public AK.Wwise.Event ITEM_Fire_02;
+    public AK.Wwise.Event ITEM_Fire_03;
     public AK.Wwise.Event ITEM_Portion;
     public AK.Wwise.Event ITEM_Plant;
     public AK.Wwise.Event ITEM_Wing_01;

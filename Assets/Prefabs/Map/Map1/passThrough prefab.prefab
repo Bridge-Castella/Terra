@@ -3115,6 +3115,7 @@ GameObject:
   - component: {fileID: 4445919746411278850}
   - component: {fileID: 4445919746411278853}
   - component: {fileID: 4445919746411278852}
+  - component: {fileID: 2003233922528889818}
   m_Layer: 0
   m_Name: MapController
   m_TagString: Untagged
@@ -3180,6 +3181,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPassThrough: 1
   virtualCam: {fileID: 4445919747008058423}
+--- !u!114 &2003233922528889818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445919746411278855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e92d228e62e14b4d8584a0b54752500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e7423ce6d62b84cef960aeaf56430233,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &4445919747008058423
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 8557587733901402315}
   - component: {fileID: 5435924718590867029}
   - component: {fileID: 7892151660082028908}
-  - component: {fileID: 4674807185153181479}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -74,7 +73,8 @@ MonoBehaviour:
   inGame_CLIMB_Ladder:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: e30edfa2c48b45b4b9257c83fd7eacdd,
+      type: 2}
   inGame_CLIMB_Wall:
     idInternal: 0
     valueGuidInternal: 
@@ -92,7 +92,7 @@ MonoBehaviour:
   inGame_BLOCK_01:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 1983b9fa178d7f746975eefee2abd2ca,
+    WwiseObjectReference: {fileID: 11400000, guid: f793fcc145aa83340bc1fa10c79e1eea,
       type: 2}
   inGame_WARN_01:
     idInternal: 0
@@ -115,17 +115,17 @@ MonoBehaviour:
   BGM_MAP1_loop:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 9c0726e5d2d774ea882d6a050aeacdd4,
+    WwiseObjectReference: {fileID: 11400000, guid: 4bf4a2c239cc54fd5b54e16a9b8179f4,
       type: 2}
   BGM_MAP2_loop:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 4bf4a2c239cc54fd5b54e16a9b8179f4,
+    WwiseObjectReference: {fileID: 11400000, guid: 029ad52826ffc459eb37191490246c17,
       type: 2}
   BGM_MAP3_loop:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 029ad52826ffc459eb37191490246c17,
+    WwiseObjectReference: {fileID: 11400000, guid: 9c0726e5d2d774ea882d6a050aeacdd4,
       type: 2}
   BGM_Terra_House_loop:
     idInternal: 0
@@ -162,10 +162,10 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: e5cd4b34e0de2a44ab9cb44f969b9132,
       type: 2}
-  ITEM_Fire_02:
+  ITEM_Fire_03:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 9b5fa2f51865a0c4d9b26b04d7011b49,
+    WwiseObjectReference: {fileID: 11400000, guid: 0be660206bdd14a94ac16a905e736d6f,
       type: 2}
   ITEM_Portion:
     idInternal: 0
@@ -180,11 +180,13 @@ MonoBehaviour:
   ITEM_Wing_01:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 6d273cf300f51f7499c98f5f65168679,
+      type: 2}
   ITEM_Wing_02:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 8924c9a3f41e32749916186794cf0be0,
+      type: 2}
   ITEM_Destroy:
     idInternal: 0
     valueGuidInternal: 
@@ -196,7 +198,7 @@ MonoBehaviour:
   inGame_Block_02:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: bb62f11bdad8aed49be2bb52e7fb13cf,
+    WwiseObjectReference: {fileID: 11400000, guid: f793fcc145aa83340bc1fa10c79e1eea,
       type: 2}
   inGame_Quest_get:
     idInternal: 0
@@ -226,13 +228,11 @@ MonoBehaviour:
   inGame_STAGE_CLEAR:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 4ca8a632a699a3148806e8a6a2185b43,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   inGame_STAGE_CheckPoint:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: ceaf64661e2bd1b43a9c1dcf445aaad7,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   inGame_SavePoint:
     idInternal: 0
     valueGuidInternal: 
@@ -241,18 +241,15 @@ MonoBehaviour:
   inGame_UI_01:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: c2084dd6ba45a1f47ba86dbabf0fe8dc,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   inGame_UI_02:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 4cf001c8f8fe1a84fac154fc0cee1614,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   inGame_Caution:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 537fdfcd9a89cad4294b1329bd37df0a,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   inGame_NPC_Rato:
     idInternal: 0
     valueGuidInternal: 
@@ -274,7 +271,8 @@ MonoBehaviour:
   inGame_LadderKey_Appear:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 0bdad88da17a88547ab7d6f3a78aec96,
+      type: 2}
   inGame_LadderKey_Disappear:
     idInternal: 0
     valueGuidInternal: 
@@ -354,7 +352,8 @@ MonoBehaviour:
   inGame_UI_Quest_Close:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 61840a5bc6626b8458f4083d384132d8,
+      type: 2}
   inGame_UI_House_Open:
     idInternal: 0
     valueGuidInternal: 
@@ -368,11 +367,13 @@ MonoBehaviour:
   inGame_UI_House_Inventory_Hover:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: e119b7e4287a3384c81a9dae23a4fb1b,
+      type: 2}
   inGame_UI_House_Inventory_Click:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 379938d359c9c7546b2c656b5469cc11,
+      type: 2}
   UI_GameStart:
     idInternal: 0
     valueGuidInternal: 
@@ -396,22 +397,16 @@ MonoBehaviour:
   UI_in:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 670d433f54a81e0489064f5fbbaab6ba,
-      type: 2}
-  UI_out:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 144659abffb60fe479c15a297bf220f3,
+    WwiseObjectReference: {fileID: 11400000, guid: beb4320b1e62d5f4ebd9f67baf395256,
       type: 2}
   UI_select:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 40fa21edbdf53f04f86dd4cf1a72d071,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
   UI_pick:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 6735438d71de1374b94f096197c656e5,
+    WwiseObjectReference: {fileID: 11400000, guid: 013f4162b13e0476594f95a81d3a1b24,
       type: 2}
 --- !u!114 &8557587733901402314
 MonoBehaviour:
@@ -503,31 +498,6 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: e57598863043949539aeffc849418426,
-      type: 2}
-  decodeBank: 0
-  loadAsynchronous: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 958ca0ea
-  bankNameInternal: 
-  valueGuidInternal: 
---- !u!114 &4674807185153181479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8557587733901402294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e92d228e62e14b4d8584a0b54752500, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 51c43fada8dead64c815bf89c2433220,
       type: 2}
   decodeBank: 0
   loadAsynchronous: 0
