@@ -33,6 +33,7 @@ public class HomePhoto : MonoBehaviour
     [SerializeField] Photo[] photos;
 
     private int hoverRefCount = 0;
+    private AK.Wwise.Event _prologueAudio;
 
     private void Start()
     {
@@ -208,6 +209,7 @@ public class HomePhoto : MonoBehaviour
     private IEnumerator PlayPrologue(VideoPlayer prologuePlayer, 
         AK.Wwise.Event prologueAudio, PhotoType photoType)
     {
+        _prologueAudio = prologueAudio;
         // disable all the buttons
         homeController.DisableButtons();
 
@@ -250,17 +252,16 @@ public class HomePhoto : MonoBehaviour
         while (SceneFader.instance.Active)
             yield return null;
 
-        if (prologueAudio != null)
-        {
-            InGameAudio.Stop(InGameAudio.Instance.BGM_Terra_House_loop);
-            InGameAudio.Post(prologueAudio);
-        }
+        
 
         // finally play the video
+        prologuePlayer.started += ProloguePlayer_prepareCompleted;
         prologuePlayer.Play();
+
         while (prologuePlayer.isPlaying)
             yield return null;
 
+        InGameAudio.Stop(prologueAudio);
         InGameAudio.Post(InGameAudio.Instance.BGM_Terra_House_loop);
         StoreShownHistory(photoType);
         prologuePlayer.gameObject.SetActive(false);
@@ -275,6 +276,16 @@ public class HomePhoto : MonoBehaviour
         yield return PhotoAppearLearp();
 
         homeController.EnableButtons();
+        prologuePlayer.prepareCompleted -= ProloguePlayer_prepareCompleted;
+    }
+
+    private void ProloguePlayer_prepareCompleted(VideoPlayer source)
+    {
+        if (_prologueAudio != null)
+        {
+            InGameAudio.Stop(InGameAudio.Instance.BGM_Terra_House_loop);
+            InGameAudio.Post(_prologueAudio);
+        }
     }
 
     private IEnumerator PhotoAppearLearp()
