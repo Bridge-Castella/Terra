@@ -1382,6 +1382,7 @@ MonoBehaviour:
   BGMVolStr: BGM
   SFXVolStr: SFX
   MonsterGrassVolStr: Monster_Grass
+  FireVolStr: Fire
 --- !u!1001 &943169505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2770,7 +2771,8 @@ MonoBehaviour:
   UI_select:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 40fa21edbdf53f04f86dd4cf1a72d071,
+      type: 2}
   UI_pick:
     idInternal: 0
     valueGuidInternal: 
