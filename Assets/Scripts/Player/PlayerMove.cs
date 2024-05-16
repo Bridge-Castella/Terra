@@ -119,6 +119,7 @@ public class PlayerMove : MonoBehaviour
                 (canDoubleJump && abilities.canDoubleJump))) || 
                 (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump")))
             {
+                Debug.Log("can double jump: " + canDoubleJump);
                 Jump();
             }
 
@@ -148,9 +149,10 @@ public class PlayerMove : MonoBehaviour
         PlayerAudio.Post(PlayerAudio.Instance.inGame_JUMP_01);
 
         // Climbing 중에도 double jump가 가능하게끔 수정
-        if (IsGrounded() || climbState == EClimbState.None)
+        if (IsGrounded())
         {
-            canDoubleJump = true;
+            if(climbState == EClimbState.None)
+                canDoubleJump = true;
         }
         else
         {
