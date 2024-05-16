@@ -42,7 +42,6 @@ public class VirtualCamController : MonoBehaviour
             if (isPassThrough)
             {
                 InGameAudio.Stop(InGameAudio.Instance.BGM_Transition_loop);
-                InGameAudio.Post(MapStateChanger.CurrentMapBGM);
             }
             virtualCam.SetActive(false);
             Current = null;
