@@ -9092,7 +9092,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 0e590065a62104e5694c908d13140706,
+    WwiseObjectReference: {fileID: 11400000, guid: b4a08121071e64bea96391fca922ba68,
       type: 2}
   decodeBank: 0
   loadAsynchronous: 1
@@ -10033,6 +10033,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 796457591490341196, guid: 9eeded1340b136c4598dd4a640236e7f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 796457591490341196, guid: 9eeded1340b136c4598dd4a640236e7f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1459269197663150048, guid: 9eeded1340b136c4598dd4a640236e7f,
         type: 3}
       propertyPath: m_Spline.m_ControlPoints.Array.size
@@ -10222,6 +10232,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Spline.m_ControlPoints.Array.data[1].rightTangent.y
       value: 1.8555727
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065267878196949534, guid: 9eeded1340b136c4598dd4a640236e7f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065267878196949534, guid: 9eeded1340b136c4598dd4a640236e7f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2682748794491376282, guid: 9eeded1340b136c4598dd4a640236e7f,
         type: 3}
@@ -10757,6 +10777,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Items
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812775970239979261, guid: 9eeded1340b136c4598dd4a640236e7f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812775970239979261, guid: 9eeded1340b136c4598dd4a640236e7f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eeded1340b136c4598dd4a640236e7f, type: 3}
