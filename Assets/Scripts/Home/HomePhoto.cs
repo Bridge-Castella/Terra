@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,8 @@ public class HomePhoto : MonoBehaviour
         public Shadow shadow;
         public GameObject button;
         public VideoPlayer prologueVideo;
+        public Button skipBtn;
+        public Button rawImage;
         public PhotoType photo;
     }
 
@@ -47,8 +50,15 @@ public class HomePhoto : MonoBehaviour
                 var temp = photos[(int)current.photo];
                 photos[(int)current.photo] = current;
                 photos[i] = temp;
-            }
+                
+            };
         }
+
+        photos[2].skipBtn?.onClick.AddListener(() => OnClickSkipButton(photos[2].photo, photos[2].prologueVideo));
+        photos[2].rawImage?.onClick.AddListener(() => OnClickVideo(photos[2].skipBtn.GetComponent<CanvasGroup>()));
+
+        photos[3].skipBtn?.onClick.AddListener(() => OnClickSkipButton(photos[3].photo, photos[3].prologueVideo));
+        photos[3].rawImage?.onClick.AddListener(() => OnClickVideo(photos[3].skipBtn.GetComponent<CanvasGroup>()));
     }
 
     public void UpdateUI()
@@ -252,8 +262,6 @@ public class HomePhoto : MonoBehaviour
         while (SceneFader.instance.Active)
             yield return null;
 
-        
-
         // finally play the video
         prologuePlayer.started += ProloguePlayer_prepareCompleted;
         prologuePlayer.Play();
@@ -324,6 +332,37 @@ public class HomePhoto : MonoBehaviour
             photo.image.material = null;
             photo.shadow.gameObject.SetActive(true);
             photo.button.SetActive(true);
+        }
+    }
+
+    private void OnClickSkipButton(PhotoType photoType, VideoPlayer prologuePlayer)
+    {
+        InGameAudio.Stop(_prologueAudio);
+        InGameAudio.Post(InGameAudio.Instance.BGM_Terra_House_loop);
+        StoreShownHistory(photoType);
+        prologuePlayer.gameObject.SetActive(false);
+
+        if (!AllPhotoShouldAppear())
+        {
+            homeController.EnableButtons();
+            return;
+        }
+
+        // now we can show other photos
+        PhotoAppearLearp();
+
+        homeController.EnableButtons();
+    }
+
+    private void OnClickVideo(CanvasGroup skipBtn)
+    {
+        if (skipBtn.alpha == 0f)
+        {
+            skipBtn.DOFade(1f, 0.5f);
+        }
+        else
+        {
+            skipBtn.DOFade(0f, 0.5f);
         }
     }
 }
