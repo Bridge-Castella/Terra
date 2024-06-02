@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -88,8 +89,16 @@ public class GNBCanvas : MonoBehaviour
     {
         UIAudio.Post(UIAudio.Instance.inGame_UI_Open);
         StopAllCoroutines();
-        StartCoroutine(CoWaitForAutoDisappear(3));
-        groupButtonContent.SetActive(true);
+        if (groupButtonContent.activeSelf)
+        {
+            groupButtonContent.SetActive(false);
+            groupButtonContent.GetComponent<CanvasGroup>().DOFade(0f, 0.3f);
+        }
+        else
+        {
+            groupButtonContent.SetActive(true);
+            groupButtonContent.GetComponent<CanvasGroup>().DOFade(1f, 0.3f);
+        }
     }
 
     private void OnClickQuestButton()
@@ -116,7 +125,7 @@ public class GNBCanvas : MonoBehaviour
         toastPopup.Show(message);
     }
 
-    IEnumerator CoWaitForAutoDisappear(float delay)
+    /*IEnumerator CoWaitForAutoDisappear(float delay)
     {
         var images = groupButtonContent.GetComponentsInChildren<Image>();
 
@@ -146,5 +155,5 @@ public class GNBCanvas : MonoBehaviour
         }
 
         groupButtonContent.SetActive(false);
-    }
+    }*/
 }
