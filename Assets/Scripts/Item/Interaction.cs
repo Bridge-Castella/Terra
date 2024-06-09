@@ -32,7 +32,7 @@ public class Interaction : MonoBehaviour
     }
 
     //트리거 안에 들어가면 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
@@ -41,7 +41,7 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
