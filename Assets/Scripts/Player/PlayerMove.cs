@@ -119,7 +119,6 @@ public class PlayerMove : MonoBehaviour
                 (canDoubleJump && abilities.canDoubleJump))) || 
                 (coyoteandJumpTimeCounter > 0f && Input.GetButtonDown("Jump")))
             {
-                Debug.Log("can double jump: " + canDoubleJump);
                 Jump();
             }
 

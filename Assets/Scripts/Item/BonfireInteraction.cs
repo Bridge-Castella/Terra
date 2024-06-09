@@ -8,16 +8,10 @@ public class BonfireInteraction : Interaction
 {
     [SerializeField] private Light2D light;
     [SerializeField] private Sprite fireOnSprite;
-
+    [SerializeField] private CanvasGroup btnCanvas;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     public float soundMinThreshold = 15f;
     public float soundMaxThreshold = 10f;
-
-    private SpriteRenderer spriteRenderer;
-
-    private void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();    
-    }
 
     protected override void Update()
     {
@@ -75,5 +69,19 @@ public class BonfireInteraction : Interaction
         }
 
         return false;
+    }
+
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        if(abilities.isHoldingFire)
+            btnCanvas.DOFade(1f, 0.3f);
+    }
+
+    public override void OnTriggerExit2D(Collider2D collision)
+    {
+        base.OnTriggerExit2D(collision);
+        if (abilities.isHoldingFire)
+            btnCanvas.DOFade(0f, 0.3f);
     }
 }
