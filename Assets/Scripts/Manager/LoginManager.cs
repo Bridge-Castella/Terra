@@ -55,11 +55,6 @@ public class LoginManager : MonoBehaviour
             {
                 skipBtn.DOFade(1f, 0.5f);
             }
-            else
-            {
-                skipBtn.DOFade(0f, 0.5f);
-            }
-            
         });
         skipBtn.GetComponent<Button>().onClick.AddListener(() => 
         {
