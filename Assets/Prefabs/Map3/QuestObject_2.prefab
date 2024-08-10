@@ -55,6 +55,9 @@ MonoBehaviour:
     substate: 
   portrait: {fileID: 0}
   itemIcon: {fileID: 0}
+  questGroup: {fileID: 0}
+  imagePath: 
+  message: 
   displayName: "\uBC41\uC0C8 \uC778\uD615"
 --- !u!1 &3897231510108396635
 GameObject:
@@ -112,6 +115,8 @@ MonoBehaviour:
   desc: "\uB9AC\uCCB4\uAC00 \uC544\uB07C\uB294 \uBC41\uC0C8 \uC778\uD615\uC774\uB2E4."
   pickupParticlePrefab: {fileID: 0}
   pickupSubParticlePrefab: {fileID: 0}
+  storyId: c_quest_2
+  npcId: c_quest_2_1
 --- !u!61 &3897231510108396639
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -22,6 +22,12 @@ public class GNBCanvas : MonoBehaviour
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private GameObject homePanel;
     [SerializeField] private GameObject optionPanel;
+    [SerializeField] private GameObject dialoguePanel;
+    public GameObject DialoguePanel
+    {
+        get { return dialoguePanel; }
+        set { dialoguePanel = value; }
+    }
 
     [Header("----Toast----")]
     [SerializeField] private Notice toastPopup;

@@ -6,13 +6,8 @@ using UnityEngine;
 public class NpcAction : MonoBehaviour
 {
     public string npc_diff_id;
-    public GameObject dialogueUIObject;
-    public GameObject dialogueUiObjectInstance;
-    //npc 위 위치
-    //public GameObject dialogueUIPosition;
 
     private Canvas canvas;
-    private RectTransform dialogueUIRectTranform;
     [SerializeField] private CanvasGroup btnCanvas;
 
     private List<string> story_idList;
@@ -44,7 +39,6 @@ public class NpcAction : MonoBehaviour
 
     private void Start()
     {
-        dialogueUIRectTranform = dialogueUIObject.GetComponent<RectTransform>();
         canvas = GNBCanvas.instance.GetComponent<Canvas>();
         story_idList = new List<string>(TableData.instance.GetMainDataDic(npc_diff_id).Keys);
         player = FindObjectOfType<PlayerMove>();
@@ -68,18 +62,15 @@ public class NpcAction : MonoBehaviour
         if(isDialogueEnd || questState == QuestState.Completed)
             return false;
         //ui가 만들어져 있다면 생성안함.
-        if (null == dialogueUiObjectInstance)
+        if (!GNBCanvas.instance.DialoguePanel.activeSelf)
         {
-            dialogueUIObject.SetActive(true);
+            GNBCanvas.instance.DialoguePanel.SetActive(true);
             animator.SetBool("isTalking", true);
             //플레이어 방향 바라보기
             transform.localScale = new Vector3(player.transform.localScale.x * transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
-            dialogueUiObjectInstance = Instantiate(dialogueUIObject, canvas.transform);
-
             // Canvas 내 상단 위치
             // 상단에 위치해야 Fade Image와 Option창 아래 위치
-            dialogueUiObjectInstance.transform.SetSiblingIndex(0);
 
             if (questState == QuestState.Succeeded)
             {
@@ -95,7 +86,7 @@ public class NpcAction : MonoBehaviour
 			}
 
             List<string> npc_idList = new List<string>(TableData.instance.GetMainDataDic(npc_diff_id)[story_idList[story_idIdx]].Keys);
-            dialogueUiObjectInstance.GetComponent<Dialogue>().DialogueWithNPC(story_idList[story_idIdx], npc_idList[0]);
+            GNBCanvas.instance.DialoguePanel.GetComponent<Dialogue>().DialogueWithNPC(story_idList[story_idIdx], npc_idList[0]);
 
             //퀘스트 중이라면 인덱스 넘어가지 않음(스토리 진행되지 않음)
             

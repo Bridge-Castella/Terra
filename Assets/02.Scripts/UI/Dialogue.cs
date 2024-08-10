@@ -26,6 +26,7 @@ public class Dialogue : MonoBehaviour
     Dictionary<string, List<TableData.MainData>> mainDataDic;
     List<TableData.MainData> list;
     string story_id;
+    string quest_npc_diff_id;
 
     string convType7LastDialogue;
     string currentNpcDiffId;
@@ -58,7 +59,7 @@ public class Dialogue : MonoBehaviour
                 {
                     ControlManager.instance.player.GetComponent<PlayerMove>().isTalking = false;   
                     npc.GetComponent<Animator>().SetBool("isTalking", false);
-                    Destroy(this.gameObject);
+                    gameObject.SetActive(false);
                 }                
 
                 // npc에게 퀘스트를 받고 난 후 대화창 종료소리
@@ -70,7 +71,15 @@ public class Dialogue : MonoBehaviour
                 //대화타입이 3일때 conv_connect_id에 값을 넣어줘서 npc_id에 종속되는 대화로 넘어가도록.
                 if (conv_connect_id != null)
                 {
-                    DialogueWithNPC(story_id, conv_connect_id);
+                    if (quest_npc_diff_id == "quest")
+                    {
+                        gameObject.SetActive(false);
+                        quest_npc_diff_id = "";
+                    }
+                    else
+                    {
+                        DialogueWithNPC(story_id, conv_connect_id);
+                    }
                 }
                 else
                 {
@@ -79,6 +88,55 @@ public class Dialogue : MonoBehaviour
                 }
             }
         }        
+    }
+
+    public void QuestDialogue(string npc_diff_id, string story_id, string npc_id)
+    {
+        gameObject.SetActive(true);
+
+        quest_npc_diff_id = npc_diff_id;
+        this.story_id = story_id;
+        npc_idList = new List<string>(TableData.instance.GetMainDataDic(npc_diff_id)[story_id].Keys);
+        mainDataDic = TableData.instance.GetMainDataDic(npc_diff_id)[story_id];
+        //npc_id에 종속되는 대화를 리스트로 가져오는 과정
+        list = mainDataDic[npc_id];
+
+        if (string_idIdx == list.Count - 1)
+            string_idIdx = 0;
+        else
+            string_idIdx++;
+
+        GetComponent<TypewriterEffect>().Run(currentNpcDiffId, TableData.instance.GetDialogue(list[string_idIdx].string_id), dialogueText);
+        characterName.text = TableData.instance.GetPortraitName(list[string_idIdx].portrait_id);
+        portraitImage.sprite = TableData.instance.GetPortrait(list[string_idIdx].portrait_id);
+        //dialogueText.text = TableData.instance.GetDialogue(list[string_idIdx].string_id);
+        answer1_connect_id = list[string_idIdx].answer1_connect_id;
+        answer2_connect_id = list[string_idIdx].answer2_connect_id;
+
+        int conv_type = list[string_idIdx].conv_type;
+
+        switch (conv_type)
+        {
+            case 2:
+                break;
+            case 3:
+                //npc_id 묶음이 끝나면 conv_connect_id에 값을 넣어줘서 해당 대화로 넘어가게 함.
+                conv_connect_id = list[string_idIdx].conv_connect_id;
+                break;
+            case 4:
+                //퀘스트 시작
+                QuestManager.StartQuest(npc_diff_id, list[string_idIdx].quest_id);
+                break;
+            //퀘스트는 무조건 시작하므로 5일때는 그냥 대화(아무일도 일어나지 않음)
+            case 6:
+                //퀘스트 포기
+                QuestManager.StopQuest(npc_diff_id);
+                break;
+            case 7:
+                //퀘스트 완료, 보상받기
+                QuestManager.SucceedQuest(npc_diff_id);
+                break;
+        }
     }
 
     public void DialogueWithNPC(string story_id, string npc_id)

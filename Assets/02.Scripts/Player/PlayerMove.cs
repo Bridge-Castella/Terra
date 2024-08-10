@@ -370,7 +370,7 @@ public class PlayerMove : MonoBehaviour
                 return;
             isTalking = true;
             Debug.Log("NPC감지");
-            npc.dialogueUIObject.GetComponent<Dialogue>().npc = npc;
+            GNBCanvas.instance.DialoguePanel.GetComponent<Dialogue>().npc = npc;
             
             if (!npc.ShowDialogueUIObject())
             {
