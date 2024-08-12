@@ -7,9 +7,18 @@ public class TypewriterEffect : MonoBehaviour
 {
     [SerializeField] private float typewriterSpeed = 10f;
     public bool isTyping;
+
+    private Coroutine typeCoroutine;
+
+    private void OnDisable()
+    {
+        typeCoroutine = null;
+    }
+
     public void Run(string npcDiffID, string textToType, TextMeshProUGUI textLabel)
     {
-        StartCoroutine(TypeText(npcDiffID, textToType, textLabel));
+        if(gameObject.activeSelf)
+            typeCoroutine = StartCoroutine(TypeText(npcDiffID, textToType, textLabel));
     }
 
     private IEnumerator TypeText(string npcDiffID, string textToType, TextMeshProUGUI textLabel)
@@ -20,11 +29,11 @@ public class TypewriterEffect : MonoBehaviour
         switch (npcDiffID)
         {
             case "rato":
-                InGameAudio.Post(InGameAudio.Instance.inGame_NPC_Rato);
+                //InGameAudio.Post(InGameAudio.Instance.inGame_NPC_Rato);
                 break;
 
             case "riche":
-                InGameAudio.Post(InGameAudio.Instance.inGame_NPC_Riche);
+                //InGameAudio.Post(InGameAudio.Instance.inGame_NPC_Riche);
                 break;
         }
 

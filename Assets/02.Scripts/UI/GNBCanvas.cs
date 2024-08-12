@@ -19,9 +19,15 @@ public class GNBCanvas : MonoBehaviour
     [SerializeField] private GameObject groupButtonContent;
     [SerializeField] private GameObject content;
     [SerializeField] private GameObject questPanel;
-    [SerializeField] private InventoryUI inventoryPanel;
+    [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private GameObject homePanel;
     [SerializeField] private GameObject optionPanel;
+    [SerializeField] private GameObject dialoguePanel;
+    public GameObject DialoguePanel
+    {
+        get { return dialoguePanel; }
+        set { dialoguePanel = value; }
+    }
 
     [Header("----Toast----")]
     [SerializeField] private Notice toastPopup;
@@ -104,19 +110,19 @@ public class GNBCanvas : MonoBehaviour
     private void OnClickQuestButton()
     {
         UIAudio.Post(UIAudio.Instance.inGame_UI_Quest_Open);
-        content.SetActive(true);
+        //content.SetActive(true);
         questPanel.SetActive(true);
     }
 
     private void OnClickInventoryButton()
     {
-        content.SetActive(true);
-        inventoryPanel.gameObject.SetActive(true);
+        //content.SetActive(true);
+        inventoryPanel.SetActive(true);
     }
 
     private void OnClickHomeButton()
     {
-        content.SetActive(true);
+        //content.SetActive(true);
         homePanel.SetActive(true);
     }
 

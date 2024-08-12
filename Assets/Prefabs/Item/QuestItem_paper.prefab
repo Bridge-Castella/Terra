@@ -47,10 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 3
-  itemCollect:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
   isStackable: 1
   amount: 1
   uid: 200
@@ -61,6 +57,8 @@ MonoBehaviour:
   pickupParticlePrefab: {fileID: 1653380706734135916, guid: 8636e7932defdc6419bc637f87cd2b76,
     type: 3}
   pickupSubParticlePrefab: {fileID: 0}
+  storyId: c_quest_1
+  npcId: c_quest_1_1
 --- !u!61 &1005101202448854391
 BoxCollider2D:
   m_ObjectHideFlags: 0
