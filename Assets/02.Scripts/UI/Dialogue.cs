@@ -112,36 +112,12 @@ public class Dialogue : MonoBehaviour
         //dialogueText.text = TableData.instance.GetDialogue(list[string_idIdx].string_id);
         answer1_connect_id = list[string_idIdx].answer1_connect_id;
         answer2_connect_id = list[string_idIdx].answer2_connect_id;
-
-        int conv_type = list[string_idIdx].conv_type;
-
-        switch (conv_type)
-        {
-            case 2:
-                break;
-            case 3:
-                //npc_id 묶음이 끝나면 conv_connect_id에 값을 넣어줘서 해당 대화로 넘어가게 함.
-                conv_connect_id = list[string_idIdx].conv_connect_id;
-                break;
-            case 4:
-                //퀘스트 시작
-                QuestManager.StartQuest(npc_diff_id, list[string_idIdx].quest_id);
-                break;
-            //퀘스트는 무조건 시작하므로 5일때는 그냥 대화(아무일도 일어나지 않음)
-            case 6:
-                //퀘스트 포기
-                QuestManager.StopQuest(npc_diff_id);
-                break;
-            case 7:
-                //퀘스트 완료, 보상받기
-                QuestManager.SucceedQuest(npc_diff_id);
-                break;
-        }
     }
 
     public void DialogueWithNPC(string story_id, string npc_id)
     {
         this.story_id = story_id;
+        conv_connect_id = npc_id;
         npc_idList = new List<string>(TableData.instance.GetMainDataDic(npc.npc_diff_id)[story_id].Keys);
         mainDataDic = TableData.instance.GetMainDataDic(npc.npc_diff_id)[story_id];
         //npc_id에 종속되는 대화를 리스트로 가져오는 과정
