@@ -80,7 +80,8 @@ public class QuestGroup : MonoBehaviour
 
 	public void OnReward()
 	{
-		switch (questId)
+        SaveManager.SaveGame();
+        switch (questId)
 		{
 			case "quest_1":
 				// TODO: implement double jump enabled sound

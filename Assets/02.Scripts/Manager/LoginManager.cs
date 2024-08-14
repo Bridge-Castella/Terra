@@ -28,6 +28,11 @@ public class LoginManager : MonoBehaviour
     [SerializeField] private Button ExitGameButton;
     [SerializeField] private Button SettingButton;
     [SerializeField] private Button NewGameButton;
+    [SerializeField] private Button creditButton;
+
+    [Header("--------------- Credit -----------------")]
+    [SerializeField] private GameObject creditCanvas;
+    [SerializeField] private CanvasGroup mainmenuContent;
 
     [Header("--------------- Prologue -----------------")]
     [SerializeField] private RawImage prologueRawImage;
@@ -49,6 +54,10 @@ public class LoginManager : MonoBehaviour
         ContinueButton.onClick.AddListener(ContinueGame);
         SettingButton.onClick.AddListener(OnClickSettingButton);
         ExitGameButton.onClick.AddListener(OnClickExitGame);
+        creditButton.onClick.AddListener(() =>
+        {
+            creditCanvas.GetComponent<CreditCanvas>().FadeCredit(mainmenuContent);
+        });
         prologueRawImage.GetComponent<Button>().onClick.AddListener(delegate
         {
             if (skipBtn.alpha == 0f)

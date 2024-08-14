@@ -8,30 +8,41 @@ using UnityEngine.UI;
 public class CreditCanvas : MonoBehaviour
 {
     [SerializeField]
-    private CanvasGroup _demoPanel;
+    private Image _background;
     [SerializeField]
     private CanvasGroup _creditPanel;
 
-    private void Start()
+    private CanvasGroup _fadeout;
+
+    public void FadeCredit(CanvasGroup fadeout)
     {
-        _demoPanel.DOFade(1f, 1.5f).OnComplete(() =>
+        _fadeout = fadeout;
+        gameObject.SetActive(true);
+        fadeout.DOFade(0f, 0.5f);
+        _background.DOFade(0.6f, 0.5f);
+        _creditPanel.DOFade(1f, 0.5f);
+
+        if (MapManager.state.map != MapManager.MapIndex.Login)
         {
-            _demoPanel.GetComponent<Button>().interactable = true;
-        });
-        _demoPanel.GetComponent<Button>().onClick.AddListener(OnClickDemoPanel);
-        _creditPanel.GetComponent<Button>().onClick.AddListener(() =>
-        {
-            SceneManager.LoadScene("01.Login");
-        });
+            ControlManager.instance.player.GetComponent<PlayerMove>().enabled = false;
+        }
     }
 
-    private void OnClickDemoPanel()
+    private void Start()
     {
-        _creditPanel.gameObject.SetActive(true);
-        _demoPanel.DOFade(0f, 0.5f);
-        _creditPanel.DOFade(1f, 0.5f).OnComplete(() =>
+        _background.GetComponent<Button>().onClick.AddListener(() =>
         {
-            _creditPanel.GetComponent<Button>().interactable = true;
+            _fadeout.DOFade(1f, 0.5f);
+            _background.DOFade(0f, 0.5f);
+            _creditPanel.DOFade(0f, 0.5f).OnComplete(() =>
+            {
+                gameObject.SetActive(false);
+            });
+
+            if (MapManager.state.map != MapManager.MapIndex.Login)
+            {
+                GNBCanvas.instance.OptionPanel.GetComponent<Option>().LoadLoginScene();
+            }
         });
     }
 }

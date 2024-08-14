@@ -173,7 +173,6 @@ public class Option : MonoBehaviour
             audioGroup.SetActive(false);
             buttonGroup.SetActive(true);
             popUpObject.SetActive(false);
-            background.SetActive(false);
             if (MapManager.state.map == MapManager.MapIndex.Login)
             {
                 mainMenuObject.SetActive(true);
