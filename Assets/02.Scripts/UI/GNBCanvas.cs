@@ -1,9 +1,6 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.Networking.UnityWebRequest;
 
 public class GNBCanvas : MonoBehaviour
 {
@@ -16,6 +13,7 @@ public class GNBCanvas : MonoBehaviour
     [SerializeField] private Button homeButton;
 
     [Header("----Popup----")]
+    [SerializeField] private CanvasGroup header;
     [SerializeField] private GameObject groupButtonContent;
     [SerializeField] private GameObject content;
     [SerializeField] private GameObject questPanel;
@@ -23,10 +21,30 @@ public class GNBCanvas : MonoBehaviour
     [SerializeField] private GameObject homePanel;
     [SerializeField] private GameObject optionPanel;
     [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private CreditCanvas creditCanvas;
+
+    public GameObject OptionPanel
+    {
+        get { return optionPanel; }
+        set { optionPanel = value; }
+    }
+
+    public CanvasGroup Header
+    {
+        get { return header; }
+        set { header = value; }
+    }
+
     public GameObject DialoguePanel
     {
         get { return dialoguePanel; }
         set { dialoguePanel = value; }
+    }
+
+    public CreditCanvas CreditCanvas
+    {
+        get { return creditCanvas; }
+        set { creditCanvas = value; }
     }
 
     [Header("----Toast----")]

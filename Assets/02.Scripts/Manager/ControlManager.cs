@@ -21,8 +21,11 @@ public class ControlManager : MonoBehaviour
     
     private void Start()
     {
-        startPoint = GlobalContainer.tryLoadOrStore("StartPos",
+        if (GameObject.Find("StartPoint") != null)
+        {
+            startPoint = GlobalContainer.tryLoadOrStore("StartPos",
             GameObject.Find("StartPoint").transform.position);
+        }
     }
 
     public void RetryGame()

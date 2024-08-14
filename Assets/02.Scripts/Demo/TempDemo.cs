@@ -10,7 +10,7 @@ public class TempDemo : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            SceneManager.LoadScene("03.DemoEnd");
+            GNBCanvas.instance.CreditCanvas.FadeCredit(GNBCanvas.instance.Header);
         }
     }
 }
