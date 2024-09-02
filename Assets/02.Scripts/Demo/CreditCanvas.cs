@@ -11,6 +11,8 @@ public class CreditCanvas : MonoBehaviour
     private Image _background;
     [SerializeField]
     private CanvasGroup _creditPanel;
+    [SerializeField]
+    private float _bgFadeRate;
 
     private CanvasGroup _fadeout;
 
@@ -19,7 +21,7 @@ public class CreditCanvas : MonoBehaviour
         _fadeout = fadeout;
         gameObject.SetActive(true);
         fadeout.DOFade(0f, 0.5f);
-        _background.DOFade(0.6f, 0.5f);
+        _background.DOFade(_bgFadeRate, 0.5f);
         _creditPanel.DOFade(1f, 0.5f);
 
         if (MapManager.state.map != MapManager.MapIndex.Login)
@@ -33,16 +35,21 @@ public class CreditCanvas : MonoBehaviour
         _background.GetComponent<Button>().onClick.AddListener(() =>
         {
             _fadeout.DOFade(1f, 0.5f);
-            _background.DOFade(0f, 0.5f);
-            _creditPanel.DOFade(0f, 0.5f).OnComplete(() =>
-            {
-                gameObject.SetActive(false);
-            });
-
             if (MapManager.state.map != MapManager.MapIndex.Login)
             {
-                GNBCanvas.instance.OptionPanel.GetComponent<Option>().LoadLoginScene();
+                _creditPanel.DOFade(0f, 0.5f).OnComplete(() =>
+                {
+                    GNBCanvas.instance.OptionPanel.GetComponent<Option>().LoadLoginScene();
+                });
             }
+            else
+            {
+                _background.DOFade(0f, 0.5f);
+                _creditPanel.DOFade(0f, 0.5f).OnComplete(() =>
+                {
+                    gameObject.SetActive(false);
+                });
+            }            
         });
     }
 }
