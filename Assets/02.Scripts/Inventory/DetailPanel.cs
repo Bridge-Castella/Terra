@@ -15,4 +15,9 @@ public class DetailPanel : MonoBehaviour
         itemNameText.text = "";
         itemDescriptionText.text = "";
     }
+
+    private void OnDisable()
+    {
+        icon.gameObject.SetActive(false);
+    }
 }
