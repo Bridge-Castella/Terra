@@ -15,12 +15,13 @@ public class QuestPanel : MonoBehaviour
     public Button backButton;
     public Button stopButton;
     public Button mapButton;
+    public Button exitButton;
 
     public GameObject stopPanel;
-    public QuestSlotGroup slotGroup;
+    public GameObject questListObject;
     private Quest quest;
 
-    public void init(Quest quest)
+    public void Init(Quest quest)
     {
         this.quest = quest;
         quest.submitCallback(OnUpdate);
@@ -37,7 +38,12 @@ public class QuestPanel : MonoBehaviour
 		status.text = quest.data.status;
     }
 
-	private void OnEnable()
+    private void Start()
+    {
+        exitButton.onClick.AddListener(OnClickExitButton);
+    }
+
+    private void OnEnable()
 	{
         UIAudio.Post(UIAudio.Instance.inGame_UI_Quest_Open);
         backButton.gameObject.SetActive(true);
@@ -49,7 +55,14 @@ public class QuestPanel : MonoBehaviour
         UIAudio.Post(UIAudio.Instance.inGame_UI_Quest_Close);
         backButton.gameObject.SetActive(false);
         mapButton.gameObject.SetActive(false);
+        questListObject.SetActive(true);
 	}
+
+    private void OnClickExitButton()
+    {
+        gameObject.SetActive(false);
+    }
+
 
 	public void stopQuest()
     {

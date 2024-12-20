@@ -30,7 +30,7 @@ public class HeartManager : MonoBehaviour
         heartNumText.text = heartNum.ToString();
     }
 
-    public void GetDamage()
+    public void GetDamage(int damage = 1)
     {
         if (heartNum <= 0)
         {
@@ -38,7 +38,7 @@ public class HeartManager : MonoBehaviour
             return;
         }
 
-        heartNum --;
+        heartNum -= damage;
         heartNumText.text = heartNum.ToString();
         PlayerAudio.Post(PlayerAudio.Instance.inGame_CH_Life);
     }

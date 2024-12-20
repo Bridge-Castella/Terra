@@ -148,6 +148,8 @@ public class Option : MonoBehaviour
         {
             Inventory.instance.items[i].amount = 0;
         }
+
+        LoginManager.IsGameLoaded = false;
     }
 
     public void OnClickAudioButton()

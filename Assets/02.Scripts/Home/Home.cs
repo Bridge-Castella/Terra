@@ -5,10 +5,18 @@ using UnityEngine.UI;
 public class Home : MonoBehaviour
 {
     [SerializeField] HomeButtonBase[] buttons;
-    [SerializeField] GameObject exitButton;
+    [SerializeField] Button exitButton;
     [SerializeField] GameObject PanelBackgroud;
 
     public static bool IsHomeActive { get; private set; } = false;
+
+    private void Start()
+    {
+        exitButton.onClick.AddListener(() =>
+        {
+            gameObject.SetActive(false);
+        });
+    }
 
     private void OnEnable()
     {
@@ -33,7 +41,7 @@ public class Home : MonoBehaviour
         foreach (var button in buttons)
             button.interactable = true;
 
-        exitButton.SetActive(true);
+        exitButton.gameObject.SetActive(true);
     }
 
     public void DisableButtons()
@@ -41,7 +49,7 @@ public class Home : MonoBehaviour
         foreach (var button in buttons)
             button.interactable = false;
 
-        exitButton.SetActive(false);
+        exitButton.gameObject.SetActive(false);
     }
 
     public void ActivatePanelBackground(bool active)

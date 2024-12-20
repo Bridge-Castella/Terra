@@ -321,7 +321,7 @@ public class PlayerMove : MonoBehaviour
         isHurting = true;        
     }
 
-    public void DamageKnockBack(Vector3 targetPos, float knockBackPower = 30f)
+    public void DamageKnockBack(Vector3 targetPos, int damage, float knockBackPower = 30f)
     {
         //플레이어와 대상의 위치를 계산해서 반대쪽으로 튕기도록 방향 설정
         int dir = transform.position.x - targetPos.x > 0 ? 1 : -1;
@@ -331,7 +331,7 @@ public class PlayerMove : MonoBehaviour
         //부딪히면 나는 소리
 
         isKnockback = true;
-        HeartManager.instance.GetDamage();
+        HeartManager.instance.GetDamage(damage);
 
         StartCoroutine(CoEnableDamage(0.5f, 1.5f));
     }
