@@ -10,8 +10,17 @@ public class TutorialCanvas : MonoBehaviour
 
     private void Start()
     {
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(fadeCanvasGroup.DOFade(1f, 1f))
-            .Append(fadeCanvasGroup.DOFade(0f, 1f));
+        if (LoginManager.IsGameLoaded)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(fadeCanvasGroup.DOFade(1f, 1f))
+                .Append(fadeCanvasGroup.DOFade(0f, 1f));
+        }
     }
 }
