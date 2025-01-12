@@ -33,8 +33,6 @@ public class QuestSlot : MonoBehaviour
 	{
         UIAudio.Post(UIAudio.Instance.UI_pick);
         questPanel.Init(quest);
-		questPanel.gameObject.SetActive(true);
-		questList.SetActive(false);
 	}
 
 	public void DisableUnderLine()
