@@ -24,6 +24,7 @@ public class Home : MonoBehaviour
         IsHomeActive = true;
 
         InGameAudio.Stop(MapStateChanger.CurrentMapBGM);
+        InGameAudio.Stop(InGameAudio.Instance.BGM_Terra_House_loop);
         InGameAudio.Post(InGameAudio.Instance.BGM_Terra_House_loop);
     }
 
@@ -33,6 +34,7 @@ public class Home : MonoBehaviour
         IsHomeActive = false;
 
         InGameAudio.Stop(InGameAudio.Instance.BGM_Terra_House_loop);
+        InGameAudio.Stop(MapStateChanger.CurrentMapBGM);
         InGameAudio.Post(MapStateChanger.CurrentMapBGM);
     }
 

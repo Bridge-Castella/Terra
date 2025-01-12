@@ -951,6 +951,7 @@ MonoBehaviour:
   mapButton: {fileID: 3717328595892712710}
   exitButton: {fileID: 8561619429235515985}
   stopPanel: {fileID: 4995610979401636146}
+  questPanelObject: {fileID: 307664572435625292}
   questListObject: {fileID: 37842055408452275}
 --- !u!1 &904030324
 GameObject:
@@ -2942,6 +2943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPoint: {x: 0, y: 0, z: 0}
+  retryPoint: {x: 0, y: 0, z: 0}
   player: {fileID: 1128416006}
 --- !u!4 &2139116303
 Transform:
@@ -4048,7 +4050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ffc233b5e6946d19edd9b3c5ea062d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homeController: {fileID: 0}
+  homeController: {fileID: 987228311}
   closetImage: {fileID: 7578334380349535128}
   closedCloset: {fileID: 21300000, guid: e8dca7942dee345aa810b46fcd3483c9, type: 3}
   openedCloset: {fileID: 21300000, guid: 32cbf2c13226841c68c9b86b865c51b1, type: 3}
@@ -29055,7 +29057,7 @@ MonoBehaviour:
     type: 3}
   emptyPrefab: {fileID: 4665336487217597633, guid: 35fa139da0f1e4f149b1e14211873836,
     type: 3}
-  questPanel: {fileID: 0}
+  questPanel: {fileID: 869010651}
   questList: {fileID: 37842055408452275}
 --- !u!224 &7188855202264541485
 RectTransform:
@@ -29354,7 +29356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff4a1a2f307e4f468b253498703bb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homeController: {fileID: 0}
+  homeController: {fileID: 987228311}
   inventoryImage: {fileID: 7578334381290381269}
   closedInventory: {fileID: 21300000, guid: edf88d0148ec14311b76205da4c86a1a, type: 3}
   openedInventory: {fileID: 21300000, guid: ae7c23ce623e945d9b2f398d9736e049, type: 3}
@@ -32767,7 +32769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356989fcacbee4aa0821f11803979062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homeController: {fileID: 0}
+  homeController: {fileID: 987228311}
   detail: {fileID: 7578334380306455881}
   panel: {fileID: 7578334381460691818}
   frameToSkip: 1
@@ -33758,18 +33760,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Home, Assembly-CSharp
-        m_MethodName: EnableButtons
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 171434132824853427}
         m_TargetAssemblyTypeName: HomePhotoPanel, Assembly-CSharp
         m_MethodName: OnClickExitButton

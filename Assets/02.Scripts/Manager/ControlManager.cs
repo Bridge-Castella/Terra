@@ -17,6 +17,7 @@ public class ControlManager : MonoBehaviour
     #endregion
 
     public Vector3 startPoint;
+    public Vector3 retryPoint;
     public GameObject player;
     
     private void Start()
@@ -31,11 +32,13 @@ public class ControlManager : MonoBehaviour
     public void RetryGame()
     {
         player.transform.SetParent(null);
-        var primitiveMapIndex = MapManager.ToSceneIndex(MapManager.MapIndex.Login);
+        var primitiveMapIndex = MapManager.ToSceneIndex(MapManager.MapIndex.Map1);
         var primitiveMap = SceneManager.GetSceneByBuildIndex(primitiveMapIndex);
         SceneManager.MoveGameObjectToScene(player, primitiveMap);
         
-        player.transform.position = startPoint;
+        player.transform.position = retryPoint;
+        startPoint = retryPoint; // TODO: this will not save start point on force quit
+
         HeartManager.instance.PlayerIsDead();
     }
 }

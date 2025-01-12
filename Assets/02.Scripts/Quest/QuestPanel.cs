@@ -18,6 +18,7 @@ public class QuestPanel : MonoBehaviour
     public Button exitButton;
 
     public GameObject stopPanel;
+    public GameObject questPanelObject;
     public GameObject questListObject;
     private Quest quest;
 
@@ -31,6 +32,9 @@ public class QuestPanel : MonoBehaviour
         title.text = quest.data.npcId + ": " + quest.data.title;
         status.text = quest.data.status;
         description.text = quest.data.description;
+
+        questPanelObject.SetActive(true);
+        questListObject.SetActive(false);
     }
 
     private void OnUpdate()
@@ -56,6 +60,7 @@ public class QuestPanel : MonoBehaviour
         backButton.gameObject.SetActive(false);
         mapButton.gameObject.SetActive(false);
         questListObject.SetActive(true);
+        questPanelObject.SetActive(false);
 	}
 
     private void OnClickExitButton()

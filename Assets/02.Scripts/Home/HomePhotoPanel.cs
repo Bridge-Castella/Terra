@@ -27,6 +27,8 @@ public class HomePhotoPanel : MonoBehaviour
 
     public void OnClickExitButton()
     {
+        GetComponentInParent<Home>().EnableButtons();
+
         gameObject.SetActive(false);
         homePanelBackground.SetActive(false);
         UIAudio.Post(UIAudio.Instance.inGame_UI_House_Close);
