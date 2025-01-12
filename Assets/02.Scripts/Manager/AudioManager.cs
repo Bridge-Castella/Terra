@@ -137,7 +137,7 @@ public class AudioRef<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-    protected virtual void OnDestory()
+    protected virtual void OnDestroy()
     {
         Instance = null;
     }
