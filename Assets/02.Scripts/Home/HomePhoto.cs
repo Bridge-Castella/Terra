@@ -87,6 +87,7 @@ public class HomePhoto : MonoBehaviour
 
             photo.image.gameObject.SetActive(active);
             photo.shadow.gameObject.SetActive(active);
+            photo.button.SetActive(active);
         }
     }
 
@@ -177,11 +178,15 @@ public class HomePhoto : MonoBehaviour
             return;
         }
 
+        InGameAudio.Stop(InGameAudio.Instance.BGM_Terra_House_loop);
+
         var videoPlayer = photos[(int)photoType].prologueVideo;
         if (videoPlayer == null)
         {
             Debug.LogError("ERROR: Unable to find prologue video from such photo. " +
                 "This will effect nothing.");
+
+            GetComponentInParent<Home>().EnableButtons();
             return;
         }
 
@@ -291,7 +296,6 @@ public class HomePhoto : MonoBehaviour
     {
         if (_prologueAudio != null)
         {
-            InGameAudio.Stop(InGameAudio.Instance.BGM_Terra_House_loop);
             InGameAudio.Post(_prologueAudio);
         }
     }
@@ -337,21 +341,23 @@ public class HomePhoto : MonoBehaviour
 
     private void OnClickSkipButton(PhotoType photoType, VideoPlayer prologuePlayer)
     {
-        InGameAudio.Stop(_prologueAudio);
-        InGameAudio.Post(InGameAudio.Instance.BGM_Terra_House_loop);
-        StoreShownHistory(photoType);
-        prologuePlayer.gameObject.SetActive(false);
+        // InGameAudio.Stop(_prologueAudio);
+        // InGameAudio.Post(InGameAudio.Instance.BGM_Terra_House_loop);
+        // StoreShownHistory(photoType);
+        // prologuePlayer.gameObject.SetActive(false);
 
-        if (!AllPhotoShouldAppear())
-        {
-            homeController.EnableButtons();
-            return;
-        }
+        // if (!AllPhotoShouldAppear())
+        // {
+        //     homeController.EnableButtons();
+        //     return;
+        // }
 
-        // now we can show other photos
-        PhotoAppearLearp();
+        // // now we can show other photos
+        // PhotoAppearLearp();
 
-        homeController.EnableButtons();
+        // homeController.EnableButtons();
+
+        prologuePlayer.Stop();
     }
 
     private void OnClickVideo(CanvasGroup skipBtn)

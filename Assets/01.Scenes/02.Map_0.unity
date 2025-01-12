@@ -2943,6 +2943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPoint: {x: 0, y: 0, z: 0}
+  retryPoint: {x: 0, y: 0, z: 0}
   player: {fileID: 1128416006}
 --- !u!4 &2139116303
 Transform:
@@ -32768,7 +32769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356989fcacbee4aa0821f11803979062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homeController: {fileID: 0}
+  homeController: {fileID: 987228311}
   detail: {fileID: 7578334380306455881}
   panel: {fileID: 7578334381460691818}
   frameToSkip: 1
@@ -33759,18 +33760,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Home, Assembly-CSharp
-        m_MethodName: EnableButtons
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 171434132824853427}
         m_TargetAssemblyTypeName: HomePhotoPanel, Assembly-CSharp
         m_MethodName: OnClickExitButton
