@@ -63,7 +63,7 @@ public class MapManager
 
             // load first map
             // since retry point is always on map1, map1 should be always loaded
-            if (GetMap(MapIndex.Map1) == null)
+            if (!IsMapLoaded(MapIndex.Map1) && index != MapIndex.Map1)
             {
                 SceneManager.LoadScene(ToSceneIndex(MapIndex.Map1), LoadSceneMode.Additive);
             }
@@ -85,7 +85,7 @@ public class MapManager
 
         // load first map
         // since retry point is always on map1, map1 should be always loaded
-        if (GetMap(MapIndex.Map1) == null)
+        if (!IsMapLoaded(MapIndex.Map1) && index != MapIndex.Map1)
         {
             SceneManager.LoadScene(ToSceneIndex(MapIndex.Map1), LoadSceneMode.Additive);
         }
@@ -100,6 +100,11 @@ public class MapManager
     public static AsyncOperation UnloadMap(MapIndex index)
     {
         if (SceneManager.sceneCount < 3)
+        {
+            return null;
+        }
+
+        if (index == MapIndex.Map1)
         {
             return null;
         }
