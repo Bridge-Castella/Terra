@@ -14,9 +14,9 @@ public class LoginAudio : AudioRef<LoginAudio>
         LoginBGM.Post(soundObject);
     }
 
-    protected override void OnDestory()
+    protected override void OnDestroy()
     {
-        base.OnDestory();
+        base.OnDestroy();
         LoginBGM.Stop(soundObject);
     }
 }

@@ -41,8 +41,9 @@ public class CheckPoint : MonoBehaviour
 
             // CheckPoint 도달시 save
             SaveManager.SaveGame();
+
+            GetComponent<Collider2D>().enabled = false;
         }
-        GetComponent<Collider2D>().enabled = false;
     }
 
     private void SubmitCheckPoint()
