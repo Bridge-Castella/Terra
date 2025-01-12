@@ -10,10 +10,17 @@ public class CheckPoint : MonoBehaviour
     //마지막 지점이라는 것을 표시
     //public bool isEndPoint = false;
 
+    public bool isRetryPoint = false;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         fallDetector = FindObjectOfType<FallDetector>();
+
+        if (isRetryPoint)
+        {
+            ControlManager.instance.retryPoint = transform.position;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

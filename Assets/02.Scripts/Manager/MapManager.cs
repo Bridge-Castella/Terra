@@ -61,6 +61,13 @@ public class MapManager
             // load base scene first
             var load = SceneManager.LoadSceneAsync("02.Map_0");
 
+            // load first map
+            // since retry point is always on map1, map1 should be always loaded
+            if (GetMap(MapIndex.Map1) == null)
+            {
+                SceneManager.LoadScene(ToSceneIndex(MapIndex.Map1), LoadSceneMode.Additive);
+            }
+
             // load map
             // by loading map synchronously, it is ensured that game will start after the end of the loading
             SceneManager.LoadScene(ToSceneIndex(index), LoadSceneMode.Additive);
@@ -75,6 +82,13 @@ public class MapManager
         // if index is not a map or it has been already loaded, do nothing
         if (scene_index < AdditiveMapStartIndex || IsMapLoaded(index))
             return null;
+
+        // load first map
+        // since retry point is always on map1, map1 should be always loaded
+        if (GetMap(MapIndex.Map1) == null)
+        {
+            SceneManager.LoadScene(ToSceneIndex(MapIndex.Map1), LoadSceneMode.Additive);
+        }
 
         // load asynchronously
         return SceneManager.LoadSceneAsync(scene_index, LoadSceneMode.Additive);
