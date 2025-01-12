@@ -80,11 +80,9 @@ public class GNBCanvas : MonoBehaviour
 
     public void Resume()
     {
-        // TODO: resume audio
-
         //Destroy(optionObjectInstace);
         optionPanel.GetComponent<Option>().OnClickCancelButton();
-        content.SetActive(false);
+        // content.SetActive(false);
         optionPanel.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
@@ -92,9 +90,7 @@ public class GNBCanvas : MonoBehaviour
 
     void Pause()
     {
-        // TODO: pause audio
-
-        content.SetActive(true);
+        // content.SetActive(true);
         optionPanel.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
