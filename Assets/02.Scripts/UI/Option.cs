@@ -140,6 +140,7 @@ public class Option : MonoBehaviour
     {
         UIAudio.Post(UIAudio.Instance.UI_pick);
         Time.timeScale = 1;
+        SaveManager.SaveGame();
         MapManager.state.map = MapManager.MapIndex.Login;
         SceneManager.LoadScene("01.Login");
 

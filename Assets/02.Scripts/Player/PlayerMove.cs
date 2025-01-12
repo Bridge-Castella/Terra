@@ -311,6 +311,22 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+        isFalling = false;
+        isHurting = false;
+        isKnockback = false;
+        isJumping = false;
+        isTalking = false;
+        isAutoMove = false;
+
+        materialTintColor = new Color(1, 1, 1, 1f);
+        for (int i = 0; i < spriteRenderer.Length; i++)
+        {
+            spriteRenderer[i].color = materialTintColor;
+        }
+    }
+
     public void DamageFlash()
     {
         materialTintColor = new Color(1, 1, 1, 0.5f);
