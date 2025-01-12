@@ -38,18 +38,6 @@ public class SaveManager
         public PlayerAbilityTracker.Save abilityData;
     }
 
-    static SaveManager()
-    {
-        Application.wantsToQuit -= OnQuit;
-        Application.wantsToQuit += OnQuit;
-    }
-
-    private static bool OnQuit()
-    {
-        SaveGame();
-        return true;
-    }
-
     private static SaveData SaveGameData()
     {
         if (!GlobalContainer.tryLoad<bool[]>("HomePhoto", out var homePhotoInit)) 
@@ -97,8 +85,8 @@ public class SaveManager
     public static void SaveGame()
     {
         var data = SaveGameData();
-        if (data.mapData.index == MapManager.MapIndex.Login)
-            return;
+        // if (data.mapData.index == MapManager.MapIndex.Login)
+        //     return;
 
         try
         {

@@ -152,7 +152,7 @@ public class AudioRef<T> : MonoBehaviour where T : MonoBehaviour
         if (source == null || source.ObjectReference == null)
         {
             Debug.LogWarning("WARNING: audio source is null. " +
-                (nameof(source) ?? "Audio") + " will not be played");
+                (source?.Name ?? "Audio") + " will not be played");
             return;
         }
 

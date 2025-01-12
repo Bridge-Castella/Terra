@@ -66,6 +66,8 @@ public class HeartManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
 
+        FindObjectOfType<PlayerMove>().Reset();
+
         IsRespawning = false;
     }
 }

@@ -62,4 +62,13 @@ public class InGameAudio : AudioRef<InGameAudio>
     public AK.Wwise.Event House_CloseCloset;
     public AK.Wwise.Event House_OpenBox;
     public AK.Wwise.Event House_CloseBox;
+
+    protected override void OnDestory()
+    {
+        base.OnDestory();
+
+        Stop(Instance.BGM_MAP1_loop);
+        Stop(Instance.BGM_MAP2_loop);
+        Stop(Instance.BGM_MAP3_loop);
+    }
 }
