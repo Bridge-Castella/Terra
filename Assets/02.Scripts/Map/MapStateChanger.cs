@@ -24,6 +24,13 @@ public class MapStateChanger : MonoBehaviour
         LoadData();
     }
 
+    private void OnDestroy()
+    {
+        InGameAudio.Stop(InGameAudio.Instance.BGM_MAP1_loop);
+        InGameAudio.Stop(InGameAudio.Instance.BGM_MAP2_loop);
+        InGameAudio.Stop(InGameAudio.Instance.BGM_MAP3_loop);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.gameObject.CompareTag("Player"))
